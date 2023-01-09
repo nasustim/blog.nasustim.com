@@ -6,7 +6,9 @@ if [ -z "$image_builded" ]; then
   docker build -t nasustim/blog .
 fi
 
-if [ "$1" = "new" -a "$2" = "site" ]; then
+if [ "$1" = "build" ]; then
+  docker run -v $(pwd):/work -it nasustim/blog
+elif [ "$1" = "new" -a "$2" = "site" ]; then
   if [ -z "$3" ]; then
     echo "require site name"
     exit -1
