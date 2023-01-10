@@ -72,3 +72,30 @@ $ echo "theme = \"paper\"" >> config.toml
 ```bash
 $ echo "contentDir = \"articles/\"" >> config.toml
 ```
+
+## GitHub リポジトリをセットアップする
+
+### デプロイスクリプトの作成
+
+[Host on GitHub | Hugo](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action) に GitHub Actions で記述されたデプロイスクリプトがあるのでそれをそのまま流用する。  
+上記ページのコードスニペットを`.github/workflows/`以下に YAML ファイルとして保存して作成完了。これで`main`ブランチにコードが push されたタイミングで Hugo のビルドが実行され、結果が`gh-pages`ブランチに commit される。  
+上記デプロイスクリプトは `main`ブランチ以外のフックではビルドまで実行されるため、テストとしても活用できる。
+
+### Renovate を導入する
+
+https://github.com/apps/renovate より。  
+このリポジトリの依存パッケージのアップデートを自動で管理してくれる。
+
+[Hugo のセットアップ](#hugo-のセットアップ)にて Hugo のベースイメージを Dockerfile の`FROM`句で指定することでこちらも管理対象となる。
+
+また、submodule でインストールした Hugo テーマも`renovate.json`に以下の設定を追加するとバージョン管理の対象となる。  
+https://docs.renovatebot.com/modules/manager/git-submodules/
+
+```js
+{
+  ..., // 既存設定
+  "git-submodules": {
+    "enabled": true
+  }
+}
+```
