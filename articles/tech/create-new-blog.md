@@ -15,7 +15,7 @@ https://github.com/nasustim/blog.nasustim.com
 
 Hugo は Homebrew などマシンのパッケージ管理ツールでもインストールできるが、別のマシンでの記事作成も想定して Docker で利用することにした。
 
-Dockerfile
+`Dockerfile`
 
 ```Dockerfile
 # Dockerfile
@@ -24,7 +24,7 @@ FROM klakegg/hugo:0.107.0-alpine
 WORKDIR /work
 ```
 
-hugo
+`hugo`
 
 ```bash
 #!/bin/bash
@@ -47,7 +47,7 @@ $ chmod 777 hugo
 $ ./hugo new site --force ./
 ```
 
-config.toml が作成されるので、自分のブログ用の設定に書き換える
+`config.toml` が作成されるので、自分のブログ用の設定に書き換える
 
 ```toml
 baseURL = "https://blog.nasustim.com/"
@@ -90,6 +90,8 @@ https://github.com/apps/renovate より。
 
 また、submodule でインストールした Hugo テーマも`renovate.json`に以下の設定を追加するとバージョン管理の対象となる。  
 https://docs.renovatebot.com/modules/manager/git-submodules/
+
+`renovate.json`
 
 ```js
 {
