@@ -13,7 +13,8 @@ https://github.com/nasustim/blog.nasustim.com
 
 ## Hugo のセットアップ
 
-Hugo は Homebrew などマシンのパッケージ管理ツールでもインストールできるが、別のマシンでの記事作成も想定して Docker で利用することにした。
+Hugo は Homebrew などマシンのパッケージ管理ツールでもインストールできるが、別のマシンでの記事作成も想定して Docker で利用することにした。  
+[Renovate を導入する](#renovate-を導入する)にて説明するが、ベースイメージを Dockerfile の`FROM`句で指定しておくことで、Renovate でのバージョン管理対象となる。
 
 `Dockerfile`
 
