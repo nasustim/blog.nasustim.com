@@ -1,3 +1,3 @@
-FROM klakegg/hugo:0.100.2-alpine
+FROM klakegg/hugo:0.107.0-alpine
 
 WORKDIR /work
