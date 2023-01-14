@@ -1,26 +1,13 @@
 #!/bin/bash
 
-image_builded=$(docker image ls | grep "nasustim/blog")
-if [ -z "$image_builded" ]; then 
+IMAGE_NAME="development.blog.nasustim.com"
+
+image_builded=$(docker image ls | grep "$IMAGE_NAME")
+if [ -z "$image_builded" ]; then
   echo "image building..."
-  docker build -t nasustim/blog .
+  docker build -t "$IMAGE_NAME" .
 fi
 
-if [ "$1" = "build" ]; then
-  docker run -v $(pwd):/work -it nasustim/blog
-elif [ "$1" = "new" -a "$2" = "site" ]; then
-  if [ -z "$3" ]; then
-    echo "require site name"
-    exit -1
-  fi
-  docker run -v $(pwd):/work -it nasustim/blog new site "$3"
-elif [ "$1" = "new" ]; then
-  docker run -v $(pwd):/work -it nasustim/blog new "$2"
-elif [ "$1" = "server" ]; then
-  docker run -v $(pwd):/work -p 1313:1313 -it nasustim/blog server
-else
-  echo "undefined sub commands"
-  exit -1
-fi
+docker run -v $(pwd):/work -it -p 1313:1313 "$IMAGE_NAME" $*
 
 exit 0
