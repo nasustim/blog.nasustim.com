@@ -3,3 +3,12 @@ languageCode = "ja-jp"
 title = "nasustim's weblog"
 theme = "paper"
 contentDir = "articles/"
+
+# for theme
+# see: https://github.com/nanxiaobei/hugo-paper/tree/main#options
+[params]
+twitter = "nasustim"
+github = "nasustim"
+
+disableHLJS = false
+monoDarkIcon = true
