@@ -4,6 +4,11 @@ title = "nasustim's weblog"
 theme = "paper"
 contentDir = "articles/"
 
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true
+
 # for theme
 # see: https://github.com/nanxiaobei/hugo-paper/tree/main#options
 [params]
