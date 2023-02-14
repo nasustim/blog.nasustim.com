@@ -1,5 +1,5 @@
 ---
-title: "AWS CLIでベースイメージからECSで実行中のタスクのarnを取得する方法"
+title: "AWS CLIでベースイメージからECSで実行中のタスクのarnを取得する"
 date: 2023-02-14T13:39:10Z
 draft: false
 tags:
@@ -14,7 +14,7 @@ task_arns=$(aws ecs list-tasks --cluster <クラスタ名> | jq -c -r '.taskArns
 # 実行中のtask arnの一覧を取得
 
 for task in $tasks; do \
-  image_name=$( aws ecs describe-tasks --cluster <クラスタ名> --tasks $task | jq -c -r '.tasks[0].containers[0].image' )
+  image_name=$( aws ecs describe-tasks --cluster <クラスタ名> --tasks $task | jq -c -r '.tasks[0].containers[0].image' ) # タスク1つ, コンテナ1つの場合
 
   if [[ "$image" =~ ^"my-target-image:latest"$ ]]; then
     echo $task # my-target-image:latest をベースイメージにしたタスク
