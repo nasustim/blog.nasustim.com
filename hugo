@@ -9,5 +9,3 @@ if [ -z "$image_builded" ]; then
 fi
 
 docker run --rm -v $(pwd):/work -it -p 1313:1313 "$IMAGE_NAME" $*
-
-exit 0
