@@ -1,6 +1,6 @@
 ## blog.nasustim.com
 
-[https://blog.nasustim.com/]
+https://blog.nasustim.com
 
 ### usage
 
