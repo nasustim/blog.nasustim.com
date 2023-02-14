@@ -4,6 +4,8 @@ title = "nasustim's weblog"
 theme = "paper"
 contentDir = "articles/"
 
+googleAnalytics = 'G-3YY246MS11'
+
 [markup]
     [markup.goldmark]
         [markup.goldmark.renderer]
