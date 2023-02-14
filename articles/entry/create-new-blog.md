@@ -7,19 +7,19 @@ tags:
 - Hugo
 ---
 
-あなたが今開いているこのブログを作成しました。
+あなたが今開いてるこのブログを作成した。
 
-新年の勢いにまかせて早くブログを作成したかったので、[GitHub Pages](https://docs.github.com/ja/pages) + [Hugo](https://gohugo.io/)でのクイックスタートしつつ、継続的にデプロイできるような足回りを整えることを意識しました。
+新年の何かやりたい勢いにまかせて、とにかく早くブログを用意したかったので、使い慣れた[GitHub Pages](https://docs.github.com/ja/pages) + 日本語ドキュメントも多い[Hugo](https://gohugo.io/)でクイックスタートしつつ、継続的にデプロイできる最低限の足回りの整備を意識しました。
 
 リポジトリはこちら  
 https://github.com/nasustim/blog.nasustim.com
 
+---
+
 ## Hugo のセットアップ
 
-Hugo は Homebrew などマシンのパッケージ管理ツールでもインストールできるが、別のマシンでの記事作成も想定して Docker で利用することにした。  
-[Renovate を導入する](#renovate-を導入する)にて説明するが、ベースイメージを Dockerfile の`FROM`句で指定しておくことで、Renovate でのバージョン管理対象となる。
-
-`Dockerfile`
+Hugo は Homebrew などのパッケージ管理ツールでもインストールできるが、自分は普段使いのmacOSの他にwindows(WSL)を利用することもあるので、プラットフォーム間での執筆環境の可搬性を確保するために Docker で利用することにした。  
+[Renovate を導入する](#renovate-を導入する)でも説明するが、ベースイメージを Dockerfile の`FROM`句で指定しておくことで、Renovate でのバージョン管理対象となる。
 
 ```Dockerfile
 # Dockerfile
@@ -28,12 +28,12 @@ FROM klakegg/hugo:0.107.0-alpine
 WORKDIR /work
 ```
 
-`hugo`
-
 ```bash
+# hugo
+
 #!/bin/bash
 
-IMAGE_NAME="nasustim/blog"
+IMAGE_NAME="blog"
 
 image_builded=$(docker image ls | grep "$IMAGE_NAME")
 if [ -z "$image_builded" ]; then
@@ -41,7 +41,7 @@ if [ -z "$image_builded" ]; then
   docker build -t "$IMAGE_NAME" .
 fi
 
-docker run -v $(pwd):/work -it "$IMAGE_NAME" $*
+docker run --rm -v $(pwd):/work -it -p 1313:1313 "$IMAGE_NAME" $*
 ```
 
 以下のコマンドでブログのスケルトンを作成
@@ -54,6 +54,8 @@ $ ./hugo new site --force ./
 `config.toml` が作成されるので、自分のブログ用の設定に書き換える
 
 ```toml
+# config.toml
+
 baseURL = "https://blog.nasustim.com/"
 languageCode = "ja-jp"
 title = "nasustim's weblog"
@@ -81,9 +83,9 @@ $ echo "contentDir = \"articles/\"" >> config.toml
 
 ### デプロイスクリプトの作成
 
-[Host on GitHub | Hugo](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action) に GitHub Actions で記述されたデプロイスクリプトがあるのでそれをそのまま流用する。  
-上記ページのコードスニペットを`.github/workflows/`以下に YAML ファイルとして保存して作成完了。これで`main`ブランチにコードが push されたタイミングで Hugo のビルドが実行され、結果が`gh-pages`ブランチに commit される。  
-上記デプロイスクリプトは `main`ブランチ以外のフックではビルドまで実行されるため、テストとしても活用できる。
+[Host on GitHub | Hugo](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action) に GitHub Actions で使えるデプロイスクリプトがあるのでこれを利用する。
+上記ページのコードスニペットを`.github/workflows/`以下に YAML ファイルとして保存してセットアップ完了。`main`ブランチにコードが push されるとビルドが実行され、その出力結果が`gh-pages`ブランチに commit される。  
+上記デプロイスクリプトは `main`ブランチ以外ではビルドのみ実行されるため、記事のテストとしても活用できる。
 
 ### Renovate を導入する
 
