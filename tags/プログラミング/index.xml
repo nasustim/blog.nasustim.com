@@ -1,19 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>プログラミング on nasustim's weblog</title><link>https://blog.nasustim.com/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link><description>Recent content in プログラミング on nasustim's weblog</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Tue, 10 Jan 2023 14:40:16 +0000</lastBuildDate><atom:link href="https://blog.nasustim.com/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugoで新しいブログを作成した</title><link>https://blog.nasustim.com/entry/create-new-blog/</link><pubDate>Tue, 10 Jan 2023 14:40:16 +0000</pubDate><guid>https://blog.nasustim.com/entry/create-new-blog/</guid><description>あなたが今開いているこのブログを作成しました。
-新年の勢いにまかせて早くブログを作成したかったので、GitHub Pages + Hugoでのクイックスタートしつつ、継続的にデプロイできるような足回りを整えることを意識しました。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>プログラミング on nasustim's weblog</title><link>https://blog.nasustim.com/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link><description>Recent content in プログラミング on nasustim's weblog</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Tue, 10 Jan 2023 14:40:16 +0000</lastBuildDate><atom:link href="https://blog.nasustim.com/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>Hugoで新しいブログを作成した</title><link>https://blog.nasustim.com/entry/create-new-blog/</link><pubDate>Tue, 10 Jan 2023 14:40:16 +0000</pubDate><guid>https://blog.nasustim.com/entry/create-new-blog/</guid><description>あなたが今開いてるこのブログを作成した。
+新年の何かやりたい勢いにまかせて、とにかく早くブログを用意したかったので、使い慣れたGitHub Pages + 日本語ドキュメントも多いHugoでクイックスタートしつつ、継続的にデプロイできる最低限の足回りの整備を意識しました。
 リポジトリはこちら
 https://github.com/nasustim/blog.nasustim.com
-Hugo のセットアップ Hugo は Homebrew などマシンのパッケージ管理ツールでもインストールできるが、別のマシンでの記事作成も想定して Docker で利用することにした。
-Renovate を導入するにて説明するが、ベースイメージを Dockerfile のFROM句で指定しておくことで、Renovate でのバージョン管理対象となる。
-Dockerfile
-# Dockerfile FROM klakegg/hugo:0.107.0-alpine WORKDIR /work hugo
-#!/bin/bash IMAGE_NAME=&amp;#34;nasustim/blog&amp;#34; image_builded=$(docker image ls | grep &amp;#34;$IMAGE_NAME&amp;#34;) if [ -z &amp;#34;$image_builded&amp;#34; ]; then echo &amp;#34;image building...&amp;#34; docker build -t &amp;#34;$IMAGE_NAME&amp;#34; . fi docker run -v $(pwd):/work -it &amp;#34;$IMAGE_NAME&amp;#34; $* 以下のコマンドでブログのスケルトンを作成
-$ chmod 777 hugo $ ./hugo new site --force ./ config.toml が作成されるので、自分のブログ用の設定に書き換える</description></item><item><title>私の技術スタック（2021年1月版）</title><link>https://blog.nasustim.com/entry/2021-01-25-010902/</link><pubDate>Mon, 25 Jan 2021 01:09:02 +0900</pubDate><guid>https://blog.nasustim.com/entry/2021-01-25-010902/</guid><description>ソフトウェアエンジニアとして2020年に新卒就職してからもうすぐ1年が経過しようとしている。
-配属されたのは長年運営されてきたWebシステムの運用と開発を行う部署で、「大きなチーム」で度々「高い負荷のかかる」システムと向き合ったことで職業エンジニアとして日々の成長を感じている*1。
+Hugo のセットアップ Hugo は Homebrew などのパッケージ管理ツールでもインストールできるが、自分は普段使いのmacOSの他にwindows(WSL)を利用することもあるので、プラットフォーム間での執筆環境の可搬性を確保するために Docker で利用することにした。
+Renovate を導入するでも説明するが、ベースイメージを Dockerfile のFROM句で指定しておくことで、Renovate でのバージョン管理対象となる。
+# Dockerfile FROM klakegg/hugo:0.107.0-alpine WORKDIR /work # hugo #!/bin/bash IMAGE_NAME=&amp;#34;blog&amp;#34; image_builded=$(docker image ls | grep &amp;#34;$IMAGE_NAME&amp;#34;) if [ -z &amp;#34;$image_builded&amp;#34; ]; then echo &amp;#34;image building...&amp;#34; docker build -t &amp;#34;$IMAGE_NAME&amp;#34; . fi docker run --rm -v $(pwd):/work -it -p 1313:1313 &amp;#34;$IMAGE_NAME&amp;#34; $* 以下のコマンドでブログのスケルトンを作成
+$ chmod 777 hugo $ ./hugo new site --force .</description></item><item><title>私の技術スタック（2021年1月版）</title><link>https://blog.nasustim.com/entry/2021-01-25-010902/</link><pubDate>Mon, 25 Jan 2021 01:09:02 +0900</pubDate><guid>https://blog.nasustim.com/entry/2021-01-25-010902/</guid><description>学生からソフトウェアエンジニアになってもうすぐ1年である。
+配属されたのは長年運営されてきたWebシステムの運用と開発を行う部署で、「大きなチーム」で度々「高い負荷のかかる」システムと向き合ったことで職業エンジニアとして日々の成長を感じている1
 一方で新卒時に25歳だったことや、会社員になると「社会人としてのキャリア」や「エンジニアとしてサバイブする」といった話題もより一層身近になり、当事者としての意識も十分に生まれたと感じている。
 時期としてもキリがいいし、著名なソフトウェアエンジニアや友人も自身のスキルセットの棚卸しをしているので、自分もやってみようかと思う。
-overreacted.io blog.unasuke.com フロントエンド開発 できること できないこと サーバサイド できること できないこと モバイルアプリケーション できること できないこと フロントエンド開発 できること 私にとってJavaScriptは一番手に馴染んだ言語であり、技術的には細かい挙動やトラブルシューティングも大抵のことはできるように感じる。
+overreacted.io blog.unasuke.com 目次 フロントエンド開発 できること できないこと サーバサイド できること できないこと モバイルアプリケーション できること できないこと フロントエンド開発 できること 私にとってJavaScriptは一番手に馴染んだ言語であり、技術的には細かい挙動やトラブルシューティングも大抵のことはできるように感じる。
 現職ではVue.jsを用いたとても規模の大きいシングルページアプリケーションの運用と施策開発を経験したし、学生時代のアルバイトや副業でもReactベースのプロダクトを扱っていた。
-ちなみに私のポートフォリオサイト*2はNext.jsで運用している。
+ちなみに私のポートフォリオサイト2はNext.jsで運用している。
 業務では各ブラウザ毎の挙動やWebフロントエンドのパフォーマンスを意識したJS, CSSのコーディングをレビューで指摘されることも多く、状況に合わせて何を調べればいいかは頭の中にうっすらとインデックスを張ることができていると感じる。
 できないこと 一方で、近年注目されているRust等の言語を用いたWebAssemblyはまだ触ったことがない。
 TypeScriptについては、公開されているライブラリや小規模なパッケージに型をつける程度のことはやったことがある。
@@ -31,12 +29,12 @@ zenn.dev サーバサイド できること 現職ではAWS上でPerlとMySQLを
 ・DB（データソース）もインタフェース切っておくとこれを使うコンポーネントでテストが書きやすい
 ・実際に20プロジェクトに1回ぐらい助かる
 ので、僕は特に静的型付け言語を選べる際にはここを1層切ります☺️
-&amp;mdash; しろやま (@fushiroyama) 2021年1月24日 モバイルアプリケーション できること 2015年に大学時代の友人とJava + ADTを用いてAndroidアプリ*3を作成したことがある。このときにActivityのライフサイクルをふわっと理解したことでReactコンポーネントのライフサイクルの考え方が馴染みやすかったように感じる。
-また、IAMASでの修了作品*4の一部である動画再生アプリをReact Nativeで作成した。
+&amp;mdash; しろやま (@fushiroyama) 2021年1月24日 モバイルアプリケーション できること 2015年に大学時代の友人とJava + ADTを用いてAndroidアプリ3を作成したことがある。このときにActivityのライフサイクルをふわっと理解したことでReactコンポーネントのライフサイクルの考え方が馴染みやすかったように感じる。
+また、IAMASでの修了作品4の一部である動画再生アプリをReact Nativeで作成した。
 できないこと 2016年以降にAndroid Studioを開いていない。SwiftとKotlinは書いたことがない。
 数日再勉強した程度ではまともなモバイルアプリケーションを作れるようにはならないと思うし、もしかしたらJavaでアプリを作った知識がほとんど役にたたないほどのパラダイム・シフトが起こっているかもしれない。
-*1:逆説的に今まで未熟だったということも事実
-*2:もしもこのURL先がNext.jsじゃなくなっていたら、こちらが記事作成時点でのコードですhttps://github.com/nasustim/nasustim.com/tree/f33b2d8f53d20f7122d56d432b7b934146c2d22d
-*3:NTT docomo東海のコンクールで入賞したけど、ノミネート記事しか残ってなかった https://www.nttdocomo.co.jp/info/notice/tokai/page/151224_00.html
-*4:https://nasustim.com/works/slash-module-slash-whom</description></item><item><title>MinillaでPerlのモジュールを作成する</title><link>https://blog.nasustim.com/entry/2021-01-02-024728/</link><pubDate>Sat, 02 Jan 2021 02:47:28 +0900</pubDate><guid>https://blog.nasustim.com/entry/2021-01-02-024728/</guid><description>自分用メモ
-TL;DR Minilla - CPANモジュールのテンプレート, ビルドシステム, テストテンプレート,,,などを提供してくれる(オーサリング)パッケージ 2020年末現在は頻繁に使われてそう CPAN, DarkPANのリポジトリにアップロードしない前提でもこれでパッケージングするのがよさそう 環境 key value ハードウェア Macbook Pro 2017(13inch), Intel core i5-7360U 2.30GHz, RAM 8GB OS macOS Big Sur - ver.11.0.1 Perl ver.5.28.2(plenv) やること $ cpanm Minilla $ minil new Acme::Nasustim::HogeHoge $ cd Acme-Nasustim-HogeHoge // 依存パッケージのインストール cpanfileにモジュールを追記 $ carton install // モジュール本体のコードとテストを書く $ carton exec -- prove -Ilib t 参考にしたサイト Minilla - CPAN &amp;#x30E2;&amp;#x30B8;&amp;#x30E5;&amp;#x30FC;&amp;#x30EB;&amp;#x30AA;&amp;#x30FC;&amp;#x30B5;&amp;#x30EA;&amp;#x30F3;&amp;#x30B0;&amp;#x30C4;&amp;#x30FC;&amp;#x30EB; - perldoc.jp https://gihyo.jp/dev/serial/01/perl-hackers-hub/005001 http://blog.64p.org/entry/2013/05/14/080423</description></item></channel></rss>
+逆説的に今まで未熟だったということも事実&amp;#160;&amp;#x21a9;&amp;#xfe0e;
+もしもこのURL先がNext.jsじゃなくなっていたら、こちらが記事作成時点でのコードです https://github.com/nasustim/nasustim.com/tree/f33b2d8f53d20f7122d56d432b7b934146c2d22d&amp;#160;&amp;#x21a9;&amp;#xfe0e;
+NTT docomo東海のコンクールで入賞したけど、ノミネート記事しか残ってなかった https://www.nttdocomo.co.jp/info/notice/tokai/page/151224_00.html&amp;#160;&amp;#x21a9;&amp;#xfe0e;
+https://nasustim.com/works/slash-module-slash-whom&amp;#160;&amp;#x21a9;&amp;#xfe0e;</description></item><item><title>MinillaでPerlのモジュールを作成する</title><link>https://blog.nasustim.com/entry/2021-01-02-024728/</link><pubDate>Sat, 02 Jan 2021 02:47:28 +0900</pubDate><guid>https://blog.nasustim.com/entry/2021-01-02-024728/</guid><description>自分用メモ
+TL;DR Minilla - CPANモジュールのテンプレート, ビルドシステム, テストテンプレート,,,などを提供してくれる(オーサリング)パッケージ 2020年末現在は頻繁に使われてそう CPAN, DarkPANのリポジトリにアップロードしない前提でもこれでパッケージングするのがよさそう 環境 k v コンピュータ Macbook Pro 2017(13inch), Intel core i5-7360U 2.30GHz, RAM 8GB OS macOS Big Sur - ver.11.0.1 Perl ver.5.28.2(plenv) やること $ cpanm Minilla $ minil new Acme::Nasustim::HogeHoge $ cd Acme-Nasustim-HogeHoge // 依存パッケージのインストール cpanfileにモジュールを追記 $ carton install // モジュール本体のコードとテストを書く $ carton exec -- prove -Ilib t References Minilla - CPAN - perldoc.jp https://gihyo.jp/dev/serial/01/perl-hackers-hub/005001 http://blog.64p.org/entry/2013/05/14/080423</description></item></channel></rss>
