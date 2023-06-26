@@ -1,4 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nasustim's weblog</title><link>https://blog.nasustim.com/</link><description>Recent content on nasustim's weblog</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Thu, 01 Jun 2023 16:08:04 +0000</lastBuildDate><atom:link href="https://blog.nasustim.com/index.xml" rel="self" type="application/rss+xml"/><item><title>2023年5月の振り返り</title><link>https://blog.nasustim.com/entry/retrospective-2023-05/</link><pubDate>Thu, 01 Jun 2023 16:08:04 +0000</pubDate><guid>https://blog.nasustim.com/entry/retrospective-2023-05/</guid><description>今日たまたま見たブログ（URL失念、見つけたら貼ります）に毎月の振り返りが書かれていて、自分も書いて見たくなったので書いてます。今後毎月続けられたら嬉しい。
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>nasustim's weblog</title><link>https://blog.nasustim.com/</link><description>Recent content on nasustim's weblog</description><generator>Hugo -- gohugo.io</generator><language>ja-jp</language><lastBuildDate>Fri, 23 Jun 2023 15:08:50 +0000</lastBuildDate><atom:link href="https://blog.nasustim.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Macbook Air セットアップ記録 - 2023年6月</title><link>https://blog.nasustim.com/entry/introduce-new-macbook-2023-06/</link><pubDate>Fri, 23 Jun 2023 15:08:50 +0000</pubDate><guid>https://blog.nasustim.com/entry/introduce-new-macbook-2023-06/</guid><description>私物のMacbookを新調した。
+my new gear... pic.twitter.com/GV1dBZnQVU
+&amp;mdash; おみつ (@nasustim) June 23, 2023 ルーチンワークと化しているPCのセットアップを毎回思い出しながらやっていることに気づいたので、備忘録がてらやったことを残しておく。
+1. Homebrew の導入 何をするにも追加でパッケージを入れられなければ始まらない。せっかくならあらゆるパッケージをコマンドラインツールでインストールして再現性を高めたいし、開発を始めたらどっちみち必要になるので最初の内に入れておく。
+$ /bin/bash -c &amp;#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&amp;#34; https://brew.sh/index_ja
+上記URL通りにコマンドを実行する。このタイミングでXcodeのコマンドラインツールのインストールも実施してくれて、終わればgitも使えるので便利。
+2. SSHキーペアの作成 リモートリポジトリ（主にGitHub）とやりとりするために必要。
+参考: https://qiita.com/pupupupupu/items/e071ab2b6e59a9be7603
+ed25519 で作成することにした。
+$ ssh-keygen -t ed25519 -C mitsu@boston $ cat ~/.ssh/id_ed25519.pub | pbcopy #=&amp;gt; 公開鍵を github.com の個人設定ページから追加する 私物コンピュータのホスト名は海外の地名から取ることが多いのだが、たまたまこの時はタイタニック見学ツアー事故が話題でボストンからの中継映像を見ていたのでbostonにした。
+3. dotfile展開 自分のdotfileをGitHubに置いている。makeだけで展開できてお手軽だったので我ながらGJである。
+https://github.com/nasustim/dotfiles
+4. 最低限必要なツールを導入する Google Chrome https://formulae.brew.sh/cask/google-chrome 言わずもがな、使い慣れたwebブラウザ ghq https://github.com/x-motemen/ghq#macos はてなのmotemenさん謹製リポジトリ管理ツール gitのローカルリポジトリが自ずと~/ghq配下に集約されることが便利で利用している VSCode https://formulae.brew.sh/cask/visual-studio-code メインウエポン 1password 1passwordなしでは生きられない身体になっている https://my.1password.com/signin まとめ ここまでインストールすれば他の必要なツールはすぐにインストール可能になったはず。
+Brewfileで管理するとか、anyenv入れておくかどうかとか、やると便利だろうけどインストールに時間もかかるだろうし、そもそもストレージを圧迫するサイズだから自分の端末全てに一律で入れたいか&amp;hellip;&amp;hellip;？と考えると微妙だからまだやっていない。</description></item><item><title>2023年5月の振り返り</title><link>https://blog.nasustim.com/entry/retrospective-2023-05/</link><pubDate>Thu, 01 Jun 2023 16:08:04 +0000</pubDate><guid>https://blog.nasustim.com/entry/retrospective-2023-05/</guid><description>今日たまたま見たブログ（URL失念、見つけたら貼ります）に毎月の振り返りが書かれていて、自分も書いて見たくなったので書いてます。今後毎月続けられたら嬉しい。
 本業 4月の改組で入った新しいチームへのコミットに多くの時間を割いた。 新しいチームは事業部の中でもモバイルアプリに特化した施策や機能開発を行うチームだ。
 3月までは特定のサービスに所属するわけではなく、複数のサービスが乗っかる1つのサーバを扱うエンジニアとして、プロジェクト単位で集まったメンバーの中でサーバアプリケーションの開発を担っていた。
 私自身、同僚たちと比較して広く浅い専門性を持ったエンジニアであると自己分析しており、必要に応じてwebフロントエンドやインフラにも手を加える何でも屋さんという立場だからこそバリューを発揮できると感じていた。改組が決まった時こそ戸惑ったが、実際にチームでの活動を始めると、チームとしての大目標に向かって施策を考えて打っていくような動きにも、これまでとは別のやりがいを感じられるようになった。これまでの活動がソリッドな価値創出だとすれば、今はグルーヴなものとして捉えられるんじゃないかと思っている。
