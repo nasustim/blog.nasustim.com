@@ -26,7 +26,20 @@ $ ssh-keygen -t ed25519 -C mitsu@boston $ cat ~/.ssh/id_ed25519.pub | pbcopy #=>
 3. dotfile展開 自分のdotfileをGitHubに置いている。makeだけで展開できてお手軽だったので我ながらGJである。
 https://github.com/nasustim/dotfiles
 4. 最低限必要なツールを導入する Google Chrome https://formulae.brew.sh/cask/google-chrome 言わずもがな、使い慣れたwebブラウザ ghq https://github.com/x-motemen/ghq#macos はてなのmotemenさん謹製リポジトリ管理ツール gitのローカルリポジトリが自ずと~/ghq配下に集約されることが便利で利用している VSCode https://formulae.brew.sh/cask/visual-studio-code メインウエポン 1password 1passwordなしでは生きられない身体になっている https://my.1password.com/signin まとめ ここまでインストールすれば他の必要なツールはすぐにインストール可能になったはず。
-Brewfileで管理するとか、anyenv入れておくかどうかとか、やると便利だろうけどインストールに時間もかかるだろうし、そもそもストレージを圧迫するサイズだから自分の端末全てに一律で入れたいか&mldr;&mldr;？と考えると微妙だからまだやっていない。"><meta itemprop=datePublished content="2023-06-23T15:08:50+00:00"><meta itemprop=dateModified content="2023-06-23T15:08:50+00:00"><meta itemprop=wordCount content="70"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="Macbook Air セットアップ記録 - 2023年6月"><meta name=twitter:description content="私物のMacbookを新調した。
+Brewfileで管理するとか、anyenv入れておくかどうかとか、やると便利だろうけどインストールに時間もかかるだろうし、そもそもストレージを圧迫するサイズだから自分の端末全てに一律で入れたいか&mldr;&mldr;？と考えると微妙だからまだやっていない。"><meta itemprop=datePublished content="2023-06-23T15:08:50+00:00"><meta itemprop=dateModified content="2023-06-23T15:08:50+00:00"><meta itemprop=wordCount content="70"><meta itemprop=keywords content><meta property="og:title" content="Macbook Air セットアップ記録 - 2023年6月"><meta property="og:description" content="私物のMacbookを新調した。
+my new gear... pic.twitter.com/GV1dBZnQVU
+&mdash; おみつ (@nasustim) June 23, 2023 ルーチンワークと化しているPCのセットアップを毎回思い出しながらやっていることに気づいたので、備忘録がてらやったことを残しておく。
+1. Homebrew の導入 何をするにも追加でパッケージを入れられなければ始まらない。せっかくならあらゆるパッケージをコマンドラインツールでインストールして再現性を高めたいし、開発を始めたらどっちみち必要になるので最初の内に入れておく。
+$ /bin/bash -c &#34;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&#34; https://brew.sh/index_ja
+上記URL通りにコマンドを実行する。このタイミングでXcodeのコマンドラインツールのインストールも実施してくれて、終わればgitも使えるので便利。
+2. SSHキーペアの作成 リモートリポジトリ（主にGitHub）とやりとりするために必要。
+参考: https://qiita.com/pupupupupu/items/e071ab2b6e59a9be7603
+ed25519 で作成することにした。
+$ ssh-keygen -t ed25519 -C mitsu@boston $ cat ~/.ssh/id_ed25519.pub | pbcopy #=> 公開鍵を github.com の個人設定ページから追加する 私物コンピュータのホスト名は海外の地名から取ることが多いのだが、たまたまこの時はタイタニック見学ツアー事故が話題でボストンからの中継映像を見ていたのでbostonにした。
+3. dotfile展開 自分のdotfileをGitHubに置いている。makeだけで展開できてお手軽だったので我ながらGJである。
+https://github.com/nasustim/dotfiles
+4. 最低限必要なツールを導入する Google Chrome https://formulae.brew.sh/cask/google-chrome 言わずもがな、使い慣れたwebブラウザ ghq https://github.com/x-motemen/ghq#macos はてなのmotemenさん謹製リポジトリ管理ツール gitのローカルリポジトリが自ずと~/ghq配下に集約されることが便利で利用している VSCode https://formulae.brew.sh/cask/visual-studio-code メインウエポン 1password 1passwordなしでは生きられない身体になっている https://my.1password.com/signin まとめ ここまでインストールすれば他の必要なツールはすぐにインストール可能になったはず。
+Brewfileで管理するとか、anyenv入れておくかどうかとか、やると便利だろうけどインストールに時間もかかるだろうし、そもそもストレージを圧迫するサイズだから自分の端末全てに一律で入れたいか&mldr;&mldr;？と考えると微妙だからまだやっていない。"><meta property="og:type" content="article"><meta property="og:url" content="https://blog.nasustim.com/entry/introduce-new-macbook-2023-06/"><meta property="article:section" content="entry"><meta property="article:published_time" content="2023-06-23T15:08:50+00:00"><meta property="article:modified_time" content="2023-06-23T15:08:50+00:00"><meta name=twitter:card content="summary"><meta name=twitter:title content="Macbook Air セットアップ記録 - 2023年6月"><meta name=twitter:description content="私物のMacbookを新調した。
 my new gear... pic.twitter.com/GV1dBZnQVU
 &mdash; おみつ (@nasustim) June 23, 2023 ルーチンワークと化しているPCのセットアップを毎回思い出しながらやっていることに気づいたので、備忘録がてらやったことを残しておく。
 1. Homebrew の導入 何をするにも追加でパッケージを入れられなければ始まらない。せっかくならあらゆるパッケージをコマンドラインツールでインストールして再現性を高めたいし、開発を始めたらどっちみち必要になるので最初の内に入れておく。
