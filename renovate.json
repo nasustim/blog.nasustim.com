@@ -1,7 +1,7 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["local>nasustim/renovate"],
-  "git-submodules": {
-    "enabled": true
-  }
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"extends": ["local>nasustim/renovate"],
+	"git-submodules": {
+		"enabled": true
+	}
 }
