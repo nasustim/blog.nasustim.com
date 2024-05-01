@@ -1,7 +1,7 @@
-import "@/styles/global.css";
-import { Header } from "@/components/organisms/header";
-import { type FC, type ReactNode } from "react";
 import { Footer } from "@/components/organisms/footer";
+import { Header } from "@/components/organisms/header";
+import "@/styles/global.css";
+import type { FC, ReactNode } from "react";
 
 type Props = {
 	children: ReactNode;

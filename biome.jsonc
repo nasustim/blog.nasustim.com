@@ -8,5 +8,9 @@
 		"rules": {
 			"recommended": true
 		}
+	},
+	"files": {
+		// All tools, including the linter, ignore following files
+		"ignore": ["dist/**", "node_modules/**"]
 	}
 }

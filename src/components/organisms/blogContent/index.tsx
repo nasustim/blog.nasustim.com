@@ -1,6 +1,6 @@
 import { FormattedDate } from "@/components/molecules/formattedDate";
-import { type FC, type ReactNode } from "react";
-import './style.css'
+import type { FC, ReactNode } from "react";
+import "./style.css";
 
 type Props = {
 	children: ReactNode;

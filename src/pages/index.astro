@@ -1,8 +1,8 @@
 ---
-import { SITE_TITLE } from "../consts";
 import { getCollection } from "astro:content";
-import { BaseLayout } from "@/layouts/baseLayout";
 import { FormattedDate } from "@/components/molecules/formattedDate";
+import { BaseLayout } from "@/layouts/baseLayout";
+import { SITE_TITLE } from "../consts";
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
