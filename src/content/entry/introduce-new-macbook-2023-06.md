@@ -14,9 +14,9 @@ draft: false
 
 何をするにも追加でパッケージを入れられなければ始まらない。せっかくならあらゆるパッケージをコマンドラインツールでインストールして再現性を高めたいし、開発を始めたらどっちみち必要になるので最初の内に入れておく。
 
-```zsh
+<code>
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+</code>
 
 https://brew.sh/index_ja
 
@@ -30,12 +30,13 @@ https://brew.sh/index_ja
 
 ed25519 で作成することにした。
 
-```zsh
+<code>
 $ ssh-keygen -t ed25519 -C mitsu@boston
 $ cat ~/.ssh/id_ed25519.pub | pbcopy
 
 #=> 公開鍵を github.com の個人設定ページから追加する
-```
+
+</code>
 
 私物コンピュータのホスト名は海外の地名から取ることが多いのだが、たまたまこの時は[タイタニック見学ツアー事故](https://www.bbc.com/japanese/65958731)が話題でボストンからの中継映像を見ていたので`boston`にした。
 
