@@ -55,6 +55,7 @@ const config: GatsbyConfig = {
 		},
 		"gatsby-transformer-remark",
 	],
+  jsxRuntime: 'automatic',
 };
 
 export default config;
