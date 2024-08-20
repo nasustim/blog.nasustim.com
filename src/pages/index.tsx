@@ -20,7 +20,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
         🌊 おみつ雑記
       </h1>
       <div>
-        <ul>{list.map(v => (<li>{v?.title}</li>))}</ul>
+        <ul>{list.map(v => (<li><a href={`/entry${v?.slug}`}>{v?.title}</a></li>))}</ul>
       </div>
     </main>
   );
@@ -29,7 +29,9 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 
 export const pageQuery = graphql`
   query IndexPage {
-    allMarkdownRemark {
+    allMarkdownRemark(
+      sort: { order: DESC, fields: frontmatter___date }
+    ) {
       edges {
         node {
           frontmatter {

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { type PageProps, graphql } from "gatsby";
 
-export const BlogPostTemplate: React.FC<PageProps<Queries.EntryPageQuery>> = ({ data }) => {
+const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({ data }) => {
   if (!data.markdownRemark) {
     return <></>
   }
@@ -12,11 +12,13 @@ export const BlogPostTemplate: React.FC<PageProps<Queries.EntryPageQuery>> = ({ 
       <div>
         <h1>{frontmatter?.title}</h1>
         <h2>{frontmatter?.date}</h2>
-        <div dangerouslySetInnerHTML={{ __html: html ?? '' }} />
+        {html ? <div dangerouslySetInnerHTML={{ __html: html }} /> : <></>}
       </div>
     </div>
   );
 }
+
+export default EntryPage
 
 export const pageQuery = graphql`
   query EntryPage ($id: String!) {
