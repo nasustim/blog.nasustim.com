@@ -15,6 +15,7 @@ jobs:
         with:
           node-version-file: .tool-versions
           cache: "npm"
+      - run: npm ci
       - run: npm run typecheck
       - run: npm run lint:ci
       - run: npm run build
