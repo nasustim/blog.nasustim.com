@@ -1,12 +1,32 @@
 import { vars } from "@/style.css";
 import { style } from '@vanilla-extract/css';
 
-export const css = style({
+const minWidthForDesktop = 960
+
+export const containerCss = style({
+  width: '100%',
+  minHeight: '100vh',
+  padding:0,
+  margin:0,
   fontFamily: "-apple-system, Roboto, sans-serif, serif",
-  padding: 16,
   backgroundColor: vars.color.white,
-  margin: 0,
-  width: '100vw',
-  minHeight: '100vh'
+
+  display: "flex",
+  flexDirection: "row",
+  alignItems: 'center',
+  justifyContent: 'center'
+})
+
+export const innerCss = style({
+  // spa
+  width: `100%`,
+  padding: 16,
+
+  "@media": {
+    // pc
+   [`screen and (min-width: ${minWidthForDesktop}px)`]: {
+      width: minWidthForDesktop,
+    },
+  },
 })
 
