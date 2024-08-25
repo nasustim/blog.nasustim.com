@@ -1,28 +1,45 @@
 {
-	"name": "curved-cloud",
-	"type": "module",
-	"version": "0.0.1",
+	"name": "blog.nasustim.com",
+	"version": "1.0.0",
+	"private": true,
+	"description": "blog.nasustim.com",
+	"author": "nasustim",
+	"keywords": [
+		"gatsby"
+	],
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro check && astro build",
-		"preview": "astro preview",
-		"astro": "astro"
+		"develop": "gatsby develop",
+		"start": "gatsby develop",
+		"build": "gatsby build",
+		"serve": "gatsby serve",
+		"clean": "gatsby clean",
+		"lint:ci": "biome ci ./src",
+		"lint:format": "biome check --write ./src && biome lint --write ./src"
 	},
 	"dependencies": {
-		"@astrojs/check": "0.5.10",
-		"@astrojs/mdx": "2.3.1",
-		"@astrojs/react": "3.3.2",
-		"@astrojs/rss": "4.0.5",
-		"@astrojs/sitemap": "3.1.4",
-		"@types/react": "18.3.1",
-		"@types/react-dom": "18.3.0",
-		"astro": "4.7.1",
-		"react": "18.3.1",
-		"react-dom": "18.3.1",
-		"typescript": "5.4.5"
+		"@mdx-js/react": "2.0.0",
+		"@vanilla-extract/css": "1.15.4",
+		"@vanilla-extract/webpack-plugin": "2.3.12",
+		"gatsby": "5.13.5",
+		"gatsby-plugin-alias-imports": "^1.0.5",
+		"gatsby-plugin-google-gtag": "5.13.1",
+		"gatsby-plugin-image": "3.13.1",
+		"gatsby-plugin-manifest": "5.13.1",
+		"gatsby-plugin-mdx": "5.13.1",
+		"gatsby-plugin-sharp": "5.13.1",
+		"gatsby-plugin-sitemap": "6.13.1",
+		"gatsby-plugin-vanilla-extract": "4.0.2",
+		"gatsby-source-filesystem": "5.13.1",
+		"gatsby-transformer-remark": "6.13.1",
+		"gatsby-transformer-sharp": "5.13.1",
+		"react": "18.2.0",
+		"react-dom": "18.2.0"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "1.7.2"
+		"@biomejs/biome": "1.8.3",
+		"@types/node": "20.11.19",
+		"@types/react": "18.2.55",
+		"@types/react-dom": "18.2.19",
+		"typescript": "5.3.3"
 	}
 }
