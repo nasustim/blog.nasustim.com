@@ -25,7 +25,7 @@ jobs:
       - run: npm run build
 
       - name: GitHub Pages custom domain setting
-        run: echo "blog.nasustim.com" > ./dist/CNAME
+        run: echo "blog.nasustim.com" > ./public/CNAME
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
