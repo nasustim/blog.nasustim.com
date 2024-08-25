@@ -14,7 +14,7 @@
 		"serve": "gatsby serve",
 		"clean": "gatsby clean",
 		"lint:ci": "biome ci ./src",
-		"lint:format": "biome format --write ./src && biome lint --write ./src"
+		"lint:format": "biome check --write ./src && biome lint --write ./src"
 	},
 	"dependencies": {
 		"@mdx-js/react": "2.0.0",
