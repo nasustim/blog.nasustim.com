@@ -4,7 +4,9 @@
 	"private": true,
 	"description": "blog.nasustim.com",
 	"author": "nasustim",
-	"keywords": ["gatsby"],
+	"keywords": [
+		"gatsby"
+	],
 	"scripts": {
 		"develop": "gatsby develop",
 		"start": "gatsby develop",
@@ -19,6 +21,7 @@
 		"@vanilla-extract/css": "1.15.4",
 		"@vanilla-extract/webpack-plugin": "2.3.12",
 		"gatsby": "5.13.5",
+		"gatsby-plugin-alias-imports": "^1.0.5",
 		"gatsby-plugin-google-gtag": "5.13.1",
 		"gatsby-plugin-image": "3.13.1",
 		"gatsby-plugin-manifest": "5.13.1",

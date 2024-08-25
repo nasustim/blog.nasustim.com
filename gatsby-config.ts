@@ -54,6 +54,15 @@ const config: GatsbyConfig = {
 			__key: "content",
 		},
 		"gatsby-transformer-remark",
+    {
+      resolve: `gatsby-plugin-alias-imports`,
+      options: {
+        alias: {
+          "@": "./src",
+        },
+        extensions: [],
+      }
+    },
 	],
   jsxRuntime: 'automatic',
 };
