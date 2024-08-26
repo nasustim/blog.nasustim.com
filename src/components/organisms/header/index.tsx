@@ -1,4 +1,4 @@
-import { css } from "./header.css";
+import { css } from "./index.css";
 
 export const Header = () => (
 	<header>
