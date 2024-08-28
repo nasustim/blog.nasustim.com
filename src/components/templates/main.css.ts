@@ -5,7 +5,7 @@ const minWidthForDesktop = 960;
 
 export const containerCss = style({
 	width: "100%",
-	minHeight: "100vh",
+	minHeight: "100%",
 	padding: 0,
 	margin: 0,
 	fontFamily: "-apple-system, Roboto, sans-serif, serif",
