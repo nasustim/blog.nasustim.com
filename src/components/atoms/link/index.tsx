@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import type { FC, ReactNode } from "react";
-import { noStyle as noStyleCss } from "./index.css";
+import { css, noStyle as noStyleCss } from "./index.css";
 
 type Props = {
   children: ReactNode
@@ -10,4 +10,6 @@ type Props = {
   noStyle?: boolean
 }
 
-export const Link: FC<Props> = ({to, children, noStyle = false}) => <a className={clsx({ [noStyleCss]: noStyle })} href={to.toString()}>{children}</a>
+export const Link: FC<Props> = ({to, children, noStyle = false}) => <a className={clsx(
+  noStyle ? noStyleCss : css
+)} href={to.toString()}>{children}</a>
