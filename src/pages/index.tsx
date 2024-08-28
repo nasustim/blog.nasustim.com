@@ -11,12 +11,14 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 				<div>
 					<ul>
 						{list.flatMap((v) => {
-              if (!(v?.slug && v.title)) return [];
+							if (!(v?.slug && v.title)) return [];
 							return [
 								<li key={`article-list-${v.slug}`}>
-                  <Link to={new URL(`/entry${v.slug}`, SITE_ORIGIN)}>{v.title}</Link>
-								</li>
-              ];
+									<Link to={new URL(`/entry${v.slug}`, SITE_ORIGIN)}>
+										{v.title}
+									</Link>
+								</li>,
+							];
 						})}
 					</ul>
 				</div>
