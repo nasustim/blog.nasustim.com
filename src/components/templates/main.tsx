@@ -1,3 +1,5 @@
+import "@acab/reset.css";
+
 import type { FC, ReactNode } from "react";
 import { containerCss, innerCss } from "./main.css";
 import { Header } from "@/components/organisms/header";
