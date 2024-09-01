@@ -10,13 +10,13 @@ const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({ data }) => {
 
 	return (
 		<Template>
-      <main>
+			<main>
 				<div>
 					<h1>{frontmatter?.title}</h1>
 					<h2>{frontmatter?.date}</h2>
 					<MarkdownRenderer markdown={rawMarkdownBody ?? ""} />
 				</div>
-        </main>
+			</main>
 		</Template>
 	);
 };

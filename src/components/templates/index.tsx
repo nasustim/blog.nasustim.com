@@ -9,10 +9,10 @@ import { clsx } from "clsx";
 export const Template: FC<{
 	children: ReactNode;
 }> = ({ children }) => (
-		<div className={clsx(themeClass, containerCss)}>
-			<div className={innerCss}>
-				<Header />
-				{children}
-			</div>
+	<div className={clsx(themeClass, containerCss)}>
+		<div className={innerCss}>
+			<Header />
+			{children}
 		</div>
+	</div>
 );

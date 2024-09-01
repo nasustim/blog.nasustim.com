@@ -9,7 +9,7 @@ export const css = style({
  * belows are adjustments for whole html remark.js rendered
  */
 globalStyle("*", {
- color: vars.color.primary,
+	color: vars.color.primary,
 });
 globalStyle("p img", {
 	maxWidth: "100%",

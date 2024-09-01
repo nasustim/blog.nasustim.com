@@ -6,5 +6,5 @@ export const css = style({
 	marginBottom: 32,
 	maxWidth: 320,
 
-  color: vars.color.primary,
+	color: vars.color.primary,
 });
