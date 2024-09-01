@@ -4,8 +4,8 @@ import { style } from "@vanilla-extract/css";
 const minWidthForDesktop = 960;
 
 export const containerCss = style({
-	width: "100%",
-	minHeight: "100%",
+	width: "100svw",
+	minHeight: "100svh",
 	padding: 0,
 	margin: 0,
 	fontFamily: "-apple-system, Roboto, sans-serif, serif",
@@ -13,14 +13,17 @@ export const containerCss = style({
 
 	display: "flex",
 	flexDirection: "row",
-	alignItems: "center",
+	alignItems: "start",
 	justifyContent: "center",
 });
 
 export const innerCss = style({
-	// spa
-	width: "100%",
+// common
+  height: "100%",
 	padding: 16,
+
+	// sp
+	width: "100%",
 
 	"@media": {
 		// pc

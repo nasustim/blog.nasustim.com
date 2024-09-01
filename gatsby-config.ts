@@ -1,14 +1,11 @@
 import type { GatsbyConfig } from "gatsby";
-import { GTAG_TRACKING_ID, SITE_DOMAIN } from "./src/config";
+import { GTAG_TRACKING_ID,  SITE_ORIGIN, TITLE } from "./src/config";
 
 const config: GatsbyConfig = {
 	siteMetadata: {
-		title: `blog.nasustim.com`,
-		siteUrl: `https://${SITE_DOMAIN}`,
+		title: TITLE,
+		siteUrl: SITE_ORIGIN,
 	},
-	// More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-	// If you use VSCode you can also use the GraphQL plugin
-	// Learn more at: https://gatsby.dev/graphql-typegen
 	graphqlTypegen: true,
 	plugins: [
 		"gatsby-plugin-vanilla-extract",
@@ -60,7 +57,7 @@ const config: GatsbyConfig = {
 		},
 		"gatsby-transformer-remark",
     {
-      resolve: `gatsby-plugin-alias-imports`,
+      resolve: 'gatsby-plugin-alias-imports',
       options: {
         alias: {
           "@": "./src",

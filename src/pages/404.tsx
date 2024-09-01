@@ -1,4 +1,4 @@
-import { MainTemplate } from "@/components/templates/main";
+import { Template } from "@/components/templates";
 import { Link, type HeadFC, type PageProps } from "gatsby";
 
 const pageStyles = {
@@ -24,7 +24,7 @@ const codeStyles = {
 
 const NotFoundPage: React.FC<PageProps> = () => {
 	return (
-		<MainTemplate>
+		<Template>
 			<main style={pageStyles}>
 				<h1 style={headingStyles}>Page not found</h1>
 				<p style={paragraphStyles}>
@@ -33,7 +33,7 @@ const NotFoundPage: React.FC<PageProps> = () => {
 					<Link to="/">Go home</Link>.
 				</p>
 			</main>
-		</MainTemplate>
+		</Template>
 	);
 };
 
