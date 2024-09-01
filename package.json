@@ -4,7 +4,9 @@
 	"private": true,
 	"description": "blog.nasustim.com",
 	"author": "nasustim",
-	"keywords": ["gatsby"],
+	"keywords": [
+		"gatsby"
+	],
 	"scripts": {
 		"develop": "gatsby develop",
 		"start": "gatsby develop",
@@ -32,7 +34,6 @@
 		"gatsby-source-filesystem": "5.13.1",
 		"gatsby-transformer-remark": "6.13.1",
 		"gatsby-transformer-sharp": "5.13.1",
-		"install": "^0.13.0",
 		"react": "18.3.1",
 		"react-dom": "18.3.1",
 		"react-markdown": "9.0.1",
