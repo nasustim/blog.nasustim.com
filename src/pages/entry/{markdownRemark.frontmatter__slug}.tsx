@@ -1,5 +1,5 @@
 import { MarkdownRenderer } from "@/components/organisms/markdown-renderer";
-import { MainTemplate } from "@/components/templates/main";
+import { Template } from "@/components/templates";
 import { type PageProps, graphql } from "gatsby";
 
 const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({ data }) => {
@@ -9,15 +9,15 @@ const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({ data }) => {
 	const { frontmatter, rawMarkdownBody } = data.markdownRemark;
 
 	return (
-		<MainTemplate>
-			<div>
+		<Template>
+			<main>
 				<div>
 					<h1>{frontmatter?.title}</h1>
 					<h2>{frontmatter?.date}</h2>
 					<MarkdownRenderer markdown={rawMarkdownBody ?? ""} />
 				</div>
-			</div>
-		</MainTemplate>
+			</main>
+		</Template>
 	);
 };
 
