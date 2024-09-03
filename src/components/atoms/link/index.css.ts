@@ -8,4 +8,7 @@ export const noStyle = style({
 
 export const css = style({
 	color: vars.color.primary,
+	":hover": {
+		color: vars.color.secondary,
+	},
 });

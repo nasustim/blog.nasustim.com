@@ -12,7 +12,7 @@ export const Template: FC<{
 	<div className={clsx(themeClass, containerCss)}>
 		<div className={innerCss}>
 			<Header />
-			{children}
 		</div>
+		<div className={innerCss}>{children}</div>
 	</div>
 );

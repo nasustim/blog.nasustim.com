@@ -15,4 +15,5 @@ export const GTAG_TRACKING_ID = "G-3YY246MS11";
 /**
  * Contents
  */
-export const TITLE = "おみつ雑記";
+export const TITLE = "NASUSTIM";
+export const SUB_TITLE = "Mitsuhiro HIBINO";
