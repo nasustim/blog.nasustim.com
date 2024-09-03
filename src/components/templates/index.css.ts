@@ -1,11 +1,12 @@
 import { vars } from "@/style.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
-const minWidthForDesktop = 960;
+export const minWidthForDesktop = 860;
 
-globalStyle('body', {
+globalStyle("body", {
 	backgroundColor: vars.color.white,
-})
+	color: vars.color.primary,
+});
 
 export const containerCss = style({
 	width: "100svw",
@@ -15,9 +16,9 @@ export const containerCss = style({
 	fontFamily: "-apple-system, Roboto, sans-serif, serif",
 
 	display: "flex",
-	flexDirection: "row",
-	alignItems: "start",
-	justifyContent: "center",
+	flexDirection: "column",
+	alignItems: "center",
+	justifyContent: "start",
 });
 
 export const innerCss = style({
