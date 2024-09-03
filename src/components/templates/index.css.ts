@@ -3,11 +3,6 @@ import { globalStyle, style } from "@vanilla-extract/css";
 
 export const minWidthForDesktop = 860;
 
-globalStyle("body", {
-	backgroundColor: vars.color.white,
-	color: vars.color.primary,
-});
-
 export const containerCss = style({
 	width: "100svw",
 	minHeight: "100svh",
@@ -19,6 +14,9 @@ export const containerCss = style({
 	flexDirection: "column",
 	alignItems: "center",
 	justifyContent: "start",
+
+	backgroundColor: vars.color.white,
+	color: vars.color.primary,
 });
 
 export const innerCss = style({
