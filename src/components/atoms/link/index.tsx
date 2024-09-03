@@ -13,7 +13,7 @@ type Props = {
 
 export const Link: FC<Props> = ({ to, children, noStyle = false }) => {
 	const props = useMemo(() => {
-    const isExternalLink = to.origin !== SITE_ORIGIN;
+		const isExternalLink = to.origin !== SITE_ORIGIN;
 		return isExternalLink ? { target: "_blank", rel: "noreferrer" } : {};
 	}, [to]);
 	return (
