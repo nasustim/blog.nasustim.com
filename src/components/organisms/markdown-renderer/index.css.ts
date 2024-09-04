@@ -1,4 +1,3 @@
-import { vars } from "@/style.css";
 import { style, globalStyle } from "@vanilla-extract/css";
 
 export const css = style({
@@ -8,9 +7,6 @@ export const css = style({
 /**
  * belows are adjustments for whole html remark.js rendered
  */
-globalStyle("*", {
-	color: vars.color.primary,
-});
 globalStyle("p img", {
 	maxWidth: "100%",
 });
