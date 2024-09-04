@@ -5,6 +5,9 @@ const config: GatsbyConfig = {
 	siteMetadata: {
 		title: TITLE,
 		siteUrl: SITE_ORIGIN,
+    description: 'a weblog by @nasustim (Mitsuhiro Hibino)',
+    twitterUsername: '@nasustim',
+    image: 'static/icon.png',
 	},
 	graphqlTypegen: true,
 	plugins: [
