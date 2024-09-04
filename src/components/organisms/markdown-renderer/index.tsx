@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { css,blockStyle, h2Style } from "./index.css";
+import { css,blockStyle, h2Style, articleRoot } from "./index.css";
 import rehypeRaw from "rehype-raw";
 
 type Props = {
@@ -15,10 +15,10 @@ export const MarkdownRenderer: FC<Props> = ({ markdown, title, date = "" }) => (
 			{date ? <small>{date}</small> : null}
 			<h2 className={h2Style}>{title}</h2>
 		</div>
-    <div className={blockStyle}>
+    <article className={`${blockStyle} ${articleRoot}`}>
 		<Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
 			{markdown}
 		</Markdown>
-    </div>
+    </article>
 	</div>
 );

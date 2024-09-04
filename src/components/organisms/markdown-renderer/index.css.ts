@@ -14,6 +14,11 @@ export const h2Style = style({
 /**
  * belows are adjustments for whole html remark.js rendered
  */
+
+export const articleRoot = style({})
+globalStyle(`${articleRoot} *`, {
+  marginTop: '24px'
+})
 globalStyle("p img", {
 	maxWidth: "100%",
 });
