@@ -16,9 +16,12 @@ export const h2Style = style({
  */
 
 export const articleRoot = style({})
-globalStyle(`${articleRoot} *`, {
+globalStyle(`${articleRoot} > *`, {
   marginTop: '24px'
 })
 globalStyle("p img", {
 	maxWidth: "100%",
+});
+globalStyle("h1, h2, h3, h4, h5", {
+	fontWeight: "500",
 });
