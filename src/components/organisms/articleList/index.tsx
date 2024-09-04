@@ -29,7 +29,7 @@ export const ArticleList: FC<Props> = ({ list }) => {
 };
 
 const Item: FC<ListItem> = (v) => {
-	const body = useMemo(() => {
+	const bodyText = useMemo(() => {
 		let result = v.body.replace(/<[^>]*>?/gm, "");
 		if (result.length > 100) {
 			result = `${result.slice(0, 120)}...`;
@@ -43,7 +43,7 @@ const Item: FC<ListItem> = (v) => {
 				<Link to={new URL(`/entry${v.slug}`, SITE_ORIGIN)} noStyle>
 					<small>{v.date}</small>
 					<h2 className={h2Style}>{v.title}</h2>
-					<p className={pStyle}>{body}...</p>
+					<p className={pStyle}>{bodyText}</p>
 				</Link>
 			</li>
 		</Fragment>
