@@ -15,7 +15,6 @@ export const containerCss = style({
 	alignItems: "center",
 	justifyContent: "start",
 
-	backgroundColor: vars.color.white,
 	color: vars.color.primary,
 });
 
@@ -33,4 +32,12 @@ export const innerCss = style({
 			width: minWidthForDesktop,
 		},
 	},
+});
+
+export const headerStyle = style({
+	width: "100%",
+	backgroundColor: vars.color.white,
+
+	display: "flex",
+	justifyContent: "center",
 });

@@ -1,27 +1,26 @@
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import { Template } from "@/components/templates/";
-import { Link } from "@/components/atoms/link";
-import { SITE_ORIGIN } from "@/config";
+import { ArticleList } from "@/components/organisms/articleList";
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
-	const list = data.allMarkdownRemark.edges.map((v) => v.node.frontmatter);
+	const list = data.allMarkdownRemark.edges
+		.map((v) => ({
+			frontMatter: v.node.frontmatter,
+			html: v.node.html,
+		}))
+		.flatMap((v) => {
+			return {
+				title: v?.frontMatter?.title ?? "",
+				date: v?.frontMatter?.date ?? "",
+				slug: v?.frontMatter?.slug ?? "",
+				body: v?.html ?? "",
+			};
+		});
+
 	return (
 		<Template>
 			<main>
-				<div>
-					<ul>
-						{list.flatMap((v) => {
-							if (!(v?.slug && v.title)) return [];
-							return [
-								<li key={`article-list-${v.slug}`}>
-									<Link to={new URL(`/entry${v.slug}`, SITE_ORIGIN)}>
-										{v.title}
-									</Link>
-								</li>,
-							];
-						})}
-					</ul>
-				</div>
+				<ArticleList list={list} />
 			</main>
 		</Template>
 	);
@@ -39,6 +38,7 @@ export const pageQuery = graphql`
             slug
             title
           }
+          html
         }
       }
     }
