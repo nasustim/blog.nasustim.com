@@ -6,7 +6,7 @@ export const noStyle = style({
 	textDecoration: "inherit",
 });
 
-export const css = style({
+export const linkStyle = style({
 	color: vars.color.primary,
 	":hover": {
 		color: vars.color.secondary,

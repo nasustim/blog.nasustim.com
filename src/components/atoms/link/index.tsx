@@ -1,6 +1,6 @@
 import { clsx } from "clsx";
 import { useMemo, type FC, type ReactNode } from "react";
-import { css, noStyle as noStyleCss } from "./index.css";
+import { linkStyle, noStyle as noStyleCss } from "./index.css";
 import { SITE_ORIGIN } from "@/config";
 
 type Props = {
@@ -18,7 +18,7 @@ export const Link: FC<Props> = ({ to, children, noStyle = false }) => {
 	}, [to]);
 	return (
 		<a
-			className={clsx(noStyle ? noStyleCss : css)}
+			className={clsx(noStyle ? noStyleCss : linkStyle)}
 			href={to.toString()}
 			{...props}
 		>

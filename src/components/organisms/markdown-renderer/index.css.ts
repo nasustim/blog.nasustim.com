@@ -1,3 +1,5 @@
+import { linkStyle } from "@/components/atoms/link/index.css";
+import { vars } from "@/style.css";
 import { style, globalStyle } from "@vanilla-extract/css";
 
 export const css = style({
@@ -33,4 +35,10 @@ for (let i = 1; i <= 5; i++) {
 globalStyle("ul", {
 	listStyleType: "disc",
 	marginLeft: "24px",
+});
+globalStyle("a", {
+	color: vars.color.primary,
+});
+globalStyle("a:hover", {
+	color: vars.color.secondary,
 });
