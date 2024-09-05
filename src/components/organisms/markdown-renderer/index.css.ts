@@ -30,3 +30,7 @@ for (let i = 1; i <= 5; i++) {
 		fontSize,
 	});
 }
+globalStyle("ul", {
+	listStyleType: "disc",
+	marginLeft: "24px",
+});
