@@ -45,3 +45,11 @@ export const headerStyle = style({
 	display: "flex",
 	justifyContent: "center",
 });
+export const mainStyle = style({
+  flexGrow: 1
+})
+export const footerStyle = style({
+  margin: "16px 0",
+	textAlign: "center",
+  fontStyle: "italic",
+});
