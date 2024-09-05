@@ -46,10 +46,10 @@ export const headerStyle = style({
 	justifyContent: "center",
 });
 export const mainStyle = style({
-  flexGrow: 1
-})
+	flexGrow: 1,
+});
 export const footerStyle = style({
-  margin: "16px 0",
+	margin: "16px 0",
 	textAlign: "center",
-  fontStyle: "italic",
+	fontStyle: "italic",
 });

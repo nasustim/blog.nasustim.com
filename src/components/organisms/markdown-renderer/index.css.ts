@@ -42,3 +42,23 @@ globalStyle(`${articleRoot} a`, {
 globalStyle(`${articleRoot} a:hover`, {
 	color: vars.color.secondary,
 });
+
+// select code tags only child of ul tags and p tags
+for (const selector of [`${articleRoot} ul code`, `${articleRoot} p code`]) {
+	globalStyle(selector, {
+		border: "1px solid #b6b6b6",
+		borderRadius: "4px",
+		padding: "1px 4px",
+		margin: "0 4px",
+		backgroundColor: "#efefef",
+	});
+}
+globalStyle(`${articleRoot} > code`, {
+	display: "block",
+	width: "100%",
+
+	border: "1px solid #b6b6b6",
+	borderRadius: "4px",
+	padding: "4px 12px",
+	backgroundColor: "#efefef",
+});
