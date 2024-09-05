@@ -20,11 +20,11 @@ export const articleRoot = style({});
 globalStyle(`${articleRoot} > *`, {
 	marginTop: "24px",
 });
-globalStyle("p img", {
+globalStyle(`${articleRoot} p img`, {
 	maxWidth: "100%",
 });
 for (let i = 1; i <= 5; i++) {
-	const tag = `h${i}`;
+	const tag = `${articleRoot} h${i}`;
 	const fontWeight = 500 - (i / 2) * 100;
 	const fontSize = 28 - (i - 1) * 3;
 	globalStyle(tag, {
@@ -32,13 +32,13 @@ for (let i = 1; i <= 5; i++) {
 		fontSize,
 	});
 }
-globalStyle("ul", {
+globalStyle(`${articleRoot} ul`, {
 	listStyleType: "disc",
 	marginLeft: "24px",
 });
-globalStyle("a", {
+globalStyle(`${articleRoot} a`, {
 	color: vars.color.primary,
 });
-globalStyle("a:hover", {
+globalStyle(`${articleRoot} a:hover`, {
 	color: vars.color.secondary,
 });
