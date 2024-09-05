@@ -1,6 +1,10 @@
 import { vars } from "@/style.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
+globalStyle("body", {
+	backgroundColor: "white",
+});
+
 export const minWidthForDesktop = 860;
 
 export const containerCss = style({
@@ -40,4 +44,12 @@ export const headerStyle = style({
 
 	display: "flex",
 	justifyContent: "center",
+});
+export const mainStyle = style({
+	flexGrow: 1,
+});
+export const footerStyle = style({
+	margin: "16px 0",
+	textAlign: "center",
+	fontStyle: "italic",
 });
