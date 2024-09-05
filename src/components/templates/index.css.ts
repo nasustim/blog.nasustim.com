@@ -1,6 +1,10 @@
 import { vars } from "@/style.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
+globalStyle("body", {
+  backgroundColor: 'white',
+});
+
 export const minWidthForDesktop = 860;
 
 export const containerCss = style({
