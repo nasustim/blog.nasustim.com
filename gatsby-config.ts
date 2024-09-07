@@ -9,7 +9,11 @@ const config: GatsbyConfig = {
     twitterUsername: '@nasustim',
     image: 'static/icon.png',
 	},
-	graphqlTypegen: true,
+  graphqlTypegen: {
+    typesOutputPath: './src/types/gatsby-types.d.ts',
+    generateOnBuild: true,
+    documentSearchPaths: ['./gatsby-node.ts', './plugins/**/gatsby-node.ts',],
+  },
 	plugins: [
 		"gatsby-plugin-vanilla-extract",
 		{
