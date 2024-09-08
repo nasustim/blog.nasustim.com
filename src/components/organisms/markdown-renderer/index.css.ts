@@ -53,12 +53,30 @@ for (const selector of [`${articleRoot} ul code`, `${articleRoot} p code`]) {
 		backgroundColor: "#efefef",
 	});
 }
+// code blocks
 globalStyle(`${articleRoot} > code`, {
 	display: "block",
 	width: "100%",
+	overflowX: "scroll",
+	overflowWrap: "normal",
 
 	border: "1px solid #b6b6b6",
 	borderRadius: "4px",
 	padding: "4px 12px",
 	backgroundColor: "#efefef",
+	fontFamily: "monospace",
+});
+// tables
+globalStyle(`${articleRoot} > table`, {
+	borderCollapse: "collapse",
+	overflowX: "scroll",
+});
+globalStyle(`${articleRoot} > table > thead`, {
+	backgroundColor: "#b6b6b6",
+});
+globalStyle(`${articleRoot} > table > tbody tr:nth-child(2n)`, {
+	backgroundColor: "#efefef",
+});
+globalStyle(`${articleRoot} > table td, ${articleRoot} > table tr`, {
+	padding: 10,
 });
