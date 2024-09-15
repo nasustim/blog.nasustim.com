@@ -1,5 +1,5 @@
 ---
-slug: /get-married
+slug: get-married
 title: "結婚しました"
 date: 2024-07-17T15:00:00Z
 draft: false
