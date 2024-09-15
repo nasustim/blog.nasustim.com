@@ -17,12 +17,10 @@ export const Link: FC<Props> = ({ to, children, noStyle = false }) => {
 		return isExternalLink ? { target: "_blank", rel: "noreferrer" } : {};
 	}, [to]);
 
-	const currentPath = new URL(window.location.href).pathname;
-
 	return (
 		<a
 			className={clsx(noStyle ? noStyleCss : linkStyle)}
-			href={to.pathname !== currentPath ? to.toString() : "#"}
+			href={to.toString()}
 			{...props}
 		>
 			{children}

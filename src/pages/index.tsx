@@ -3,7 +3,10 @@ import { Template } from "@/components/templates/";
 import { ArticleList } from "@/components/organisms/articleList";
 import { CommonHead } from "@/components/organisms/meta/common-head";
 
-const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
+const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({
+	data,
+	location,
+}) => {
 	const list = data.allMarkdownRemark.edges
 		.map((v) => ({
 			frontMatter: v.node.frontmatter,
@@ -19,7 +22,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 		});
 
 	return (
-		<Template>
+		<Template pathname={location.pathname}>
 			<main>
 				<ArticleList list={list} />
 			</main>
