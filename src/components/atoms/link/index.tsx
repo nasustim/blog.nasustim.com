@@ -16,6 +16,7 @@ export const Link: FC<Props> = ({ to, children, noStyle = false }) => {
 		const isExternalLink = to.origin !== SITE_ORIGIN;
 		return isExternalLink ? { target: "_blank", rel: "noreferrer" } : {};
 	}, [to]);
+
 	return (
 		<a
 			className={clsx(noStyle ? noStyleCss : linkStyle)}

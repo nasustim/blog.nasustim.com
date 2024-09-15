@@ -14,11 +14,12 @@ import { clsx } from "clsx";
 
 export const Template: FC<{
 	children: ReactNode;
-}> = ({ children }) => (
+	pathname: string;
+}> = ({ children, pathname }) => (
 	<div className={clsx(themeClass, containerCss)}>
 		<div className={headerStyle}>
 			<div className={innerCss}>
-				<Header />
+				<Header isTopPage={pathname === "/"} />
 			</div>
 		</div>
 		<div className={`${innerCss} ${mainStyle}`}>{children}</div>

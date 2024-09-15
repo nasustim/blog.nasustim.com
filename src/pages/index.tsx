@@ -1,9 +1,12 @@
 import { graphql, type HeadFC, type PageProps } from "gatsby";
 import { Template } from "@/components/templates/";
 import { ArticleList } from "@/components/organisms/articleList";
-import { useSiteMetadata } from "@/hooks/useMetadata";
+import { CommonHead } from "@/components/organisms/meta/common-head";
 
-const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
+const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({
+	data,
+	location,
+}) => {
 	const list = data.allMarkdownRemark.edges
 		.map((v) => ({
 			frontMatter: v.node.frontmatter,
@@ -19,7 +22,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({ data }) => {
 		});
 
 	return (
-		<Template>
+		<Template pathname={location.pathname}>
 			<main>
 				<ArticleList list={list} />
 			</main>
@@ -49,36 +52,5 @@ export const pageQuery = graphql`
 export default IndexPage;
 
 export const Head: HeadFC = () => {
-	const { title, description, twitterUsername, image, siteUrl } =
-		useSiteMetadata();
-
-	siteUrl.match("entry") ? "article" : "website";
-
-	return (
-		<>
-			<meta name="description" content={description} />
-
-			{/** OpenGraph */}
-			<meta property="og:title" content={title} />
-			<meta property="og:description" content={description} />
-			<meta property="og:image" content={image} />
-			<meta property="og:url" content={siteUrl} />
-			<meta
-				property="og:type"
-				content={
-					// todo: Change to more surely process
-					siteUrl.match("entry") ? "article" : "website"
-				}
-			/>
-
-			{/** X (former Twitter) */}
-			<meta property="twitter:card" content="summary" />
-			<meta property="twitter:url" content={siteUrl} />
-			<meta property="twitter:title" content={title} />
-			<meta property="twitter:image" content={image} />
-			<meta property="twitter:description" content={description} />
-			<meta property="twitter:creator" content={twitterUsername} />
-			<title>{title}</title>
-		</>
-	);
+	return <CommonHead />;
 };

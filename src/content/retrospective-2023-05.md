@@ -1,5 +1,5 @@
 ---
-slug: "/retrospective-2023-05"
+slug: retrospective-2023-05
 title: "2023年5月の振り返り"
 date: 2023-06-01T16:08:04Z
 draft: false

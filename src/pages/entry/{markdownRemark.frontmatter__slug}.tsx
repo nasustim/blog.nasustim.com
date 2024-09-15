@@ -1,15 +1,20 @@
 import { MarkdownRenderer } from "@/components/organisms/markdown-renderer";
+import { CommonHead } from "@/components/organisms/meta/common-head";
 import { Template } from "@/components/templates";
-import { type PageProps, graphql } from "gatsby";
+import { toPlainText } from "@/utils/markdownUtils";
+import { type HeadFC, type PageProps, graphql } from "gatsby";
 
-const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({ data }) => {
+const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({
+	data,
+	location,
+}) => {
 	if (!data.markdownRemark) {
 		return <></>;
 	}
 	const { frontmatter, rawMarkdownBody } = data.markdownRemark;
 
 	return (
-		<Template>
+		<Template pathname={location.pathname}>
 			<main>
 				<MarkdownRenderer
 					title={frontmatter?.title ?? ""}
@@ -33,5 +38,32 @@ export const pageQuery = graphql`
         title
       }
     }
+    site {
+      siteMetadata {
+        title
+        description
+        siteUrl 
+      }
+    }
   }
 `;
+
+export const Head: HeadFC<Queries.EntryPageQuery> = ({ data }) => {
+	const articleTitle = data?.markdownRemark?.frontmatter?.title ?? "";
+	const siteTitle = data?.site?.siteMetadata?.title ?? "";
+
+	const slug = data?.markdownRemark?.frontmatter?.slug ?? "";
+	const siteUrl = data?.site?.siteMetadata?.siteUrl ?? "";
+
+	const description = toPlainText(
+		data?.markdownRemark?.rawMarkdownBody ?? "",
+	).slice(0, 160);
+
+	return (
+		<CommonHead
+			title={`${articleTitle} | ${siteTitle}`}
+			siteUrl={`${siteUrl}/entry/${slug}`}
+			description={description}
+		/>
+	);
+};

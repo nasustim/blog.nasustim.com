@@ -1,5 +1,5 @@
 ---
-slug: "/get-task-arn-by-task-definitions-base-image"
+slug: get-task-arn-by-task-definitions-base-image
 title: "AWS CLIでベースイメージからECSで実行中のタスクのarnを取得する"
 date: 2023-02-14T13:39:10Z
 draft: false

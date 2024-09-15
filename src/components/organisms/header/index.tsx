@@ -10,11 +10,15 @@ import {
 import { SITE_ORIGIN, SUB_TITLE, TITLE } from "@/config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import type { FC } from "react";
 
-export const Header = () => (
+type Props = {
+	isTopPage?: boolean;
+};
+export const Header: FC<Props> = ({ isTopPage }) => (
 	<header className={containerStyle}>
 		<div className={titleStyle}>
-			<Link to={new URL("/", SITE_ORIGIN)} noStyle={true}>
+			<Link to={new URL(!isTopPage ? "/" : "/#", SITE_ORIGIN)} noStyle={true}>
 				<h1 className={h1Style}>{TITLE}</h1>
 				<h2 className={h2Style}>{SUB_TITLE}</h2>
 			</Link>
