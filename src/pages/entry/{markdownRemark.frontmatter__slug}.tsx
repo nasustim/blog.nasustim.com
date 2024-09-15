@@ -1,6 +1,7 @@
 import { MarkdownRenderer } from "@/components/organisms/markdown-renderer";
 import { CommonHead } from "@/components/organisms/meta/common-head";
 import { Template } from "@/components/templates";
+import { toPlainText } from "@/utils/markdownUtils";
 import { type HeadFC, type PageProps, graphql, useStaticQuery } from "gatsby";
 
 const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({ data }) => {
@@ -51,13 +52,15 @@ export const Head: HeadFC<Queries.EntryPageQuery> = ({ data }) => {
 	const slug = data?.markdownRemark?.frontmatter?.slug ?? "";
 	const siteUrl = data?.site?.siteMetadata?.siteUrl ?? "";
 
-  const description = data?.markdownRemark?.rawMarkdownBody?.slice(0, 160) ?? "";
+	const description = toPlainText(
+		data?.markdownRemark?.rawMarkdownBody ?? "",
+	).slice(0, 160);
 
 	return (
 		<CommonHead
 			title={`${articleTitle} | ${siteTitle}`}
 			siteUrl={`${siteUrl}/entry${slug}`}
-      description={description}
+			description={description}
 		/>
 	);
 };

@@ -2,6 +2,7 @@ import { Link } from "@/components/atoms/link";
 import { SITE_ORIGIN } from "@/config";
 import { Fragment, useMemo, type FC } from "react";
 import { h2Style, listItemStyle, pStyle } from "./index.css";
+import { toPlainText } from "@/utils/markdownUtils";
 
 type ListItem = {
 	date: string;
@@ -30,8 +31,8 @@ export const ArticleList: FC<Props> = ({ list }) => {
 
 const Item: FC<ListItem> = (v) => {
 	const bodyText = useMemo(() => {
-		let result = v.body.replace(/<[^>]*>?/gm, "");
-		if (result.length > 100) {
+		let result = toPlainText(v.body);
+		if (result.length > 120) {
 			result = `${result.slice(0, 120)}...`;
 		}
 		return result;
