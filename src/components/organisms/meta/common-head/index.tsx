@@ -36,7 +36,9 @@ export const CommonHead: FC<Props> = ({
 
 	return (
 		<>
+			<title>{_title}</title>
 			<meta name="description" content={_description} />
+			<link rel="canonical" href={_siteUrl} />
 
 			{/** OpenGraph */}
 			<meta property="og:title" content={_title} />
@@ -58,7 +60,6 @@ export const CommonHead: FC<Props> = ({
 			<meta property="twitter:image" content={_image} />
 			<meta property="twitter:description" content={_description} />
 			<meta property="twitter:creator" content={twitterUsername} />
-			<title>{_title}</title>
 		</>
 	);
 };
