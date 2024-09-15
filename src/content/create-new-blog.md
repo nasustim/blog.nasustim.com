@@ -1,5 +1,5 @@
 ---
-slug: "/create-new-blog"
+slug: create-new-blog
 title: "Hugoで新しいブログを作成した"
 date: 2023-01-10T14:40:16Z
 draft: false

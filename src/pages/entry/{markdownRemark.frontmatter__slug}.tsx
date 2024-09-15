@@ -59,7 +59,7 @@ export const Head: HeadFC<Queries.EntryPageQuery> = ({ data }) => {
 	return (
 		<CommonHead
 			title={`${articleTitle} | ${siteTitle}`}
-			siteUrl={`${siteUrl}/entry${slug}`}
+			siteUrl={`${siteUrl}/entry/${slug}`}
 			description={description}
 		/>
 	);

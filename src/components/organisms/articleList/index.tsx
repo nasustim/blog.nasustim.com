@@ -41,7 +41,7 @@ const Item: FC<ListItem> = (v) => {
 	return (
 		<Fragment>
 			<li className={listItemStyle}>
-				<Link to={new URL(`/entry${v.slug}`, SITE_ORIGIN)} noStyle>
+				<Link to={new URL(`/entry/${v.slug}`, SITE_ORIGIN)} noStyle>
 					<small>{v.date}</small>
 					<h2 className={h2Style}>{v.title}</h2>
 					<p className={pStyle}>{bodyText}</p>
