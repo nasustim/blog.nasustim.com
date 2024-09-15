@@ -1,17 +1,20 @@
 import { graphql, useStaticQuery } from "gatsby";
-import type {FC } from "react";
+import type { FC } from "react";
 
-type Props ={
-  title?: string
-  description?:string 
-  image?:string
-  siteUrl?: string
-}
+type Props = {
+	title?: string;
+	description?: string;
+	image?: string;
+	siteUrl?: string;
+};
 
 export const CommonHead: FC<Props> = ({
-  title, description, image, siteUrl
+	title,
+	description,
+	image,
+	siteUrl,
 }) => {
-  const data = useStaticQuery(graphql`
+	const data = useStaticQuery(graphql`
     query {
       site {
         siteMetadata {
@@ -24,12 +27,12 @@ export const CommonHead: FC<Props> = ({
       }
     }
   `);
-  const {  twitterUsername,  } = data.site.siteMetadata;
+	const { twitterUsername } = data.site.siteMetadata;
 
-  const _title = title ?? data.site.siteMetadata.title;
-  const _description = description ?? data.site.siteMetadata.description;
-  const _image = image ?? data.site.siteMetadata.image;
-  const _siteUrl = siteUrl ?? data.site.siteMetadata.siteUrl
+	const _title = title ?? data.site.siteMetadata.title;
+	const _description = description ?? data.site.siteMetadata.description;
+	const _image = image ?? data.site.siteMetadata.image;
+	const _siteUrl = siteUrl ?? data.site.siteMetadata.siteUrl;
 
 	return (
 		<>

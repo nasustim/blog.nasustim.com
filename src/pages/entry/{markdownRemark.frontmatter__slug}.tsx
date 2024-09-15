@@ -44,15 +44,20 @@ export const pageQuery = graphql`
   }
 `;
 
-export const Head: HeadFC<Queries.EntryPageQuery> = ({data}) => {
-const articleTitle = data?.markdownRemark?.frontmatter?.title ?? ''
-const siteTitle = data?.site?.siteMetadata?.title ?? ''
+export const Head: HeadFC<Queries.EntryPageQuery> = ({ data }) => {
+	const articleTitle = data?.markdownRemark?.frontmatter?.title ?? "";
+	const siteTitle = data?.site?.siteMetadata?.title ?? "";
 
-const slug = data?.markdownRemark?.frontmatter?.slug ?? ''
-const siteUrl = data?.site?.siteMetadata?.siteUrl ?? ''
+	const slug = data?.markdownRemark?.frontmatter?.slug ?? "";
+	const siteUrl = data?.site?.siteMetadata?.siteUrl ?? "";
 
-  return <CommonHead 
-    title={`${articleTitle} | ${siteTitle}`}
-    siteUrl={`${siteUrl}/entry${slug}`}
-  />
-}
+  const description = data?.markdownRemark?.rawMarkdownBody?.slice(0, 160) ?? "";
+
+	return (
+		<CommonHead
+			title={`${articleTitle} | ${siteTitle}`}
+			siteUrl={`${siteUrl}/entry${slug}`}
+      description={description}
+		/>
+	);
+};

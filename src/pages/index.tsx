@@ -49,5 +49,5 @@ export const pageQuery = graphql`
 export default IndexPage;
 
 export const Head: HeadFC = () => {
-  return <CommonHead  />
-}
+	return <CommonHead />;
+};
