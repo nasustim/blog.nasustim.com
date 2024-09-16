@@ -7,19 +7,19 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({
 	data,
 	location,
 }) => {
-	const list = data.allMarkdownRemark.edges
-		.map((v) => ({
-			frontMatter: v.node.frontmatter,
-			html: v.node.html,
-		}))
-		.flatMap((v) => {
-			return {
-				title: v?.frontMatter?.title ?? "",
-				date: v?.frontMatter?.date ?? "",
-				slug: v?.frontMatter?.slug ?? "",
-				body: v?.html ?? "",
-			};
-		});
+	const list = data.allMarkdownRemark.edges.flatMap((v) => {
+		const frontmatter = v?.node?.frontmatter;
+		const html = v?.node?.html;
+
+		if (frontmatter?.draft !== false) return []; // FIXME: should be filtered by GraphQL query
+
+		return {
+			title: frontmatter?.title ?? "",
+			date: frontmatter?.date ?? "",
+			slug: frontmatter?.slug ?? "",
+			body: html ?? "",
+		};
+	});
 
 	return (
 		<Template pathname={location.pathname}>
@@ -41,6 +41,7 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             slug
             title
+            draft
           }
           html
         }
