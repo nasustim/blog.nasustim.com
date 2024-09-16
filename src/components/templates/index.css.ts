@@ -2,54 +2,54 @@ import { vars } from "@/style.css";
 import { globalStyle, style } from "@vanilla-extract/css";
 
 globalStyle("body", {
-	backgroundColor: "white",
+  backgroundColor: "white",
 });
 
 export const minWidthForDesktop = 860;
 
 export const containerCss = style({
-	width: "100svw",
-	minHeight: "100svh",
-	padding: 0,
-	margin: 0,
-	fontFamily: "-apple-system, Roboto, sans-serif, serif",
+  width: "100svw",
+  minHeight: "100svh",
+  padding: 0,
+  margin: 0,
+  fontFamily: "-apple-system, Roboto, sans-serif, serif",
 
-	display: "flex",
-	flexDirection: "column",
-	alignItems: "center",
-	justifyContent: "start",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "start",
 
-	color: vars.color.primary,
+  color: vars.color.primary,
 });
 
 export const innerCss = style({
-	// common
-	height: "100%",
-	padding: 16,
+  // common
+  height: "100%",
+  padding: 16,
 
-	// sp
-	width: "100%",
+  // sp
+  width: "100%",
 
-	"@media": {
-		// pc
-		[`screen and (min-width: ${minWidthForDesktop}px)`]: {
-			width: minWidthForDesktop,
-		},
-	},
+  "@media": {
+    // pc
+    [`screen and (min-width: ${minWidthForDesktop}px)`]: {
+      width: minWidthForDesktop,
+    },
+  },
 });
 
 export const headerStyle = style({
-	width: "100%",
-	backgroundColor: vars.color.white,
+  width: "100%",
+  backgroundColor: vars.color.white,
 
-	display: "flex",
-	justifyContent: "center",
+  display: "flex",
+  justifyContent: "center",
 });
 export const mainStyle = style({
-	flexGrow: 1,
+  flexGrow: 1,
 });
 export const footerStyle = style({
-	margin: "16px 0",
-	textAlign: "center",
-	fontStyle: "italic",
+  margin: "16px 0",
+  textAlign: "center",
+  fontStyle: "italic",
 });

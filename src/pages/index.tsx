@@ -4,30 +4,30 @@ import { ArticleList } from "@/components/organisms/articleList";
 import { CommonHead } from "@/components/organisms/meta/common-head";
 
 const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({
-	data,
-	location,
+  data,
+  location,
 }) => {
-	const list = data.allMarkdownRemark.edges.flatMap((v) => {
-		const frontmatter = v?.node?.frontmatter;
-		const html = v?.node?.html;
+  const list = data.allMarkdownRemark.edges.flatMap((v) => {
+    const frontmatter = v?.node?.frontmatter;
+    const html = v?.node?.html;
 
-		if (frontmatter?.draft !== false) return []; // FIXME: should be filtered by GraphQL query
+    if (frontmatter?.draft !== false) return []; // FIXME: should be filtered by GraphQL query
 
-		return {
-			title: frontmatter?.title ?? "",
-			date: frontmatter?.date ?? "",
-			slug: frontmatter?.slug ?? "",
-			body: html ?? "",
-		};
-	});
+    return {
+      title: frontmatter?.title ?? "",
+      date: frontmatter?.date ?? "",
+      slug: frontmatter?.slug ?? "",
+      body: html ?? "",
+    };
+  });
 
-	return (
-		<Template pathname={location.pathname}>
-			<main>
-				<ArticleList list={list} />
-			</main>
-		</Template>
-	);
+  return (
+    <Template pathname={location.pathname}>
+      <main>
+        <ArticleList list={list} />
+      </main>
+    </Template>
+  );
 };
 
 export const pageQuery = graphql`
@@ -53,5 +53,5 @@ export const pageQuery = graphql`
 export default IndexPage;
 
 export const Head: HeadFC = () => {
-	return <CommonHead />;
+  return <CommonHead />;
 };

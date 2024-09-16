@@ -5,29 +5,29 @@ import { toPlainText } from "@/utils/markdownUtils";
 import { type HeadFC, type PageProps, graphql } from "gatsby";
 
 const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({
-	data,
-	location,
+  data,
+  location,
 }) => {
-	if (!data.markdownRemark) {
-		return <></>;
-	}
-	const { frontmatter, rawMarkdownBody } = data.markdownRemark;
-	if (frontmatter?.draft !== false) {
-		// FIXME: should be filtered by GraphQL query
-		window.location.replace("/404");
-	}
+  if (!data.markdownRemark) {
+    return <></>;
+  }
+  const { frontmatter, rawMarkdownBody } = data.markdownRemark;
+  if (frontmatter?.draft !== false) {
+    // FIXME: should be filtered by GraphQL query
+    window.location.replace("/404");
+  }
 
-	return (
-		<Template pathname={location.pathname}>
-			<main>
-				<MarkdownRenderer
-					title={frontmatter?.title ?? ""}
-					date={frontmatter?.date ?? undefined}
-					markdown={rawMarkdownBody ?? ""}
-				/>
-			</main>
-		</Template>
-	);
+  return (
+    <Template pathname={location.pathname}>
+      <main>
+        <MarkdownRenderer
+          title={frontmatter?.title ?? ""}
+          date={frontmatter?.date ?? undefined}
+          markdown={rawMarkdownBody ?? ""}
+        />
+      </main>
+    </Template>
+  );
 };
 
 export default EntryPage;
@@ -54,21 +54,21 @@ export const pageQuery = graphql`
 `;
 
 export const Head: HeadFC<Queries.EntryPageQuery> = ({ data }) => {
-	const articleTitle = data?.markdownRemark?.frontmatter?.title ?? "";
-	const siteTitle = data?.site?.siteMetadata?.title ?? "";
+  const articleTitle = data?.markdownRemark?.frontmatter?.title ?? "";
+  const siteTitle = data?.site?.siteMetadata?.title ?? "";
 
-	const slug = data?.markdownRemark?.frontmatter?.slug ?? "";
-	const siteUrl = data?.site?.siteMetadata?.siteUrl ?? "";
+  const slug = data?.markdownRemark?.frontmatter?.slug ?? "";
+  const siteUrl = data?.site?.siteMetadata?.siteUrl ?? "";
 
-	const description = toPlainText(
-		data?.markdownRemark?.rawMarkdownBody ?? "",
-	).slice(0, 160);
+  const description = toPlainText(
+    data?.markdownRemark?.rawMarkdownBody ?? "",
+  ).slice(0, 160);
 
-	return (
-		<CommonHead
-			title={`${articleTitle} | ${siteTitle}`}
-			siteUrl={`${siteUrl}/entry/${slug}`}
-			description={description}
-		/>
-	);
+  return (
+    <CommonHead
+      title={`${articleTitle} | ${siteTitle}`}
+      siteUrl={`${siteUrl}/entry/${slug}`}
+      description={description}
+    />
+  );
 };
