@@ -1,19 +1,19 @@
 import type { GatsbyConfig } from "gatsby";
-import { GTAG_TRACKING_ID,  SITE_ORIGIN, TITLE } from "./src/config";
+import { GTAG_TRACKING_ID, SITE_ORIGIN, TITLE } from "./src/config";
 
 const config: GatsbyConfig = {
 	siteMetadata: {
 		title: TITLE,
 		siteUrl: SITE_ORIGIN,
-    description: 'a weblog by @nasustim (Mitsuhiro Hibino)',
-    twitterUsername: '@nasustim',
-    image: 'static/icon.png',
+		description: "a weblog by @nasustim (Mitsuhiro Hibino)",
+		twitterUsername: "@nasustim",
+		image: "static/icon.png",
 	},
-  graphqlTypegen: {
-    typesOutputPath: './src/types/gatsby-types.d.ts',
-    generateOnBuild: true,
-    documentSearchPaths: ['./gatsby-node.ts', './plugins/**/gatsby-node.ts',],
-  },
+	graphqlTypegen: {
+		typesOutputPath: "./src/types/gatsby-types.d.ts",
+		generateOnBuild: true,
+		documentSearchPaths: ["./gatsby-node.ts", "./plugins/**/gatsby-node.ts"],
+	},
 	plugins: [
 		"gatsby-plugin-vanilla-extract",
 		{
@@ -23,11 +23,11 @@ const config: GatsbyConfig = {
 			},
 		},
 		{
-      resolve: "gatsby-plugin-image",
-      options: {
-        width: 400
-      }
-    },
+			resolve: "gatsby-plugin-image",
+			options: {
+				width: 400,
+			},
+		},
 		"gatsby-plugin-sitemap",
 		{
 			resolve: "gatsby-plugin-manifest",
@@ -63,17 +63,17 @@ const config: GatsbyConfig = {
 			__key: "content",
 		},
 		"gatsby-transformer-remark",
-    {
-      resolve: 'gatsby-plugin-alias-imports',
-      options: {
-        alias: {
-          "@": "./src",
-        },
-        extensions: [],
-      }
-    },
+		{
+			resolve: "gatsby-plugin-alias-imports",
+			options: {
+				alias: {
+					"@": "./src",
+				},
+				extensions: [],
+			},
+		},
 	],
-  jsxRuntime: 'automatic',
+	jsxRuntime: "automatic",
 };
 
 export default config;

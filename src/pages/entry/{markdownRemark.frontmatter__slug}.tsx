@@ -12,6 +12,10 @@ const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({
 		return <></>;
 	}
 	const { frontmatter, rawMarkdownBody } = data.markdownRemark;
+	if (frontmatter?.draft !== false) {
+		// FIXME: should be filtered by GraphQL query
+		window.location.replace("/404");
+	}
 
 	return (
 		<Template pathname={location.pathname}>
@@ -36,6 +40,7 @@ export const pageQuery = graphql`
         date(formatString: "MMMM DD, YYYY")
         slug
         title
+        draft
       }
     }
     site {
