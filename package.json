@@ -4,9 +4,7 @@
 	"private": true,
 	"description": "blog.nasustim.com",
 	"author": "nasustim",
-	"keywords": [
-		"gatsby"
-	],
+	"keywords": ["gatsby"],
 	"scripts": {
 		"develop": "gatsby develop",
 		"start": "gatsby develop",
@@ -14,7 +12,8 @@
 		"serve": "gatsby serve",
 		"clean": "gatsby clean",
 		"lint:ci": "biome ci ./src",
-		"lint:format": "biome check --write ./src && biome lint --write ./src"
+		"lint:format": "biome check --write",
+		"new": "node scripts/create-new-article.js"
 	},
 	"dependencies": {
 		"@acab/reset.css": "0.10.0",
