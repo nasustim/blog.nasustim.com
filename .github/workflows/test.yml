@@ -18,6 +18,17 @@ jobs:
       - run: npm ci
       - run: npm run lint:ci
       - run: npm run build
+  document-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .tool-versions
+          cache: npm
+      - run: npm ci
+      - run: npm run textlint:ci
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
