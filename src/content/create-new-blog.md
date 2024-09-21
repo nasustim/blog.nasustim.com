@@ -19,8 +19,8 @@ https://github.com/nasustim/blog.nasustim.com
 
 ## Hugo のセットアップ
 
-Hugo は Homebrew などのパッケージ管理ツールでもインストールできるが、自分は普段使いの macOS の他に windows(WSL)を利用することもあるので、プラットフォーム間での執筆環境の可搬性を確保するために Docker で利用することにした。  
-[Renovate を導入する](#renovate-を導入する)でも説明するが、ベースイメージを Dockerfile の`FROM`句で指定しておくことで、Renovate でのバージョン管理対象となる。
+HugoはHomebrewなどのパッケージ管理ツールでもインストールできるが、自分は普段使いのmacOSの他にwindows(WSL)を利用することもあるので、プラットフォーム間での執筆環境の可搬性を確保するためにDockerで利用することにした。  
+[Renovate を導入する](#renovate-を導入する)でも説明するが、ベースイメージをDockerfileの`FROM`句で指定しておくことで、Renovateでのバージョン管理対象となる。
 
 <code>
 # Dockerfile
@@ -38,7 +38,7 @@ WORKDIR /work
 IMAGE_NAME="blog"
 
 image_builded=$(docker image ls | grep "$IMAGE_NAME")
-if [ -z "$image_builded" ]; then
+if[-z "$image_builded"]; then
 echo "image building..."
 docker build -t "$IMAGE_NAME" .
 fi
@@ -67,7 +67,7 @@ title = "nasustim's weblog"
 
 ### テーマをインストールする
 
-Hugo のデザインテーマは`themes/`直下にテーマのリポジトリをダウンロードすることでインストールできる。
+Hugoのデザインテーマは`themes/`直下にテーマのリポジトリをダウンロードすることでインストールできる。
 https://themes.gohugo.io に主要なテーマが一覧されている。[paper](https://themes.gohugo.io/themes/hugo-paper/)のシンプルなスタイルに惹かれたのでこれをインストールする。
 
 <code>
@@ -87,8 +87,8 @@ $ echo "contentDir = \"articles/\"" >> config.toml
 
 ### デプロイスクリプトの作成
 
-[Host on GitHub | Hugo](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action) に GitHub Actions で使えるデプロイスクリプトがあるのでこれを利用する。
-上記ページのコードスニペットを`.github/workflows/`以下に YAML ファイルとして保存してセットアップ完了。`main`ブランチにコードが push されるとビルドが実行され、その出力結果が`gh-pages`ブランチに commit される。
+[Host on GitHub | Hugo](https://gohugo.io/hosting-and-deployment/hosting-on-github/#build-hugo-with-github-action) にGitHub Actionsで使えるデプロイスクリプトがあるのでこれを利用する。
+上記ページのコードスニペットを`.github/workflows/`以下にYAMLファイルとして保存してセットアップ完了。`main`ブランチにコードがpushされるとビルドが実行され、その出力結果が`gh-pages`ブランチにcommitされる。
 上記デプロイスクリプトは `main`ブランチ以外ではビルドのみ実行されるため、記事のテストとしても活用できる。
 
 ### Renovate を導入する
@@ -96,9 +96,9 @@ $ echo "contentDir = \"articles/\"" >> config.toml
 https://github.com/apps/renovate より。
 このリポジトリの依存パッケージのアップデートを自動で管理してくれる。
 
-[Hugo のセットアップ](#hugo-のセットアップ)にて Hugo のベースイメージを Dockerfile の`FROM`句で指定することでこちらも管理対象となる。
+[Hugo のセットアップ](#hugo-のセットアップ)にてHugoのベースイメージをDockerfileの`FROM`句で指定することでこちらも管理対象となる。
 
-また、submodule でインストールした Hugo テーマも`renovate.json`に以下の設定を追加するとバージョン管理の対象となる。
+また、submoduleでインストールしたHugoテーマも`renovate.json`に以下の設定を追加するとバージョン管理の対象となる。
 https://docs.renovatebot.com/modules/manager/git-submodules/
 
 `renovate.json`
