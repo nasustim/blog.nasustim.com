@@ -25,7 +25,7 @@ FROM klakegg/hugo:0.107.0-alpine
 <p>#!/bin/bash</p>
 <p>IMAGE_NAME=&quot;blog&quot;</p>
 <p>image_builded=$(docker image ls | grep &quot;$IMAGE_NAME&quot;)
-if [ -z &quot;$image_builded&quot; ]; then
+if[-z &quot;$image_builded&quot;]; then
 echo &quot;image building...&quot;
 docker build -t &quot;$IMAGE_NAME&quot; .
 fi</p>

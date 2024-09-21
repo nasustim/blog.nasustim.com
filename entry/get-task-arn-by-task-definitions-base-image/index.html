@@ -20,8 +20,8 @@ for task in $tasks; do \
 task_arns=$(aws ecs list-tasks --cluster &lt;クラスタ名&gt; | jq -c -r &#x27;.taskArns[]&#x27;)
 # 実行中のtask arnの一覧を取得
 <p>for task in $tasks; do <br/>
-image_name=$( aws ecs describe-tasks --cluster &lt;クラスタ名&gt; --tasks $task | jq -c -r &#x27;.tasks[0].containers[0].image&#x27; ) # タスク 1 つ, コンテナ 1 つの場合</p>
-<p>if [[&quot;$image&quot; =~ ^&quot;my-target-image:latest&quot;$]]; then
+image_name=$( aws ecs describe-tasks --cluster &lt;クラスタ名&gt; --tasks $task | jq -c -r &#x27;.tasks[0].containers[0].image&#x27; ) # タスク1つ, コンテナ1つの場合</p>
+<p>if[[&quot;$image&quot; =~ ^&quot;my-target-image:latest&quot;$]]; then
 echo $task # my-target-image:latest をベースイメージにしたタスク
 fi
 done</p>
