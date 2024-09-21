@@ -1,5 +1,7 @@
 # blog.nasustim.com
 
+https://blog.nasustim.com
+
 ## Setup
 
 Developing this project requires [asdf](https://asdf-vm.com/)
