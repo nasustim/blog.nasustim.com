@@ -1,4 +1,3 @@
-import { linkStyle } from "@/components/atoms/link/index.css";
 import { vars } from "@/style.css";
 import { style, globalStyle } from "@vanilla-extract/css";
 
@@ -51,10 +50,11 @@ for (const selector of [`${articleRoot} ul code`, `${articleRoot} p code`]) {
     padding: "1px 4px",
     margin: "0 4px",
     backgroundColor: "#efefef",
+    fontFamily: "monospace",
   });
 }
 // code blocks
-globalStyle(`${articleRoot} > code`, {
+globalStyle(`${articleRoot} > code, ${articleRoot} > pre code`, {
   display: "block",
   width: "100%",
   overflowX: "scroll",
