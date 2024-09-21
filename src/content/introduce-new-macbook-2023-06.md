@@ -29,7 +29,7 @@ https://brew.sh/index_ja
 
 参考: https://qiita.com/pupupupupu/items/e071ab2b6e59a9be7603
 
-ed25519 で作成することにした。
+ed25519で作成することにした。
 
 <code>
 $ ssh-keygen -t ed25519 -C mitsu@boston
