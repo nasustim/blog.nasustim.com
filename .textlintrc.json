@@ -1,5 +1,12 @@
 {
-  "plugins": {},
+  "plugins": [
+    "html"
+  ],
   "filters": {},
-  "rules": {}
+  "rules": {
+    "common-misspellings": {
+      "ignore": []
+    },
+    "preset-ja-spacing": true
+  }
 }
