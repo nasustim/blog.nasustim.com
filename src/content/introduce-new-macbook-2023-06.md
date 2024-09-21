@@ -5,11 +5,11 @@ date: 2023-06-23T15:08:50Z
 draft: false
 ---
 
-私物のMacbookを新調した。
+私物の Macbook を新調した。
 
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">my new gear... <a href="https://t.co/GV1dBZnQVU">pic.twitter.com/GV1dBZnQVU</a></p>&mdash; おみつ (@nasustim) <a href="https://twitter.com/nasustim/status/1672139641791852544?ref_src=twsrc%5Etfw">June 23, 2023</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-ルーチンワークと化しているPCのセットアップを毎回思い出しながらやっていることに気づいたので、備忘録がてらやったことを残しておく。
+ルーチンワークと化している PC のセットアップを毎回思い出しながらやっていることに気づいたので、備忘録がてらやったことを残しておく。
 
 ## 1. Homebrew の導入
 
@@ -21,11 +21,11 @@ $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/
 
 https://brew.sh/index_ja
 
-上記URL通りにコマンドを実行する。このタイミングでXcodeのコマンドラインツールのインストールも実施してくれて、終わればgitも使えるので便利。
+上記 URL 通りにコマンドを実行する。このタイミングで Xcode のコマンドラインツールのインストールも実施してくれて、終われば git も使えるので便利。
 
 ## 2. SSH キーペアの作成
 
-リモートリポジトリ（主にGitHub）とやりとりするために必要。
+リモートリポジトリ（主に GitHub）とやりとりするために必要。
 
 参考: https://qiita.com/pupupupupu/items/e071ab2b6e59a9be7603
 
@@ -35,7 +35,7 @@ ed25519で作成することにした。
 $ ssh-keygen -t ed25519 -C mitsu@boston
 $ cat ~/.ssh/id_ed25519.pub | pbcopy
 
-#=> 公開鍵をgithub.comの個人設定ページから追加する
+#=> 公開鍵を github.com の個人設定ページから追加する
 
 </code>
 
@@ -43,7 +43,7 @@ $ cat ~/.ssh/id_ed25519.pub | pbcopy
 
 ## 3. dotfile 展開
 
-自分のdotfileをGitHubに置いている。`make`だけで展開できてお手軽だったので我ながらGJである。
+自分の dotfile を GitHub に置いている。`make`だけで展開できてお手軽だったので我ながら GJ である。
 
 https://github.com/nasustim/dotfiles
 
@@ -51,20 +51,20 @@ https://github.com/nasustim/dotfiles
 
 - Google Chrome
   - https://formulae.brew.sh/cask/google-chrome
-  - 言わずもがな、使い慣れたwebブラウザ
+  - 言わずもがな、使い慣れた web ブラウザ
 - ghq
   - https://github.com/x-motemen/ghq#macos
-  - はてなのmotemenさん謹製リポジトリ管理ツール
-  - gitのローカルリポジトリが自ずと`~/ghq`配下に集約されることが便利で利用している
+  - はてなの motemen さん謹製リポジトリ管理ツール
+  - git のローカルリポジトリが自ずと`~/ghq`配下に集約されることが便利で利用している
 - VSCode
   - https://formulae.brew.sh/cask/visual-studio-code
   - メインウエポン
 - 1password
-  - 1passwordなしでは生きられない身体になっている
+  - 1password なしでは生きられない身体になっている
   - https://my.1password.com/signin
 
 # まとめ
 
 ここまでインストールすれば他の必要なツールはすぐにインストール可能になったはず。
 
-Brewfileで管理するとか、anyenv入れておくかどうかとか、やると便利だろうけどインストールに時間もかかるだろうし、そもそもストレージを圧迫するサイズだから自分の端末全てに一律で入れたいか......？と考えると微妙だからまだやっていない。
+Brewfile で管理するとか、anyenv 入れておくかどうかとか、やると便利だろうけどインストールに時間もかかるだろうし、そもそもストレージを圧迫するサイズだから自分の端末全てに一律で入れたいか......？と考えると微妙だからまだやっていない。

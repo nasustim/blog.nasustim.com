@@ -17,7 +17,7 @@ for task in $tasks; do \
   image_name=$( aws ecs describe-tasks --cluster <クラスタ名> --tasks $task | jq -c -r '.tasks[0].containers[0].image' ) # タスク1つ, コンテナ1つの場合
 
 if[["$image" =~ ^"my-target-image:latest"$]]; then
-echo $task # my-target-image:latestをベースイメージにしたタスク
+echo $task # my-target-image:latest をベースイメージにしたタスク
 fi
 done
 
