@@ -9,7 +9,7 @@ tags:
   - 自分用メモ
 ---
 
-<code>
+```bash
 task_arns=$(aws ecs list-tasks --cluster <クラスタ名> | jq -c -r '.taskArns[]')
 # 実行中のtask arnの一覧を取得
 
@@ -20,8 +20,7 @@ if[["$image" =~ ^"my-target-image:latest"$]]; then
 echo $task # my-target-image:latest をベースイメージにしたタスク
 fi
 done
-
-</code>
+```
 
 special thanks: ChatGPT
 

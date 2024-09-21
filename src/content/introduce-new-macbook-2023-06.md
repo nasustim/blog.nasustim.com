@@ -3,6 +3,8 @@ slug: introduce-new-macbook-2023-06
 title: "Macbook Air セットアップ記録 - 2023年6月"
 date: 2023-06-23T15:08:50Z
 draft: false
+tags:
+  - macos
 ---
 
 Macbook を新調した。
