@@ -48,7 +48,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.2",
     "@types/node": "22.6.1",
-    "@types/react": "18.3.8",
+    "@types/react": "18.3.9",
     "@types/react-dom": "18.3.0",
     "textlint": "14.2.0",
     "textlint-plugin-html": "1.0.1",
