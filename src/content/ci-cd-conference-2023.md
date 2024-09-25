@@ -2,7 +2,7 @@
 slug: ci-cd-conference-2023
 title: "CI/CD Conference 2023に参加した"
 date: 2023-03-27T11:21:24Z
-draft: false
+draft: true
 tags:
   - CI/CD
   - プログラミング
