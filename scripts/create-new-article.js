@@ -18,9 +18,7 @@ async function main() {
   const content = boilerplate
     .split(RETURN_CHAR)
     .map((line) => {
-      return line
-        .replace(/^date:/, `date: ${currentDatetime}`) // assign current dt string to `date`
-        .replace(/^draft:/, "draft: true"); // set draft=true as initial value
+      return line.replace(/^date:/, `date: ${currentDatetime}`); // assign current dt string to `date`
     })
     .join(RETURN_CHAR);
 
