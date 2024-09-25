@@ -7,11 +7,9 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({
   data,
   location,
 }) => {
-  const list = data.allMarkdownRemark.edges.flatMap((v) => {
+  const list = data.allMarkdownRemark.edges.map((v) => {
     const frontmatter = v?.node?.frontmatter;
     const html = v?.node?.html;
-
-    if (frontmatter?.draft !== false) return []; // FIXME: should be filtered by GraphQL query
 
     return {
       title: frontmatter?.title ?? "",
@@ -34,6 +32,7 @@ export const pageQuery = graphql`
   query IndexPage {
     allMarkdownRemark(
       sort: { order: DESC, fields: frontmatter___date }
+      filter: { frontmatter: { draft: { eq: false } } }
     ) {
       edges {
         node {
