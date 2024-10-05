@@ -10,7 +10,9 @@ export const SITE_ORIGIN = `${SITE_SCHEMA}://${SITE_DOMAIN}`;
 /**
  * Google Tag Manager
  */
-export const GTAG_TRACKING_ID = isProd ? "G-3YY246MS11" : "";
+export const GTAG_TRACKING_ID = isProd
+  ? "G-3YY246MS11"
+  : "XXX-XXXXXXX-X" /* dummy tracking id */;
 
 /**
  * Contents
