@@ -36,6 +36,8 @@ export const CommonHead: FC<Props> = ({
 
   return (
     <>
+      <html lang="ja" />
+
       <title>{_title}</title>
       <meta name="description" content={_description} />
       <link rel="canonical" href={_siteUrl} />
