@@ -25,7 +25,11 @@ export const Header: FC<Props> = ({ isTopPage }) => (
     </div>
     <div className={linkListStyle}>
       <Link to={new URL("/nasustim", "https://github.com")}>
-        <FontAwesomeIcon icon={faGithub} className={linkIconStyle} />
+        <FontAwesomeIcon
+          icon={faGithub}
+          className={linkIconStyle}
+          title="nasustim's github account page"
+        />
       </Link>
     </div>
   </header>
