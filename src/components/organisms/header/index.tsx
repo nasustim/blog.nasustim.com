@@ -9,8 +9,8 @@ import {
 } from "./index.css";
 import { SITE_ORIGIN, SUB_TITLE, TITLE } from "@/config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import type { FC } from "react";
+import { faSwatchbook } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   isTopPage?: boolean;
@@ -24,11 +24,11 @@ export const Header: FC<Props> = ({ isTopPage }) => (
       </Link>
     </div>
     <div className={linkListStyle}>
-      <Link to={new URL("/nasustim", "https://github.com")}>
+      <Link to={new URL("/", "https://nasustim.com")}>
         <FontAwesomeIcon
-          icon={faGithub}
+          icon={faSwatchbook}
           className={linkIconStyle}
-          title="nasustim's github account page"
+          title="my portal web page"
         />
       </Link>
     </div>
