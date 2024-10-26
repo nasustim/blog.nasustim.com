@@ -29,6 +29,6 @@ $ npm run
 Format code style
 
 ```bash
-$ npm run lint:format
-$ npm run textlint:format
+$ npm run biome:fix
+$ npm run textlint:fix
 ```

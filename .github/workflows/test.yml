@@ -18,7 +18,7 @@ jobs:
           node-version-file: .tool-versions
           cache: npm
       - run: npm ci
-      - run: npm run lint:ci
+      - run: npm run biome:ci
       - run: npm run build
   document-test:
     runs-on: ubuntu-latest
