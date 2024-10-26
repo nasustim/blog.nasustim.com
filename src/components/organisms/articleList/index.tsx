@@ -3,6 +3,7 @@ import { SITE_ORIGIN } from "@/config";
 import { Fragment, useMemo, type FC } from "react";
 import { h2Style, listItemStyle, pagerStyle, pStyle } from "./index.css";
 import { toPlainText } from "@/utils/markdownUtils";
+import { getIndexPagePath } from "@/utils/paginationUtils";
 
 type ListItem = {
   date: string;
@@ -33,7 +34,7 @@ export const ArticleList: FC<Props> = ({
       </ul>
       <div className={pagerStyle}>
         {Array.from({ length: pagesCount }).map((_, i) => {
-          const to = new URL(i === 0 ? "/" : `/page/${i + 1}`, SITE_ORIGIN);
+          const to = new URL(getIndexPagePath(i), SITE_ORIGIN);
 
           if (i === currentPageIndex) {
             return <div>{i + 1}</div>;
