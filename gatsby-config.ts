@@ -56,21 +56,22 @@ const config: GatsbyConfig = {
         extensions: [],
       },
     },
-    {resolve: 'gatsby-plugin-feed',
+    {
+      resolve: "gatsby-plugin-feed",
       options: {
         feeds: [
           {
             serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map(node => {
-                const url = `${site.siteMetadata.siteUrl}/entry/${node.frontmatter.slug}`
+              return allMarkdownRemark.nodes.map((node) => {
+                const url = `${site.siteMetadata.siteUrl}/entry/${node.frontmatter.slug}`;
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
                   url,
                   guid: url,
                   custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
+                });
+              });
             },
             query: `
               query RssFeedQuery {
@@ -92,10 +93,9 @@ const config: GatsbyConfig = {
             `,
             output: "/rss.xml",
             title: "RSS Feed of blog.nasustim.com",
-          }
-        ]
-      }
-
+          },
+        ],
+      },
     },
   ],
   jsxRuntime: "automatic",

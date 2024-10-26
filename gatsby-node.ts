@@ -1,13 +1,17 @@
-import path from "node:path"
-import type { GatsbyNode } from "gatsby"
-import { ARTICLE_LIST_PAGE_LIMIT } from './src/config'
+import path from "node:path";
+import type { GatsbyNode } from "gatsby";
+import { ARTICLE_LIST_PAGE_LIMIT } from "./src/config";
 import { getIndexPagePath } from "./src/utils/paginationUtils";
 
-export const onPostBuild: GatsbyNode['onPostBuild'] = ({ reporter }) => {
-  reporter.info('Build has finished! 🙌')
-}
+export const onPostBuild: GatsbyNode["onPostBuild"] = ({ reporter }) => {
+  reporter.info("Build has finished! 🙌");
+};
 
-export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
+export const createPages: GatsbyNode["createPages"] = async ({
+  graphql,
+  actions,
+  reporter,
+}) => {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -61,4 +65,3 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions,
     });
   }
 };
-
