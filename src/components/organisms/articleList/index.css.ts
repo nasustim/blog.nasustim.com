@@ -11,3 +11,11 @@ export const pStyle = style({
   fontSize: "14px",
   fontWeight: "400",
 });
+
+export const pagerStyle = style({
+  marginTop: "24px",
+  display: "flex",
+  flexDirection: "row",
+  justifyContent: "center",
+  gap: "8px",
+});

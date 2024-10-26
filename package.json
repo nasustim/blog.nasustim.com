@@ -5,15 +5,14 @@
   "description": "blog.nasustim.com",
   "author": "nasustim",
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
+    "dev": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "lint:ci": "biome ci ./src",
-    "lint:format": "biome check --write",
+    "biome:ci": "biome ci ./src",
+    "biome:fix": "biome check --write --unsafe",
     "textlint:ci": "textlint \"src/content/**\"",
-    "textlint:format": "textlint \"src/content/**\" --fix",
+    "textlint:fix": "textlint \"src/content/**\" --fix",
     "new": "node scripts/create-new-article.js"
   },
   "dependencies": {

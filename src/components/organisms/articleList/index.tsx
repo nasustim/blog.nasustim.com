@@ -1,7 +1,7 @@
 import { Link } from "@/components/atoms/link";
 import { SITE_ORIGIN } from "@/config";
 import { Fragment, useMemo, type FC } from "react";
-import { h2Style, listItemStyle, pStyle } from "./index.css";
+import { h2Style, listItemStyle, pagerStyle, pStyle } from "./index.css";
 import { toPlainText } from "@/utils/markdownUtils";
 
 type ListItem = {
@@ -13,9 +13,15 @@ type ListItem = {
 
 type Props = {
   list: Array<ListItem>;
+  pagesCount: number;
+  currentPageIndex: number;
 };
 
-export const ArticleList: FC<Props> = ({ list }) => {
+export const ArticleList: FC<Props> = ({
+  list,
+  pagesCount,
+  currentPageIndex,
+}) => {
   return (
     <div>
       <ul>
@@ -25,6 +31,20 @@ export const ArticleList: FC<Props> = ({ list }) => {
           </Fragment>
         ))}
       </ul>
+      <div className={pagerStyle}>
+        {Array.from({ length: pagesCount }).map((_, i) => {
+          const to = new URL(i === 0 ? "/" : `/page/${i + 1}`, SITE_ORIGIN);
+
+          if (i === currentPageIndex) {
+            return <div>{i + 1}</div>;
+          }
+          return (
+            <Link key={`pager-${to.toString()}`} to={to}>
+              {i + 1}
+            </Link>
+          );
+        })}
+      </div>
     </div>
   );
 };

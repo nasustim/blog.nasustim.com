@@ -30,8 +30,8 @@ const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({
 
 export default EntryPage;
 
-export const pageQuery = graphql`
-  query EntryPage ($id: String!) {
+export const query = graphql`
+  query EntryPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       rawMarkdownBody
       frontmatter {
