@@ -7,12 +7,12 @@ const config: GatsbyConfig = {
     siteUrl: SITE_ORIGIN,
     description: "a weblog by @nasustim (Mitsuhiro Hibino)",
     twitterUsername: "@nasustim",
-    image: "static/icon.png",
+    image: "static/favicon.png",
   },
   graphqlTypegen: {
     typesOutputPath: "./src/types/gatsby-types.d.ts",
     generateOnBuild: true,
-    documentSearchPaths: ["./gatsby-node.ts", "./plugins/**/gatsby-node.ts"],
+    documentSearchPaths: ["./plugins/**/gatsby-node.ts"],
   },
   plugins: [
     "gatsby-plugin-vanilla-extract",
@@ -32,7 +32,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "static/icon.png",
+        icon: "static/favicon.png",
       },
     },
     "gatsby-plugin-mdx",

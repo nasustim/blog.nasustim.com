@@ -1,9 +1,12 @@
-const path = require("node:path");
-const { createFilePath } = require("gatsby-source-filesystem");
+import path from "node:path"
+import { createFilePath } from "gatsby-source-filesystem"
+import { ARTICLE_LIST_PAGE_LIMIT } from './src/config'
 
-const ARTICLE_LIST_PAGE_LIMIT = 5;
+export const onPostBuild = ({ reporter }) => {
+  reporter.info('Build has finished! 🙌')
+}
 
-exports.createPages = async ({ graphql, actions, reporter }) => {
+export const createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   const result = await graphql(`
@@ -58,14 +61,3 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === "MarkdownRemark") {
-    const value = createFilePath({ node, getNode });
-    createNodeField({
-      name: "slug",
-      node,
-      value,
-    });
-  }
-};
