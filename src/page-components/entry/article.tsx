@@ -4,7 +4,7 @@ import { Template } from "@/components/templates";
 import { toPlainText } from "@/utils/markdownUtils";
 import { type HeadFC, type PageProps, graphql } from "gatsby";
 
-const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({
+const EntryPage: React.FC<PageProps<Queries.EntryPageQueryQuery>> = ({
   data,
   location,
 }) => {
@@ -31,7 +31,7 @@ const EntryPage: React.FC<PageProps<Queries.EntryPageQuery>> = ({
 export default EntryPage;
 
 export const query = graphql`
-  query EntryPage($id: String!) {
+  query EntryPageQuery ($id: String!) {
     markdownRemark(id: { eq: $id }) {
       rawMarkdownBody
       frontmatter {
@@ -51,7 +51,7 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<Queries.EntryPageQuery> = ({ data }) => {
+export const Head: HeadFC<Queries.EntryPageQueryQuery> = ({ data }) => {
   const articleTitle = data?.markdownRemark?.frontmatter?.title ?? "";
   const siteTitle = data?.site?.siteMetadata?.title ?? "";
 

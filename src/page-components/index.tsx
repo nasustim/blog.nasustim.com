@@ -3,7 +3,7 @@ import { Template } from "@/components/templates/";
 import { ArticleList } from "@/components/organisms/articleList";
 import { CommonHead } from "@/components/organisms/meta/common-head";
 
-const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({
+const IndexPage: React.FC<PageProps<Queries.IndexPageQueryQuery>> = ({
   data,
   location,
   pageContext,
@@ -34,7 +34,7 @@ const IndexPage: React.FC<PageProps<Queries.IndexPageQuery>> = ({
 };
 
 export const query = graphql`
-  query IndexPage($skip: Int!, $limit: Int!) {
+  query IndexPageQuery ($skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: {frontmatter: {date: DESC}}
       filter: { frontmatter: { draft: { eq: false } } }

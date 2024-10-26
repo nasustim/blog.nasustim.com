@@ -1,16 +1,17 @@
 import path from "node:path"
-import { createFilePath } from "gatsby-source-filesystem"
+import type { GatsbyNode } from "gatsby"
 import { ARTICLE_LIST_PAGE_LIMIT } from './src/config'
+import { getIndexPagePath } from "./src/utils/paginationUtils";
 
-export const onPostBuild = ({ reporter }) => {
+export const onPostBuild: GatsbyNode['onPostBuild'] = ({ reporter }) => {
   reporter.info('Build has finished! 🙌')
 }
 
-export const createPages = async ({ graphql, actions, reporter }) => {
+export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
 
   const result = await graphql(`
-      {
+      query CreatePagesQuery {
         allMarkdownRemark(
           sort: {frontmatter: {date: DESC}}
           filter: { frontmatter: { draft: { eq: false } } }
@@ -38,11 +39,11 @@ export const createPages = async ({ graphql, actions, reporter }) => {
   Array.from({ length: pagesCount }).forEach((_, i) => {
     const currentPageIndex = i;
     createPage({
-      path: i === 0 ? "/" : `/page/${currentPageIndex + 1}`,
+      path: getIndexPagePath(currentPageIndex),
       component: path.resolve("./src/page-components/index.tsx"),
       context: {
         limit: ARTICLE_LIST_PAGE_LIMIT,
-        skip: i * ARTICLE_LIST_PAGE_LIMIT,
+        skip: currentPageIndex * ARTICLE_LIST_PAGE_LIMIT,
         pagesCount,
         currentPageIndex,
       },
