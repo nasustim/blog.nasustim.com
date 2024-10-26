@@ -1,7 +1,6 @@
-const path = require("node:path");
-const { createFilePath } = require("gatsby-source-filesystem");
-
-const ARTICLE_LIST_PAGE_LIMIT = 5;
+import path from "node:path"
+import { createFilePath } from "gatsby-source-filesystem"
+import { ARTICLE_LIST_PAGE_LIMIT } from './src/config'
 
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
