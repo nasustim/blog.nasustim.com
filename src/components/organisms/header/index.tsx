@@ -10,7 +10,7 @@ import {
 import { SITE_ORIGIN, SUB_TITLE, TITLE } from "@/config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { FC } from "react";
-import { faSwatchbook } from "@fortawesome/free-solid-svg-icons";
+import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   isTopPage?: boolean;
@@ -26,7 +26,7 @@ export const Header: FC<Props> = ({ isTopPage }) => (
     <div className={linkListStyle}>
       <Link to={new URL("/", "https://nasustim.com")}>
         <FontAwesomeIcon
-          icon={faSwatchbook}
+          icon={faAddressCard}
           className={linkIconStyle}
           title="my portal web page"
         />
