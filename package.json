@@ -50,7 +50,7 @@
     "@types/node": "22.13.17",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.5",
-    "textlint": "14.5.0",
+    "textlint": "14.6.0",
     "textlint-plugin-html": "1.0.1",
     "textlint-rule-common-misspellings": "1.0.1",
     "textlint-rule-preset-ja-spacing": "2.4.3",
