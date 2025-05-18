@@ -7,7 +7,7 @@ const config: GatsbyConfig = {
     siteUrl: SITE_ORIGIN,
     description: "a weblog by @nasustim (Mitsuhiro Hibino)",
     twitterUsername: "@nasustim",
-    image: "static/favicon.png",
+    image: "static/favicon-48x48.png",
   },
   graphqlTypegen: {
     typesOutputPath: "./src/types/gatsby-types.d.ts",
@@ -32,7 +32,7 @@ const config: GatsbyConfig = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "static/favicon.png",
+        icon: "static/favicon-48x48.png",
       },
     },
     "gatsby-plugin-mdx",
