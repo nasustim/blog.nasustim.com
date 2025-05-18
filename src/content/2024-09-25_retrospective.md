@@ -1,7 +1,7 @@
 ---
 slug: retrospective-2024-09
 title: "2024年9月の振り返り"
-date: 2024-09-25T15:55:29.555Z 
+date: 2024-09-25T15:55:29.55+09:00
 draft: false
 tags:
   - Diary

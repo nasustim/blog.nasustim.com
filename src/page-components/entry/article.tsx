@@ -3,6 +3,7 @@ import { CommonHead } from "@/components/organisms/meta/common-head";
 import { Template } from "@/components/templates";
 import { toPlainText } from "@/utils/markdownUtils";
 import { type HeadFC, type PageProps, graphql } from "gatsby";
+import { z } from "zod";
 
 const EntryPage: React.FC<PageProps<Queries.EntryPageQueryQuery>> = ({
   data,
@@ -51,21 +52,45 @@ export const query = graphql`
   }
 `;
 
-export const Head: HeadFC<Queries.EntryPageQueryQuery> = ({ data }) => {
-  const articleTitle = data?.markdownRemark?.frontmatter?.title ?? "";
-  const siteTitle = data?.site?.siteMetadata?.title ?? "";
+const frontmatterSchema = z.object({
+  date: z.string(),
+  slug: z.string(),
+  title: z.string(),
+  draft: z.boolean(),
+});
 
-  const slug = data?.markdownRemark?.frontmatter?.slug ?? "";
-  const siteUrl = data?.site?.siteMetadata?.siteUrl ?? "";
+const siteMetadataSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  siteUrl: z.string(),
+});
 
-  const description = toPlainText(
-    data?.markdownRemark?.rawMarkdownBody ?? "",
-  ).slice(0, 160);
+export const querySchema = z.object({
+  markdownRemark: z.object({
+    frontmatter: frontmatterSchema,
+    rawMarkdownBody: z.string(),
+  }),
+  site: z.object({
+    siteMetadata: siteMetadataSchema,
+  }),
+});
+
+export const Head: HeadFC<Queries.EntryPageQueryQuery> = (props) => {
+  const parseResult = querySchema.safeParse(props.data);
+  if (parseResult.error) {
+    throw new Error(parseResult.error.message);
+  }
+  const data = parseResult.data;
+
+  const description = toPlainText(data.markdownRemark.rawMarkdownBody).slice(
+    0,
+    160,
+  );
 
   return (
     <CommonHead
-      title={`${articleTitle} | ${siteTitle}`}
-      siteUrl={`${siteUrl}/entry/${slug}`}
+      title={`${data.markdownRemark.frontmatter.title} | ${data.site.siteMetadata.title}`}
+      siteUrl={`${data.site.siteMetadata.siteUrl}/entry/${data.markdownRemark.frontmatter.slug}`}
       description={description}
     />
   );
