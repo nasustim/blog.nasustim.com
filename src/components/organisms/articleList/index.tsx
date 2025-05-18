@@ -23,7 +23,7 @@ export const ArticleList: FC<Props> = ({
   pagesCount,
   currentPageIndex,
 }) => {
-  const needsPagination = pagesCount > 1
+  const needsPagination = pagesCount > 1;
 
   return (
     <div>
@@ -34,7 +34,9 @@ export const ArticleList: FC<Props> = ({
           </Fragment>
         ))}
       </ul>
-      {needsPagination ? <Pager currentPageIndex={currentPageIndex} pagesCount={pagesCount} /> : null}
+      {needsPagination ? (
+        <Pager currentPageIndex={currentPageIndex} pagesCount={pagesCount} />
+      ) : null}
     </div>
   );
 };
@@ -62,22 +64,21 @@ const Item: FC<ListItem> = (v) => {
 };
 
 const Pager: FC<{
-  pagesCount: number
-  currentPageIndex: number
-}> = ({
-  pagesCount,
-  currentPageIndex
-}) => <div className={pagerStyle}>
-      {Array.from({ length: pagesCount }).map((_, i) => {
-        const to = new URL(getIndexPagePath(i), SITE_ORIGIN);
+  pagesCount: number;
+  currentPageIndex: number;
+}> = ({ pagesCount, currentPageIndex }) => (
+  <div className={pagerStyle}>
+    {Array.from({ length: pagesCount }).map((_, i) => {
+      const to = new URL(getIndexPagePath(i), SITE_ORIGIN);
 
-        if (i === currentPageIndex) {
-          return <div>{i + 1}</div>;
-        }
-        return (
-          <Link key={`pager-${to.toString()}`} to={to}>
-            {i + 1}
-          </Link>
-        );
-      })}
-    </div>
+      if (i === currentPageIndex) {
+        return <div>{i + 1}</div>;
+      }
+      return (
+        <Link key={`pager-${to.toString()}`} to={to}>
+          {i + 1}
+        </Link>
+      );
+    })}
+  </div>
+);
