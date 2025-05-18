@@ -1,7 +1,32 @@
 import type { GatsbyConfig } from "gatsby";
 import { GTAG_TRACKING_ID, SITE_ORIGIN, TITLE } from "./src/config";
+import { z } from "zod";
+
+const rssFeedShema = z.object({
+  allMarkdownRemark: z.object({
+    nodes: z.array(
+      z.object({
+        excerpt: z.string(),
+        html: z.string(),
+        frontmatter: z.object({
+          slug: z.string(),
+          title: z.string(),
+          date: z.string(),
+        }),
+      }),
+    ),
+  }),
+  site: z.object({
+    siteMetadata: z.object({
+      siteUrl: z.string(),
+    }),
+  }),
+});
 
 const config: GatsbyConfig = {
+  flags: {
+    DEV_SSR: true,
+  },
   siteMetadata: {
     title: TITLE,
     siteUrl: SITE_ORIGIN,
@@ -61,9 +86,15 @@ const config: GatsbyConfig = {
       options: {
         feeds: [
           {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.nodes.map((node) => {
-                const url = `${site.siteMetadata.siteUrl}/entry/${node.frontmatter.slug}`;
+            serialize: (props: { query: object }) => {
+              const result = rssFeedShema.safeParse(props.query);
+              if (result.error) {
+                throw new Error(result.error.message);
+              }
+              const query = result.data;
+
+              return query.allMarkdownRemark.nodes.map((node) => {
+                const url = `${query.site.siteMetadata.siteUrl}/entry/${node.frontmatter.slug}`;
                 return Object.assign({}, node.frontmatter, {
                   description: node.excerpt,
                   date: node.frontmatter.date,
@@ -87,6 +118,11 @@ const config: GatsbyConfig = {
                       title
                       date
                     }
+                  }
+                }
+                site {
+                  siteMetadata {
+                    siteUrl
                   }
                 }
               }

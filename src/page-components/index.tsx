@@ -2,21 +2,35 @@ import { graphql, type HeadFC, type PageProps } from "gatsby";
 import { Template } from "@/components/templates/";
 import { ArticleList } from "@/components/organisms/articleList";
 import { CommonHead } from "@/components/organisms/meta/common-head";
+import { z } from "zod";
 
-const IndexPage: React.FC<PageProps<Queries.IndexPageQueryQuery>> = ({
-  data,
-  location,
-  pageContext,
-}) => {
+const frontmatterSchema = z.object({
+  date: z.string(),
+  slug: z.string(),
+  title: z.string(),
+  draft: z.boolean(),
+});
+
+const nodeSchema = z.object({
+  frontmatter: frontmatterSchema,
+  html: z.string(),
+});
+
+const IndexPage: React.FC<
+  PageProps<Queries.IndexPageQueryQuery, IndexPageContext>
+> = ({ data, location, pageContext }) => {
   const list = data.allMarkdownRemark.edges.map((v) => {
-    const frontmatter = v?.node?.frontmatter;
-    const html = v?.node?.html;
+    const result = nodeSchema.safeParse(v.node);
+    if (result.error) {
+      throw new Error(result.error.message);
+    }
+    const { html, frontmatter } = result.data;
 
     return {
-      title: frontmatter?.title ?? "",
-      date: frontmatter?.date ?? "",
-      slug: frontmatter?.slug ?? "",
-      body: html ?? "",
+      title: frontmatter.title,
+      date: frontmatter.date,
+      slug: frontmatter.slug,
+      body: html,
     };
   });
 
