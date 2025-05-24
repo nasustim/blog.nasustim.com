@@ -1,11 +1,13 @@
 import { vars } from "@/style.css";
 import { style, globalStyle } from "@vanilla-extract/css";
 
+const sectionMargin = "16px";
+
 export const css = style({
   width: "100%",
 });
 export const blockStyle = style({
-  margin: "16px 0",
+  margin: `${sectionMargin} 0`,
 });
 export const h2Style = style({
   fontSize: "24px",
@@ -79,4 +81,12 @@ globalStyle(`${articleRoot} > table > tbody tr:nth-child(2n)`, {
 });
 globalStyle(`${articleRoot} > table td, ${articleRoot} > table tr`, {
   padding: 10,
+});
+
+// footnotes
+globalStyle(`${articleRoot} .footnotes ol`, {
+  paddingLeft: sectionMargin,
+});
+globalStyle(`${articleRoot} .footnotes ol li`, {
+  listStyle: "auto",
 });
