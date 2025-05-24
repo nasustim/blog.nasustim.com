@@ -83,6 +83,17 @@ globalStyle(`${articleRoot} > table td, ${articleRoot} > table tr`, {
   padding: 10,
 });
 
+// references of footnotes
+globalStyle(`${articleRoot} sup > a`, {
+  fontWeight: "bold",
+});
+globalStyle(`${articleRoot} sup > a::before`, {
+  content: "["
+});
+globalStyle(`${articleRoot} sup > a::after`, {
+  content: "]",
+});
+
 // footnotes
 globalStyle(`${articleRoot} .footnotes ol`, {
   paddingLeft: sectionMargin,
