@@ -1,7 +1,7 @@
 import { Link } from "@/components/atoms/link";
 import { SITE_ORIGIN } from "@/config";
 import { Fragment, useMemo, type FC } from "react";
-import { h2Style, listItemStyle, pagerStyle, pStyle } from "./index.css";
+import { h2Style, listItemStyle, pagerStyle, pStyle, linkContentStyle } from "./index.css";
 import { toPlainText } from "@/utils/markdownUtils";
 import { getIndexPagePath } from "@/utils/paginationUtils";
 
@@ -54,9 +54,11 @@ const Item: FC<ListItem> = (v) => {
     <Fragment>
       <li className={listItemStyle}>
         <Link to={new URL(`/entry/${v.slug}`, SITE_ORIGIN)} noStyle>
-          <small>{v.date}</small>
-          <h2 className={h2Style}>{v.title}</h2>
-          <p className={pStyle}>{bodyText}</p>
+          <div className={linkContentStyle}>
+            <small>{v.date}</small>
+            <h2 className={h2Style}>{v.title}</h2>
+            <p className={pStyle}>{bodyText}</p>
+          </div>
         </Link>
       </li>
     </Fragment>
