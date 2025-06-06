@@ -38,7 +38,7 @@ WORKDIR /work
 IMAGE_NAME="blog"
 
 image_builded=$(docker image ls | grep "$IMAGE_NAME")
-if[-z "$image_builded"]; then
+if [ -z "$image_builded" ]; then
 echo "image building..."
 docker build -t "$IMAGE_NAME" .
 fi

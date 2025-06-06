@@ -13,10 +13,10 @@ tags:
 task_arns=$(aws ecs list-tasks --cluster <クラスタ名> | jq -c -r '.taskArns[]')
 # 実行中のtask arnの一覧を取得
 
-for task in $tasks; do \
+for task in $task_arns; do \
   image_name=$( aws ecs describe-tasks --cluster <クラスタ名> --tasks $task | jq -c -r '.tasks[0].containers[0].image' ) # タスク1つ, コンテナ1つの場合
 
-if[["$image" =~ ^"my-target-image:latest"$]]; then
+if [[ "$image_name" =~ ^"my-target-image:latest"$ ]]; then
 echo $task # my-target-image:latest をベースイメージにしたタスク
 fi
 done
