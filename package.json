@@ -13,7 +13,7 @@
     "biome:fix": "biome check --write --unsafe",
     "textlint:ci": "textlint \"src/content/**\"",
     "textlint:fix": "textlint \"src/content/**\" --fix",
-    "new": "npm run ts scripts/create-new-article.ts",
+    "new": "npm run ts -- scripts/create-new-article.ts",
     "ts": "node --experimental-strip-types --experimental-transform-types --experimental-detect-module --no-warnings=ExperimentalWarning"
   },
   "dependencies": {
