@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="ja"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.14.4"/><meta name="description" content="
+IT 業界では常に話題の中心に LLM がいる2025年。僕も職場では LLM ツール[^1]にどっぷり浸かる毎日を過ごしています。しかし高性能なモデルや API 経由での利用をしたい場合は追加課金が発生する多いです。
+
+そんな時、「自身のローカルマシンで LLM をホストすれば無料でできることが増えるかも」と考えま" data-gatsby-head="true"/><meta property="og:title" content="macOS に Ollama を導入して VSCode と連携させるまで | NASUSTIM" data-gatsby-head="true"/><meta property="og:description" content="
+IT 業界では常に話題の中心に LLM がいる2025年。僕も職場では LLM ツール[^1]にどっぷり浸かる毎日を過ごしています。しかし高性能なモデルや API 経由での利用をしたい場合は追加課金が発生する多いです。
+
+そんな時、「自身のローカルマシンで LLM をホストすれば無料でできることが増えるかも」と考えま" data-gatsby-head="true"/><meta property="og:image" content="static/favicon-48x48.png" data-gatsby-head="true"/><meta property="og:url" content="https://blog.nasustim.com/entry/introduce-ollama-into-macos" data-gatsby-head="true"/><meta property="og:type" content="article" data-gatsby-head="true"/><meta property="twitter:card" content="summary" data-gatsby-head="true"/><meta property="twitter:url" content="https://blog.nasustim.com/entry/introduce-ollama-into-macos" data-gatsby-head="true"/><meta property="twitter:title" content="macOS に Ollama を導入して VSCode と連携させるまで | NASUSTIM" data-gatsby-head="true"/><meta property="twitter:image" content="static/favicon-48x48.png" data-gatsby-head="true"/><meta property="twitter:description" content="
+IT 業界では常に話題の中心に LLM がいる2025年。僕も職場では LLM ツール[^1]にどっぷり浸かる毎日を過ごしています。しかし高性能なモデルや API 経由での利用をしたい場合は追加課金が発生する多いです。
+
+そんな時、「自身のローカルマシンで LLM をホストすれば無料でできることが増えるかも」と考えま" data-gatsby-head="true"/><meta property="twitter:creator" content="@nasustim" data-gatsby-head="true"/><style data-href="/styles.fa97cc7f95d0cbfa8acd.css" data-identity="gatsby-global-css">.uxe4kj0{--uxe4kj1:#494757;--uxe4kj2:#d94b95;--uxe4kj3:#dddddc}._2danq60{width:100%}._2danq61{margin:16px 0}._2danq62{font-size:24px;font-weight:400}._2danq63>*{margin-top:24px}._2danq63 p img{max-width:100%}._2danq63 h1{font-size:28px;font-weight:450}._2danq63 h2{font-size:25px;font-weight:400}._2danq63 h3{font-size:22px;font-weight:350}._2danq63 h4{font-size:19px;font-weight:300}._2danq63 h5{font-size:16px;font-weight:250}._2danq63 ul{list-style-type:disc;margin-left:24px}._2danq63 a{color:var(--uxe4kj1)}._2danq63 a:hover{color:var(--uxe4kj2)}._2danq63 p code,._2danq63 ul code{margin:0 4px;padding:1px 4px}._2danq63 p code,._2danq63 ul code,._2danq63>code,._2danq63>pre code{background-color:#efefef;border:1px solid #b6b6b6;border-radius:4px;font-family:monospace}._2danq63>code,._2danq63>pre code{display:block;overflow-wrap:normal;overflow-x:scroll;padding:4px 12px;width:100%}._2danq63>table{border-collapse:collapse;overflow-x:scroll}._2danq63>table>thead{background-color:#b6b6b6}._2danq63>table>tbody tr:nth-child(2n){background-color:#efefef}._2danq63>table td,._2danq63>table tr{padding:10px}._2danq63 sup>a{font-weight:700}._2danq63 sup>a:before{content:"["}._2danq63 sup>a:after{content:"]"}._2danq63 .footnotes ol{padding-left:16px}._2danq63 .footnotes ol li{list-style:auto}*,:after,:before{box-sizing:border-box;margin:0;padding:0}:where([hidden]:not([hidden=until-found])){display:none!important}:where(html){-webkit-text-size-adjust:none;interpolate-size:allow-keywords;color-scheme:dark light;line-height:1.5;scrollbar-gutter:stable;tab-size:2}:where(html:has(dialog:modal[open])){overflow:clip}@media (prefers-reduced-motion:no-preference){:where(html:focus-within){scroll-behavior:smooth}}:where(body){-webkit-font-smoothing:antialiased;font-family:system-ui,sans-serif;line-height:inherit}:where(button){all:unset}:where(input,button,textarea,select){font-feature-settings:inherit;color:inherit;font:inherit;font-variation-settings:inherit;letter-spacing:inherit;word-spacing:inherit}:where(textarea){resize:vertical;resize:block}:where(button,label,select,summary,[role=button],[role=option]){cursor:pointer}:where(:disabled,label:has(>:disabled,+disabled)){cursor:not-allowed}:where(a){color:inherit;text-underline-offset:.2ex}:where(ul,ol){list-style:none}:where(img,svg,video,canvas,audio,iframe,embed,object){display:block}:where(img,picture,svg,video){block-size:auto;max-inline-size:100%}:where(p,h1,h2,h3,h4,h5,h6){overflow-wrap:break-word}:where(h1,h2,h3){text-wrap:balance;line-height:calc(1em + .5rem)}:where(hr){block-size:0;border:none;border-block-start:1px solid;color:inherit;overflow:visible}:where(dialog,[popover]){background:none;border:none;color:inherit;inset:unset;max-height:unset;max-width:unset;overflow:unset}:where(dialog:not([open],[popover]),[popover]:not(:popover-open)){display:none!important}:where(:focus-visible){box-shadow:0 0 0 5px Canvas;outline:3px solid CanvasText;outline-offset:1px}:where(:focus-visible,:target){scroll-margin-block:8vh}:where(.visually-hidden:not(:focus-within,:active)){border:0!important;clip-path:inset(50%)!important;height:1px!important;overflow:hidden!important;position:absolute!important;-webkit-user-select:none!important;user-select:none!important;white-space:nowrap!important;width:1px!important}body{background-color:#fff}.rpjxp40{align-items:center;color:var(--uxe4kj1);display:flex;flex-direction:column;font-family:-apple-system,Roboto,sans-serif,serif;justify-content:start;margin:0;min-height:100svh;padding:0;width:100svw}.rpjxp41{height:100%;padding:16px;width:100%}.rpjxp42{background-color:var(--uxe4kj3);display:flex;justify-content:center;width:100%}.rpjxp43{flex-grow:1}.rpjxp44{font-style:italic;margin:16px 0;text-align:center}@media screen and (min-width:860px){.rpjxp41{width:860px}}.rnrds60{color:inherit;text-decoration:inherit}.rnrds61{color:var(--uxe4kj1)}.rnrds61:hover{color:var(--uxe4kj2)}.kfauuc0{display:flex;flex-direction:row;justify-content:space-between;max-width:860px}.kfauuc1{flex-shrink:1}.kfauuc2{font-size:32px;font-weight:400}.kfauuc3{font-size:16px;font-weight:300}.kfauuc4{align-items:center;display:flex;flex-shrink:1;justify-content:center;padding:8px}.kfauuc5{font-size:28px}._1b32skb0{border-radius:8px;margin:46px 0 0;transition:background-color .2s ease-in-out,transform .1s ease-in-out}._1b32skb0:hover{background-color:rgba(0,0,0,.05);transform:translateY(-2px)}._1b32skb1{color:inherit;display:block;padding:16px;text-decoration:none}._1b32skb2{font-size:24px;font-weight:400}._1b32skb3{font-size:14px;font-weight:400}._1b32skb4{display:flex;flex-direction:row;gap:8px;justify-content:center;margin-top:24px}</style><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/><link rel="icon" href="/favicon-32x32.png?v=9dc3f101a4981124067c5705dab8bfbc" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=9dc3f101a4981124067c5705dab8bfbc"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=9dc3f101a4981124067c5705dab8bfbc"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=9dc3f101a4981124067c5705dab8bfbc"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=9dc3f101a4981124067c5705dab8bfbc"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=9dc3f101a4981124067c5705dab8bfbc"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=9dc3f101a4981124067c5705dab8bfbc"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=9dc3f101a4981124067c5705dab8bfbc"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=9dc3f101a4981124067c5705dab8bfbc"/><link rel="alternate" type="application/rss+xml" title="RSS Feed of blog.nasustim.com" href="/rss.xml"/><title data-gatsby-head="true">macOS に Ollama を導入して VSCode と連携させるまで | NASUSTIM</title><link rel="canonical" href="https://blog.nasustim.com/entry/introduce-ollama-into-macos" data-gatsby-head="true"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div class="uxe4kj0 rpjxp40"><div class="rpjxp42"><div class="rpjxp41"><header class="kfauuc0"><div class="kfauuc1"><a class="rnrds60" href="https://blog.nasustim.com/"><h1 class="kfauuc2">NASUSTIM</h1><h2 class="kfauuc3">Mitsuhiro HIBINO</h2></a></div><div class="kfauuc4"><a class="rnrds61" href="https://nasustim.com/" target="_blank" rel="noreferrer"><svg aria-labelledby="svg-inline--fa-title-VcBJ0qohlaNO" data-prefix="fas" data-icon="address-card" class="svg-inline--fa fa-address-card kfauuc5" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><title id="svg-inline--fa-title-VcBJ0qohlaNO">my portal web page</title><path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zm80 256l64 0c44.2 0 80 35.8 80 80c0 8.8-7.2 16-16 16L80 384c-8.8 0-16-7.2-16-16c0-44.2 35.8-80 80-80zm-32-96a64 64 0 1 1 128 0 64 64 0 1 1 -128 0zm256-32l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l128 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-128 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"></path></svg></a></div></header></div></div><div class="rpjxp41 rpjxp43"><main><div class="_2danq60"><div class="_2danq61"><small>June 07, 2025</small><h2 class="_2danq62">macOS に Ollama を導入して VSCode と連携させるまで</h2></div><article class="_2danq61 _2danq63"><p>IT 業界では常に話題の中心に LLM がいる2025年。僕も職場では LLM ツール<sup><a href="#user-content-fn-1" id="user-content-fnref-1" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>にどっぷり浸かる毎日を過ごしています。しかし高性能なモデルや API 経由での利用をしたい場合は追加課金が発生する多いです。</p>
+<p>そんな時、「自身のローカルマシンで LLM をホストすれば無料でできること が増えるかも」と考えました。そこでこの記事ではローカルマシンへの LLM の導入から VSCode 上でコード編集機能を利用するまでにやったことを記録として残します。</p>
+<p>ちなみに私のローカルマシンは以下のスペックです</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>K</th><th>V</th></tr></thead><tbody><tr><td>コンピュータ</td><td>Macbook Air M2 (2022年); RAM 16GB</td></tr><tr><td>OS</td><td>macOS Sequoia v15.3 (24D60)</td></tr></tbody></table>
+<h2>調査</h2>
+<p>Gemini に頼りました</p>
+<p><img src="/introduce-ollama-into-macos_01.png" alt="Gemini の回答"/></p>
+<p>会話リンク: <a href="https://g.co/gemini/share/779a99352554">https://g.co/gemini/share/779a99352554</a></p>
+<p>指示された手順はざっくり以下の通り</p>
+<ol>
+<li><a href="http://ollama.com/">Ollama</a> をインストールして LLM を起動</li>
+</ol>
+<ul>
+<li>HTTP で　LLM とやり取りできるサーバがバンドルされているらしい</li>
+</ul>
+<ol>
+<li>VSCode に <a href="https://www.continue.dev/">Continue</a> の拡張をインストールして ①の LLM を指定する</li>
+<li>LLM を使ってコードを書ける！</li>
+</ol>
+<h2>導入の流れ</h2>
+<h3>1. Ollama 導入</h3>
+<p>似たソフトウェアとして <a href="https://lmstudio.ai/">LM Studio</a> や、複数の LLM を一つのホストに集約することに主眼を置いたルーター系（勝手に命名しました）のプロジェクト<sup><a href="#user-content-fn-2" id="user-content-fnref-2" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup>がありますが、Ollama はそれらと比較したときに以下のようなアドバンテージがあると理解しました。</p>
+<ul>
+<li>高いポータビリティ
+<ul>
+<li>コマンドラインのみで導入可能</li>
+<li>システムプロンプト等カスタマイズの内容も Modelfile という Dockerfile ライクな形式のファイルで表現可能<sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref="" aria-describedby="footnote-label">3</a></sup></li>
+</ul>
+</li>
+<li>VSCode への導入サポートの手厚さ
+<ul>
+<li>前述の Continue を使って楽ちんでした</li>
+</ul>
+</li>
+</ul>
+<p>今回は Gemini の指示通り Ollama で進めます</p>
+<pre><code class="language-bash"># ollama を Homebrew でインストール
+$ brew install ollama
+
+# ollama のサーバを起動
+# この後は起動したまま別のターミナルから操作するか、コマンド末尾に `&amp;` をつけてバックグラウンドジョブとして動かすかはお好みで
+$ ollama serve
+</code></pre>
+<p>ollama では様々なモデルを利用できます。（<a href="https://ollama.com/search">モデル一覧</a>）
+最初は軽量かつ突飛な動作をしないであろうモデルを試したいと考え、Google が開発した　Gemma 3 の 1B パラメータモデル<sup><a href="#user-content-fn-4" id="user-content-fnref-4" data-footnote-ref="" aria-describedby="footnote-label">4</a></sup>を選択しました。</p>
+<pre><code class="language-bash">$ ollama pull gemma3:1b
+</code></pre>
+<p>コマンドライン経由でのチャットも行えるようです。</p>
+<p><img src="/introduce-ollama-into-macos_02.png" alt="Gemma 3 の回答"/></p>
+<p>シャ、シャベッタ！</p>
+<p>ローカル LLM 導入のファーストステップはクリアです ✅</p>
+<h3>2. VSCode に　Continue をインストール &amp; 設定</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>説明</th><th>スクリーンショット</th></tr></thead><tbody><tr><td>インストール後初期画面</td><td><img src="/introduce-ollama-into-macos_03.png" alt="Continue"/></td></tr><tr><td>Get started を開くとこの画面が開くので Ollama を選択する</td><td><img src="/introduce-ollama-into-macos_04.png" alt="Continue"/></td></tr></tbody></table>
+<h3>3. Ollama(Gemma 3)にコードを編集させる</h3>
+<p>2 の設定を終えたらモデル一覧から Gemma 3  が選択できるようになっています。</p>
+<p>チャットは問題なさそう</p>
+<p><img src="/introduce-ollama-into-macos_05.png" alt="Continue"/></p>
+<p>コードを選択して Add Highlighted Code to Context でチャット画面に指示のコンテクストとして追加できます。Copilot / Cursor と同じインターフェースですね。</p>
+<p><img src="/introduce-ollama-into-macos_06.png" alt="Continue"/></p>
+<p>うーん、これじゃない...明らかに業務で使う Claude Sonnet-3.7 辺りのモデルよりも知識/文脈理解の不足を感じます</p>
+<p><img src="/introduce-ollama-into-macos_07.png" alt="Continue"/></p>
+<p>とはいえコード編集をさせるまで成功しました。高性能モデルを使えばより精度の高い出力が得られることでしょう</p>
+<h2>まとめ</h2>
+<p>かなりシンプルな手順で LLM 導入 + VSCode 連携まで作成できました。</p>
+<p>今後より少ないリソースでより賢く振る舞うモデルはすぐ生まれるでしょう。 Copilot / Cursor に課金しなくても Vibe Coding ができる未来は近いかもしれません。</p>
+<hr/>
+<section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
+<ol>
+<li id="user-content-fn-1">
+<p>記事執筆時点では、調べ物は ChatGPT（プライベートでは Gemini と Grok を使い分け）、一つの文書を元にしたい場合は NotebookLM 、コーディング時は GitHub Copilot と Devin をよく利用してます <a href="#user-content-fnref-1" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-2">
+<p>サクッと調べると　<a href="https://github.com/kcolemangt/llm-router">LLM Router</a>, <a href="https://github.com/lm-sys/RouteLLM">RouteLLM</a> 辺りの情報が多いように感じました <a href="#user-content-fnref-2" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-3">
+<p><a href="https://ollama.readthedocs.io/en/modelfile/">https://ollama.readthedocs.io/en/modelfile/</a> <a href="#user-content-fnref-3" data-footnote-backref="" aria-label="Back to reference 3" class="data-footnote-backref">↩</a></p>
+</li>
+<li id="user-content-fn-4">
+<p><a href="https://ollama.com/library/gemma3">https://ollama.com/library/gemma3</a> ; 1b=10億パラメータの機械学習モデルをラップトップで動かせるなんて...コンピュータの高性能化は凄まじいですね <a href="#user-content-fnref-4" data-footnote-backref="" aria-label="Back to reference 4" class="data-footnote-backref">↩</a></p>
+</li>
+</ol>
+</section></article></div></main></div><footer class="rpjxp44"><p>© nasustim, 2010-</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3YY246MS11"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-3YY246MS11', {"send_page_view":false});
+      }
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/entry/introduce-ollama-into-macos/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-70a2d2fd8ce386bb902f.js\"],\"component---src-page-components-entry-article-tsx\":[\"/component---src-page-components-entry-article-tsx-b4eea92ba4066a0effdf.js\"],\"component---src-page-components-index-tsx\":[\"/component---src-page-components-index-tsx-c2db3a6383a100826e40.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="9bce64384de0fbf4f1bb";</script><script src="/webpack-runtime-1daaa99025383e655932.js" async></script><script src="/framework-ab160c1ebcd2dab818c1.js" async></script><script src="/app-70a2d2fd8ce386bb902f.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
