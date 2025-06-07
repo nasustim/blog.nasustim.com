@@ -16,7 +16,6 @@ export const linkContentStyle = style({
   color: "inherit",
 });
 
-
 export const h2Style = style({
   fontSize: "24px",
   fontWeight: "400",

@@ -1,7 +1,13 @@
 import { Link } from "@/components/atoms/link";
 import { SITE_ORIGIN } from "@/config";
 import { Fragment, useMemo, type FC } from "react";
-import { h2Style, listItemStyle, pagerStyle, pStyle, linkContentStyle } from "./index.css";
+import {
+  h2Style,
+  listItemStyle,
+  pagerStyle,
+  pStyle,
+  linkContentStyle,
+} from "./index.css";
 import { toPlainText } from "@/utils/markdownUtils";
 import { getIndexPagePath } from "@/utils/paginationUtils";
 
