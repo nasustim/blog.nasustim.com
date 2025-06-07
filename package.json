@@ -13,7 +13,8 @@
     "biome:fix": "biome check --write --unsafe",
     "textlint:ci": "textlint \"src/content/**\"",
     "textlint:fix": "textlint \"src/content/**\" --fix",
-    "new": "node scripts/create-new-article.js"
+    "new": "npm run ts -- scripts/create-new-article.ts",
+    "ts": "node --experimental-strip-types --experimental-transform-types --experimental-detect-module --no-warnings=ExperimentalWarning"
   },
   "dependencies": {
     "@acab/reset.css": "0.11.0",
@@ -44,6 +45,7 @@
     "react-markdown": "10.1.0",
     "rehype-raw": "7.0.0",
     "remark-gfm": "4.0.1",
+    "ts-dedent": "github:nasustim/node-ts-dedent#master",
     "zod": "3.25.28"
   },
   "devDependencies": {

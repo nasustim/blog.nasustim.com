@@ -88,7 +88,7 @@ globalStyle(`${articleRoot} sup > a`, {
   fontWeight: "bold",
 });
 globalStyle(`${articleRoot} sup > a::before`, {
-  content: "["
+  content: "[",
 });
 globalStyle(`${articleRoot} sup > a::after`, {
   content: "]",
