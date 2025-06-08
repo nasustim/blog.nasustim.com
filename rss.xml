@@ -1,36 +1,32 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of blog.nasustim.com]]></title><description><![CDATA[a weblog by @nasustim (Mitsuhiro Hibino)]]></description><link>https://blog.nasustim.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Jun 2025 01:08:01 GMT</lastBuildDate><item><title><![CDATA[macOS に Ollama を導入して VSCode と連携させるまで]]></title><description><![CDATA[IT 業界では常に話題の中心に LLM がいる2025年。僕も職場では LLM ツールにどっぷり浸かる毎日を過ごしています。しかし高性能なモデルや API 経由での利用をしたい場合は追加課金が発生する多いです。 そんな時、「自身のローカルマシンで LLM…]]></description><link>https://blog.nasustim.com/entry/introduce-ollama-into-macos</link><guid isPermaLink="false">https://blog.nasustim.com/entry/introduce-ollama-into-macos</guid><pubDate>Sat, 07 Jun 2025 12:10:58 GMT</pubDate><content:encoded>&lt;p&gt;IT 業界では常に話題の中心に LLM がいる2025年。僕も職場では LLM ツール&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;にどっぷり浸かる毎日を過ごしています。しかし高性能なモデルや API 経由での利用をしたい場合は追加課金が発生する多いです。&lt;/p&gt;
-&lt;p&gt;そんな時、「自身のローカルマシンで LLM をホストすれば無料でできることが増えるかも」と考えました。そこでこの記事ではローカルマシンへの LLM の導入から VSCode 上でコード編集機能を利用するまでにやったことを記録として残します。&lt;/p&gt;
-&lt;p&gt;ちなみに私のローカルマシンは以下のスペックです&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;K&lt;/th&gt;
-&lt;th&gt;V&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;コンピュータ&lt;/td&gt;
-&lt;td&gt;Macbook Air M2 (2022年); RAM 16GB&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;OS&lt;/td&gt;
-&lt;td&gt;macOS Sequoia v15.3 (24D60)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of blog.nasustim.com]]></title><description><![CDATA[a weblog by @nasustim (Mitsuhiro Hibino)]]></description><link>https://blog.nasustim.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Jun 2025 01:22:52 GMT</lastBuildDate><item><title><![CDATA[Ollama 導入と VSCode との連携]]></title><description><![CDATA[IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツールにどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。 ローカルマシンで LLM…]]></description><link>https://blog.nasustim.com/entry/introduce-ollama-into-macos</link><guid isPermaLink="false">https://blog.nasustim.com/entry/introduce-ollama-into-macos</guid><pubDate>Sat, 07 Jun 2025 12:10:58 GMT</pubDate><content:encoded>&lt;p&gt;IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。&lt;/p&gt;
+&lt;p&gt;ローカルマシンで LLM をホストできれば課金の必要はありません。また、導入プロセスを通じて LLM への理解をより深めたいと考えました。&lt;/p&gt;
+&lt;p&gt;そこでこの記事では、ローカルマシンへの LLM の導入から VSCode 上でコード編集機能を利用するまでにやったことを記録として残します。&lt;/p&gt;
+&lt;p&gt;動作を確認した環境は以下の通りです。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PC
+&lt;ul&gt;
+&lt;li&gt;Macbook Air M2 (2022年)&lt;/li&gt;
+&lt;li&gt;RAM 16GB&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;OS
+&lt;ul&gt;
+&lt;li&gt;macOS Sequoia v15.3 (24D60)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;調査&lt;/h2&gt;
-&lt;p&gt;Gemini に頼りました&lt;/p&gt;
+&lt;p&gt;Gemini に頼りました。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_01.png&quot; alt=&quot;Gemini の回答&quot;&gt;&lt;/p&gt;
 &lt;p&gt;会話リンク: &lt;a href=&quot;https://g.co/gemini/share/779a99352554&quot;&gt;https://g.co/gemini/share/779a99352554&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;指示された手順はざっくり以下の通り&lt;/p&gt;
+&lt;p&gt;指示された手順はざっくり以下の通りです。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;a href=&quot;http://ollama.com/&quot;&gt;Ollama&lt;/a&gt; をインストールして LLM を起動&lt;/li&gt;
 &lt;/ol&gt;
 &lt;ul&gt;
-&lt;li&gt;HTTP で　LLM とやり取りできるサーバがバンドルされているらしい&lt;/li&gt;
+&lt;li&gt;HTTP で LLM とやり取りできるサーバがバンドルされているらしい&lt;/li&gt;
 &lt;/ul&gt;
-&lt;ol&gt;
+&lt;ol start=&quot;2&quot;&gt;
 &lt;li&gt;VSCode に &lt;a href=&quot;https://www.continue.dev/&quot;&gt;Continue&lt;/a&gt; の拡張をインストールして ①の LLM を指定する&lt;/li&gt;
 &lt;li&gt;LLM を使ってコードを書ける！&lt;/li&gt;
 &lt;/ol&gt;
@@ -41,16 +37,16 @@
 &lt;li&gt;高いポータビリティ
 &lt;ul&gt;
 &lt;li&gt;コマンドラインのみで導入可能&lt;/li&gt;
-&lt;li&gt;システムプロンプト等カスタマイズの内容も Modelfile という Dockerfile ライクな形式のファイルで表現可能&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
+&lt;li&gt;システムプロンプト等のカスタマイズ内容も Modelfile という Dockerfile ライクな形式のファイルで表現可能&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;VSCode への導入サポートの手厚さ
 &lt;ul&gt;
-&lt;li&gt;前述の Continue を使って楽ちんでした&lt;/li&gt;
+&lt;li&gt;前述の Continue を使って楽チン&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;今回は Gemini の指示通り Ollama で進めます&lt;/p&gt;
+&lt;p&gt;今回は Gemini の指示通り Ollama で進めます。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# ollama を Homebrew でインストール
 $ brew install ollama
 
@@ -59,14 +55,14 @@ $ brew install ollama
 $ ollama serve
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;ollama では様々なモデルを利用できます。（&lt;a href=&quot;https://ollama.com/search&quot;&gt;モデル一覧&lt;/a&gt;）
-最初は軽量かつ突飛な動作をしないであろうモデルを試したいと考え、Google が開発した　Gemma 3 の 1B パラメータモデル&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;を選択しました。&lt;/p&gt;
+最初は軽量かつ突飛な動作をしないであろうモデルを試したいと考え、Google が開発した Gemma 3 の 1B パラメータモデル&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;を選択しました。&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ollama pull gemma3:1b
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;コマンドライン経由でのチャットも行えるようです。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_02.png&quot; alt=&quot;Gemma 3 の回答&quot;&gt;&lt;/p&gt;
 &lt;p&gt;シャ、シャベッタ！&lt;/p&gt;
 &lt;p&gt;ローカル LLM 導入のファーストステップはクリアです ✅&lt;/p&gt;
-&lt;h3&gt;2. VSCode に　Continue をインストール &amp;#x26; 設定&lt;/h3&gt;
+&lt;h3&gt;2. VSCode に Continue をインストール &amp;#x26; 設定&lt;/h3&gt;
 &lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -86,25 +82,25 @@ $ ollama serve
 &lt;/tbody&gt;
 &lt;/table&gt;
 &lt;h3&gt;3. Ollama(Gemma 3)にコードを編集させる&lt;/h3&gt;
-&lt;p&gt;2 の設定を終えたらモデル一覧から Gemma 3 が選択できるようになっています。&lt;/p&gt;
-&lt;p&gt;チャットは問題なさそう&lt;/p&gt;
+&lt;p&gt;手順2の設定を終えたら、モデル一覧から Gemma 3 が選択できるようになっています。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_05.png&quot; alt=&quot;Continue&quot;&gt;&lt;/p&gt;
-&lt;p&gt;コードを選択して Add Highlighted Code to Context でチャット画面に指示のコンテクストとして追加できます。Copilot / Cursor と同じインターフェースですね。&lt;/p&gt;
+&lt;p&gt;チャットは問題なさそうです。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_06.png&quot; alt=&quot;Continue&quot;&gt;&lt;/p&gt;
-&lt;p&gt;うーん、これじゃない...明らかに業務で使う Claude Sonnet-3.7 辺りのモデルよりも知識/文脈理解の不足を感じます&lt;/p&gt;
+&lt;p&gt;コードを選択して Add Highlighted Code to Context でチャット画面に指示のコンテクストとして追加できます。Copilot / Cursor と同じインターフェースですね。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_07.png&quot; alt=&quot;Continue&quot;&gt;&lt;/p&gt;
-&lt;p&gt;とはいえコード編集をさせるまで成功しました。高性能モデルを使えばより精度の高い出力が得られることでしょう&lt;/p&gt;
+&lt;p&gt;うーん、これじゃない...業務で使う Claude 3.7 Sonnet 辺りのモデルよりも明らかな知識/文脈理解の不足を感じます。&lt;/p&gt;
+&lt;p&gt;とはいえ、コード編集をさせるまで成功しました。高性能モデルを使えばより精度の高い出力が得られることでしょう。&lt;/p&gt;
 &lt;h2&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;かなりシンプルな手順で LLM 導入 + VSCode 連携まで作成できました。&lt;/p&gt;
-&lt;p&gt;今後より少ないリソースでより賢く振る舞うモデルはすぐ生まれるでしょう。 Copilot / Cursor に課金しなくても Vibe Coding ができる未来は近いかもしれません。&lt;/p&gt;
+&lt;p&gt;かなりシンプルな手順で LLM 導入 + VSCode 連携まで構築できました。&lt;/p&gt;
+&lt;p&gt;今後、より少ないリソースでより賢く振る舞うモデルはすぐに生まれるでしょう。普段使いのLLMをローカルでホストするのが当たり前になる将来は近いかもしれません。&lt;/p&gt;
 &lt;hr&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
-&lt;li id=&quot;fn-1&quot;&gt;記事執筆時点では、調べ物は ChatGPT（プライベートでは Gemini と Grok を使い分け）、一つの文書を元にしたい場合は NotebookLM 、コーディング時は GitHub Copilot と Devin をよく利用してます&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-2&quot;&gt;サクッと調べると　&lt;a href=&quot;https://github.com/kcolemangt/llm-router&quot;&gt;LLM Router&lt;/a&gt;, &lt;a href=&quot;https://github.com/lm-sys/RouteLLM&quot;&gt;RouteLLM&lt;/a&gt; 辺りの情報が多いように感じました&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-1&quot;&gt;記事執筆時点では、調べ物は ChatGPT（プライベートでは Gemini と Grok を使い分け）、一つの文書を元にしたい場合は NotebookLM、コーディング時は GitHub Copilot と Devin をよく利用しています&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;サクッと調べると &lt;a href=&quot;https://github.com/kcolemangt/llm-router&quot;&gt;LLM Router&lt;/a&gt;, &lt;a href=&quot;https://github.com/lm-sys/RouteLLM&quot;&gt;RouteLLM&lt;/a&gt; 辺りの情報が多いように感じました&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://ollama.readthedocs.io/en/modelfile/&quot;&gt;https://ollama.readthedocs.io/en/modelfile/&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://ollama.com/library/gemma3&quot;&gt;https://ollama.com/library/gemma3&lt;/a&gt; ; 1b=10億パラメータの機械学習モデルをラップトップで動かせるなんて...コンピュータの高性能化は凄まじいですね&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://ollama.com/library/gemma3&quot;&gt;https://ollama.com/library/gemma3&lt;/a&gt; ; 1b=10億パラメータの機械学習モデルをラップトップでサクッと動かせることにビビりました&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[引っ越しました（2025年春）]]></title><description><![CDATA[4月に橋本（神奈川県相模原市）から下北沢に引っ越した。 妻の異動に合わせての引越しだったが、僕も職場のある渋谷までの通勤に苦労していたこと、そして旧居の更新時期が近かったこともあり丁度いいタイミングだった。 引越してから…]]></description><link>https://blog.nasustim.com/entry/moving-2025-spring</link><guid isPermaLink="false">https://blog.nasustim.com/entry/moving-2025-spring</guid><pubDate>Sun, 18 May 2025 16:01:46 GMT</pubDate><content:encoded>&lt;p&gt;4月に橋本（神奈川県相模原市）から下北沢に引っ越した。&lt;br&gt;
 妻の異動に合わせての引越しだったが、僕も職場のある渋谷までの通勤に苦労していたこと、そして旧居の更新時期が近かったこともあり丁度いいタイミングだった。&lt;/p&gt;
