@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of blog.nasustim.com]]></title><description><![CDATA[a weblog by @nasustim (Mitsuhiro Hibino)]]></description><link>https://blog.nasustim.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Jun 2025 01:31:33 GMT</lastBuildDate><item><title><![CDATA[Ollama 導入と VSCode との連携]]></title><description><![CDATA[IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツールにどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。 ローカルマシンで LLM…]]></description><link>https://blog.nasustim.com/entry/introduce-ollama-into-macos</link><guid isPermaLink="false">https://blog.nasustim.com/entry/introduce-ollama-into-macos</guid><pubDate>Sat, 07 Jun 2025 12:10:58 GMT</pubDate><content:encoded>&lt;p&gt;IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of blog.nasustim.com]]></title><description><![CDATA[a weblog by @nasustim (Mitsuhiro Hibino)]]></description><link>https://blog.nasustim.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 08 Jun 2025 01:48:30 GMT</lastBuildDate><item><title><![CDATA[Ollama 導入と VSCode との連携]]></title><description><![CDATA[IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツールにどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。 ローカルマシンで LLM…]]></description><link>https://blog.nasustim.com/entry/introduce-ollama-into-macos</link><guid isPermaLink="false">https://blog.nasustim.com/entry/introduce-ollama-into-macos</guid><pubDate>Sat, 07 Jun 2025 12:10:58 GMT</pubDate><content:encoded>&lt;p&gt;IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。&lt;/p&gt;
 &lt;p&gt;ローカルマシンで LLM をホストできれば課金の必要はありません。また、導入プロセスを通じて LLM への理解をより深めたいと考えました。&lt;/p&gt;
 &lt;p&gt;そこでこの記事では、ローカルマシンへの LLM の導入から VSCode 上でコード編集機能を利用するまでにやったことを記録として残します。&lt;/p&gt;
 &lt;p&gt;動作を確認した環境は以下の通りです。&lt;/p&gt;
@@ -87,11 +87,15 @@ $ ollama serve
 &lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_06.png&quot; alt=&quot;Continue&quot;&gt;&lt;/p&gt;
 &lt;p&gt;コードを選択して Add Highlighted Code to Context でチャット画面に指示のコンテクストとして追加できます。Copilot / Cursor と同じインターフェースですね。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_07.png&quot; alt=&quot;Continue&quot;&gt;&lt;/p&gt;
-&lt;p&gt;うーん、これじゃない...業務で使う Claude 3.7 Sonnet 辺りのモデルよりも明らかな知識/文脈理解の不足を感じます。&lt;/p&gt;
-&lt;p&gt;とはいえ、コード編集をさせるまで成功しました。高性能モデルを使えばより精度の高い出力が得られることでしょう。&lt;/p&gt;
+&lt;p&gt;うーん、これじゃない...業務で使う Claude 3.7 Sonnet 辺りのモデルよりも明らかな知識/文脈理解の不足を感じます。より賢くてコーディングに特化したモデルを使う必要がありそうです。&lt;/p&gt;
+&lt;p&gt;ということでコーディング特化モデルの中で　pull 数が多くサイズも大きすぎない &lt;code&gt;qwen2.5-coder:7b&lt;/code&gt; を試しました&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ollama.com/library/qwen2.5-coder&quot;&gt;https://ollama.com/library/qwen2.5-coder&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_08.png&quot; alt=&quot;Qwen 2.5 coder&quot;&gt;&lt;/p&gt;
+&lt;p&gt;こちらは期待通りの出力が得られました 🙌&lt;/p&gt;
 &lt;h2&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;かなりシンプルな手順で LLM 導入 + VSCode 連携まで構築できました。&lt;/p&gt;
-&lt;p&gt;今後、より少ないリソースでより賢く振る舞うモデルはすぐに生まれるでしょう。普段使いのLLMをローカルでホストするのが当たり前になる将来は近いかもしれません。&lt;/p&gt;
+&lt;p&gt;シンプルな手順で LLM 導入 + VSCode 連携まで構築できました。&lt;/p&gt;
+&lt;p&gt;また、シンプルなタスクであれば精度高く実行できるモデルがローカルでホストできることも確認できました。&lt;/p&gt;
+&lt;p&gt;個人用途ならローカルで十分かもしれません。夢が広がりますね&lt;/p&gt;
 &lt;hr&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr&gt;
