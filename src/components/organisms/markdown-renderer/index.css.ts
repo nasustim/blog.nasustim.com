@@ -33,10 +33,21 @@ for (let i = 1; i <= 5; i++) {
     fontSize,
   });
 }
+
+// Lists
 globalStyle(`${articleRoot} ul`, {
   listStyleType: "disc",
   marginLeft: "24px",
 });
+globalStyle(`${articleRoot} ol`, {
+  listStyleType: "decimal",
+  marginLeft: "24px",
+});
+globalStyle(`${articleRoot} li`, {
+  paddingTop: "8px",
+});
+
+// Links
 globalStyle(`${articleRoot} a`, {
   color: vars.color.primary,
 });
