@@ -28,6 +28,15 @@ export const linkListStyle = style({
   alignItems: "center",
   padding: "8px",
 });
-export const linkIconStyle = style({
-  fontSize: 28,
+export const linkStyle = style({
+  fontSize: 14,
+  fontWeight: "bold",
+  textDecorationLine: "none",
+
+  "@media": {
+    // pc
+    [`screen and (min-width: ${minWidthForDesktop}px)`]: {
+      fontSize: 18,
+    },
+  },
 });

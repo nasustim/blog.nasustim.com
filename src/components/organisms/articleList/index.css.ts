@@ -1,3 +1,4 @@
+import { minWidthForDesktop } from "@/components/templates/index.css";
 import { style } from "@vanilla-extract/css";
 export const listItemStyle = style({
   margin: "46px 0 0 0",
@@ -11,9 +12,16 @@ export const listItemStyle = style({
 
 export const linkContentStyle = style({
   display: "block",
-  padding: "16px",
+  padding: "16px 2px",
   textDecoration: "none",
   color: "inherit",
+
+  "@media": {
+    // pc
+    [`screen and (min-width: ${minWidthForDesktop}px)`]: {
+      padding: "16px",
+    },
+  },
 });
 
 export const h2Style = style({

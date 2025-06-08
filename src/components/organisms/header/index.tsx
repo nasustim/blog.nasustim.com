@@ -3,14 +3,12 @@ import {
   containerStyle,
   h1Style,
   h2Style,
-  linkIconStyle,
   linkListStyle,
+  linkStyle,
   titleStyle,
 } from "./index.css";
 import { SITE_ORIGIN, SUB_TITLE, TITLE } from "@/config";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { FC } from "react";
-import { faAddressCard } from "@fortawesome/free-solid-svg-icons";
 
 type Props = {
   isTopPage?: boolean;
@@ -25,11 +23,7 @@ export const Header: FC<Props> = ({ isTopPage }) => (
     </div>
     <div className={linkListStyle}>
       <Link to={new URL("/", "https://nasustim.com")}>
-        <FontAwesomeIcon
-          icon={faAddressCard}
-          className={linkIconStyle}
-          title="my portal web page"
-        />
+        <span className={linkStyle}>[ABOUT ME]</span>
       </Link>
     </div>
   </header>
