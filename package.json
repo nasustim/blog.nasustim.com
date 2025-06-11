@@ -46,7 +46,7 @@
     "rehype-raw": "7.0.0",
     "remark-gfm": "4.0.1",
     "ts-dedent": "github:nasustim/node-ts-dedent#master",
-    "zod": "3.25.58"
+    "zod": "3.25.62"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
