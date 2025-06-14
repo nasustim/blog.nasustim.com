@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/nasustim
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://blog.nasustim.com
+  * I am nasustim (https://keybase.io/nasustim) on keybase.
+  * I have a public key with fingerprint E42F ABF1 DCD7 6FC8 905B  6357 69B4 953F 687A 8DC9
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120a5f37650eacbe9c590296274efe25e2cc1eabc74ee03fea45e45a3f2eb395b0f0a",
+      "fingerprint": "e42fabf1dcd76fc8905b635769b4953f687a8dc9",
+      "host": "keybase.io",
+      "key_id": "69b4953f687a8dc9",
+      "kid": "0101af8c66d59a36b28f3b9b0bb9371b2a00ebf178568f3371edd0c6bec7345c72340a",
+      "uid": "8e0b9a399c2c8ebe1639ce9afdfcd519",
+      "username": "nasustim"
+    },
+    "service": {
+      "hostname": "blog.nasustim.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 1
+  },
+  "ctime": 1749906968,
+  "expire_in": 157680000,
+  "prev": "1cadaf51d4cdd4a790fee8ee1421a9e79c7a766a78d723f3723332c7f3832207",
+  "seqno": 77,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.1.13
+Comment: https://keybase.io/crypto
+
+yMN2AnicbVJrUFVVFAZ5XuQ6TGFi4gwdwVEk5rzP2RfDIiUGxsTBdCLxds4++8AJ
+uPdyHzwjAooCLzKoFJYMko4CCqLJo8QHRFiQwqBImk5OVpZihqmMw81pX0b+tf/s
+WWt961vf+mYN6L08Ajy1E3VrMgqrv/cc7mtweGSszw0pImSzUkAYiohMNPuhLAXZ
+7MZMTSEMBEnRpMSpjMBzJJKgjADkAEkDnhZYpCKaQzSEFJJkiGNEMiqSWA6xnMSo
+NJIZwMmkSkpEFKFqpnRktVg1kx3TIpZWJVmlFKgIvApFQHIyz3ACD2QWcIzKi4Ik
+KhDgxgyzzd2BxcmSDUVrZpzDgXFW3v/g53STlKSKkOcVDkgML9OiyshAJmUZMAIl
+0xJJIixAEDkeV3AKKQoJeRlBgWE5KNAMO6vbMUsnIlLGNABAGopIRhTPAIiApCoq
+VDjKPddhQ1aTlI0w2iTZHDa7lk0URxE4m6tB5DbWvclThJxlTo+eg0VDczYmsFjN
+djM0Z+Fyht1usRnc7fYCixufh2TjUyajrJkUbCbuyEVWm2Y2EQYKIyFmwlBKYAEg
+ecCLUQTKt2hWZNTcCOytSOLnnoNyMSUFJUVSOUphoaKwkgBIFSERIYqlKQkgAUBB
+EnheEkQFm4EvgGYYhoaCyogMTZMC4d4tx2QmDIKAdUrpmNOmpZsku8OKiOL+vq3e
+Hp4BHr4+89xX5hGgC5q7PbU+yGMop61793Kjy/Wyz+lP9/RlHQgdWdJVZan87kjP
+s9fiYxPz13ywdKGrd77E86+cbxvY8sWdyN4vd5cf6o6p1ucf/PWlqhTlccWPJUJd
+fv0PT4Jjb64Mjji+thZ81XJ1qqlyUPtnrK2oY8ft+M51Pu2NoUcXJP+ddz9eXJCp
+v3+p5r2k5lb/M5OTf+w/m/2t9riioqUl9fRou3xvfty2uCRDcG9PUsiN0uebtx3Z
+vOvg9tfg18snvFSvVn220fdk4OZAMtm561XCXjqQ86QhIjW6qvwMFamrHQ0JWxlz
+N/zjU/TR6TtBmcM/f/LRI/byyQcznpOCz5Ulzs6xpa63S6f1yYYwn/UTHYtz2y9U
+900/M15wLNi2ffzeo+s6v4kVkckJrRvTQ3svDx3W7W1eVNfYyaV8diLtBWOZadU3
+jsSzB2KD/HjwcCqioa348K3UdYVNO95J0KVSm6z1e5yNWxesfjB+qdu4IS+h0v+X
+kKZ59X86a0qGN0w8/C0+z7XQGebdtSV45OpIWUnqodHSc+G/t/91/SbD1loq9hXd
+qu9I69KvvruibK2ccm5TPvN+6MjYzgtxovcVv/D+D8uH3nzj3ylQsmzfsv39bzk2
+zlyMvhgb8/neY4nOF+VBe4LrmvUUevfG4lX+zwXqom2DPT8VdlnP+yaQftUOlX59
+UXl3ycztsJrj1p09OWWZzu7BtP8Aur7DVA==
+=RTlj
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/nasustim
+
+==================================================================
