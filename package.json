@@ -46,14 +46,14 @@
     "rehype-raw": "7.0.0",
     "remark-gfm": "4.0.1",
     "ts-dedent": "github:nasustim/node-ts-dedent#master",
-    "zod": "3.25.64"
+    "zod": "3.25.74"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@types/node": "22.15.31",
+    "@types/node": "22.16.0",
     "@types/react": "18.3.23",
     "@types/react-dom": "18.3.7",
-    "textlint": "14.8.1",
+    "textlint": "14.8.4",
     "textlint-plugin-html": "1.0.1",
     "textlint-rule-common-misspellings": "1.0.1",
     "textlint-rule-preset-ja-spacing": "2.4.3",
