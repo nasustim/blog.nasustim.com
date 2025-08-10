@@ -1,4 +1,5 @@
 import { Link } from "@/components/atoms/link";
+import { Tag } from "@/components/atoms/tag";
 import { SITE_ORIGIN } from "@/config";
 import { Fragment, useMemo, type FC } from "react";
 import {
@@ -19,16 +20,24 @@ type ListItem = {
   tags?: string[];
 };
 
+type TagData = {
+  tag: string;
+  tagSlug: string;
+  count: number;
+};
+
 type Props = {
   list: Array<ListItem>;
   pagesCount: number;
   currentPageIndex: number;
+  allTags?: TagData[];
 };
 
 export const ArticleList: FC<Props> = ({
   list,
   pagesCount,
   currentPageIndex,
+  allTags = [],
 }) => {
   const needsPagination = pagesCount > 1;
 
@@ -42,8 +51,13 @@ export const ArticleList: FC<Props> = ({
         ))}
       </ul>
       {needsPagination ? (
-        <Pager currentPageIndex={currentPageIndex} pagesCount={pagesCount} />
+        <Pager
+          currentPageIndex={currentPageIndex}
+          pagesCount={pagesCount}
+          allTags={allTags}
+        />
       ) : null}
+      <TagsDisplay allTags={allTags} />
     </div>
   );
 };
@@ -75,19 +89,43 @@ const Item: FC<ListItem> = (v) => {
 const Pager: FC<{
   pagesCount: number;
   currentPageIndex: number;
-}> = ({ pagesCount, currentPageIndex }) => (
-  <div className={pagerStyle}>
-    {Array.from({ length: pagesCount }).map((_, i) => {
-      const to = new URL(getIndexPagePath(i), SITE_ORIGIN);
+  allTags: TagData[];
+}> = ({ pagesCount, currentPageIndex, allTags }) => (
+  <div>
+    <div className={pagerStyle}>
+      {Array.from({ length: pagesCount }).map((_, i) => {
+        const to = new URL(getIndexPagePath(i), SITE_ORIGIN);
 
-      if (i === currentPageIndex) {
-        return <div>{i + 1}</div>;
-      }
-      return (
-        <Link key={`pager-${to.toString()}`} to={to}>
-          {i + 1}
-        </Link>
-      );
-    })}
+        if (i === currentPageIndex) {
+          return <div key={`pager-current-${i + 1}`}>{i + 1}</div>;
+        }
+        return (
+          <Link key={`pager-${to.toString()}`} to={to}>
+            {i + 1}
+          </Link>
+        );
+      })}
+    </div>
+    <TagsDisplay allTags={allTags} />
+  </div>
+);
+
+const TagsDisplay: FC<{ allTags: TagData[] }> = ({ allTags }) => (
+  <div style={{ marginTop: "24px" }}>
+    <h3>Tags</h3>
+    {allTags.length === 0 ? (
+      <p>No tags found.</p>
+    ) : (
+      <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
+        {allTags.map((tagData) => (
+          <Tag
+            key={tagData.tagSlug}
+            tag={`${tagData.tag} (${tagData.count})`}
+            tagSlug={tagData.tagSlug}
+            clickable
+          />
+        ))}
+      </div>
+    )}
   </div>
 );
