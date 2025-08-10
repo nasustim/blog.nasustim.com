@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import type { FC } from "react";
 import { Tag } from "@/components/atoms/tag";
 import { createTagSlug } from "@/utils/tagUtils";
 import { containerStyle } from "./index.css";

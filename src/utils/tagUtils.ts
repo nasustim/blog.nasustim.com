@@ -29,17 +29,17 @@ export function getTagsIndexPath(): string {
  * Sort tags alphabetically (handles Japanese characters properly)
  */
 export function sortTags(tags: string[]): string[] {
-  return [...tags].sort((a, b) => a.localeCompare(b, 'ja'));
+  return [...tags].sort((a, b) => a.localeCompare(b, "ja"));
 }
 
 /**
  * Extract unique tags from a collection of articles with their counts
  */
 export function extractTagsWithCounts(
-  articles: Array<{ tags?: string[] }>
+  articles: Array<{ tags?: string[] }>,
 ): Array<{ tag: string; tagSlug: string; count: number }> {
   const tagCounts = new Map<string, number>();
-  
+
   for (const article of articles) {
     if (article.tags) {
       for (const tag of article.tags) {
@@ -54,7 +54,7 @@ export function extractTagsWithCounts(
       tagSlug: createTagSlug(tag),
       count,
     }))
-    .sort((a, b) => a.tag.localeCompare(b.tag, 'ja'));
+    .sort((a, b) => a.tag.localeCompare(b.tag, "ja"));
 }
 
 /**
@@ -62,9 +62,7 @@ export function extractTagsWithCounts(
  */
 export function filterArticlesByTag<T extends { tags?: string[] }>(
   articles: T[],
-  targetTag: string
+  targetTag: string,
 ): T[] {
-  return articles.filter(article => 
-    article.tags?.includes(targetTag)
-  );
+  return articles.filter((article) => article.tags?.includes(targetTag));
 }

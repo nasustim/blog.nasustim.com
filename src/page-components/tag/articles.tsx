@@ -17,12 +17,29 @@ const nodeSchema = z.object({
   html: z.string(),
 });
 
+type TagArticleQueryData = {
+  allMarkdownRemark: {
+    edges: Array<{
+      node: {
+        frontmatter: {
+          date: string;
+          slug: string;
+          title: string;
+          draft: boolean;
+          tags: string[] | null;
+        };
+        html: string;
+      };
+    }>;
+  };
+};
+
 const TagArticlesPage: React.FC<
-  PageProps<any, TagPageContext>
+  PageProps<TagArticleQueryData, TagPageContext>
 > = ({ data, location, pageContext }) => {
   const { tag, currentPageIndex, pagesCount } = pageContext;
 
-  const list = data.allMarkdownRemark.edges.map((v: any) => {
+  const list = data.allMarkdownRemark.edges.map((v) => {
     const result = nodeSchema.safeParse(v.node);
     if (result.error) {
       throw new Error(result.error.message);
@@ -82,7 +99,9 @@ export const query = graphql`
 
 export default TagArticlesPage;
 
-export const Head: HeadFC<any, TagPageContext> = ({ pageContext }) => {
+export const Head: HeadFC<TagArticleQueryData, TagPageContext> = ({
+  pageContext,
+}) => {
   const { tag } = pageContext;
   return <CommonHead title={`Articles tagged with "${tag}"`} />;
 };

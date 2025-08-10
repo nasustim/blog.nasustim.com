@@ -66,9 +66,7 @@ const Item: FC<ListItem> = (v) => {
             <small>{v.date}</small>
             <h2 className={h2Style}>{v.title}</h2>
             <p className={pStyle}>{bodyText}</p>
-            {v.tags && v.tags.length > 0 && (
-              <TagList tags={v.tags} />
-            )}
+            {v.tags && v.tags.length > 0 && <TagList tags={v.tags} />}
           </div>
         </Link>
       </li>

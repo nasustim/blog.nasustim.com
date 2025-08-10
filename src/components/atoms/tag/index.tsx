@@ -1,4 +1,4 @@
-import { type FC } from "react";
+import type { FC } from "react";
 import { Link } from "@/components/atoms/link";
 import { SITE_ORIGIN } from "@/config";
 import { getTagPagePath } from "@/utils/tagUtils";
@@ -13,10 +13,7 @@ type Props = {
 export const Tag: FC<Props> = ({ tag, tagSlug, clickable = true }) => {
   if (clickable) {
     return (
-      <Link 
-        to={new URL(getTagPagePath(tagSlug), SITE_ORIGIN)}
-        noStyle
-      >
+      <Link to={new URL(getTagPagePath(tagSlug), SITE_ORIGIN)} noStyle>
         <span className={tagStyle}>{tag}</span>
       </Link>
     );

@@ -2,11 +2,11 @@ import path from "node:path";
 import type { CreatePagesArgs, GatsbyNode } from "gatsby";
 import { ARTICLE_LIST_PAGE_LIMIT } from "./src/config";
 import { getIndexPagePath } from "./src/utils/paginationUtils";
-import { 
-  extractTagsWithCounts, 
-  getTagPagePath, 
+import {
+  extractTagsWithCounts,
+  getTagPagePath,
   getTagsIndexPath,
-  filterArticlesByTag 
+  filterArticlesByTag,
 } from "./src/utils/tagUtils";
 import { z } from "zod";
 
@@ -95,7 +95,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }
 
   // Create tag pages
-  const articlesWithTags = posts.map(post => ({
+  const articlesWithTags = posts.map((post) => ({
     ...post.node,
     tags: post.node.frontmatter.tags || [],
   }));
@@ -114,11 +114,13 @@ export const createPages: GatsbyNode["createPages"] = async ({
   // Create individual tag pages
   for (const tagData of tagsWithCounts) {
     const articlesForTag = filterArticlesByTag(articlesWithTags, tagData.tag);
-    const tagPagesCount = Math.ceil(articlesForTag.length / ARTICLE_LIST_PAGE_LIMIT);
+    const tagPagesCount = Math.ceil(
+      articlesForTag.length / ARTICLE_LIST_PAGE_LIMIT,
+    );
 
     Array.from({ length: tagPagesCount }).forEach((_, i) => {
       const currentPageIndex = i;
-      
+
       createPage<TagPageContext>({
         path: getTagPagePath(tagData.tagSlug, currentPageIndex),
         component: path.resolve("./src/page-components/tag/articles.tsx"),

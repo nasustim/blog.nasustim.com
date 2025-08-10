@@ -11,14 +11,17 @@ type Props = {
   markdown: string;
   tags?: string[];
 };
-export const MarkdownRenderer: FC<Props> = ({ markdown, title, date = "", tags = [] }) => (
+export const MarkdownRenderer: FC<Props> = ({
+  markdown,
+  title,
+  date = "",
+  tags = [],
+}) => (
   <div className={css}>
     <div className={blockStyle}>
       {date ? <small>{date}</small> : null}
       <h2 className={h2Style}>{title}</h2>
-      {tags.length > 0 && (
-        <TagList tags={tags} title="Tags: " />
-      )}
+      {tags.length > 0 && <TagList tags={tags} title="Tags: " />}
     </div>
     <article className={`${blockStyle} ${articleRoot}`}>
       <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>

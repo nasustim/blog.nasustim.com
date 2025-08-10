@@ -1,14 +1,13 @@
-import { type HeadFC, type PageProps } from "gatsby";
+import type { HeadFC, PageProps } from "gatsby";
 import { Template } from "@/components/templates/";
 import { CommonHead } from "@/components/organisms/meta/common-head";
 import { Link } from "@/components/atoms/link";
 import { SITE_ORIGIN } from "@/config";
 import { getTagPagePath } from "@/utils/tagUtils";
 
-const TagsIndexPage: React.FC<PageProps<{}, TagIndexPageContext>> = ({ 
-  pageContext, 
-  location 
-}) => {
+const TagsIndexPage: React.FC<
+  PageProps<Record<string, never>, TagIndexPageContext>
+> = ({ pageContext, location }) => {
   const { tags } = pageContext;
 
   return (
@@ -23,7 +22,7 @@ const TagsIndexPage: React.FC<PageProps<{}, TagIndexPageContext>> = ({
             <ul>
               {tags.map((tagData) => (
                 <li key={tagData.tagSlug}>
-                  <Link 
+                  <Link
                     to={new URL(getTagPagePath(tagData.tagSlug), SITE_ORIGIN)}
                   >
                     {tagData.tag} ({tagData.count})
