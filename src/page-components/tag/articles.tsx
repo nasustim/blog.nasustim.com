@@ -17,9 +17,28 @@ const nodeSchema = z.object({
   html: z.string(),
 });
 
-const IndexPage: React.FC<
-  PageProps<Queries.IndexPageQueryQuery, IndexPageContext>
+type TagArticleQueryData = {
+  allMarkdownRemark: {
+    edges: Array<{
+      node: {
+        frontmatter: {
+          date: string;
+          slug: string;
+          title: string;
+          draft: boolean;
+          tags: string[] | null;
+        };
+        html: string;
+      };
+    }>;
+  };
+};
+
+const TagArticlesPage: React.FC<
+  PageProps<TagArticleQueryData, TagPageContext>
 > = ({ data, location, pageContext }) => {
+  const { tag, currentPageIndex, pagesCount } = pageContext;
+
   const list = data.allMarkdownRemark.edges.map((v) => {
     const result = nodeSchema.safeParse(v.node);
     if (result.error) {
@@ -32,17 +51,17 @@ const IndexPage: React.FC<
       date: frontmatter.date,
       slug: frontmatter.slug,
       body: html,
-      tags: frontmatter.tags ?? [],
     };
   });
 
   return (
     <Template pathname={location.pathname}>
       <main>
+        <h1>Articles tagged with "{tag}"</h1>
         <ArticleList
           list={list}
-          currentPageIndex={pageContext.currentPageIndex}
-          pagesCount={pageContext.pagesCount}
+          currentPageIndex={currentPageIndex}
+          pagesCount={pagesCount}
         />
       </main>
     </Template>
@@ -50,10 +69,15 @@ const IndexPage: React.FC<
 };
 
 export const query = graphql`
-  query IndexPageQuery ($skip: Int!, $limit: Int!) {
+  query TagArticlesPageQuery ($tag: String!, $skip: Int!, $limit: Int!) {
     allMarkdownRemark(
       sort: {frontmatter: {date: DESC}}
-      filter: { frontmatter: { draft: { eq: false } } }
+      filter: { 
+        frontmatter: { 
+          draft: { eq: false }
+          tags: { in: [$tag] }
+        } 
+      }
       limit: $limit
       skip: $skip
     ) {
@@ -73,8 +97,11 @@ export const query = graphql`
   }
 `;
 
-export default IndexPage;
+export default TagArticlesPage;
 
-export const Head: HeadFC = () => {
-  return <CommonHead />;
+export const Head: HeadFC<TagArticleQueryData, TagPageContext> = ({
+  pageContext,
+}) => {
+  const { tag } = pageContext;
+  return <CommonHead title={`Articles tagged with "${tag}"`} />;
 };

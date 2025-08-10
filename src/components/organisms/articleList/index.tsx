@@ -16,6 +16,7 @@ type ListItem = {
   slug: string;
   title: string;
   body: string;
+  tags?: string[];
 };
 
 type Props = {

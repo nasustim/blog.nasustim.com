@@ -2,6 +2,12 @@ import path from "node:path";
 import type { CreatePagesArgs, GatsbyNode } from "gatsby";
 import { ARTICLE_LIST_PAGE_LIMIT } from "./src/config";
 import { getIndexPagePath } from "./src/utils/paginationUtils";
+import {
+  extractTagsWithCounts,
+  getTagPagePath,
+  getTagsIndexPath,
+  filterArticlesByTag,
+} from "./src/utils/tagUtils";
 import { z } from "zod";
 
 export const onPostBuild: GatsbyNode["onPostBuild"] = ({ reporter }) => {
@@ -16,6 +22,7 @@ const schema = z.object({
           id: z.string(),
           frontmatter: z.object({
             slug: z.string(),
+            tags: z.array(z.string()).nullable(),
           }),
         }),
       }),
@@ -40,6 +47,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
               id
               frontmatter {
                 slug
+                tags
               }
             }
           }
@@ -83,6 +91,48 @@ export const createPages: GatsbyNode["createPages"] = async ({
       context: {
         id: post.node.id,
       },
+    });
+  }
+
+  // Create tag pages
+  const articlesWithTags = posts.map((post) => ({
+    ...post.node,
+    tags: post.node.frontmatter.tags || [],
+  }));
+
+  const tagsWithCounts = extractTagsWithCounts(articlesWithTags);
+
+  // Create tags index page
+  createPage<TagIndexPageContext>({
+    path: getTagsIndexPath(),
+    component: path.resolve("./src/page-components/tag/index.tsx"),
+    context: {
+      tags: tagsWithCounts,
+    },
+  });
+
+  // Create individual tag pages
+  for (const tagData of tagsWithCounts) {
+    const articlesForTag = filterArticlesByTag(articlesWithTags, tagData.tag);
+    const tagPagesCount = Math.ceil(
+      articlesForTag.length / ARTICLE_LIST_PAGE_LIMIT,
+    );
+
+    Array.from({ length: tagPagesCount }).forEach((_, i) => {
+      const currentPageIndex = i;
+
+      createPage<TagPageContext>({
+        path: getTagPagePath(tagData.tagSlug, currentPageIndex),
+        component: path.resolve("./src/page-components/tag/articles.tsx"),
+        context: {
+          tag: tagData.tag,
+          tagSlug: tagData.tagSlug,
+          limit: ARTICLE_LIST_PAGE_LIMIT,
+          skip: currentPageIndex * ARTICLE_LIST_PAGE_LIMIT,
+          pagesCount: tagPagesCount,
+          currentPageIndex,
+        },
+      });
     });
   }
 };
