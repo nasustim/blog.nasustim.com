@@ -10,12 +10,14 @@ import {
 } from "./index.css";
 import { toPlainText } from "@/utils/markdownUtils";
 import { getIndexPagePath } from "@/utils/paginationUtils";
+import { TagList } from "@/components/organisms/tag-list";
 
 type ListItem = {
   date: string;
   slug: string;
   title: string;
   body: string;
+  tags?: string[];
 };
 
 type Props = {
@@ -64,6 +66,9 @@ const Item: FC<ListItem> = (v) => {
             <small>{v.date}</small>
             <h2 className={h2Style}>{v.title}</h2>
             <p className={pStyle}>{bodyText}</p>
+            {v.tags && v.tags.length > 0 && (
+              <TagList tags={v.tags} />
+            )}
           </div>
         </Link>
       </li>

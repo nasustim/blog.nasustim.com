@@ -9,6 +9,7 @@ const frontmatterSchema = z.object({
   slug: z.string(),
   title: z.string(),
   draft: z.boolean(),
+  tags: z.array(z.string()).nullable(),
 });
 
 const nodeSchema = z.object({
@@ -31,6 +32,7 @@ const IndexPage: React.FC<
       date: frontmatter.date,
       slug: frontmatter.slug,
       body: html,
+      tags: frontmatter.tags ?? [],
     };
   });
 
@@ -62,6 +64,7 @@ export const query = graphql`
             slug
             title
             draft
+            tags
           }
           html
         }

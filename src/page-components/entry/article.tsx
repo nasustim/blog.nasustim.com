@@ -23,6 +23,7 @@ const EntryPage: React.FC<PageProps<Queries.EntryPageQueryQuery>> = ({
           title={frontmatter?.title ?? ""}
           date={frontmatter?.date ?? undefined}
           markdown={rawMarkdownBody ?? ""}
+          tags={frontmatter?.tags ?? []}
         />
       </main>
     </Template>
@@ -40,6 +41,7 @@ export const query = graphql`
         slug
         title
         draft
+        tags
       }
     }
     site {
@@ -57,6 +59,7 @@ const frontmatterSchema = z.object({
   slug: z.string(),
   title: z.string(),
   draft: z.boolean(),
+  tags: z.array(z.string()).nullable(),
 });
 
 const siteMetadataSchema = z.object({
