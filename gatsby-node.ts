@@ -5,7 +5,6 @@ import { getIndexPagePath } from "./src/utils/paginationUtils";
 import {
   extractTagsWithCounts,
   getTagPagePath,
-  getTagsIndexPath,
   filterArticlesByTag,
 } from "./src/utils/tagUtils";
 import { z } from "zod";
@@ -101,15 +100,6 @@ export const createPages: GatsbyNode["createPages"] = async ({
   }));
 
   const tagsWithCounts = extractTagsWithCounts(articlesWithTags);
-
-  // Create tags index page
-  createPage<TagIndexPageContext>({
-    path: getTagsIndexPath(),
-    component: path.resolve("./src/page-components/tag/index.tsx"),
-    context: {
-      tags: tagsWithCounts,
-    },
-  });
 
   // Create individual tag pages
   for (const tagData of tagsWithCounts) {

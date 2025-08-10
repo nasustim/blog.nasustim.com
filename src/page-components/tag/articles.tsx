@@ -57,7 +57,7 @@ const TagArticlesPage: React.FC<
   return (
     <Template pathname={location.pathname}>
       <main>
-        <h1>Articles tagged with "{tag}"</h1>
+        <h3>Articles tagged with "{tag}"</h3>
         <ArticleList
           list={list}
           currentPageIndex={currentPageIndex}

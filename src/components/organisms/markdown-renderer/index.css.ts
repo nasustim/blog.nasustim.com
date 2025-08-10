@@ -106,6 +106,9 @@ globalStyle(`${articleRoot} sup > a::after`, {
 });
 
 // footnotes
+globalStyle(`${articleRoot} .footnotes h2`, {
+  display: "none", // to hide default title
+});
 globalStyle(`${articleRoot} .footnotes ol`, {
   paddingLeft: sectionMargin,
 });

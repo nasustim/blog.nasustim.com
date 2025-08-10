@@ -2,6 +2,7 @@ import { graphql, type HeadFC, type PageProps } from "gatsby";
 import { Template } from "@/components/templates/";
 import { ArticleList } from "@/components/organisms/articleList";
 import { CommonHead } from "@/components/organisms/meta/common-head";
+import { extractTagsWithCounts } from "@/utils/tagUtils";
 import { z } from "zod";
 
 const frontmatterSchema = z.object({
@@ -36,6 +37,14 @@ const IndexPage: React.FC<
     };
   });
 
+  // Extract all tags from the allTags query
+  const allArticlesWithTags = data.allTags.edges.map((edge) => ({
+    tags: (edge.node.frontmatter?.tags || []).filter(
+      (tag): tag is string => tag !== null,
+    ),
+  }));
+  const tagsWithCounts = extractTagsWithCounts(allArticlesWithTags);
+
   return (
     <Template pathname={location.pathname}>
       <main>
@@ -43,6 +52,7 @@ const IndexPage: React.FC<
           list={list}
           currentPageIndex={pageContext.currentPageIndex}
           pagesCount={pageContext.pagesCount}
+          allTags={tagsWithCounts}
         />
       </main>
     </Template>
@@ -67,6 +77,17 @@ export const query = graphql`
             tags
           }
           html
+        }
+      }
+    }
+    allTags: allMarkdownRemark(
+      filter: { frontmatter: { draft: { eq: false } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            tags
+          }
         }
       }
     }
