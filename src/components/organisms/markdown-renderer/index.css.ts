@@ -21,9 +21,6 @@ export const articleRoot = style({});
 globalStyle(`${articleRoot} > *`, {
   marginTop: "24px",
 });
-globalStyle(`${articleRoot} p img`, {
-  maxWidth: "100%",
-});
 for (let i = 1; i <= 5; i++) {
   const tag = `${articleRoot} h${i}`;
   const fontWeight = 500 - (i / 2) * 100;
@@ -53,6 +50,13 @@ globalStyle(`${articleRoot} a`, {
 });
 globalStyle(`${articleRoot} a:hover`, {
   color: vars.color.secondary,
+});
+
+// Images
+globalStyle(`${articleRoot} img`, {
+  maxWidth: "100%",
+  height: "400px",
+  margin: "8px auto",
 });
 
 // select code tags only child of ul tags and p tags
