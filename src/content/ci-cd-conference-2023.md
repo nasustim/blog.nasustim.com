@@ -5,7 +5,7 @@ date: 2023-03-27T11:21:24Z
 draft: true
 tags:
   - CI/CD
-  - プログラミング
+  - Programming
 ---
 
 現地参加してきました。
