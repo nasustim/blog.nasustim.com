@@ -15,9 +15,9 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup mise and Node.js
         uses: ./.github/actions/setup-mise
-      - run: npm ci
-      - run: npm run biome:ci
-      - run: npm run build
+      - run: bun ci
+      - run: bun run biome:ci
+      - run: bun run build
   document-test:
     runs-on: ubuntu-latest
     timeout-minutes: 8
@@ -25,8 +25,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Setup mise and Node.js
         uses: ./.github/actions/setup-mise
-      - run: npm ci
-      - run: npm run textlint:ci
+      - run: bun ci
+      - run: bun run textlint:ci
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
