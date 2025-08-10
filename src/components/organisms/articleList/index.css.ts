@@ -44,5 +44,6 @@ export const tagListStyle = style({
   marginTop: "24px",
   display: "flex",
   flexDirection: "row",
+  flexWrap: "wrap",
   gap: "8px",
 });
