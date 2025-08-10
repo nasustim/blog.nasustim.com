@@ -112,21 +112,15 @@ const Pager: FC<{
 );
 
 const TagsDisplay: FC<{ allTags: TagData[] }> = ({ allTags }) =>
-  allTags.length !== 0 && <div className={tagListStyle}>
-
-
-    {
-      allTags.map((tagData) => (
+  allTags.length !== 0 && (
+    <div className={tagListStyle}>
+      {allTags.map((tagData) => (
         <Tag
           key={tagData.tagSlug}
           tag={`${tagData.tag} (${tagData.count})`}
           tagSlug={tagData.tagSlug}
           clickable
         />
-      ))
-    }
-
-
-  </div>
-
-
+      ))}
+    </div>
+  );
