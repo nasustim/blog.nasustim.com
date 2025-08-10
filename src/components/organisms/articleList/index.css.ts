@@ -40,3 +40,9 @@ export const pagerStyle = style({
   justifyContent: "center",
   gap: "8px",
 });
+export const tagListStyle = style({
+  marginTop: "24px",
+  display: "flex",
+  flexDirection: "row",
+  gap: "8px",
+});

@@ -8,6 +8,7 @@ import {
   pagerStyle,
   pStyle,
   linkContentStyle,
+  tagListStyle,
 } from "./index.css";
 import { toPlainText } from "@/utils/markdownUtils";
 import { getIndexPagePath } from "@/utils/paginationUtils";
@@ -110,22 +111,22 @@ const Pager: FC<{
   </div>
 );
 
-const TagsDisplay: FC<{ allTags: TagData[] }> = ({ allTags }) => (
-  <div style={{ marginTop: "24px" }}>
-    <h3>Tags</h3>
-    {allTags.length === 0 ? (
-      <p>No tags found.</p>
-    ) : (
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "4px" }}>
-        {allTags.map((tagData) => (
-          <Tag
-            key={tagData.tagSlug}
-            tag={`${tagData.tag} (${tagData.count})`}
-            tagSlug={tagData.tagSlug}
-            clickable
-          />
-        ))}
-      </div>
-    )}
+const TagsDisplay: FC<{ allTags: TagData[] }> = ({ allTags }) =>
+  allTags.length !== 0 && <div className={tagListStyle}>
+
+
+    {
+      allTags.map((tagData) => (
+        <Tag
+          key={tagData.tagSlug}
+          tag={`${tagData.tag} (${tagData.count})`}
+          tagSlug={tagData.tagSlug}
+          clickable
+        />
+      ))
+    }
+
+
   </div>
-);
+
+
