@@ -6,24 +6,24 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Development Server
 ```bash
-npm run dev          # Start Gatsby development server (localhost:8000)
-npm run build        # Build production site
-npm run serve        # Serve built site locally
-npm run clean        # Clean Gatsby cache and public directory
+bun run dev          # Start Gatsby development server (localhost:8000)
+bun run build        # Build production site
+bun run serve        # Serve built site locally
+bun run clean        # Clean Gatsby cache and public directory
 ```
 
 ### Code Quality
 ```bash
-npm run biome:fix    # Format and lint TypeScript/JavaScript code (auto-fix)
-npm run biome:ci     # Check formatting and linting (CI mode)
-npm run textlint:fix # Fix Japanese text formatting in content files
-npm run textlint:ci  # Check Japanese text formatting (CI mode)
+bun run biome:fix    # Format and lint TypeScript/JavaScript code (auto-fix)
+bun run biome:ci     # Check formatting and linting (CI mode)
+bun run textlint:fix # Fix Japanese text formatting in content files
+bun run textlint:ci  # Check Japanese text formatting (CI mode)
 ```
 
 ### Content Creation
 ```bash
-npm run new          # Generate new blog article from boilerplate template
-npm run ts           # Run TypeScript files directly (uses Node.js experimental features)
+bun run new          # Generate new blog article from boilerplate template
+bun run ts           # Run TypeScript files directly (uses Node.js experimental features)
 ```
 
 ## Architecture Overview
@@ -85,10 +85,10 @@ src/
 ## Development Workflow
 
 ### Creating New Articles
-1. Run `npm run new` to generate boilerplate from `src/boilerplate.md`
+1. Run `bun run new` to generate boilerplate from `src/boilerplate.md`
 2. Edit frontmatter (slug, title, remove draft flag)
 3. Write content in Markdown format
-4. Test locally with `npm run dev`
+4. Test locally with `bun run dev`
 
 ### Code Style
 - Use Biome for TypeScript/JavaScript formatting
@@ -98,5 +98,5 @@ src/
 
 ### Testing Changes
 - Development server supports hot reloading
-- Build locally with `npm run build` before deployment
+- Build locally with `bun run build` before deployment
 - Check both formatting tools pass: `biome:ci` and `textlint:ci`

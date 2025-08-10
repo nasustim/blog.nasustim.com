@@ -4,18 +4,18 @@ https://blog.nasustim.com
 
 ## Setup
 
-Developing this project requires [asdf](https://asdf-vm.com/)
+Developing this project requires [mise](https://mise.jdx.dev/)
 
 Installing runtimes it requires
 
 ```bash
-$ asdf install
+$ mise install
 ```
 
 Installing npm packages
 
 ```bash
-$ npm install
+$ bun install
 ```
 
 ## Usage
@@ -23,12 +23,12 @@ $ npm install
 Start dev server
 
 ```bash
-$ npm run
+$ bun run
 ```
 
 Format code style
 
 ```bash
-$ npm run biome:fix
-$ npm run textlint:fix
+$ bun run biome:fix
+$ bun run textlint:fix
 ```
