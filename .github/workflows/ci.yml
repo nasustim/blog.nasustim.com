@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    name: Code Quality & Build
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - uses: jdx/mise-action@v2.4.4
+        with:
+          install: true
+          cache: true
+            
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Run Biome (lint & format check)
+        run: npm run biome:ci
+        
+      - name: Run Textlint (Japanese content check)
+        run: npm run textlint:ci
+        
+      - name: Build Gatsby site
+        run: npm run build
+        env:
+          NODE_ENV: production

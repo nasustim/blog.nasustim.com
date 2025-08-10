@@ -12,6 +12,9 @@ jobs:
     timeout-minutes: 2
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: jdx/mise-action@v2.4.4
+        with:
+          install: true
+          cache: true
       - name: Test Renovate
         run: npx --package renovate -c 'renovate-config-validator'

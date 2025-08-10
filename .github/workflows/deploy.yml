@@ -17,10 +17,11 @@ jobs:
           submodules: true # Fetch Hugo themes (true OR recursive)
           fetch-depth: 0 # Fetch all history for .GitInfo and .Lastmod
 
-      - uses: actions/setup-node@v4
+      - uses: jdx/mise-action@v2.4.4
         with:
-          node-version-file: .tool-versions
-          cache: npm
+          install: true
+          cache: true
+
       - run: npm ci
       - run: npm run build
 
