@@ -107,7 +107,6 @@ const Pager: FC<{
         );
       })}
     </div>
-    <TagsDisplay allTags={allTags} />
   </div>
 );
 
