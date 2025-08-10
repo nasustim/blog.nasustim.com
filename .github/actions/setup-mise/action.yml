@@ -29,13 +29,3 @@ runs:
         install: ${{ inputs.install }}
         cache: ${{ inputs.cache }}
         github_token: ${{ inputs.github-token }}
-        
-    - name: Cache node modules
-      if: hashFiles('package-lock.json') != ''
-      uses: actions/cache@v4
-      with:
-        path: node_modules
-        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
-        restore-keys: |
-          ${{ runner.os }}-node-
-      shell: bash
