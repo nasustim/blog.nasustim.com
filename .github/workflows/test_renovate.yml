@@ -12,6 +12,7 @@ jobs:
     timeout-minutes: 2
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Setup mise and Node.js
+        uses: ./.github/actions/setup-mise
       - name: Test Renovate
         run: npx --package renovate -c 'renovate-config-validator'
