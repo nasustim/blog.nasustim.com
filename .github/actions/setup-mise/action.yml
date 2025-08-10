@@ -1,31 +1,8 @@
 name: 'Setup mise'
 description: 'Set up mise and install tools from mise.toml'
 
-inputs:
-  version:
-    description: 'The version of mise to install'
-    required: false
-    default: '2025.8.5'
-  install:
-    description: 'Run mise install to install tools'
-    required: false
-    default: 'true'
-  cache:
-    description: 'Enable caching for mise tools'
-    required: false
-    default: 'true'
-  github-token:
-    description: 'GitHub token for API requests'
-    required: false
-    default: ${{ github.token }}
-
 runs:
   using: 'composite'
   steps:
     - name: Setup mise
       uses: jdx/mise-action@v2.4.4
-      with:
-        version: ${{ inputs.version }}
-        install: ${{ inputs.install }}
-        cache: ${{ inputs.cache }}
-        github_token: ${{ inputs.github-token }}
