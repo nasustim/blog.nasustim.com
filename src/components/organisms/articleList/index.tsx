@@ -10,7 +10,6 @@ import {
 } from "./index.css";
 import { toPlainText } from "@/utils/markdownUtils";
 import { getIndexPagePath } from "@/utils/paginationUtils";
-import { TagList } from "@/components/organisms/tag-list";
 
 type ListItem = {
   date: string;
