@@ -5,7 +5,7 @@ inputs:
   version:
     description: 'The version of mise to install'
     required: false
-    default: 'latest'
+    default: '2025.8.5'
   install:
     description: 'Run mise install to install tools'
     required: false
