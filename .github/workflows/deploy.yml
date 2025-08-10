@@ -20,8 +20,8 @@ jobs:
       - name: Setup mise and Node.js
         uses: ./.github/actions/setup-mise
 
-      - run: npm ci
-      - run: npm run build
+      - run: bun ci
+      - run: bun run build
 
       - name: GitHub Pages custom domain setting
         run: echo "blog.nasustim.com" > ./public/CNAME
