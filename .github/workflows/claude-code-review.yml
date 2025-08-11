@@ -1,5 +1,9 @@
 name: Claude Code Review
 
+concurrency:
+  group: claude-code-review-${{ github.repository }}
+  cancel-in-progress: false
+
 on:
   pull_request:
     types: [opened, synchronize]
@@ -12,6 +16,7 @@ on:
 
 jobs:
   claude-review:
+    timeout-minutes: 10
     # Optional: Filter by PR author
     # if: |
     #   github.event.pull_request.user.login == 'external-contributor' ||
