@@ -5,6 +5,7 @@
   "description": "blog.nasustim.com",
   "author": "nasustim",
   "scripts": {
+    "fix": "bun run textlint:fix && bun run biome:fix",
     "dev": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
