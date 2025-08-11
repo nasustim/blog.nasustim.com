@@ -4,6 +4,7 @@ import remarkGfm from "remark-gfm";
 import { css, blockStyle, h2Style, articleRoot } from "./index.css";
 import { TagList } from "@/components/organisms/tag-list";
 import rehypeRaw from "rehype-raw";
+import { LinkRenderer } from "./link-renderer";
 
 type Props = {
   title: string;
@@ -24,7 +25,13 @@ export const MarkdownRenderer: FC<Props> = ({
       {tags.length > 0 && <TagList tags={tags} />}
     </div>
     <article className={`${blockStyle} ${articleRoot}`}>
-      <Markdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+      <Markdown
+        remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
+        components={{
+          a: LinkRenderer,
+        }}
+      >
         {markdown}
       </Markdown>
     </article>
