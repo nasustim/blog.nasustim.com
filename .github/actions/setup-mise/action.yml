@@ -5,4 +5,4 @@ runs:
   using: 'composite'
   steps:
     - name: Setup mise
-      uses: jdx/mise-action@v2.4.4
+      uses: jdx/mise-action@v3.2.0
