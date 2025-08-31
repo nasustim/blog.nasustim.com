@@ -1,7 +1,7 @@
 import type { HeadFC, PageProps } from "gatsby";
-import { Template } from "@/components/templates/";
-import { CommonHead } from "@/components/organisms/meta/common-head";
 import { Link } from "@/components/atoms/link";
+import { CommonHead } from "@/components/organisms/meta/common-head";
+import { Template } from "@/components/templates/";
 import { SITE_ORIGIN } from "@/config";
 import { getTagPagePath } from "@/utils/tagUtils";
 

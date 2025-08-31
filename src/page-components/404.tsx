@@ -1,5 +1,5 @@
+import { type HeadFC, Link, type PageProps } from "gatsby";
 import { Template } from "@/components/templates";
-import { Link, type HeadFC, type PageProps } from "gatsby";
 
 const pageStyles = {
   color: "#232129",

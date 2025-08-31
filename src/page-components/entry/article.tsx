@@ -1,9 +1,9 @@
+import { graphql, type HeadFC, type PageProps } from "gatsby";
+import { z } from "zod";
 import { MarkdownRenderer } from "@/components/organisms/markdown-renderer";
 import { CommonHead } from "@/components/organisms/meta/common-head";
 import { Template } from "@/components/templates";
 import { toPlainText } from "@/utils/markdownUtils";
-import { type HeadFC, type PageProps, graphql } from "gatsby";
-import { z } from "zod";
 
 const EntryPage: React.FC<PageProps<Queries.EntryPageQueryQuery>> = ({
   data,

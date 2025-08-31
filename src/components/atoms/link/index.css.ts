@@ -1,5 +1,5 @@
-import { vars } from "@/style.css";
 import { style } from "@vanilla-extract/css";
+import { vars } from "@/style.css";
 
 export const noStyle = style({
   color: "inherit",

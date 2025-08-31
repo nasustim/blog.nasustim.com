@@ -1,13 +1,13 @@
 import path from "node:path";
 import type { CreatePagesArgs, GatsbyNode } from "gatsby";
+import { z } from "zod";
 import { ARTICLE_LIST_PAGE_LIMIT } from "./src/config";
 import { getIndexPagePath } from "./src/utils/paginationUtils";
 import {
   extractTagsWithCounts,
-  getTagPagePath,
   filterArticlesByTag,
+  getTagPagePath,
 } from "./src/utils/tagUtils";
-import { z } from "zod";
 
 export const onPostBuild: GatsbyNode["onPostBuild"] = ({ reporter }) => {
   reporter.info("Build has finished! 🙌");

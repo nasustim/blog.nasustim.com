@@ -1,5 +1,5 @@
-import { minWidthForDesktop } from "@/components/templates/index.css";
 import { style } from "@vanilla-extract/css";
+import { minWidthForDesktop } from "@/components/templates/index.css";
 
 export const containerStyle = style({
   maxWidth: minWidthForDesktop,

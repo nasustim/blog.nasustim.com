@@ -1,6 +1,6 @@
 import type { GatsbyConfig } from "gatsby";
-import { GTAG_TRACKING_ID, SITE_ORIGIN, TITLE } from "./src/config";
 import { z } from "zod";
+import { GTAG_TRACKING_ID, SITE_ORIGIN, TITLE } from "./src/config";
 
 const rssFeedShema = z.object({
   allMarkdownRemark: z.object({
