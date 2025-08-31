@@ -1,9 +1,9 @@
 import type { FC } from "react";
 import Markdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import { css, blockStyle, h2Style, articleRoot } from "./index.css";
-import { TagList } from "@/components/organisms/tag-list";
 import rehypeRaw from "rehype-raw";
+import remarkGfm from "remark-gfm";
+import { TagList } from "@/components/organisms/tag-list";
+import { articleRoot, blockStyle, css, h2Style } from "./index.css";
 
 type Props = {
   title: string;

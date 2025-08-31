@@ -1,5 +1,5 @@
-import { minWidthForDesktop } from "@/components/templates/index.css";
 import { style } from "@vanilla-extract/css";
+import { minWidthForDesktop } from "@/components/templates/index.css";
 export const listItemStyle = style({
   margin: "46px 0 0 0",
   borderRadius: "8px",

@@ -1,4 +1,6 @@
+import type { FC } from "react";
 import { Link } from "@/components/atoms/link";
+import { SITE_ORIGIN, SUB_TITLE, TITLE } from "@/config";
 import {
   containerStyle,
   h1Style,
@@ -7,8 +9,6 @@ import {
   linkStyle,
   titleStyle,
 } from "./index.css";
-import { SITE_ORIGIN, SUB_TITLE, TITLE } from "@/config";
-import type { FC } from "react";
 
 type Props = {
   isTopPage?: boolean;

@@ -1,17 +1,17 @@
+import { type FC, Fragment, useMemo } from "react";
 import { Link } from "@/components/atoms/link";
 import { Tag } from "@/components/atoms/tag";
 import { SITE_ORIGIN } from "@/config";
-import { Fragment, useMemo, type FC } from "react";
+import { toPlainText } from "@/utils/markdownUtils";
+import { getIndexPagePath } from "@/utils/paginationUtils";
 import {
   h2Style,
+  linkContentStyle,
   listItemStyle,
   pagerStyle,
   pStyle,
-  linkContentStyle,
   tagListStyle,
 } from "./index.css";
-import { toPlainText } from "@/utils/markdownUtils";
-import { getIndexPagePath } from "@/utils/paginationUtils";
 
 type ListItem = {
   date: string;
@@ -73,17 +73,15 @@ const Item: FC<ListItem> = (v) => {
   }, [v.body]);
 
   return (
-    <Fragment>
-      <li className={listItemStyle}>
-        <Link to={new URL(`/entry/${v.slug}`, SITE_ORIGIN)} noStyle>
-          <div className={linkContentStyle}>
-            <small>{v.date}</small>
-            <h2 className={h2Style}>{v.title}</h2>
-            <p className={pStyle}>{bodyText}</p>
-          </div>
-        </Link>
-      </li>
-    </Fragment>
+    <li className={listItemStyle}>
+      <Link to={new URL(`/entry/${v.slug}`, SITE_ORIGIN)} noStyle>
+        <div className={linkContentStyle}>
+          <small>{v.date}</small>
+          <h2 className={h2Style}>{v.title}</h2>
+          <p className={pStyle}>{bodyText}</p>
+        </div>
+      </Link>
+    </li>
   );
 };
 

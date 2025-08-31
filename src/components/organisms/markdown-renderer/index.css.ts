@@ -1,5 +1,5 @@
+import { globalStyle, style } from "@vanilla-extract/css";
 import { vars } from "@/style.css";
-import { style, globalStyle } from "@vanilla-extract/css";
 
 const sectionMargin = "16px";
 

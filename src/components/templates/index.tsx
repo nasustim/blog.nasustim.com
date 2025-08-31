@@ -1,6 +1,9 @@
 import "@acab/reset.css";
 
+import { clsx } from "clsx";
 import type { FC, ReactNode } from "react";
+import { Header } from "@/components/organisms/header";
+import { themeClass } from "@/style.css";
 import {
   containerCss,
   footerStyle,
@@ -8,9 +11,6 @@ import {
   innerCss,
   mainStyle,
 } from "./index.css";
-import { Header } from "@/components/organisms/header";
-import { themeClass } from "@/style.css";
-import { clsx } from "clsx";
 
 export const Template: FC<{
   children: ReactNode;

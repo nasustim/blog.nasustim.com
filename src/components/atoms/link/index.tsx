@@ -1,7 +1,7 @@
 import { clsx } from "clsx";
-import { useMemo, type FC, type ReactNode } from "react";
-import { linkStyle, noStyle as noStyleCss } from "./index.css";
+import { type FC, type ReactNode, useMemo } from "react";
 import { SITE_ORIGIN } from "@/config";
+import { linkStyle, noStyle as noStyleCss } from "./index.css";
 
 type Props = {
   children: ReactNode;

@@ -1,8 +1,8 @@
 import { graphql, type HeadFC, type PageProps } from "gatsby";
-import { Template } from "@/components/templates/";
+import { z } from "zod";
 import { ArticleList } from "@/components/organisms/articleList";
 import { CommonHead } from "@/components/organisms/meta/common-head";
-import { z } from "zod";
+import { Template } from "@/components/templates/";
 
 const frontmatterSchema = z.object({
   date: z.string(),
