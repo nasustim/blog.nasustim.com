@@ -77,7 +77,9 @@ globalStyle(`${articleRoot} > code, ${articleRoot} > pre code`, {
   overflowX: "scroll",
   overflowWrap: "normal",
 
-  border: "1px solid #b6b6b6",
+  borderLeftColor: vars.color.bgSecondary,
+  borderLeftStyle: "solid",
+  borderLeftWidth: "1px",
   borderRadius: "4px",
   padding: "4px 12px",
   backgroundColor: "#efefef",
@@ -89,7 +91,7 @@ globalStyle(`${articleRoot} > table`, {
   overflowX: "scroll",
 });
 globalStyle(`${articleRoot} > table > thead`, {
-  backgroundColor: "#b6b6b6",
+  backgroundColor: vars.color.bgSecondary,
 });
 globalStyle(`${articleRoot} > table > tbody tr:nth-child(2n)`, {
   backgroundColor: "#efefef",
@@ -118,4 +120,14 @@ globalStyle(`${articleRoot} .footnotes ol`, {
 });
 globalStyle(`${articleRoot} .footnotes ol li`, {
   listStyle: "auto",
+});
+
+// blockquotes
+globalStyle(`${articleRoot} > blockquote`, {
+  borderLeftWidth: "4px",
+  borderLeftStyle: "solid",
+  borderLeftColor: vars.color.bgSecondary,
+  padding: "12px 16px",
+  margin: "24px 0",
+  backgroundColor: "#f9f9f9",
 });

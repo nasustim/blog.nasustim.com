@@ -14,6 +14,7 @@ bun run clean        # Clean Gatsby cache and public directory
 
 ### Code Quality
 ```bash
+bun run fix          # Fix all
 bun run biome:fix    # Format and lint TypeScript/JavaScript code (auto-fix)
 bun run biome:ci     # Check formatting and linting (CI mode)
 bun run textlint:fix # Fix Japanese text formatting in content files
