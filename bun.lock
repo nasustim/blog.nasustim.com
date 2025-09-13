@@ -33,7 +33,7 @@
         "rehype-raw": "7.0.0",
         "remark-gfm": "4.0.1",
         "ts-dedent": "github:nasustim/node-ts-dedent#master",
-        "zod": "4.1.5",
+        "zod": "4.1.8",
       },
       "devDependencies": {
         "@biomejs/biome": "2.2.4",
@@ -3033,7 +3033,7 @@
 
     "yurnalist": ["yurnalist@2.1.0", "", { "dependencies": { "chalk": "^2.4.2", "inquirer": "^7.0.0", "is-ci": "^2.0.0", "read": "^1.0.7", "strip-ansi": "^5.2.0" } }, "sha512-PgrBqosQLM3gN2xBFIMDLACRTV9c365VqityKKpSTWpwR+U4LAFR3rSVyEoscWlu3EzX9+Y0I86GXUKxpHFl6w=="],
 
-    "zod": ["zod@4.1.5", "", {}, "sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg=="],
+    "zod": ["zod@4.1.8", "", {}, "sha512-5R1P+WwQqmmMIEACyzSvo4JXHY5WiAFHRMg+zBZKgKS+Q1viRa0C1hmUKtHltoIFKtIdki3pRxkmpP74jnNYHQ=="],
 
     "zod-to-json-schema": ["zod-to-json-schema@3.24.6", "", { "peerDependencies": { "zod": "^3.24.1" } }, "sha512-h/z3PKvcTcTetyjl1fkj79MHNEjm+HpD6NXheWjzOekY7kV+lwDYnHw+ivHkijnCSMz1yJaWBD9vu/Fcmk+vEg=="],
 
