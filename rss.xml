@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of blog.nasustim.com]]></title><description><![CDATA[a weblog by @nasustim (Mitsuhiro Hibino)]]></description><link>https://blog.nasustim.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 Nov 2025 12:49:55 GMT</lastBuildDate><item><title><![CDATA[React と Next.js どちらを使えばいいのか]]></title><description><![CDATA[現時点での自分なりの結論。
-Podcast ネタとしてはボツにしたので供養 前提 React はコンポーネントベースで宣言的な UI の表現を提供するライブラリ README[^react-readme]にもそう書いてある 対立項が Next.js なので、Web…]]></description><link>https://blog.nasustim.com/entry/cra-vs-nextjs</link><guid isPermaLink="false">https://blog.nasustim.com/entry/cra-vs-nextjs</guid><pubDate>Tue, 16 Sep 2025 23:33:20 GMT</pubDate><content:encoded>&lt;p&gt;現時点での自分なりの結論。
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of blog.nasustim.com]]></title><description><![CDATA[a weblog by @nasustim (Mitsuhiro Hibino)]]></description><link>https://blog.nasustim.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 Nov 2025 13:01:19 GMT</lastBuildDate><item><title><![CDATA[React と Next.js どちらを使えばいいのか]]></title><description><![CDATA[現時点での自分なりの結論。
+Podcast ネタとしてはボツにしたので供養 前提 React はコンポーネントベースで宣言的な UI の表現を提供するライブラリ READMEにもそう書いてある 対立項が Next.js なので、Web…]]></description><link>https://blog.nasustim.com/entry/cra-vs-nextjs</link><guid isPermaLink="false">https://blog.nasustim.com/entry/cra-vs-nextjs</guid><pubDate>Tue, 16 Sep 2025 23:33:20 GMT</pubDate><content:encoded>&lt;p&gt;現時点での自分なりの結論。
 Podcast ネタとしてはボツにしたので供養&lt;/p&gt;
 &lt;h3&gt;前提&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;React はコンポーネントベースで宣言的な UI の表現を提供するライブラリ
 &lt;ul&gt;
-&lt;li&gt;README[^react-readme]にもそう書いてある&lt;/li&gt;
+&lt;li&gt;README&lt;sup id=&quot;fnref-react-readme&quot;&gt;&lt;a href=&quot;#fn-react-readme&quot; class=&quot;footnote-ref&quot;&gt;react-readme&lt;/a&gt;&lt;/sup&gt;にもそう書いてある&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;対立項が Next.js なので、Web ページ構築の文脈である&lt;/li&gt;
@@ -48,6 +48,9 @@ Podcast ネタとしてはボツにしたので供養&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;気になったアップデート&lt;/h3&gt;
+&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Nextjs 最新バージョンで TypedRoutes が GA された&lt;/p&gt;
 &lt;ul&gt;
@@ -62,12 +65,14 @@ Podcast ネタとしてはボツにしたので供養&lt;/p&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;予想: 制約が多い、ビルド時点でエラーになってくれる Nextjs の方が AI へのフィードバックがしやすいだろう&lt;/p&gt;
+&lt;p&gt;TypeScript という言語自体が明示的な定義を求めがちな言語（モジュールの中身を露出させる場合必ず名前空間を汚染させる必要があるし）で、ビルド時点でエラーになってくれる Nextjs の方が AI へのダイレクトなフィードバックが可能で嬉しいんだろう&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
 &lt;div class=&quot;footnotes&quot;&gt;
 &lt;hr&gt;
 &lt;ol&gt;
+&lt;li id=&quot;fn-react-readme&quot;&gt;&lt;a href=&quot;https://github.com/facebook/react/blob/4e482f490405c0c601d8712a0625fd17c04978e4/README.md#react------&quot;&gt;https://github.com/facebook/react/blob/4e482f490405c0c601d8712a0625fd17c04978e4/README.md#react------&lt;/a&gt;&lt;a href=&quot;#fnref-react-readme&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;li id=&quot;fn-cra-deprecated&quot;&gt;&lt;a href=&quot;https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app--&quot;&gt;https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app--&lt;/a&gt; &lt;a href=&quot;https://zenn.dev/sonicmoov/articles/deprecated-create-react-app&quot;&gt;https://zenn.dev/sonicmoov/articles/deprecated-create-react-app&lt;/a&gt;&lt;a href=&quot;#fnref-cra-deprecated&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;</content:encoded></item><item><title><![CDATA[🇫🇮 2025年フィンランド旅行記 - ② ヘルシンキに到着、そしてサウナへ]]></title><description><![CDATA[シリーズでお届けしております。 前回の記事: 🇫🇮 2025年フィンランド旅行記 - ① 出発 ヘルシンキ到着 "Cabin crew, prepare for landing…]]></description><link>https://blog.nasustim.com/entry/travel-to-finland-in-aug-2025-02</link><guid isPermaLink="false">https://blog.nasustim.com/entry/travel-to-finland-in-aug-2025-02</guid><pubDate>Mon, 11 Aug 2025 03:19:16 GMT</pubDate><content:encoded>&lt;p&gt;シリーズでお届けしております。&lt;/p&gt;

@@ -31,16 +31,16 @@ Podcast ネタとしてはボツにしたので供養</p>
 <ul>
 <li>React はコンポーネントベースで宣言的な UI の表現を提供するライブラリ
 <ul>
-<li>README[^react-readme]にもそう書いてある</li>
+<li>README<sup><a href="#user-content-fn-react-readme" id="user-content-fnref-react-readme" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup>にもそう書いてある</li>
 </ul>
 </li>
 <li>対立項が Next.js なので、Web ページ構築の文脈である</li>
-<li>この分野では長らく facebook 謹製の facebook/create-react-app というボイラープレートがプレーンな React 環境のスタートアップとしてデファクトスタンダードとなっていたが、 2025年9月現在 deprecated となっている <sup><a href="#user-content-fn-cra-deprecated" id="user-content-fnref-cra-deprecated" data-footnote-ref="" aria-describedby="footnote-label">1</a></sup></li>
+<li>この分野では長らく facebook 謹製の facebook/create-react-app というボイラープレートがプレーンな React 環境のスタートアップとしてデファクトスタンダードとなっていたが、 2025年9月現在 deprecated となっている <sup><a href="#user-content-fn-cra-deprecated" id="user-content-fnref-cra-deprecated" data-footnote-ref="" aria-describedby="footnote-label">2</a></sup></li>
 </ul>
 <h3>結論</h3>
 <ul>
 <li>
-<p>基本的には Next.js で OK だと考えている</p>
+<p>基  本的には Next.js で OK だと考えている</p>
 </li>
 <li>
 <p>逆に、Create React App, 生の React で扱うべきユースケースは？</p>
@@ -74,6 +74,9 @@ Podcast ネタとしてはボツにしたので供養</p>
 </li>
 </ul>
 </li>
+</ul>
+<h3>気になったアップデート</h3>
+<ul>
 <li>
 <p>Nextjs 最新バージョンで TypedRoutes が GA された</p>
 <ul>
@@ -88,13 +91,17 @@ Podcast ネタとしてはボツにしたので供養</p>
 </ul>
 </li>
 <li>
-<p>予想: 制約が多い、ビルド時点でエラーになってくれる Nextjs の方が AI へのフィードバックがしやすいだろう</p>
+<p>TypeScript という言語自体が明示的な定義を求めがちな言語（モジュールの中身を露出させる場合必ず名前空間を汚染させる必要があるし）で、ビルド時点でエラーになってくれる Nextjs の方が AI へのダイレクトなフィードバックが可能  で嬉しいんだろう</p>
 </li>
 </ul>
+<hr/>
 <section data-footnotes="" class="footnotes"><h2 class="sr-only" id="footnote-label">Footnotes</h2>
 <ol>
+<li id="user-content-fn-react-readme">
+<p><a href="https://github.com/facebook/react/blob/4e482f490405c0c601d8712a0625fd17c04978e4/README.md#react------">https://github.com/facebook/react/blob/4e482f490405c0c601d8712a0625fd17c04978e4/README.md#react------</a> <a href="#user-content-fnref-react-readme" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+</li>
 <li id="user-content-fn-cra-deprecated">
-<p><a href="https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app--">https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app--</a> <a href="https://zenn.dev/sonicmoov/articles/deprecated-create-react-app">https://zenn.dev/sonicmoov/articles/deprecated-create-react-app</a> <a href="#user-content-fnref-cra-deprecated" data-footnote-backref="" aria-label="Back to reference 1" class="data-footnote-backref">↩</a></p>
+<p><a href="https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app--">https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app--</a> <a href="https://zenn.dev/sonicmoov/articles/deprecated-create-react-app">https://zenn.dev/sonicmoov/articles/deprecated-create-react-app</a> <a href="#user-content-fnref-cra-deprecated" data-footnote-backref="" aria-label="Back to reference 2" class="data-footnote-backref">↩</a></p>
 </li>
 </ol>
 </section></article></div></main></div><footer class="rpjxp44"><p>© nasustim, 2010-</p></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-3YY246MS11"></script><script>
