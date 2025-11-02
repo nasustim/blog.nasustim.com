@@ -1,0 +1,16 @@
+{
+  "name": "NASUSTIM",
+  "short_name": "NASUSTIM",
+  "description": "Blog by nasustim",
+  "start_url": "/",
+  "display": "minimal-ui",
+  "background_color": "#ffffff",
+  "theme_color": "#494757",
+  "icons": [
+    {
+      "src": "/favicon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png"
+    }
+  ]
+}

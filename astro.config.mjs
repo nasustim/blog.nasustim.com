@@ -7,6 +7,7 @@ import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://blog.nasustim.com',
+  publicDir: './static',
   integrations: [
     react(),
     sitemap(),
