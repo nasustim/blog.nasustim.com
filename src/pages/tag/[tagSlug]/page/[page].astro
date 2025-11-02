@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import { ArticleList } from '@/components/organisms/articleList';
+import MainLayout from '@/layouts/MainLayout.astro';
+import { ARTICLE_LIST_PAGE_LIMIT, TITLE } from '@/config';
+import { extractTagsWithCounts } from '@/utils/tagUtils';
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getCollection('blog', ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+
+  const allTags = extractTagsWithCounts(allPosts);
+  const paths: any[] = [];
+
+  for (const { tag, tagSlug } of allTags) {
+    const filteredPosts = allPosts
+      .filter(post => post.data.tags?.includes(tag))
+      .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+
+    const pagesCount = Math.ceil(filteredPosts.length / ARTICLE_LIST_PAGE_LIMIT);
+
+    // Generate pages 2, 3, 4, etc (page 1 is at /tag/[tagSlug])
+    for (let i = 1; i < pagesCount; i++) {
+      const currentPageIndex = i;
+      const skip = currentPageIndex * ARTICLE_LIST_PAGE_LIMIT;
+      const paginatedPosts = filteredPosts.slice(skip, skip + ARTICLE_LIST_PAGE_LIMIT);
+
+      const list = paginatedPosts.map(post => ({
+        date: new Date(post.data.date).toISOString().split('T')[0],
+        slug: post.data.slug,
+        title: post.data.title,
+        body: post.body,
+        tags: post.data.tags,
+      }));
+
+      paths.push({
+        params: { tagSlug, page: String(i + 1) },
+        props: {
+          tag,
+          list,
+          pagesCount,
+          currentPageIndex,
+          allTags,
+        },
+      });
+    }
+  }
+
+  return paths;
+}) satisfies GetStaticPaths;
+
+const { tag, list, pagesCount, currentPageIndex, allTags } = Astro.props;
+const pageTitle = `${tag} - Page ${currentPageIndex + 1} - ${TITLE}`;
+const description = `Articles tagged with ${tag}`;
+---
+
+<MainLayout title={pageTitle} description={description} pathname={Astro.url.pathname}>
+  <h1>Tag: {tag}</h1>
+  <ArticleList
+    client:load
+    list={list}
+    pagesCount={pagesCount}
+    currentPageIndex={currentPageIndex}
+    allTags={allTags}
+  />
+</MainLayout>

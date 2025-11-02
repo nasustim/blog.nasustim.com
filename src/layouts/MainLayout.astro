@@ -1,15 +1,6 @@
 ---
 import '@acab/reset.css';
-import { clsx } from 'clsx';
-import Header from '@/components/organisms/header/Header.astro';
-import { themeClass } from '@/style.css';
-import {
-  containerCss,
-  footerStyle,
-  headerStyle,
-  innerCss,
-  mainStyle,
-} from '@/components/templates/index.css';
+import { Template } from '@/components/templates';
 
 interface Props {
   title: string;
@@ -19,7 +10,6 @@ interface Props {
 }
 
 const { title, description = '', ogType = 'website', pathname } = Astro.props;
-const isTopPage = pathname === '/';
 ---
 
 <!doctype html>
@@ -47,18 +37,8 @@ const isTopPage = pathname === '/';
     <link rel="sitemap" href="/sitemap-index.xml" />
   </head>
   <body>
-    <div class={clsx(themeClass, containerCss)}>
-      <div class={headerStyle}>
-        <div class={innerCss}>
-          <Header isTopPage={isTopPage} />
-        </div>
-      </div>
-      <div class={`${innerCss} ${mainStyle}`}>
-        <slot />
-      </div>
-      <footer class={footerStyle}>
-        <p>© nasustim, 2010-</p>
-      </footer>
-    </div>
+    <Template client:load pathname={pathname}>
+      <slot />
+    </Template>
   </body>
 </html>
