@@ -29,7 +29,7 @@ export const getStaticPaths = (async () => {
 
       const list = paginatedPosts.map(post => ({
         date: new Date(post.data.date).toISOString().split('T')[0],
-        slug: post.data.slug,
+        slug: post.data.slug || post.id,
         title: post.data.title,
         body: post.body,
         tags: post.data.tags,

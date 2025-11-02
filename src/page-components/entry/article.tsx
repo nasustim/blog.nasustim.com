@@ -23,7 +23,7 @@ const EntryPage: React.FC<PageProps<Queries.EntryPageQueryQuery>> = ({
           title={frontmatter?.title ?? ""}
           date={frontmatter?.date ?? undefined}
           markdown={rawMarkdownBody ?? ""}
-          tags={frontmatter?.tags ?? []}
+          tags={(frontmatter?.tags?.filter((t): t is string => t !== null) ?? []) as string[]}
         />
       </main>
     </Template>
