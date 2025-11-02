@@ -1,16 +1,16 @@
 ---
-import { getCollection } from 'astro:content';
-import type { GetStaticPaths } from 'astro';
-import { MarkdownRenderer } from '@/components/organisms/markdown-renderer';
-import MainLayout from '@/layouts/MainLayout.astro';
-import { TITLE } from '@/config';
-import { toPlainText } from '@/utils/markdownUtils';
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import { MarkdownRenderer } from "@/components/organisms/markdown-renderer";
+import MainLayout from "@/layouts/MainLayout.astro";
+import { TITLE } from "@/config";
+import { toPlainText } from "@/utils/markdownUtils";
 
 export const getStaticPaths = (async () => {
-  const allPosts = await getCollection('blog');
+  const allPosts = await getCollection("blog");
 
   return allPosts.map((post) => ({
-    params: { slug: post.data.slug || post.id },
+    params: { slug: post.slug },
     props: { post },
   }));
 }) satisfies GetStaticPaths;
@@ -23,7 +23,7 @@ if (import.meta.env.PROD && data.draft) {
   return new Response(null, { status: 404 });
 }
 
-const formattedDate = new Date(data.date).toISOString().split('T')[0];
+const formattedDate = new Date(data.date).toISOString().split("T")[0];
 const pageTitle = `${data.title} - ${TITLE}`;
 const description = toPlainText(body).slice(0, 120);
 ---

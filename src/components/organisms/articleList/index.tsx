@@ -13,7 +13,7 @@ import {
   tagListStyle,
 } from "./index.css";
 
-type ListItem = {
+export type ListItem = {
   date: string;
   slug: string;
   title: string;

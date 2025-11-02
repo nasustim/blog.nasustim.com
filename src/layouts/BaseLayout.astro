@@ -1,15 +1,14 @@
 ---
-import '@acab/reset.css';
-import { themeClass } from '@/style.css';
+import "@acab/reset.css";
+import { themeClass } from "@/style.css";
 
 interface Props {
   title: string;
   description?: string;
-  ogType?: 'website' | 'article';
+  ogType?: "website" | "article";
 }
 
-const { title, description = '', ogType = 'website' } = Astro.props;
-const { site } = Astro;
+const { title, description = "", ogType = "website" } = Astro.props;
 ---
 
 <!doctype html>
