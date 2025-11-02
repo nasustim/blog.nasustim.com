@@ -31,22 +31,8 @@
     "@fortawesome/react-fontawesome": "3.1.0",
     "@mdx-js/react": "3.1.1",
     "@vanilla-extract/css": "1.17.4",
-    "@vanilla-extract/webpack-plugin": "2.3.22",
     "astro": "^5.15.3",
     "clsx": "2.1.1",
-    "gatsby": "5.15.0",
-    "gatsby-plugin-alias-imports": "1.0.5",
-    "gatsby-plugin-feed": "5.15.0",
-    "gatsby-plugin-google-gtag": "5.15.0",
-    "gatsby-plugin-image": "3.15.0",
-    "gatsby-plugin-manifest": "5.15.0",
-    "gatsby-plugin-mdx": "5.15.0",
-    "gatsby-plugin-sharp": "5.15.0",
-    "gatsby-plugin-sitemap": "6.15.0",
-    "gatsby-plugin-vanilla-extract": "4.0.2",
-    "gatsby-source-filesystem": "5.15.0",
-    "gatsby-transformer-remark": "6.15.0",
-    "gatsby-transformer-sharp": "5.15.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-markdown": "10.1.0",
@@ -65,7 +51,6 @@
     "textlint-plugin-html": "1.0.1",
     "textlint-rule-common-misspellings": "1.0.1",
     "textlint-rule-preset-ja-spacing": "2.4.3",
-    "typescript": "5.9.3",
-    "vite-plugin-solid": "^2.11.10"
+    "typescript": "5.9.3"
   }
 }
