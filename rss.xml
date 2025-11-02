@@ -1,572 +1,800 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[RSS Feed of blog.nasustim.com]]></title><description><![CDATA[a weblog by @nasustim (Mitsuhiro Hibino)]]></description><link>https://blog.nasustim.com</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 02 Nov 2025 13:01:19 GMT</lastBuildDate><item><title><![CDATA[React と Next.js どちらを使えばいいのか]]></title><description><![CDATA[現時点での自分なりの結論。
-Podcast ネタとしてはボツにしたので供養 前提 React はコンポーネントベースで宣言的な UI の表現を提供するライブラリ READMEにもそう書いてある 対立項が Next.js なので、Web…]]></description><link>https://blog.nasustim.com/entry/cra-vs-nextjs</link><guid isPermaLink="false">https://blog.nasustim.com/entry/cra-vs-nextjs</guid><pubDate>Tue, 16 Sep 2025 23:33:20 GMT</pubDate><content:encoded>&lt;p&gt;現時点での自分なりの結論。
-Podcast ネタとしてはボツにしたので供養&lt;/p&gt;
-&lt;h3&gt;前提&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;React はコンポーネントベースで宣言的な UI の表現を提供するライブラリ
-&lt;ul&gt;
-&lt;li&gt;README&lt;sup id=&quot;fnref-react-readme&quot;&gt;&lt;a href=&quot;#fn-react-readme&quot; class=&quot;footnote-ref&quot;&gt;react-readme&lt;/a&gt;&lt;/sup&gt;にもそう書いてある&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;対立項が Next.js なので、Web ページ構築の文脈である&lt;/li&gt;
-&lt;li&gt;この分野では長らく facebook 謹製の facebook/create-react-app というボイラープレートがプレーンな React 環境のスタートアップとしてデファクトスタンダードとなっていたが、 2025年9月現在 deprecated となっている &lt;sup id=&quot;fnref-cra-deprecated&quot;&gt;&lt;a href=&quot;#fn-cra-deprecated&quot; class=&quot;footnote-ref&quot;&gt;cra-deprecated&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;結論&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;基本的には Next.js で OK だと考えている&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;逆に、Create React App, 生の React で扱うべきユースケースは？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;静的 web ページで複雑な処理（動的なルーティング等）をしたい
-&lt;ul&gt;
-&lt;li&gt;Next.js の static export では制約が多い&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;既存 Web サイトの中に部分的に React コンポーネントを組み込みたい&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;新規でプロジェクトを作るときにどのような判断をするか？&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;React 一択になる場合
-&lt;ul&gt;
-&lt;li&gt;プロトタイピング的にサクッと作りたい&lt;/li&gt;
-&lt;li&gt;部分的に React コンポーネントを組み込みたい&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Nextjs 一択になる場合
-&lt;ul&gt;
-&lt;li&gt;サーバサイドレンダリングを使いたい
-&lt;ul&gt;
-&lt;li&gt;SEO, 認証情報の秘匿&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;ルーティングに関して面倒なことをしたくない&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3&gt;気になったアップデート&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Nextjs 最新バージョンで TypedRoutes が GA された&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://nextjs.org/docs/app/api-reference/config/next-config-js/typedRoutes&quot;&gt;https://nextjs.org/docs/app/api-reference/config/next-config-js/typedRoutes&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Link タグでサイト内別ページを指定する場合、存在しないパスはビルド時エラーになる&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;OpenAI 2025/08 時点で AI を使ってアプリケーションを構築するために推奨する環境として Next.js, React を挙げている&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://cookbook.openai.com/examples/gpt-5/gpt-5_frontend&quot;&gt;https://cookbook.openai.com/examples/gpt-5/gpt-5_frontend&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;TypeScript という言語自体が明示的な定義を求めがちな言語（モジュールの中身を露出させる場合必ず名前空間を汚染させる必要があるし）で、ビルド時点でエラーになってくれる Nextjs の方が AI へのダイレクトなフィードバックが可能で嬉しいんだろう&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-react-readme&quot;&gt;&lt;a href=&quot;https://github.com/facebook/react/blob/4e482f490405c0c601d8712a0625fd17c04978e4/README.md#react------&quot;&gt;https://github.com/facebook/react/blob/4e482f490405c0c601d8712a0625fd17c04978e4/README.md#react------&lt;/a&gt;&lt;a href=&quot;#fnref-react-readme&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-cra-deprecated&quot;&gt;&lt;a href=&quot;https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app--&quot;&gt;https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app--&lt;/a&gt; &lt;a href=&quot;https://zenn.dev/sonicmoov/articles/deprecated-create-react-app&quot;&gt;https://zenn.dev/sonicmoov/articles/deprecated-create-react-app&lt;/a&gt;&lt;a href=&quot;#fnref-cra-deprecated&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[🇫🇮 2025年フィンランド旅行記 - ② ヘルシンキに到着、そしてサウナへ]]></title><description><![CDATA[シリーズでお届けしております。 前回の記事: 🇫🇮 2025年フィンランド旅行記 - ① 出発 ヘルシンキ到着 "Cabin crew, prepare for landing…]]></description><link>https://blog.nasustim.com/entry/travel-to-finland-in-aug-2025-02</link><guid isPermaLink="false">https://blog.nasustim.com/entry/travel-to-finland-in-aug-2025-02</guid><pubDate>Mon, 11 Aug 2025 03:19:16 GMT</pubDate><content:encoded>&lt;p&gt;シリーズでお届けしております。&lt;/p&gt;
-&lt;p&gt;前回の記事: &lt;a href=&quot;/entry/travel-to-finland-in-aug-2025-01/&quot;&gt;🇫🇮 2025年フィンランド旅行記 - ① 出発&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2&gt;ヘルシンキ到着&lt;/h2&gt;
-&lt;p&gt;&quot;Cabin crew, prepare for landing&quot;&lt;/p&gt;
-&lt;p&gt;キャプテンのアナウンスと共に地上の景色が見えてきた。&lt;/p&gt;
-&lt;p&gt;地理の教科書で見るような一面の針葉樹林は僕たちが想像する北欧の景色そのものだ&lt;sup id=&quot;fnref-taiga&quot;&gt;&lt;a href=&quot;#fn-taiga&quot; class=&quot;footnote-ref&quot;&gt;taiga&lt;/a&gt;&lt;/sup&gt;。&lt;/p&gt;
-&lt;p&gt;離陸から12時間近くが経ち、日本時間では午後9時に近かった。眠い目をこすっていた僕たちもその光景に眠気が吹き飛んだ。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/travel-to-finland-in-aug-2025/airport-01.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NASUSTIM - Mitsuhiro HIBINO</title><description>Blog by nasustim</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>React と Next.js どちらを使えばいいのか</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>現時点での自分なりの結論。
+Podcast ネタとしてはボツにしたので供養
+
+### 前提
+
+- React はコンポーネントベースで宣言的な UI の表現を提供するライブラリ
+  - README[^react-readme]にもそう書いてある
+- 対立項が Next.js なので、Web ページ構築の文脈である
+- この分野では長らく facebook 謹製の facebook/create-</description><pubDate>Tue, 16 Sep 2025 23:33:20 GMT</pubDate><content:encoded>現時点での自分なりの結論。
+Podcast ネタとしてはボツにしたので供養
+
+### 前提
+
+- React はコンポーネントベースで宣言的な UI の表現を提供するライブラリ
+  - README[^react-readme]にもそう書いてある
+- 対立項が Next.js なので、Web ページ構築の文脈である
+- この分野では長らく facebook 謹製の facebook/create-react-app というボイラープレートがプレーンな React 環境のスタートアップとしてデファクトスタンダードとなっていたが、 2025年9月現在 deprecated となっている [^cra-deprecated]
+
+### 結論
+
+- 基本的には Next.js で OK だと考えている
+- 逆に、Create React App, 生の React で扱うべきユースケースは？
+  - 静的 web ページで複雑な処理（動的なルーティング等）をしたい
+    - Next.js の static export では制約が多い
+  - 既存 Web サイトの中に部分的に React コンポーネントを組み込みたい
+
+
+- 新規でプロジェクトを作るときにどのような判断をするか？
+  - React 一択になる場合
+    - プロトタイピング的にサクッと作りたい
+    - 部分的に React コンポーネントを組み込みたい
+  - Nextjs 一択になる場合
+    - サーバサイドレンダリングを使いたい
+      - SEO, 認証情報の秘匿
+    - ルーティングに関して面倒なことをしたくない
+
+### 気になったアップデート
+
+- Nextjs 最新バージョンで TypedRoutes が GA された
+  - https://nextjs.org/docs/app/api-reference/config/next-config-js/typedRoutes
+  - Link タグでサイト内別ページを指定する場合、存在しないパスはビルド時エラーになる
+
+- OpenAI 2025/08 時点で AI を使ってアプリケーションを構築するために推奨する環境として Next.js, React を挙げている
+  - https://cookbook.openai.com/examples/gpt-5/gpt-5_frontend
+- TypeScript という言語自体が明示的な定義を求めがちな言語（モジュールの中身を露出させる場合必ず名前空間を汚染させる必要があるし）で、ビルド時点でエラーになってくれる Nextjs の方が AI へのダイレクトなフィードバックが可能で嬉しいんだろう
+
+
+----
+
+[^react-readme]: https://github.com/facebook/react/blob/4e482f490405c0c601d8712a0625fd17c04978e4/README.md#react------
+[^cra-deprecated]: https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app-- https://zenn.dev/sonicmoov/articles/deprecated-create-react-app</content:encoded></item><item><title>🇫🇮 2025年フィンランド旅行記 - ② ヘルシンキに到着、そしてサウナへ</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>シリーズでお届けしております。
+
+前回の記事: [🇫🇮 2025年フィンランド旅行記 - ① 出発](/entry/travel-to-finland-in-aug-2025-01/)
+
+---
+
+## ヘルシンキ到着
+
+&quot;Cabin crew, prepare for landing&quot;
+
+キャプテンのアナウンスと共に地上の景色が見えてきた。
+
+地理の教科書で見るような一面の針葉樹林は僕たちが</description><pubDate>Mon, 11 Aug 2025 03:19:16 GMT</pubDate><content:encoded>シリーズでお届けしております。
+
+前回の記事: [🇫🇮 2025年フィンランド旅行記 - ① 出発](/entry/travel-to-finland-in-aug-2025-01/)
+
+---
+
+## ヘルシンキ到着
+
+&quot;Cabin crew, prepare for landing&quot;
+
+キャプテンのアナウンスと共に地上の景色が見えてきた。
+
+地理の教科書で見るような一面の針葉樹林は僕たちが想像する北欧の景色そのものだ[^taiga]。
+
+離陸から12時間近くが経ち、日本時間では午後9時に近かった。眠い目をこすっていた僕たちもその光景に眠気が吹き飛んだ。
+
+
+
+![](/travel-to-finland-in-aug-2025/airport-01.jpg)
+
 &lt;div style=&quot;text-align: center;&quot;&gt;
 ヘルシンキ・ヴァンター空港のボーディングブリッジから
 &lt;/div&gt;
-&lt;p&gt;乗客数に対して入国審査カウンターが少なく、かなり混雑していた。飛行機を降りてからターミナルから出るまで1時間ほどかかっただろうか。&lt;/p&gt;
-&lt;p&gt;入国審査では「目的は何か」、「ホテルは取っているか」、「何日滞在するのか」、「他の EU の国に行く予定はあるか」、、などしっかり訊かれた。以前スペインに入国した時とはえらい違いだ。&lt;/p&gt;
-&lt;p&gt;隣の窓口にいた人は「イギリスに留学に行くための乗り継ぎで来た」と言っていた後別室に連れて行かれていた（何か問題がありそうなことを言ったかまでは聞き取れなかった）が大丈夫だったのだろうか。&lt;/p&gt;
-&lt;h2&gt;いざ市街地へ&lt;/h2&gt;
-&lt;p&gt;無事に入国した僕たちは早速ヘルシンキの市街地、予約した Airbnb に向かうことにした。&lt;/p&gt;
-&lt;p&gt;ヘルシンキの公共交通機関はほぼ全てヘルシンキ地域交通局&lt;sup id=&quot;fnref-hsl&quot;&gt;&lt;a href=&quot;#fn-hsl&quot; class=&quot;footnote-ref&quot;&gt;hsl&lt;/a&gt;&lt;/sup&gt;という団体が運営している。こちら詳細はより詳しく書かれている方がいるのでそちらを参照のこと &lt;a href=&quot;https://note.com/hiroro2/n/nd10e3971bfb1&quot;&gt;https://note.com/hiroro2/n/nd10e3971bfb1&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;HSL ではカバーエリア&lt;sup id=&quot;fnref-hsl-coverage&quot;&gt;&lt;a href=&quot;#fn-hsl-coverage&quot; class=&quot;footnote-ref&quot;&gt;hsl-coverage&lt;/a&gt;&lt;/sup&gt; x 有効期間でチケットを販売している。ヴァンター空港からヘルシンキ中央駅までは ABC チケットで行き来できる。チケットの有効期間は80分(片道ユース)-1週間(周遊想定)までバリエーションが用意されているが、乗る車両を間違えなければ所要時間は30分程度なので一旦80分チケットを購入。&lt;/p&gt;
-&lt;p&gt;チケット購入には HSL アプリを使うのが便利だ。ガイドによっては日本で事前に会員登録まで済ませておくことが推奨されているが、日本の SIM カードのデータローミングを無効にしておけば SMS 受け取りは問題なく利用できるので、最悪空港についてからでも問題ない。&lt;sup id=&quot;fnref-hsl-tips&quot;&gt;&lt;a href=&quot;#fn-hsl-tips&quot; class=&quot;footnote-ref&quot;&gt;hsl-tips&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.hsl.fi/en/tickets-and-fares/hsl-app&quot;&gt;https://www.hsl.fi/en/tickets-and-fares/hsl-app&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/travel-to-finland-in-aug-2025/airport-02.jpeg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+
+乗客数に対して入国審査カウンターが少なく、かなり混雑していた。飛行機を降りてからターミナルから出るまで1時間ほどかかっただろうか。
+
+入国審査では「目的は何か」、「ホテルは取っているか」、「何日滞在するのか」、「他の EU の国に行く予定はあるか」、、などしっかり訊かれた。以前スペインに入国した時とはえらい違いだ。
+
+隣の窓口にいた人は「イギリスに留学に行くための乗り継ぎで来た」と言っていた後別室に連れて行かれていた（何か問題がありそうなことを言ったかまでは聞き取れなかった）が大丈夫だったのだろうか。
+
+
+
+## いざ市街地へ
+
+無事に入国した僕たちは早速ヘルシンキの市街地、予約した Airbnb に向かうことにした。
+
+ヘルシンキの公共交通機関はほぼ全てヘルシンキ地域交通局[^hsl]という団体が運営している。こちら詳細はより詳しく書かれている方がいるのでそちらを参照のこと https://note.com/hiroro2/n/nd10e3971bfb1
+
+HSL ではカバーエリア[^hsl-coverage] x 有効期間でチケットを販売している。ヴァンター空港からヘルシンキ中央駅までは ABC チケットで行き来できる。チケットの有効期間は80分(片道ユース)-1週間(周遊想定)までバリエーションが用意されているが、乗る車両を間違えなければ所要時間は30分程度なので一旦80分チケットを購入。
+
+チケット購入には HSL アプリを使うのが便利だ。ガイドによっては日本で事前に会員登録まで済ませておくことが推奨されているが、日本の SIM カードのデータローミングを無効にしておけば SMS 受け取りは問題なく利用できるので、最悪空港についてからでも問題ない。[^hsl-tips]
+
+https://www.hsl.fi/en/tickets-and-fares/hsl-app
+
+![](/travel-to-finland-in-aug-2025/airport-02.jpeg)
+
 &lt;div style=&quot;text-align: center;&quot;&gt;
 空港駅へ降りるエスカレーター。21_21 DESIGN SIGHT を彷彿とさせるコンクリート打ちっぱなしの壁
 &lt;/div&gt;
-&lt;p&gt;&lt;img src=&quot;/travel-to-finland-in-aug-2025/airport-03.jpeg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+
+![](/travel-to-finland-in-aug-2025/airport-03.jpeg)
+
 &lt;div style=&quot;text-align: center;&quot;&gt;
 駅構内の様子。
 &lt;/div&gt;
-&lt;h2&gt;念願のフィンランドサウナ&lt;/h2&gt;
-&lt;p&gt;無事 Airbnb に到着した僕たち。時刻は現地時間&lt;sup id=&quot;fnref-timezone&quot;&gt;&lt;a href=&quot;#fn-timezone&quot; class=&quot;footnote-ref&quot;&gt;timezone&lt;/a&gt;&lt;/sup&gt;で午後6時。長時間の移動ですっかり疲れ果てていたが僕たちにはこの日ある目的があった。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;サウナである&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;この日の目的地は観光地スオメリンナ島の近くに浮かぶ Island of Lonna&lt;sup id=&quot;fnref-lonna&quot;&gt;&lt;a href=&quot;#fn-lonna&quot; class=&quot;footnote-ref&quot;&gt;lonna&lt;/a&gt;&lt;/sup&gt;である。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.lonna.fi/en/services/sauna/&quot;&gt;https://www.lonna.fi/en/services/sauna/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;この旅ではいくつかのサウナにトライしようとしたが、概ね予約制でタイムスロットは2時間、価格は日本円で3,000円-5,000円で設定されていることが多かった。（高い😇）&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://maps.app.goo.gl/BQbZVdjfzDTvWsby6&quot;&gt;Kauppaoriマーケット&lt;/a&gt;近くのフェリー乗り場から島に行くことができるのだが、僕たちが予約した土曜日午後8時半辺りはフェリーの便数が少なく、一本逃すと一時間程度待たなくてはならなかった。サウナの web サイトにも早めに着いたほうがいいと書かれている&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;We highly recommend booking the sauna beforehand. Please arrive a bit ahead of your reservation time. You can easily visit our bar before for a little snack and a refreshing beverage?&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://www.lonna.fi/en/services/sauna/&quot;&gt;https://www.lonna.fi/en/services/sauna/&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;無事、予約より30分遅い午後9時に島に到着した僕たちはすぐにサウナにチェックインした。&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;さいっっこうである&lt;/strong&gt;&lt;/p&gt;
+
+## 念願のフィンランドサウナ
+
+無事 Airbnb に到着した僕たち。時刻は現地時間[^timezone]で午後6時。長時間の移動ですっかり疲れ果てていたが僕たちにはこの日ある目的があった。
+
+**サウナである**
+
+この日の目的地は観光地スオメリンナ島の近くに浮かぶ Island of Lonna[^lonna]である。
+
+https://www.lonna.fi/en/services/sauna/
+
+この旅ではいくつかのサウナにトライしようとしたが、概ね予約制でタイムスロットは2時間、価格は日本円で3,000円-5,000円で設定されていることが多かった。（高い😇）
+
+[Kauppaoriマーケット](https://maps.app.goo.gl/BQbZVdjfzDTvWsby6)近くのフェリー乗り場から島に行くことができるのだが、僕たちが予約した土曜日午後8時半辺りはフェリーの便数が少なく、一本逃すと一時間程度待たなくてはならなかった。サウナの web サイトにも早めに着いたほうがいいと書かれている
+
+&gt; We highly recommend booking the sauna beforehand. Please arrive a bit ahead of your reservation time. You can easily visit our bar before for a little snack and a refreshing beverage?
+&gt; 
+&gt; https://www.lonna.fi/en/services/sauna/
+
+無事、予約より30分遅い午後9時に島に到着した僕たちはすぐにサウナにチェックインした。
+
+
+**さいっっこうである**
+
+
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;飛び込めるサウナ良すぎた (@ Lonnan Sauna in Helsinki) &lt;a href=&quot;https://t.co/Ll8GGJp8vO&quot;&gt;https://t.co/Ll8GGJp8vO&lt;/a&gt; &lt;a href=&quot;https://t.co/H5ckCre03F&quot;&gt;pic.twitter.com/H5ckCre03F&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1951730151433056385?ref_src=twsrc%5Etfw&quot;&gt;August 2, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt; 
-&lt;p&gt;サウナ一棟のシンプルな構成だが、疲れた身体にとても沁みた。&lt;/p&gt;
-&lt;p&gt;身体を温めた後は海に入ることも可能。怖くて全力のダイブはできなかったけれど。&lt;/p&gt;
-&lt;p&gt;サウナでアメリカ人に話かけられた。&lt;/p&gt;
-&lt;p&gt;🇺🇸 &quot;Are you Japanese?&quot;&lt;/p&gt;
-&lt;p&gt;私 &quot;Yeah, exactly, why did you guess so?&quot;&lt;/p&gt;
-&lt;p&gt;🇺🇸 &quot;You said「やばい」&quot;&lt;/p&gt;
-&lt;p&gt;日本人だと見破られた。&lt;/p&gt;
-&lt;p&gt;一緒に海にダイブもした。われらサウナ人&lt;sup id=&quot;fnref-ogaki-sauna&quot;&gt;&lt;a href=&quot;#fn-ogaki-sauna&quot; class=&quot;footnote-ref&quot;&gt;ogaki-sauna&lt;/a&gt;&lt;/sup&gt;に国境はないのである。&lt;/p&gt;
-&lt;p&gt;そんなこんなでフィンランド初日はゆっくりと暮れていった...&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-taiga&quot;&gt;しっかりとタイガでした &lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%A4%E3%82%AC&quot;&gt;https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%A4%E3%82%AC&lt;/a&gt;&lt;a href=&quot;#fnref-taiga&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-hsl&quot;&gt;&lt;a href=&quot;https://www.hsl.fi/en&quot;&gt;https://www.hsl.fi/en&lt;/a&gt;; VR（高速鉄道）, 地域間の路線, トラム, バス,,,等をカバーする一方で、スオメリンナ島やサウナがある離れ小島までの船は別会社が営業している。対応していない公共交通機関では入り口に HSL アプリが使えない旨が掲げられていることが多かった。&lt;a href=&quot;#fnref-hsl&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-hsl-coverage&quot;&gt;地域を A, B, C, D の4つに区分けしている。&quot;A&quot;が市街地、&quot;B&quot;は郊外、&quot;C&quot;はヴァンター空港まで含むさらに郊外、、といった具合で、自分の出発/到着駅をカバーするチケットを買う必要がある。ただし、A エリア内のみをサポートするチケットがないのでその場合は AB チケットを買う必要があり少し混乱した。&lt;a href=&quot;#fnref-hsl-coverage&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-hsl-tips&quot;&gt;とはいえ入国直後は宿まで急ぎたい気持ちが強くなるだろうし、アプリダウンロードを海外のモバイル回線で行うと余計な通信量を消費してしまうので日本でできるならやっておいたほうがいい&lt;a href=&quot;#fnref-hsl-tips&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-timezone&quot;&gt;フィンランドのタイムゾーンは EET (Eastern European Time)で日本から7時間遅れ、サマータイムが導入されている期間は EEST(Eastern European Summer Time)で6時間遅れになる&lt;a href=&quot;#fnref-timezone&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-lonna&quot;&gt;日本語の情報では「ロンナ島」と記されることが多いが、&quot;ン&quot;はほぼ発音されてなかった。L は英語の L そのまま&lt;a href=&quot;#fnref-lonna&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-ogaki-sauna&quot;&gt;&lt;a href=&quot;https://www.ogaki-sauna.com/post/%E3%82%8F%E3%82%8C%E3%82%89%E3%82%B5%E3%82%A6%E3%83%8A%E4%BA%BA-%E5%85%B6%E5%BC%90&quot;&gt;https://www.ogaki-sauna.com/post/%E3%82%8F%E3%82%8C%E3%82%89%E3%82%B5%E3%82%A6%E3%83%8A%E4%BA%BA-%E5%85%B6%E5%BC%90&lt;/a&gt;&lt;a href=&quot;#fnref-ogaki-sauna&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[🇫🇮 2025年フィンランド旅行記 - ① 出発]]></title><description><![CDATA[今月初め頃、夫婦でフィンランドに行った。 一番の楽しみは大好きなイッタラ・アラビアの食器を購入することだったが、フィンランドはとても素敵な場所でとてもいい旅になった。興奮冷めやらぬ内に記録を残しておこうと思う。 日本からフィンランドへ 土曜日の午前…]]></description><link>https://blog.nasustim.com/entry/travel-to-finland-in-aug-2025-01</link><guid isPermaLink="false">https://blog.nasustim.com/entry/travel-to-finland-in-aug-2025-01</guid><pubDate>Sun, 10 Aug 2025 11:00:00 GMT</pubDate><content:encoded>&lt;p&gt;今月初め頃、夫婦でフィンランドに行った。&lt;/p&gt;
-&lt;p&gt;一番の楽しみは大好きなイッタラ・アラビア&lt;sup id=&quot;fnref-ittala-arabia&quot;&gt;&lt;a href=&quot;#fn-ittala-arabia&quot; class=&quot;footnote-ref&quot;&gt;ittala-arabia&lt;/a&gt;&lt;/sup&gt;の食器を購入することだったが、フィンランドはとても素敵な場所でとてもいい旅になった。興奮冷めやらぬ内に記録を残しておこうと思う。&lt;/p&gt;
-&lt;h2&gt;日本からフィンランドへ&lt;/h2&gt;
-&lt;p&gt;土曜日の午前4時半、僕たちは羽田空港に向かっていた。&lt;br&gt;
-妻も僕も眠い目をこすりあくびをかきながらもまだ見ぬ北欧の地への期待に胸を膨らませていた。&lt;/p&gt;
-&lt;p&gt;自宅からタクシーでバスタ新宿に到着したのち、羽田空港までのリムジンバス&lt;sup id=&quot;fnref-bus&quot;&gt;&lt;a href=&quot;#fn-bus&quot; class=&quot;footnote-ref&quot;&gt;bus&lt;/a&gt;&lt;/sup&gt;に乗り換えた。&lt;br&gt;
-相模原市に住んでいたとき、早朝の便に乗るためには空港近辺で前泊する必要があったので、この時間帯に公共交通機関を使えるのはとてもありがたい。&lt;/p&gt;
-&lt;p&gt;午前6時より少し前に羽田空港第三ターミナルに到着した。夏休みシーズン真っ只中だからかまずまずの混雑具合だった。JAL のチェックインカウンターは午前6時の受付開始に向けて行列ができていた。&lt;/p&gt;
-&lt;p&gt;まだ搭乗時刻まで時間もあるから急ぐ必要はない、と妻が言った。到着ゲートフロアのタリーズ&lt;sup id=&quot;fnref-tullys&quot;&gt;&lt;a href=&quot;#fn-tullys&quot; class=&quot;footnote-ref&quot;&gt;tullys&lt;/a&gt;&lt;/sup&gt;でコーヒーとクロックムッシュを食べながら時間を潰した。&lt;/p&gt;
-&lt;p&gt;僕たちは JAL 47便 &lt;sup id=&quot;fnref-jal47&quot;&gt;&lt;a href=&quot;#fn-jal47&quot; class=&quot;footnote-ref&quot;&gt;jal47&lt;/a&gt;&lt;/sup&gt; 東京・羽田空港発 - ヘルシンキ・ヴァンター空港行きを予約していた。羽田空港は言わずもがな JAL 便が多く就航しており、カフェで時間を潰した後もカウンターの混雑は続いていた。&lt;/p&gt;
-&lt;p&gt;ようやくバゲージドロップやその他の出国手続きを終えて搭乗ゲートエリアに着くと、搭乗開始まで10分程度にまで差し迫った時刻だった。僕たちは顔を向かい合わせ、急ごう、と示し合わせた。妻はターミナル内の両替所に向かい、僕は自販機でドリンクとパンを買い込み、5分程度で準備を万端にしてゲートに向かった。
-（言わずもがな、ダイヤが超密集する羽田空港で定刻通りに搭乗が始まることはなかったが）&lt;/p&gt;
-&lt;p&gt;JAL での旅はとにかく快適である。CA さん全員日本語が分かるのはもちろんのこと、LCC や海外のキャリアでは考えられないような細かく丁寧な気配りをしてくれる。機内食も日本人の口に合う味が多い。狭いスペースで長時間過ごさなくてはならない国際線のフライトではより一層 JAL の温かい接客が沁みる。&lt;/p&gt;
-&lt;p&gt;そうして僕たちはまだ見ぬ地、北欧に向かうのであった。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;img src=&quot;/travel-to-finland-in-aug-2025/flight-menu-01.jpg&quot; alt=&quot;&quot;&gt;
-&lt;img src=&quot;/travel-to-finland-in-aug-2025/flight-menu-02.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;食事が2回出た。どちらも美味でした。&lt;br&gt;
-これとは別に軽食も一回出た。&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;img src=&quot;/travel-to-finland-in-aug-2025/flight-route-01.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;p&gt;日本から北上してベーリング海を縦断したのち北極圏を通ってヘルシンキへ。ロシアの上空を通過できるようになればヨーロッパは更に近くなるんだろうな、と世界平和に想いを馳せる。&lt;/p&gt;
-&lt;p&gt;続き:  &lt;a href=&quot;/entry/travel-to-finland-in-aug-2025-02/&quot;&gt;🇫🇮 2025年フィンランド旅行記 - ② ヘルシンキに到着、そしてサウナへ&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-ittala-arabia&quot;&gt;フィンランドの食器メーカー&lt;a href=&quot;#fnref-ittala-arabia&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-bus&quot;&gt;&lt;a href=&quot;https://www.limousinebus.co.jp/&quot;&gt;Airport Limousine&lt;/a&gt;; 早朝の本数が多くてありがたい&lt;a href=&quot;#fnref-bus&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-tullys&quot;&gt;&lt;a href=&quot;https://shop.tullys.co.jp/detail/1000968&quot;&gt;タリーズコーヒー 羽田空港第3ターミナル店&lt;/a&gt;&lt;a href=&quot;#fnref-tullys&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-jal47&quot;&gt;&lt;a href=&quot;https://www.flightaware.com/live/flight/JAL47&quot;&gt;https://www.flightaware.com/live/flight/JAL47&lt;/a&gt;&lt;a href=&quot;#fnref-jal47&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[【宣伝】同僚とポッドキャストを始めた]]></title><description><![CDATA[6月から同僚の riddle さんと Podcast を始めた。 ソフトウェアエンジニアの仕事やキャリアを中心にフリートピックでわいわいやっている。 riddle さんは以前いた部署の上司でエンジニアとしての経験値も高いのでいい刺激になっている。収録のたびに公開1on…]]></description><link>https://blog.nasustim.com/entry/2025-07-06_start_podcast</link><guid isPermaLink="false">https://blog.nasustim.com/entry/2025-07-06_start_podcast</guid><pubDate>Sun, 06 Jul 2025 12:30:45 GMT</pubDate><content:encoded>&lt;p&gt;6月から同僚の &lt;a href=&quot;https://x.com/riddle_tec&quot;&gt;riddle さん&lt;/a&gt;と Podcast を始めた。&lt;/p&gt;
+
+サウナ一棟のシンプルな構成だが、疲れた身体にとても沁みた。
+
+身体を温めた後は海に入ることも可能。怖くて全力のダイブはできなかったけれど。
+
+サウナでアメリカ人に話かけられた。
+
+🇺🇸 &quot;Are you Japanese?&quot;
+
+私 &quot;Yeah, exactly, why did you guess so?&quot;
+
+🇺🇸 &quot;You said「やばい」&quot;
+
+日本人だと見破られた。
+
+一緒に海にダイブもした。われらサウナ人[^ogaki-sauna]に国境はないのである。
+
+そんなこんなでフィンランド初日はゆっくりと暮れていった...
+
+---
+
+
+[^taiga]: しっかりとタイガでした https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%A4%E3%82%AC
+[^hsl]: https://www.hsl.fi/en; VR（高速鉄道）, 地域間の路線, トラム, バス,,,等をカバーする一方で、スオメリンナ島やサウナがある離れ小島までの船は別会社が営業している。対応していない公共交通機関では入り口に HSL アプリが使えない旨が掲げられていることが多かった。
+[^hsl-coverage]: 地域を A, B, C, D の4つに区分けしている。&quot;A&quot;が市街地、&quot;B&quot;は郊外、&quot;C&quot;はヴァンター空港まで含むさらに郊外、、といった具合で、自分の出発/到着駅をカバーするチケットを買う必要がある。ただし、A エリア内のみをサポートするチケットがないのでその場合は AB チケットを買う必要があり少し混乱した。
+[^hsl-tips]: とはいえ入国直後は宿まで急ぎたい気持ちが強くなるだろうし、アプリダウンロードを海外のモバイル回線で行うと余計な通信量を消費してしまうので日本でできるならやっておいたほうがいい
+[^timezone]: フィンランドのタイムゾーンは EET (Eastern European Time)で日本から7時間遅れ、サマータイムが導入されている期間は EEST(Eastern European Summer Time)で6時間遅れになる
+[^lonna]: 日本語の情報では「ロンナ島」と記されることが多いが、&quot;ン&quot;はほぼ発音されてなかった。L は英語の L そのまま
+[^ogaki-sauna]: https://www.ogaki-sauna.com/post/%E3%82%8F%E3%82%8C%E3%82%89%E3%82%B5%E3%82%A6%E3%83%8A%E4%BA%BA-%E5%85%B6%E5%BC%90</content:encoded></item><item><title>🇫🇮 2025年フィンランド旅行記 - ① 出発</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今月初め頃、夫婦でフィンランドに行った。
+
+一番の楽しみは大好きなイッタラ・アラビア[^ittala-arabia]の食器を購入することだったが、フィンランドはとても素敵な場所でとてもいい旅になった。興奮冷めやらぬ内に記録を残しておこうと思う。
+
+## 日本からフィンランドへ
+
+土曜日の午前4時半、僕たちは羽田空港に向かっていた。  
+妻も僕も眠い目をこすりあくびをかきながらもまだ見ぬ北欧の地への</description><pubDate>Sun, 10 Aug 2025 11:00:00 GMT</pubDate><content:encoded>今月初め頃、夫婦でフィンランドに行った。
+
+一番の楽しみは大好きなイッタラ・アラビア[^ittala-arabia]の食器を購入することだったが、フィンランドはとても素敵な場所でとてもいい旅になった。興奮冷めやらぬ内に記録を残しておこうと思う。
+
+## 日本からフィンランドへ
+
+土曜日の午前4時半、僕たちは羽田空港に向かっていた。  
+妻も僕も眠い目をこすりあくびをかきながらもまだ見ぬ北欧の地への期待に胸を膨らませていた。
+
+自宅からタクシーでバスタ新宿に到着したのち、羽田空港までのリムジンバス[^bus]に乗り換えた。  
+相模原市に住んでいたとき、早朝の便に乗るためには空港近辺で前泊する必要があったので、この時間帯に公共交通機関を使えるのはとてもありがたい。
+
+午前6時より少し前に羽田空港第三ターミナルに到着した。夏休みシーズン真っ只中だからかまずまずの混雑具合だった。JAL のチェックインカウンターは午前6時の受付開始に向けて行列ができていた。
+
+まだ搭乗時刻まで時間もあるから急ぐ必要はない、と妻が言った。到着ゲートフロアのタリーズ[^tullys]でコーヒーとクロックムッシュを食べながら時間を潰した。
+
+
+僕たちは JAL 47便 [^jal47] 東京・羽田空港発 - ヘルシンキ・ヴァンター空港行きを予約していた。羽田空港は言わずもがな JAL 便が多く就航しており、カフェで時間を潰した後もカウンターの混雑は続いていた。
+
+ようやくバゲージドロップやその他の出国手続きを終えて搭乗ゲートエリアに着くと、搭乗開始まで10分程度にまで差し迫った時刻だった。僕たちは顔を向かい合わせ、急ごう、と示し合わせた。妻はターミナル内の両替所に向かい、僕は自販機でドリンクとパンを買い込み、5分程度で準備を万端にしてゲートに向かった。
+（言わずもがな、ダイヤが超密集する羽田空港で定刻通りに搭乗が始まることはなかったが）
+
+
+JAL での旅はとにかく快適である。CA さん全員日本語が分かるのはもちろんのこと、LCC や海外のキャリアでは考えられないような細かく丁寧な気配りをしてくれる。機内食も日本人の口に合う味が多い。狭いスペースで長時間過ごさなくてはならない国際線のフライトではより一層 JAL の温かい接客が沁みる。
+
+そうして僕たちはまだ見ぬ地、北欧に向かうのであった。
+
+---
+
+![](/travel-to-finland-in-aug-2025/flight-menu-01.jpg) 
+![](/travel-to-finland-in-aug-2025/flight-menu-02.jpg)
+
+食事が2回出た。どちらも美味でした。  
+これとは別に軽食も一回出た。
+
+---
+
+![](/travel-to-finland-in-aug-2025/flight-route-01.jpg)
+
+日本から北上してベーリング海を縦断したのち北極圏を通ってヘルシンキへ。ロシアの上空を通過できるようになればヨーロッパは更に近くなるんだろうな、と世界平和に想いを馳せる。
+
+続き:  [🇫🇮 2025年フィンランド旅行記 - ② ヘルシンキに到着、そしてサウナへ](/entry/travel-to-finland-in-aug-2025-02/)
+
+---
+
+
+[^ittala-arabia]: フィンランドの食器メーカー
+[^bus]: [Airport Limousine](https://www.limousinebus.co.jp/); 早朝の本数が多くてありがたい
+[^tullys]: [タリーズコーヒー 羽田空港第3ターミナル店](https://shop.tullys.co.jp/detail/1000968)
+[^jal47]: https://www.flightaware.com/live/flight/JAL47</content:encoded></item><item><title>【宣伝】同僚とポッドキャストを始めた</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>6月から同僚の [riddle さん](https://x.com/riddle_tec)と Podcast を始めた。
+
+&lt;iframe style=&quot;border-radius:12px&quot; src=&quot;https://open.spotify.com/embed/show/5GF63OJtrIlFMME7MAMPzE?utm_source=generator&amp;theme=0&quot; width=&quot;10</description><pubDate>Sun, 06 Jul 2025 12:30:45 GMT</pubDate><content:encoded>6月から同僚の [riddle さん](https://x.com/riddle_tec)と Podcast を始めた。
+
 &lt;iframe style=&quot;border-radius:12px&quot; src=&quot;https://open.spotify.com/embed/show/5GF63OJtrIlFMME7MAMPzE?utm_source=generator&amp;theme=0&quot; width=&quot;100%&quot; height=&quot;352&quot; frameBorder=&quot;0&quot; allowfullscreen=&quot;&quot; allow=&quot;autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture&quot; loading=&quot;lazy&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt;ソフトウェアエンジニアの仕事やキャリアを中心にフリートピックでわいわいやっている。&lt;/p&gt;
-&lt;p&gt;riddle さんは以前いた部署の上司でエンジニアとしての経験値も高いのでいい刺激になっている。収録のたびに公開1on1をしているようなものだ。なかなか役得である。&lt;/p&gt;
-&lt;p&gt;細く長く続けていきたい。&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Ollama 導入と VSCode との連携]]></title><description><![CDATA[IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツールにどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。 ローカルマシンで LLM…]]></description><link>https://blog.nasustim.com/entry/introduce-ollama-into-macos</link><guid isPermaLink="false">https://blog.nasustim.com/entry/introduce-ollama-into-macos</guid><pubDate>Sat, 07 Jun 2025 12:10:58 GMT</pubDate><content:encoded>&lt;p&gt;IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。&lt;/p&gt;
-&lt;p&gt;ローカルマシンで LLM をホストできれば課金の必要はありません。また、導入プロセスを通じて LLM への理解をより深めたいと考えました。&lt;/p&gt;
-&lt;p&gt;そこでこの記事では、ローカルマシンへの LLM の導入から VSCode 上でコード編集機能を利用するまでにやったことを記録として残します。&lt;/p&gt;
-&lt;p&gt;動作を確認した環境は以下の通りです。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;PC
-&lt;ul&gt;
-&lt;li&gt;Macbook Air M2 (2022年)&lt;/li&gt;
-&lt;li&gt;RAM 16GB&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;OS
-&lt;ul&gt;
-&lt;li&gt;macOS Sequoia v15.3 (24D60)&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;調査&lt;/h2&gt;
-&lt;p&gt;Gemini に頼りました。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_01.png&quot; alt=&quot;Gemini の回答&quot;&gt;&lt;/p&gt;
-&lt;p&gt;会話リンク: &lt;a href=&quot;https://g.co/gemini/share/779a99352554&quot;&gt;https://g.co/gemini/share/779a99352554&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;指示された手順はざっくり以下の通りです。&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;a href=&quot;http://ollama.com/&quot;&gt;Ollama&lt;/a&gt; をインストールして LLM を起動
-&lt;ul&gt;
-&lt;li&gt;HTTP で LLM とやり取りできるサーバがバンドルされているらしい&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;VSCode に &lt;a href=&quot;https://www.continue.dev/&quot;&gt;Continue&lt;/a&gt; の拡張をインストールして ①の LLM を指定する&lt;/li&gt;
-&lt;li&gt;LLM を使ってコードを書ける！&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2&gt;導入の流れ&lt;/h2&gt;
-&lt;h3&gt;1. Ollama 導入&lt;/h3&gt;
-&lt;p&gt;似たソフトウェアとして &lt;a href=&quot;https://lmstudio.ai/&quot;&gt;LM Studio&lt;/a&gt; や、複数の LLM を一つのホストに集約することに主眼を置いたルーター系（勝手に命名しました）のプロジェクト&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;がありますが、Ollama はそれらと比較したときに以下のようなアドバンテージがあると理解しました。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;高いポータビリティ
-&lt;ul&gt;
-&lt;li&gt;コマンドラインのみで導入可能&lt;/li&gt;
-&lt;li&gt;システムプロンプト等のカスタマイズ内容も Modelfile という Dockerfile ライクな形式のファイルで表現可能&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;VSCode への導入サポートの手厚さ
-&lt;ul&gt;
-&lt;li&gt;前述の Continue を使って楽チン&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;今回は Gemini の指示通り Ollama で進めます。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# ollama を Homebrew でインストール
+
+ソフトウェアエンジニアの仕事やキャリアを中心にフリートピックでわいわいやっている。
+
+riddle さんは以前いた部署の上司でエンジニアとしての経験値も高いのでいい刺激になっている。収録のたびに公開1on1をしているようなものだ。なかなか役得である。
+
+細く長く続けていきたい。</content:encoded></item><item><title>Ollama 導入と VSCode との連携</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール[^1]にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。
+
+ローカルマシンで LLM をホストできれば課金の必要はありません。また、導入プロセスを通じて LLM への理解をより深めたいと考えました。
+
+そこでこの記事では、ロー</description><pubDate>Sat, 07 Jun 2025 12:10:58 GMT</pubDate><content:encoded>IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール[^1]にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。
+
+ローカルマシンで LLM をホストできれば課金の必要はありません。また、導入プロセスを通じて LLM への理解をより深めたいと考えました。
+
+そこでこの記事では、ローカルマシンへの LLM の導入から VSCode 上でコード編集機能を利用するまでにやったことを記録として残します。
+
+動作を確認した環境は以下の通りです。
+
+- PC
+  - Macbook Air M2 (2022年)
+  - RAM 16GB
+- OS
+  - macOS Sequoia v15.3 (24D60)
+
+## 調査
+
+Gemini に頼りました。
+
+![Gemini の回答](/introduce-ollama-into-macos_01.png)
+
+会話リンク: https://g.co/gemini/share/779a99352554
+
+指示された手順はざっくり以下の通りです。
+
+1. [Ollama](http://ollama.com/) をインストールして LLM を起動
+    - HTTP で LLM とやり取りできるサーバがバンドルされているらしい
+1. VSCode に [Continue](https://www.continue.dev/) の拡張をインストールして ①の LLM を指定する
+1. LLM を使ってコードを書ける！
+
+## 導入の流れ
+
+### 1. Ollama 導入
+
+似たソフトウェアとして [LM Studio](https://lmstudio.ai/) や、複数の LLM を一つのホストに集約することに主眼を置いたルーター系（勝手に命名しました）のプロジェクト[^2]がありますが、Ollama はそれらと比較したときに以下のようなアドバンテージがあると理解しました。
+
+- 高いポータビリティ
+  - コマンドラインのみで導入可能
+  - システムプロンプト等のカスタマイズ内容も Modelfile という Dockerfile ライクな形式のファイルで表現可能[^3]
+- VSCode への導入サポートの手厚さ
+  - 前述の Continue を使って楽チン
+
+今回は Gemini の指示通り Ollama で進めます。
+
+```bash
+# ollama を Homebrew でインストール
 $ brew install ollama
 
 # ollama のサーバを起動
-# この後は起動したまま別のターミナルから操作するか、コマンド末尾に `&amp;#x26;` をつけてバックグラウンドジョブとして動かすかはお好みで
+# この後は起動したまま別のターミナルから操作するか、コマンド末尾に `&amp;` をつけてバックグラウンドジョブとして動かすかはお好みで
 $ ollama serve
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;ollama では様々なモデルを利用できます。（&lt;a href=&quot;https://ollama.com/search&quot;&gt;モデル一覧&lt;/a&gt;）
-最初は軽量かつ突飛な動作をしないであろうモデルを試したいと考え、Google が開発した Gemma 3 の 1B パラメータモデル&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;を選択しました。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ollama pull gemma3:1b
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;コマンドライン経由でのチャットも行えるようです。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_02.png&quot; alt=&quot;Gemma 3 の回答&quot;&gt;&lt;/p&gt;
-&lt;p&gt;シャ、シャベッタ！&lt;/p&gt;
-&lt;p&gt;ローカル LLM 導入のファーストステップはクリアです ✅&lt;/p&gt;
-&lt;h3&gt;2. VSCode に Continue をインストール &amp;#x26; 設定&lt;/h3&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;説明&lt;/th&gt;
-&lt;th&gt;スクリーンショット&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;インストール後初期画面&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/introduce-ollama-into-macos_03.png&quot; alt=&quot;Continue&quot;&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Get started を開くとこの画面が開くので Ollama を選択する&lt;/td&gt;
-&lt;td&gt;&lt;img src=&quot;/introduce-ollama-into-macos_04.png&quot; alt=&quot;Continue&quot;&gt;&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;h3&gt;3. Ollama(Gemma 3)にコードを編集させる&lt;/h3&gt;
-&lt;p&gt;手順2の設定を終えたら、モデル一覧から Gemma 3 が選択できるようになっています。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_05.png&quot; alt=&quot;Continue&quot;&gt;&lt;/p&gt;
-&lt;p&gt;チャットは問題なさそうです。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_06.png&quot; alt=&quot;Continue&quot;&gt;&lt;/p&gt;
-&lt;p&gt;コードを選択して Add Highlighted Code to Context でチャット画面に指示のコンテクストとして追加できます。Copilot / Cursor と同じインターフェースですね。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_07.png&quot; alt=&quot;Continue&quot;&gt;&lt;/p&gt;
-&lt;p&gt;うーん、これじゃない...業務で使う Claude 3.7 Sonnet 辺りのモデルよりも明らかな知識/文脈理解の不足を感じます。より賢くてコーディングに特化したモデルを使う必要がありそうです。&lt;/p&gt;
-&lt;p&gt;ということでコーディング特化モデルの中で　pull 数が多くサイズも大きすぎない &lt;code&gt;qwen2.5-coder:7b&lt;/code&gt; を試しました&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://ollama.com/library/qwen2.5-coder&quot;&gt;https://ollama.com/library/qwen2.5-coder&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/introduce-ollama-into-macos_08.png&quot; alt=&quot;Qwen 2.5 coder&quot;&gt;&lt;/p&gt;
-&lt;p&gt;こちらは期待通りの出力が得られました 🙌&lt;/p&gt;
-&lt;h2&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;シンプルな手順で LLM 導入 + VSCode 連携まで構築できました。&lt;/p&gt;
-&lt;p&gt;また、シンプルなタスクであれば精度高く実行できるモデルがローカルでホストできることも確認できました。&lt;/p&gt;
-&lt;p&gt;個人用途ならローカルで十分かもしれません。夢が広がりますね&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-1&quot;&gt;記事執筆時点では、調べ物は ChatGPT（プライベートでは Gemini と Grok を使い分け）、一つの文書を元にしたい場合は NotebookLM、コーディング時は GitHub Copilot と Devin をよく利用しています&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-2&quot;&gt;サクッと調べると &lt;a href=&quot;https://github.com/kcolemangt/llm-router&quot;&gt;LLM Router&lt;/a&gt;, &lt;a href=&quot;https://github.com/lm-sys/RouteLLM&quot;&gt;RouteLLM&lt;/a&gt; 辺りの情報が多いように感じました&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-3&quot;&gt;&lt;a href=&quot;https://ollama.readthedocs.io/en/modelfile/&quot;&gt;https://ollama.readthedocs.io/en/modelfile/&lt;/a&gt;&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-4&quot;&gt;&lt;a href=&quot;https://ollama.com/library/gemma3&quot;&gt;https://ollama.com/library/gemma3&lt;/a&gt; ; 1b=10億パラメータの機械学習モデルをラップトップでサクッと動かせることにビビりました&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[引っ越しました（2025年春）]]></title><description><![CDATA[4月に橋本（神奈川県相模原市）から下北沢に引っ越した。 妻の異動に合わせての引越しだったが、僕も職場のある渋谷までの通勤に苦労していたこと、そして旧居の更新時期が近かったこともあり丁度いいタイミングだった。 引越してから…]]></description><link>https://blog.nasustim.com/entry/moving-2025-spring</link><guid isPermaLink="false">https://blog.nasustim.com/entry/moving-2025-spring</guid><pubDate>Sun, 18 May 2025 16:01:46 GMT</pubDate><content:encoded>&lt;p&gt;4月に橋本（神奈川県相模原市）から下北沢に引っ越した。&lt;br&gt;
-妻の異動に合わせての引越しだったが、僕も職場のある渋谷までの通勤に苦労していたこと、そして旧居の更新時期が近かったこともあり丁度いいタイミングだった。&lt;/p&gt;
-&lt;p&gt;引越してから1ヶ月経ち、ようやく荷解きがひと段落したので記録も兼ねてブログに残そうと思う。&lt;/p&gt;
-&lt;h2&gt;タイムライン&lt;/h2&gt;
-&lt;h3&gt;3月第一週 - 妻の異動が確定&lt;/h3&gt;
-&lt;p&gt;それ以前から異動の可能性があるという話が出ていたので心の準備はできていたが、3月初め頃正式に確定した。&lt;br&gt;
-ここから、妻と僕の職場それぞれに通いやすいエリアに絞って SUUMO で物件を探し、仲介会社に物件紹介の申し込みをした。&lt;br&gt;
-SUUMO で目を惹く物件の多くがいわゆる「囮物件」であることは承知していたので、あくまで家賃相場の把握と、物件紹介の導入程度に考えるのが良さそうという判断。&lt;/p&gt;
-&lt;p&gt;エリアを絞る段階で予算感も考慮していたので、この時点で選択肢の数はそれなりにあった。&lt;br&gt;
-最終的に2件仲介会社を訪れた。SUUMO の検索オプションを参考に夫婦それぞれの希望項目と妥協できないラインを Notion にまとめて持っていったら結構ありがたがられた。多分仲介会社の利用するシステム&lt;sup id=&quot;fnref-march-1&quot;&gt;&lt;a href=&quot;#fn-march-1&quot; class=&quot;footnote-ref&quot;&gt;march-1&lt;/a&gt;&lt;/sup&gt;も同じような検索オプションが実装されているんだろう。&lt;/p&gt;
-&lt;p&gt;このタイミングでお互い印象が良かった築浅アパートに申し込んだ。その翌週審査通過した。&lt;/p&gt;
-&lt;h3&gt;3月第三週&lt;/h3&gt;
-&lt;p&gt;前の住人の退去が完了し、僕たちの入居可能日が確定した。同時に旧居の退去手続きをした。&lt;br&gt;
-旧居は1ヶ月以上先ならどのタイミングでも退去可能ではあったが、入居日を3週間先にできたので両方契約している期間を少なく抑えられたのはありがたかった。&lt;/p&gt;
-&lt;p&gt;ここからゆるやかに引越し作業の準備を始めた。&lt;/p&gt;
-&lt;p&gt;引越しの際のやることは、以下の記事を参考にした。&lt;br&gt;
-&lt;a href=&quot;https://hikkoshi.suumo.jp/oyakudachi/1231.html&quot;&gt;https://hikkoshi.suumo.jp/oyakudachi/1231.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;相模原市は転出手続きがマイナポータル上で完結したのでありがたかった。&lt;/p&gt;
-&lt;h3&gt;4月第一週 - 引越し業者の申し込み&lt;/h3&gt;
-&lt;p&gt;同時期にちょまどさんのポストを見て戦々恐々としていたが、大手の引越し業者&lt;sup id=&quot;fnref-april-1&quot;&gt;&lt;a href=&quot;#fn-april-1&quot; class=&quot;footnote-ref&quot;&gt;april-1&lt;/a&gt;&lt;/sup&gt;で10万円以内に収めることができた。&lt;/p&gt;
+```
+
+ollama では様々なモデルを利用できます。（[モデル一覧](https://ollama.com/search)）
+最初は軽量かつ突飛な動作をしないであろうモデルを試したいと考え、Google が開発した Gemma 3 の 1B パラメータモデル[^4]を選択しました。
+
+```bash
+$ ollama pull gemma3:1b
+```
+
+コマンドライン経由でのチャットも行えるようです。
+
+![Gemma 3 の回答](/introduce-ollama-into-macos_02.png)
+
+シャ、シャベッタ！
+
+ローカル LLM 導入のファーストステップはクリアです ✅ 
+
+### 2. VSCode に Continue をインストール &amp; 設定
+
+| 説明 | スクリーンショット |
+| --- | --- |
+|  インストール後初期画面 | ![Continue](/introduce-ollama-into-macos_03.png) |
+| Get started を開くとこの画面が開くので Ollama を選択する | ![Continue](/introduce-ollama-into-macos_04.png) |
+
+### 3. Ollama(Gemma 3)にコードを編集させる
+
+手順2の設定を終えたら、モデル一覧から Gemma 3 が選択できるようになっています。
+
+![Continue](/introduce-ollama-into-macos_05.png)
+
+チャットは問題なさそうです。
+
+![Continue](/introduce-ollama-into-macos_06.png)
+
+コードを選択して Add Highlighted Code to Context でチャット画面に指示のコンテクストとして追加できます。Copilot / Cursor と同じインターフェースですね。
+
+![Continue](/introduce-ollama-into-macos_07.png)
+
+うーん、これじゃない...業務で使う Claude 3.7 Sonnet 辺りのモデルよりも明らかな知識/文脈理解の不足を感じます。より賢くてコーディングに特化したモデルを使う必要がありそうです。
+
+ということでコーディング特化モデルの中で　pull 数が多くサイズも大きすぎない `qwen2.5-coder:7b` を試しました
+
+https://ollama.com/library/qwen2.5-coder
+
+![Qwen 2.5 coder](/introduce-ollama-into-macos_08.png)
+
+こちらは期待通りの出力が得られました 🙌
+
+## まとめ
+
+シンプルな手順で LLM 導入 + VSCode 連携まで構築できました。
+
+また、シンプルなタスクであれば精度高く実行できるモデルがローカルでホストできることも確認できました。
+
+個人用途ならローカルで十分かもしれません。夢が広がりますね
+
+----
+
+[^1]: 記事執筆時点では、調べ物は ChatGPT（プライベートでは Gemini と Grok を使い分け）、一つの文書を元にしたい場合は NotebookLM、コーディング時は GitHub Copilot と Devin をよく利用しています
+[^2]: サクッと調べると [LLM Router](https://github.com/kcolemangt/llm-router), [RouteLLM](https://github.com/lm-sys/RouteLLM) 辺りの情報が多いように感じました
+[^3]: https://ollama.readthedocs.io/en/modelfile/
+[^4]: https://ollama.com/library/gemma3 ; 1b=10億パラメータの機械学習モデルをラップトップでサクッと動かせることにビビりました</content:encoded></item><item><title>引っ越しました（2025年春）</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>4月に橋本（神奈川県相模原市）から下北沢に引っ越した。  
+妻の異動に合わせての引越しだったが、僕も職場のある渋谷までの通勤に苦労していたこと、そして旧居の更新時期が近かったこともあり丁度いいタイミングだった。
+
+引越してから1ヶ月経ち、ようやく荷解きがひと段落したので記録も兼ねてブログに残そうと思う。
+
+## タイムライン
+
+### 3月第一週 - 妻の異動が確定
+
+それ以前から異動の可能性があ</description><pubDate>Sun, 18 May 2025 16:01:46 GMT</pubDate><content:encoded>4月に橋本（神奈川県相模原市）から下北沢に引っ越した。  
+妻の異動に合わせての引越しだったが、僕も職場のある渋谷までの通勤に苦労していたこと、そして旧居の更新時期が近かったこともあり丁度いいタイミングだった。
+
+引越してから1ヶ月経ち、ようやく荷解きがひと段落したので記録も兼ねてブログに残そうと思う。
+
+## タイムライン
+
+### 3月第一週 - 妻の異動が確定
+
+それ以前から異動の可能性があるという話が出ていたので心の準備はできていたが、3月初め頃正式に確定した。  
+ここから、妻と僕の職場それぞれに通いやすいエリアに絞って SUUMO で物件を探し、仲介会社に物件紹介の申し込みをした。  
+SUUMO で目を惹く物件の多くがいわゆる「囮物件」であることは承知していたので、あくまで家賃相場の把握と、物件紹介の導入程度に考えるのが良さそうという判断。
+
+エリアを絞る段階で予算感も考慮していたので、この時点で選択肢の数はそれなりにあった。  
+最終的に2件仲介会社を訪れた。SUUMO の検索オプションを参考に夫婦それぞれの希望項目と妥協できないラインを Notion にまとめて持っていったら結構ありがたがられた。多分仲介会社の利用するシステム[^march-1]も同じような検索オプションが実装されているんだろう。
+
+このタイミングでお互い印象が良かった築浅アパートに申し込んだ。その翌週審査通過した。
+
+### 3月第三週
+
+前の住人の退去が完了し、僕たちの入居可能日が確定した。同時に旧居の退去手続きをした。  
+旧居は1ヶ月以上先ならどのタイミングでも退去可能ではあったが、入居日を3週間先にできたので両方契約している期間を少なく抑えられたのはありがたかった。
+
+ここからゆるやかに引越し作業の準備を始めた。
+
+引越しの際のやることは、以下の記事を参考にした。  
+https://hikkoshi.suumo.jp/oyakudachi/1231.html
+
+相模原市は転出手続きがマイナポータル上で完結したのでありがたかった。
+
+### 4月第一週 - 引越し業者の申し込み
+
+同時期にちょまどさんのポストを見て戦々恐々としていたが、大手の引越し業者[^april-1]で10万円以内に収めることができた。
+
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;繁忙期の引越し代 &lt;br&gt;高いよおおお😭&lt;br&gt;&lt;br&gt;2LDK (そんなに広くない)、&lt;br&gt;同じ区内(車で15分)の引越しで&lt;br&gt;&lt;br&gt;＿人人人人人＿&lt;br&gt;＞　117万円　＜&lt;br&gt;￣Y^Y^Y^Y^￣&lt;br&gt;&lt;br&gt;↓ 見積り書 &lt;a href=&quot;https://t.co/op6RO96duX&quot;&gt;pic.twitter.com/op6RO96duX&lt;/a&gt;&lt;/p&gt;&amp;mdash; ちょまど🦕育休明けたばかり (@chomado) &lt;a href=&quot;https://twitter.com/chomado/status/1894230641933537617?ref_src=twsrc%5Etfw&quot;&gt;February 25, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;p&gt;大型家電を一通り処分して引っ越し後新調することも検討していたが、最終的にはほとんど新居に運んでもらった。&lt;br&gt;
-処分/新調にもコストがかかるし、生活の質のデグレを減らすことで夫婦間での衝突も抑えられたと思っている。いい判断だった。&lt;/p&gt;
-&lt;h3&gt;4月第三週 - 契約 &amp;#x26; 入居&lt;/h3&gt;
-&lt;p&gt;管理会社で契約書に捺印、後日鍵の受け取り。
-鍵の受け取り時にも捺印が必要なことを忘れてはならない（忘れて慌てて取りに戻った）&lt;/p&gt;
-&lt;p&gt;新居はハウスメーカー系の物件で、管理業者とのやりとりがほぼ全てモバイルアプリで完結になっていた。&lt;br&gt;
-鍵を受け取った日（=契約開始日）と実際に住み始めるまで一週間ほど差が生まれたが、新居に残った傷や汚れ等の申告期間が契約開始を起点に設定されていた。直前に気づいて慌てて確認したが、最初に確認しておくべきだった。&lt;/p&gt;
-&lt;h2&gt;新居の所感&lt;/h2&gt;
-&lt;p&gt;最寄りが下北沢駅になった。休日昼は人でごった返しておりぶつからないように歩くのが大変だ。&lt;sup id=&quot;fnref-shimokitazawa-1&quot;&gt;&lt;a href=&quot;#fn-shimokitazawa-1&quot; class=&quot;footnote-ref&quot;&gt;shimokitazawa-1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;p&gt;小田急線は東京メトロ千代田線直通の電車もあるので23区の東側へのアクセスもかなり良いことにも気づいた。&lt;/p&gt;
-&lt;p&gt;夜は一転して営業している店が少なく人通りも減る。この時間のカフェは空いているのでまったり勉強するのにちょうどいい。&lt;/p&gt;
-&lt;h2&gt;まとめ&lt;/h2&gt;
-&lt;p&gt;引越しもひと段落して新居での生活にも慣れてきた。&lt;/p&gt;
-&lt;p&gt;新居も街もなかなか気に入っているし、引越し自体お金と時間が溶けるイベントではあるので今の家には長く住みたい。&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-march-1&quot;&gt;2件ともレインズを利用しているようだった　&lt;a href=&quot;https://system.reins.jp/&quot;&gt;https://system.reins.jp/&lt;/a&gt;&lt;a href=&quot;#fnref-march-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-april-1&quot;&gt;サカイ引越センター&lt;a href=&quot;#fnref-april-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-shimokitazawa-1&quot;&gt;若者が多いからか、あるいは街の美化に力を入れている気配がないからか、歩きスマホや歩きタバコの人が他の街より多い気はしている&lt;a href=&quot;#fnref-shimokitazawa-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[2024年9月の振り返り]]></title><description><![CDATA[前回の振り返り(2023/05) 前回から大分時間が経ってしまった 😇 本業 現部署に移ってちょうど1年の月だった。業務にも十分に慣れてきた。 元々部署内でメンバーが少なかった web フロントエンドの知見を活かして積極的に関わったことから、部署内の web…]]></description><link>https://blog.nasustim.com/entry/retrospective-2024-09</link><guid isPermaLink="false">https://blog.nasustim.com/entry/retrospective-2024-09</guid><pubDate>Wed, 25 Sep 2024 06:55:29 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;/entry/retrospective-2023-05&quot;&gt;前回の振り返り(2023/05)&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;前回から大分時間が経ってしまった 😇&lt;/p&gt;
-&lt;h2&gt;本業&lt;/h2&gt;
-&lt;p&gt;現部署に移ってちょうど1年の月だった。業務にも十分に慣れてきた。&lt;br&gt;
-元々部署内でメンバーが少なかった web フロントエンドの知見を活かして積極的に関わったことから、部署内の web の第一人者のポジションを確立できた。&lt;br&gt;
-その立場を利用して最近は web の改善活動をリードしているが、一定の意思決定を伴う立場はやはりプレッシャーもあるが気合が入る。&lt;/p&gt;
-&lt;p&gt;海外事業に関わる部署なので、異動が決まった直後から Duolingo&lt;sup id=&quot;fnref-duolingo&quot;&gt;&lt;a href=&quot;#fn-duolingo&quot; class=&quot;footnote-ref&quot;&gt;duolingo&lt;/a&gt;&lt;/sup&gt;をやったり、異動後は福利厚生の英会話教室&lt;sup id=&quot;fnref-dmm-eikaiwa&quot;&gt;&lt;a href=&quot;#fn-dmm-eikaiwa&quot; class=&quot;footnote-ref&quot;&gt;dmm-eikaiwa&lt;/a&gt;&lt;/sup&gt;を平日毎日受講したり英語が堪能な同僚にときどき英語縛りランチに付き合ってもらったりしている。&lt;br&gt;
-その甲斐あって英語オンリーの会議でも大まかな話題は掴めるようになってきた。細かい内容も8割程度は聞き取れてる。学習の成果が現れるとやはり嬉しい。&lt;br&gt;
-一方で海外ドラマは教科書通りの表現が少なく早い発音が多いので音声のみではまだまだ楽しむのは難しい。英語字幕があればかろうじて単語をキャッチして意味をうっすらと推測できる。&lt;/p&gt;
-&lt;h2&gt;私生活&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;/entry/get-married&quot;&gt;結婚&lt;/a&gt;生活を始めて2ヶ月経った。元々同棲していたので生活に変化があったわけではないが、これまで通り楽しく暮らしている。&lt;br&gt;
-先月新婚旅行に行ったのでその詳細もそのうちブログに書きたい。&lt;/p&gt;
-&lt;p&gt;完成前にサグラダファミリアを見られてよかった。&lt;/p&gt;
+
+大型家電を一通り処分して引っ越し後新調することも検討していたが、最終的にはほとんど新居に運んでもらった。  
+処分/新調にもコストがかかるし、生活の質のデグレを減らすことで夫婦間での衝突も抑えられたと思っている。いい判断だった。
+
+### 4月第三週 - 契約 &amp; 入居
+
+管理会社で契約書に捺印、後日鍵の受け取り。
+鍵の受け取り時にも捺印が必要なことを忘れてはならない（忘れて慌てて取りに戻った）
+
+新居はハウスメーカー系の物件で、管理業者とのやりとりがほぼ全てモバイルアプリで完結になっていた。  
+鍵を受け取った日（=契約開始日）と実際に住み始めるまで一週間ほど差が生まれたが、新居に残った傷や汚れ等の申告期間が契約開始を起点に設定されていた。直前に気づいて慌てて確認したが、最初に確認しておくべきだった。
+
+## 新居の所感
+
+最寄りが下北沢駅になった。休日昼は人でごった返しておりぶつからないように歩くのが大変だ。[^shimokitazawa-1]
+
+小田急線は東京メトロ千代田線直通の電車もあるので23区の東側へのアクセスもかなり良いことにも気づいた。
+
+夜は一転して営業している店が少なく人通りも減る。この時間のカフェは空いているのでまったり勉強するのにちょうどいい。
+
+
+## まとめ
+
+引越しもひと段落して新居での生活にも慣れてきた。
+
+新居も街もなかなか気に入っているし、引越し自体お金と時間が溶けるイベントではあるので今の家には長く住みたい。
+
+----
+
+[^march-1]: 2件ともレインズを利用しているようだった　https://system.reins.jp/
+[^april-1]: サカイ引越センター
+[^shimokitazawa-1]: 若者が多いからか、あるいは街の美化に力を入れている気配がないからか、歩きスマホや歩きタバコの人が他の街より多い気はしている</content:encoded></item><item><title>2024年9月の振り返り</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>[前回の振り返り(2023/05)](/entry/retrospective-2023-05)
+
+前回から大分時間が経ってしまった 😇
+
+## 本業
+
+現部署に移ってちょうど1年の月だった。業務にも十分に慣れてきた。  
+元々部署内でメンバーが少なかった web フロントエンドの知見を活かして積極的に関わったことから、部署内の web の第一人者のポジションを確立できた。  
+その立場を利用し</description><pubDate>Wed, 25 Sep 2024 06:55:29 GMT</pubDate><content:encoded>[前回の振り返り(2023/05)](/entry/retrospective-2023-05)
+
+前回から大分時間が経ってしまった 😇
+
+## 本業
+
+現部署に移ってちょうど1年の月だった。業務にも十分に慣れてきた。  
+元々部署内でメンバーが少なかった web フロントエンドの知見を活かして積極的に関わったことから、部署内の web の第一人者のポジションを確立できた。  
+その立場を利用して最近は web の改善活動をリードしているが、一定の意思決定を伴う立場はやはりプレッシャーもあるが気合が入る。
+
+海外事業に関わる部署なので、異動が決まった直後から Duolingo[^duolingo]をやったり、異動後は福利厚生の英会話教室[^dmm-eikaiwa]を平日毎日受講したり英語が堪能な同僚にときどき英語縛りランチに付き合ってもらったりしている。  
+その甲斐あって英語オンリーの会議でも大まかな話題は掴めるようになってきた。細かい内容も8割程度は聞き取れてる。学習の成果が現れるとやはり嬉しい。  
+一方で海外ドラマは教科書通りの表現が少なく早い発音が多いので音声のみではまだまだ楽しむのは難しい。英語字幕があればかろうじて単語をキャッチして意味をうっすらと推測できる。
+
+## 私生活
+
+[結婚](/entry/get-married)生活を始めて2ヶ月経った。元々同棲していたので生活に変化があったわけではないが、これまで通り楽しく暮らしている。  
+先月新婚旅行に行ったのでその詳細もそのうちブログに書きたい。
+
+完成前にサグラダファミリアを見られてよかった。
+
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;桜田に来た &lt;a href=&quot;https://t.co/uGtFH7Glmb&quot;&gt;pic.twitter.com/uGtFH7Glmb&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1819043876641935613?ref_src=twsrc%5Etfw&quot;&gt;August 1, 2024&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt; 
-&lt;hr&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-duolingo&quot;&gt;&lt;a href=&quot;https://www.duolingo.com/&quot;&gt;https://www.duolingo.com/&lt;/a&gt;&lt;a href=&quot;#fnref-duolingo&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-dmm-eikaiwa&quot;&gt;&lt;a href=&quot;https://eikaiwa.dmm.com/&quot;&gt;https://eikaiwa.dmm.com/&lt;/a&gt;&lt;a href=&quot;#fnref-dmm-eikaiwa&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[結婚しました]]></title><description><![CDATA[今後は家族のために精進します。 2024/07/17]]></description><link>https://blog.nasustim.com/entry/get-married</link><guid isPermaLink="false">https://blog.nasustim.com/entry/get-married</guid><pubDate>Wed, 17 Jul 2024 15:00:00 GMT</pubDate><content:encoded>&lt;p&gt;今後は家族のために精進します。&lt;/p&gt;
+
+----
+
+[^duolingo]: https://www.duolingo.com/
+[^dmm-eikaiwa]: https://eikaiwa.dmm.com/</content:encoded></item><item><title>結婚しました</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今後は家族のために精進します。
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;結婚しました &lt;a href=&quot;https://t.co/3X0qqC9lFE&quot;&gt;pic.twitter.com/3X0qqC9lFE&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.co</description><pubDate>Wed, 17 Jul 2024 15:00:00 GMT</pubDate><content:encoded>今後は家族のために精進します。
+
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;結婚しました &lt;a href=&quot;https://t.co/3X0qqC9lFE&quot;&gt;pic.twitter.com/3X0qqC9lFE&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1813395167849955470?ref_src=twsrc%5Etfw&quot;&gt;July 17, 2024&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;p&gt;2024/07/17&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Macbook Air セットアップ記録 - 2023年6月]]></title><description><![CDATA[Macbook を新調した。 セットアップする度に同じようなことを調べているので、個人的備忘録として残しておく。 1. Homebrew の導入 今後入れるパッケージ管理をしやすくするためにパッケージマネージャーを入れる。macOS なら homebrew…]]></description><link>https://blog.nasustim.com/entry/introduce-new-macbook-2023-06</link><guid isPermaLink="false">https://blog.nasustim.com/entry/introduce-new-macbook-2023-06</guid><pubDate>Fri, 23 Jun 2023 15:08:50 GMT</pubDate><content:encoded>&lt;p&gt;Macbook を新調した。&lt;/p&gt;
+
+2024/07/17</content:encoded></item><item><title>Macbook Air セットアップ記録 - 2023年6月</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>Macbook を新調した。
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;my new gear... &lt;a href=&quot;https://t.co/GV1dBZnQVU&quot;&gt;pic.twitter.com/GV1dBZnQVU&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twi</description><pubDate>Fri, 23 Jun 2023 15:08:50 GMT</pubDate><content:encoded>Macbook を新調した。
+
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;my new gear... &lt;a href=&quot;https://t.co/GV1dBZnQVU&quot;&gt;pic.twitter.com/GV1dBZnQVU&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1672139641791852544?ref_src=twsrc%5Etfw&quot;&gt;June 23, 2023&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;p&gt;セットアップする度に同じようなことを調べているので、個人的備忘録として残しておく。&lt;/p&gt;
-&lt;h2&gt;1. Homebrew の導入&lt;/h2&gt;
-&lt;p&gt;今後入れるパッケージ管理をしやすくするためにパッケージマネージャーを入れる。macOS なら homebrew&lt;sup id=&quot;fnref-homebrew&quot;&gt;&lt;a href=&quot;#fn-homebrew&quot; class=&quot;footnote-ref&quot;&gt;homebrew&lt;/a&gt;&lt;/sup&gt;が安定だと思っている&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;コマンド一発で Xcode のコマンドラインツールもインストールされるので、git もセットアップされている。便利&lt;/p&gt;
-&lt;h2&gt;2. SSH キーペアの作成&lt;/h2&gt;
-&lt;p&gt;主に GitHub とやりとりするために必要&lt;/p&gt;
-&lt;p&gt;参考: &lt;a href=&quot;https://qiita.com/pupupupupu/items/e071ab2b6e59a9be7603&quot;&gt;https://qiita.com/pupupupupu/items/e071ab2b6e59a9be7603&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;ed25519で作成することにした。&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;$ ssh-keygen -t ed25519 -C mitsu@boston
+
+セットアップする度に同じようなことを調べているので、個人的備忘録として残しておく。
+
+## 1. Homebrew の導入
+
+今後入れるパッケージ管理をしやすくするためにパッケージマネージャーを入れる。macOS なら homebrew[^homebrew]が安定だと思っている
+
+```bash
+$ /bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;
+```
+
+コマンド一発で Xcode のコマンドラインツールもインストールされるので、git もセットアップされている。便利
+
+
+## 2. SSH キーペアの作成
+
+主に GitHub とやりとりするために必要
+
+参考: https://qiita.com/pupupupupu/items/e071ab2b6e59a9be7603
+
+ed25519で作成することにした。
+
+```bash
+$ ssh-keygen -t ed25519 -C mitsu@boston
 $ cat ~/.ssh/id_ed25519.pub | pbcopy
-&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;クリップボードに公開鍵文字列が格納されるので、GitHub の個人設定に登録する。&lt;/p&gt;
-&lt;h2&gt;3. dotfile 展開&lt;/h2&gt;
-&lt;p&gt;自分の dotfile を GitHub で管理している。&lt;code&gt;make&lt;/code&gt; コマンドだけで展開できるので楽ちん。&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://github.com/nasustim/dotfiles&quot;&gt;https://github.com/nasustim/dotfiles&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;4. 最低限必要なツールを導入する&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Google Chrome
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://formulae.brew.sh/cask/google-chrome&quot;&gt;https://formulae.brew.sh/cask/google-chrome&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;ghq
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://github.com/x-motemen/ghq#macos&quot;&gt;https://github.com/x-motemen/ghq#macos&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;~/ghq&lt;/code&gt; 配下に clone して git のローカルリポジトリを管理している&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;VSCode
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://formulae.brew.sh/cask/visual-studio-code&quot;&gt;https://formulae.brew.sh/cask/visual-studio-code&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;普段遣いのエディタ&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;1password
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://my.1password.com/signin&quot;&gt;https://my.1password.com/signin&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h1&gt;まとめ&lt;/h1&gt;
-&lt;p&gt;ここまでインストールすれば他の必要なツールはすぐにインストール可能になったはず。&lt;/p&gt;
-&lt;p&gt;Brewfile で管理するとか、anyenv 入れておくかどうかとか、やると便利だろうけど時間もかかるし、自分の端末全てに一律で入れたいか......？と考えると微妙だからまだやっていない。&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-homebrew&quot;&gt;&lt;a href=&quot;https://brew.sh/index_ja&quot;&gt;https://brew.sh/index_ja&lt;/a&gt;&lt;a href=&quot;#fnref-homebrew&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[2023年5月の振り返り]]></title><description><![CDATA[めっきり内省の機会が少なくなった気がしているので振り返りをする。毎月続けられたら嬉しい。 本業 3月までは複数サービスにまたがるサーバ開発を担当していたが、4月に部署内で改組があり、私の所属は toC…]]></description><link>https://blog.nasustim.com/entry/retrospective-2023-05</link><guid isPermaLink="false">https://blog.nasustim.com/entry/retrospective-2023-05</guid><pubDate>Thu, 01 Jun 2023 16:08:04 GMT</pubDate><content:encoded>&lt;p&gt;めっきり内省の機会が少なくなった気がしているので振り返りをする。毎月続けられたら嬉しい。&lt;/p&gt;
-&lt;h2&gt;本業&lt;/h2&gt;
-&lt;p&gt;3月までは複数サービスにまたがるサーバ開発を担当していたが、4月に部署内で改組があり、私の所属は toC アプリの施策開発に特化したチームになった。&lt;/p&gt;
-&lt;p&gt;私自身は広く浅い専門性を持っていて、必要に応じて他の技術領域も触ることができる立場の方がバリューを発揮しやすいと感じていた。そのため初めこそチームでの働き方には戸惑いを感じていたが、チームの KPI に向かって発案の段階から意見するような働きにもやりがいを感じるようになってきた。
-これまでのやり方がソリッドな価値創出だとすれば、今はグルーヴとして捉えられると思っている。&lt;/p&gt;
-&lt;h2&gt;副業&lt;/h2&gt;
-&lt;p&gt;&lt;del&gt;GW に遊びすぎて&lt;/del&gt; 先月より稼働時間が減ってしまった。&lt;/p&gt;
-&lt;p&gt;今の副業にはジョインして3ヶ月だが大分慣れてきた。
-小さな組織なので自分の提案も通りやすいし、本業では触れる機会が減った web フロントエンド専業でコードを書けるのはやはり楽しい。長く続けられたら嬉しい。&lt;/p&gt;
-&lt;h2&gt;生活&lt;/h2&gt;
-&lt;p&gt;暖かくなってよく散歩するようになった。
-IT 健保が提供する pep up&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;というアプリに Apple Watch で計測した歩数を登録している。部署内での歩数ランキングを出す機能もあるので歩くモチベーションが高めやすい。&lt;/p&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-1&quot;&gt;&lt;a href=&quot;https://pepup.life/&quot;&gt;https://pepup.life/&lt;/a&gt;&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[2020年の振り返り]]></title><description><![CDATA[このブログを更新するのも久しぶりですね。 今年は新型コロナウイルスの大流行によって予想していない変化がとても多かったです。 私は3月に大学院を修了して東京に移り住みました。人生の節目とパンデミックが重なって余計に生活の変化が激しかった。 初めての…]]></description><link>https://blog.nasustim.com/entry/2020-12-31-232539</link><guid isPermaLink="false">https://blog.nasustim.com/entry/2020-12-31-232539</guid><pubDate>Thu, 31 Dec 2020 14:25:39 GMT</pubDate><content:encoded>&lt;p&gt;このブログを更新するのも久しぶりですね。&lt;/p&gt;
-&lt;p&gt;今年は新型コロナウイルスの大流行によって予想していない変化がとても多かったです。&lt;br&gt;
-私は3月に大学院を修了して東京に移り住みました。人生の節目とパンデミックが重なって余計に生活の変化が激しかった。&lt;/p&gt;
-&lt;p&gt;初めての1人で迎える大晦日に、新年を気持ちよく迎えるために振り返りをします。&lt;/p&gt;
-&lt;h2&gt;学業&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/20190923162434.jpg&quot; alt=&quot;修士作品: 《/module/Whom》&quot;&gt;&lt;/p&gt;
-&lt;p&gt;3月に大学院を修了しました。&lt;/p&gt;
-&lt;p&gt;修士作品、ならびに修論&lt;sup id=&quot;fnref-thesis&quot;&gt;&lt;a href=&quot;#fn-thesis&quot; class=&quot;footnote-ref&quot;&gt;thesis&lt;/a&gt;&lt;/sup&gt;執筆にあたって様々な方にお世話になりました。&lt;br&gt;
-丁寧に指導してくださった主査副査の先生方、急に連絡したにも関わらず学校まで来てくれて作品の感想を聞かせてくれた中学の友人たち、書いたコードをレビューしてくれた知人友人各位、日々議論をさせてくれた学校の人たち、言語学のリファレンスの提案や論文のレビューを引き受けてくれた友人たち、ファミマ店長、、、色々な人の協力があって論文を完成させることができました。&lt;br&gt;
-感謝しかないです。&lt;/p&gt;
-&lt;h1&gt;仕事&lt;/h1&gt;
-&lt;p&gt;2020年4月に株式会社モバイルファクトリー&lt;sup id=&quot;fnref-mf&quot;&gt;&lt;a href=&quot;#fn-mf&quot; class=&quot;footnote-ref&quot;&gt;mf&lt;/a&gt;&lt;/sup&gt;に新卒社員として入社しました。&lt;br&gt;
-現在はソシャゲの運営部署で開発・運用に関わっています。&lt;/p&gt;
-&lt;p&gt;パンデミックの影響で、入社式から今日までフルリモートで勤務してます。
-社会人経験も浅いし、業務にもまだまだ慣れられた気はしないです。タスクの認識合わせや質問にもどうしても怖気づいて時間をかけてしまうことが多かった。ただやはり10ヶ月続けると徐々に業務の進め方が分かってきた気がします。プロダクションコードを書くときの勘所もレビューを通じて身についてきた。&lt;/p&gt;
-&lt;p&gt;関わっているサービスのバックエンドは Perl で書かれています。&lt;br&gt;
-今となっては学ぶ人自体少ないし、構文については表現の幅が広くて読みづらい言語だと悪名高い（？）ですが、冗長な記述が好まれないという思想は一貫しているので慣れればななめ読みでコード全体を把握しやすい言語だとは思っています。&lt;/p&gt;
-&lt;h1&gt;趣味&lt;/h1&gt;
-&lt;h2&gt;バイク&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&quot;/entry/20191213-1576163438/&quot;&gt;去年書いた記事&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;記事に登場するルネッサも東京に連れてきました。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/20201231184154.jpg&quot; alt=&quot;引っ越しの道中で立ち寄った東名浜名湖SA&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/20201231204152.jpg&quot; alt=&quot;自粛ムードがピークだった4月にツーリングした帰りに立ち寄った新宿中央公園&quot;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/20210101000303.jpg&quot; alt=&quot;初めて有給を取得して行った湘南&quot;&gt;&lt;/p&gt;
-&lt;h1&gt;2021 年の目標&lt;/h1&gt;
-&lt;p&gt;来年こそはアウトプットを増やしたい。&lt;br&gt;
-制作においては来年は小さなことから、&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;1ヶ月1つは自分の制作物を作る&lt;/li&gt;
-&lt;li&gt;そのために調べたことをブログなどにまとめておく&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;生活面では、&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;夏〜秋辺りを目安に引っ越す&lt;/li&gt;
-&lt;li&gt;大型二輪免許を取得する&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;を目標にします。みなさま良いお年を 👋&lt;/p&gt;
-&lt;hr&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-thesis&quot;&gt;&lt;a href=&quot;https://www.iamas.ac.jp/annual/mr/hibino-mitsuhiro/?y=2020&amp;#x26;type=research&quot;&gt;https://www.iamas.ac.jp/annual/mr/hibino-mitsuhiro/?y=2020&amp;#x26;type=research&lt;/a&gt;&lt;a href=&quot;#fnref-thesis&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-mf&quot;&gt;&lt;a href=&quot;https://www.mobilefactory.jp/&quot;&gt;https://www.mobilefactory.jp/&lt;/a&gt;&lt;a href=&quot;#fnref-mf&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[初めてのバイクと過ごした2019年を振り返る]]></title><description><![CDATA[これは、バイク Advent Calendar 2019 13日目の記事です。 こんにちは、nasustimと申します。 今年の2月から乗っている YAMAHA ルネッサとの思い出を綴ります。 どんなバイク？ 図1: YAMAHA ルネッサ これ、かっこいい。 YAMAHA…]]></description><link>https://blog.nasustim.com/entry/20191213-1576163438</link><guid isPermaLink="false">https://blog.nasustim.com/entry/20191213-1576163438</guid><pubDate>Thu, 12 Dec 2019 15:10:38 GMT</pubDate><content:encoded>&lt;p&gt;これは、&lt;a href=&quot;https://adventar.org/calendars/4274&quot;&gt;バイク Advent Calendar 2019&lt;/a&gt; 13日目の記事です。&lt;/p&gt;
+```
+
+クリップボードに公開鍵文字列が格納されるので、GitHub の個人設定に登録する。
+
+## 3. dotfile 展開
+
+自分の dotfile を GitHub で管理している。`make` コマンドだけで展開できるので楽ちん。
+
+https://github.com/nasustim/dotfiles
+
+## 4. 最低限必要なツールを導入する
+
+- Google Chrome
+  - https://formulae.brew.sh/cask/google-chrome
+- ghq
+  - https://github.com/x-motemen/ghq#macos
+  - `~/ghq` 配下に clone して git のローカルリポジトリを管理している
+- VSCode
+  - https://formulae.brew.sh/cask/visual-studio-code
+  - 普段遣いのエディタ
+- 1password
+  - https://my.1password.com/signin
+
+# まとめ
+
+ここまでインストールすれば他の必要なツールはすぐにインストール可能になったはず。
+
+Brewfile で管理するとか、anyenv 入れておくかどうかとか、やると便利だろうけど時間もかかるし、自分の端末全てに一律で入れたいか......？と考えると微妙だからまだやっていない。
+
+
+[^homebrew]: https://brew.sh/index_ja</content:encoded></item><item><title>2023年5月の振り返り</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>めっきり内省の機会が少なくなった気がしているので振り返りをする。毎月続けられたら嬉しい。
+
+## 本業
+
+3月までは複数サービスにまたがるサーバ開発を担当していたが、4月に部署内で改組があり、私の所属は toC アプリの施策開発に特化したチームになった。
+
+私自身は広く浅い専門性を持っていて、必要に応じて他の技術領域も触ることができる立場の方がバリューを発揮しやすいと感じていた。そのため初めこそチ</description><pubDate>Thu, 01 Jun 2023 16:08:04 GMT</pubDate><content:encoded>めっきり内省の機会が少なくなった気がしているので振り返りをする。毎月続けられたら嬉しい。
+
+## 本業
+
+3月までは複数サービスにまたがるサーバ開発を担当していたが、4月に部署内で改組があり、私の所属は toC アプリの施策開発に特化したチームになった。
+
+私自身は広く浅い専門性を持っていて、必要に応じて他の技術領域も触ることができる立場の方がバリューを発揮しやすいと感じていた。そのため初めこそチームでの働き方には戸惑いを感じていたが、チームの KPI に向かって発案の段階から意見するような働きにもやりがいを感じるようになってきた。
+これまでのやり方がソリッドな価値創出だとすれば、今はグルーヴとして捉えられると思っている。
+
+## 副業
+
+~~GW に遊びすぎて~~ 先月より稼働時間が減ってしまった。
+
+今の副業にはジョインして3ヶ月だが大分慣れてきた。
+小さな組織なので自分の提案も通りやすいし、本業では触れる機会が減った web フロントエンド専業でコードを書けるのはやはり楽しい。長く続けられたら嬉しい。
+
+## 生活
+
+暖かくなってよく散歩するようになった。
+IT 健保が提供する pep up[^1]というアプリに Apple Watch で計測した歩数を登録している。部署内での歩数ランキングを出す機能もあるので歩くモチベーションが高めやすい。
+
+[^1]: https://pepup.life/</content:encoded></item><item><title>2020年の振り返り</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>このブログを更新するのも久しぶりですね。
+
+今年は新型コロナウイルスの大流行によって予想していない変化がとても多かったです。  
+私は3月に大学院を修了して東京に移り住みました。人生の節目とパンデミックが重なって余計に生活の変化が激しかった。
+
+初めての1人で迎える大晦日に、新年を気持ちよく迎えるために振り返りをします。
+
+## 学業
+
+![修士作品: 《/module/Whom》](/20190</description><pubDate>Thu, 31 Dec 2020 14:25:39 GMT</pubDate><content:encoded>このブログを更新するのも久しぶりですね。
+
+今年は新型コロナウイルスの大流行によって予想していない変化がとても多かったです。  
+私は3月に大学院を修了して東京に移り住みました。人生の節目とパンデミックが重なって余計に生活の変化が激しかった。
+
+初めての1人で迎える大晦日に、新年を気持ちよく迎えるために振り返りをします。
+
+## 学業
+
+![修士作品: 《/module/Whom》](/20190923162434.jpg)
+
+3月に大学院を修了しました。
+
+修士作品、ならびに修論[^thesis]執筆にあたって様々な方にお世話になりました。  
+丁寧に指導してくださった主査副査の先生方、急に連絡したにも関わらず学校まで来てくれて作品の感想を聞かせてくれた中学の友人たち、書いたコードをレビューしてくれた知人友人各位、日々議論をさせてくれた学校の人たち、言語学のリファレンスの提案や論文のレビューを引き受けてくれた友人たち、ファミマ店長、、、色々な人の協力があって論文を完成させることができました。  
+感謝しかないです。
+
+# 仕事
+
+2020年4月に株式会社モバイルファクトリー[^mf]に新卒社員として入社しました。  
+現在はソシャゲの運営部署で開発・運用に関わっています。
+
+パンデミックの影響で、入社式から今日までフルリモートで勤務してます。
+社会人経験も浅いし、業務にもまだまだ慣れられた気はしないです。タスクの認識合わせや質問にもどうしても怖気づいて時間をかけてしまうことが多かった。ただやはり10ヶ月続けると徐々に業務の進め方が分かってきた気がします。プロダクションコードを書くときの勘所もレビューを通じて身についてきた。
+
+関わっているサービスのバックエンドは Perl で書かれています。  
+今となっては学ぶ人自体少ないし、構文については表現の幅が広くて読みづらい言語だと悪名高い（？）ですが、冗長な記述が好まれないという思想は一貫しているので慣れればななめ読みでコード全体を把握しやすい言語だとは思っています。
+
+# 趣味
+
+## バイク
+
+[去年書いた記事](/entry/20191213-1576163438/)
+
+記事に登場するルネッサも東京に連れてきました。
+
+![引っ越しの道中で立ち寄った東名浜名湖SA](/20201231184154.jpg)
+
+![自粛ムードがピークだった4月にツーリングした帰りに立ち寄った新宿中央公園](/20201231204152.jpg)
+
+![初めて有給を取得して行った湘南](/20210101000303.jpg)
+
+
+# 2021 年の目標
+
+来年こそはアウトプットを増やしたい。  
+制作においては来年は小さなことから、
+
+- 1ヶ月1つは自分の制作物を作る
+- そのために調べたことをブログなどにまとめておく
+
+生活面では、
+
+- 夏〜秋辺りを目安に引っ越す
+- 大型二輪免許を取得する
+
+を目標にします。みなさま良いお年を 👋
+
+----
+
+[^thesis]: https://www.iamas.ac.jp/annual/mr/hibino-mitsuhiro/?y=2020&amp;type=research
+[^mf]: https://www.mobilefactory.jp/</content:encoded></item><item><title>初めてのバイクと過ごした2019年を振り返る</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>これは、&lt;a href=&quot;https://adventar.org/calendars/4274&quot;&gt;バイク Advent Calendar 2019&lt;/a&gt; 13日目の記事です。
+
+&lt;iframe src=&quot;https://hatenablog-parts.com/embed?url=https%3A%2F%2Fadventar.org%2Fcalendars%2F4274&quot; title=&quot;バイク</description><pubDate>Thu, 12 Dec 2019 15:10:38 GMT</pubDate><content:encoded>これは、&lt;a href=&quot;https://adventar.org/calendars/4274&quot;&gt;バイク Advent Calendar 2019&lt;/a&gt; 13日目の記事です。
+
 &lt;iframe src=&quot;https://hatenablog-parts.com/embed?url=https%3A%2F%2Fadventar.org%2Fcalendars%2F4274&quot; title=&quot;バイク Advent Calendar 2019 - Adventar&quot; class=&quot;embed-card embed-webcard&quot; scrolling=&quot;no&quot; frameborder=&quot;0&quot; &gt;&lt;/iframe&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://adventar.org/calendars/4274&quot;&gt;adventar.org&lt;/a&gt;&lt;/cite&gt;
-&lt;p&gt;こんにちは、&lt;a href=&quot;https://twitter.com/nasustim&quot;&gt;nasustim&lt;/a&gt;と申します。&lt;/p&gt;
-&lt;p&gt;今年の2月から乗っている YAMAHA ルネッサとの思い出を綴ります。&lt;/p&gt;
-&lt;h1&gt;どんなバイク？&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&quot;/20190512160014.jpg&quot; alt=&quot;図1: YAMAHA ルネッサ&quot;&gt;&lt;/p&gt;
-&lt;p&gt;これ、かっこいい。&lt;/p&gt;
-&lt;p&gt;YAMAHA が90年代に発売していた250cc V ツインの SRV250&lt;sup id=&quot;fnref-1&quot;&gt;&lt;a href=&quot;#fn-1&quot; class=&quot;footnote-ref&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;をカフェレーサー&lt;sup id=&quot;fnref-2&quot;&gt;&lt;a href=&quot;#fn-2&quot; class=&quot;footnote-ref&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;風のスタイルにしたモデルです。&lt;/p&gt;
-&lt;p&gt;今年の3月で岐阜を離れて関東に引っ越した学校の先輩が手放すとのことで、通学や岐阜のワインディングを楽しむために譲り受けました。&lt;br&gt;
-大学時代に普通二輪は取得しておりましたが、125cc 以上の二輪には教習以来乗っていなかったので実質初めてのバイクです。&lt;/p&gt;
-&lt;h1&gt;思い出&lt;/h1&gt;
-&lt;h2&gt;温泉&lt;/h2&gt;
+
+こんにちは、&lt;a href=&quot;https://twitter.com/nasustim&quot;&gt;nasustim&lt;/a&gt;と申します。
+
+今年の2月から乗っている YAMAHA ルネッサとの思い出を綴ります。
+
+# どんなバイク？
+
+![図1: YAMAHA ルネッサ](/20190512160014.jpg)
+
+これ、かっこいい。
+
+YAMAHA が90年代に発売していた250cc V ツインの SRV250[^1]をカフェレーサー[^2]風のスタイルにしたモデルです。
+
+今年の3月で岐阜を離れて関東に引っ越した学校の先輩が手放すとのことで、通学や岐阜のワインディングを楽しむために譲り受けました。  
+大学時代に普通二輪は取得しておりましたが、125cc 以上の二輪には教習以来乗っていなかったので実質初めてのバイクです。
+
+# 思い出
+
+## 温泉
+
 &lt;blockquote data-conversation=&quot;none&quot; class=&quot;twitter-tweet&quot; data-lang=&quot;ja&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;たまには本館 (@ 池田温泉本館 in 池田町, 岐阜県) &lt;a href=&quot;https://t.co/Vo1DAZGQus&quot;&gt;https://t.co/Vo1DAZGQus&lt;/a&gt; &lt;a href=&quot;https://t.co/D2aHoChxFf&quot;&gt;pic.twitter.com/D2aHoChxFf&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1177139245967974401?ref_src=twsrc%5Etfw&quot;&gt;2019年9月26日&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
 &lt;blockquote data-conversation=&quot;none&quot; class=&quot;twitter-tweet&quot; data-lang=&quot;ja&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;作業に行き詰まって山登った &lt;a href=&quot;https://t.co/IfufUXTCe7&quot;&gt;pic.twitter.com/IfufUXTCe7&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1153554685342580736?ref_src=twsrc%5Etfw&quot;&gt;2019年7月23日&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;p&gt;岐阜県には温泉が多く、頻繁に気分転換に出かけました。&lt;br&gt;
-今年の秋口にはサウナにハマっており週２くらいの頻度で行ってた気がする。&lt;/p&gt;
-&lt;h2&gt;海&lt;/h2&gt;
-&lt;p&gt;学校のある大垣市は岐阜県の南西に位置しており、愛知県と三重県との県境にとても近いです。&lt;br&gt;
-そのため1時間ほど走れば伊勢湾沿いの街にも行けたりします。&lt;/p&gt;
+
+岐阜県には温泉が多く、頻繁に気分転換に出かけました。  
+今年の秋口にはサウナにハマっており週２くらいの頻度で行ってた気がする。
+
+## 海
+
+学校のある大垣市は岐阜県の南西に位置しており、愛知県と三重県との県境にとても近いです。  
+そのため1時間ほど走れば伊勢湾沿いの街にも行けたりします。
+
 &lt;blockquote data-conversation=&quot;none&quot; class=&quot;twitter-tweet&quot; data-lang=&quot;ja&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;グッバイ夏 &lt;a href=&quot;https://t.co/V7lK6aoFZx&quot;&gt;pic.twitter.com/V7lK6aoFZx&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1163098534146482176?ref_src=twsrc%5Etfw&quot;&gt;2019年8月18日&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;p&gt;研究に行き詰まったときには夜中に四日市まで走って海風に当たってました。&lt;/p&gt;
-&lt;h2&gt;琵琶湖&lt;/h2&gt;
+
+研究に行き詰まったときには夜中に四日市まで走って海風に当たってました。
+
+## 琵琶湖
+
 &lt;blockquote data-conversation=&quot;none&quot; class=&quot;twitter-tweet&quot; data-lang=&quot;ja&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;I&amp;#39;m at 奥琵琶湖パークウェイ つづら尾崎展望台 in 長浜市, 滋賀県 &lt;a href=&quot;https://t.co/yb5uFg2yOB&quot;&gt;https://t.co/yb5uFg2yOB&lt;/a&gt; &lt;a href=&quot;https://t.co/YAPpGjOa0X&quot;&gt;pic.twitter.com/YAPpGjOa0X&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1120544991984672768?ref_src=twsrc%5Etfw&quot;&gt;2019年4月23日&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-&lt;p&gt;滋賀県もそこそこ近いです。今年は高校の先輩と琵琶湖ツーリングに2回行きました。&lt;br&gt;
-残念ながら有名なメタセコイア並木は見られてません。&lt;/p&gt;
-&lt;h1&gt;良かったこと&lt;/h1&gt;
-&lt;h2&gt;毎日通学で乗ってもガソリン代が安い&lt;/h2&gt;
-&lt;p&gt;バイク乗りとしては不順な動機ですが、実際ありがたいです。&lt;/p&gt;
-&lt;p&gt;初年度登録が23年前の1996年&lt;sup id=&quot;fnref-3&quot;&gt;&lt;a href=&quot;#fn-3&quot; class=&quot;footnote-ref&quot;&gt;3&lt;/a&gt;&lt;/sup&gt;でとても年季の入ったバイクですが、それでも平均して20km/L 以上。&lt;br&gt;
-フューエルワンを入れてエンジンオイルを交換した直後だったら30km/L 近くは出ていそうです。&lt;/p&gt;
-&lt;h2&gt;軽微な故障なら自分でなんとかできそう&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/20191212205618.jpg&quot; alt=&quot;図2: 機構がむき出し&quot;&gt;&lt;/p&gt;
-&lt;p&gt;キャブレーターで、かつエンジンの機構がむき出しなので、不具合が起こっても自分で何とかできそうな雰囲気があります。&lt;br&gt;
-この一年で&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;ハザードランプを点灯させるボタンのバネが効かず、ハザードが点きっぱなしになった&lt;/li&gt;
-&lt;li&gt;クラッチワイヤの潤滑油が抜けた&lt;/li&gt;
-&lt;li&gt;走行中に前輪のロータリーエンコーダとスピードメーターを繋ぐケーブルが外れた&lt;/li&gt;
-&lt;li&gt;リザーブコックの隙間からガソリンが漏れ出した&lt;/li&gt;
-&lt;li&gt;...etc&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;など色々トラブルがありましたが、大抵はその場でスムーズに解決できています。&lt;br&gt;
-古いバイクなので不具合はしょっちゅうですが、その分メンテナンス性が良い。&lt;/p&gt;
-&lt;h1&gt;想定外だったこと&lt;/h1&gt;
-&lt;h2&gt;ガソリンの残量メーターが無い&lt;/h2&gt;
-&lt;p&gt;古いバイクだと当たり前らしいですが、一回だけ走行中にガス欠してしまいとても困りました&lt;sup id=&quot;fnref-4&quot;&gt;&lt;a href=&quot;#fn-4&quot; class=&quot;footnote-ref&quot;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
-&lt;h2&gt;冬が寒すぎる&lt;/h2&gt;
-&lt;p&gt;めちゃめちゃ寒いです。&lt;br&gt;
-ルネッサを手に入れる前は SUZUKI のスクーターとタイカブに乗っていて、どちらも前から見て身体の大部分がカウルで風よけされていたので、ネイキッドの寒さは想定外だった......。&lt;/p&gt;
-&lt;h1&gt;終わりに&lt;/h1&gt;
-&lt;p&gt;晴れの日も、想定外の雨の日もぼくを乗せて走ってくれたルネッサ。ありがとうルネッサ。&lt;/p&gt;
-&lt;p&gt;バイクは退屈な日常に彩りを添えてくれました。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/20191212223856.jpg&quot; alt=&quot;図3: ライダーは心が健康&quot;&gt;&lt;/p&gt;
-&lt;p&gt;バイクはいいぞ！&lt;/p&gt;
+
+滋賀県もそこそこ近いです。今年は高校の先輩と琵琶湖ツーリングに2回行きました。  
+残念ながら有名なメタセコイア並木は見られてません。
+
+# 良かったこと
+
+## 毎日通学で乗ってもガソリン代が安い
+
+バイク乗りとしては不順な動機ですが、実際ありがたいです。
+
+初年度登録が23年前の1996年[^3]でとても年季の入ったバイクですが、それでも平均して20km/L 以上。  
+フューエルワンを入れてエンジンオイルを交換した直後だったら30km/L 近くは出ていそうです。
+
+## 軽微な故障なら自分でなんとかできそう
+
+![図2: 機構がむき出し](/20191212205618.jpg)
+
+キャブレーターで、かつエンジンの機構がむき出しなので、不具合が起こっても自分で何とかできそうな雰囲気があります。  
+この一年で
+
+- ハザードランプを点灯させるボタンのバネが効かず、ハザードが点きっぱなしになった
+- クラッチワイヤの潤滑油が抜けた
+- 走行中に前輪のロータリーエンコーダとスピードメーターを繋ぐケーブルが外れた
+- リザーブコックの隙間からガソリンが漏れ出した
+- ...etc
+
+など色々トラブルがありましたが、大抵はその場でスムーズに解決できています。  
+古いバイクなので不具合はしょっちゅうですが、その分メンテナンス性が良い。
+
+# 想定外だったこと
+
+## ガソリンの残量メーターが無い
+
+古いバイクだと当たり前らしいですが、一回だけ走行中にガス欠してしまいとても困りました[^4]
+
+## 冬が寒すぎる
+
+めちゃめちゃ寒いです。  
+ルネッサを手に入れる前は SUZUKI のスクーターとタイカブに乗っていて、どちらも前から見て身体の大部分がカウルで風よけされていたので、ネイキッドの寒さは想定外だった......。
+
+# 終わりに
+
+晴れの日も、想定外の雨の日もぼくを乗せて走ってくれたルネッサ。ありがとうルネッサ。
+
+バイクは退屈な日常に彩りを添えてくれました。
+
+
+![図3: ライダーは心が健康](/20191212223856.jpg)
+
+バイクはいいぞ！
+
 &lt;iframe width=&quot;459&quot; height=&quot;344&quot; src=&quot;https://www.youtube.com/embed/DZ2TCZJ2lKM?feature=oembed&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=DZ2TCZJ2lKM&quot;&gt;www.youtube.com&lt;/a&gt;&lt;/cite&gt;
-&lt;div class=&quot;footnotes&quot;&gt;
-&lt;hr&gt;
-&lt;ol&gt;
-&lt;li id=&quot;fn-1&quot;&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%A4%E3%83%9E%E3%83%8F%E3%83%BBSR#SRV%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA&quot;&gt;ヤマハ・SR#SRV シリーズ&lt;/a&gt;&lt;a href=&quot;#fnref-1&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-2&quot;&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%95%E3%82%A7%E3%83%AC%E3%83%BC%E3%82%B5%E3%83%BC&quot;&gt;カフェレーサー&lt;/a&gt;&lt;a href=&quot;#fnref-2&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-3&quot;&gt;ナンバー証明書にも保険の証書にも書いてないから分からない&lt;a href=&quot;#fnref-3&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&quot;fn-4&quot;&gt;リザーブタンクにもたまたまガソリンが入ってなかった&lt;a href=&quot;#fnref-4&quot; class=&quot;footnote-backref&quot;&gt;↩&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/div&gt;</content:encoded></item><item><title><![CDATA[夏の思い出 - 2016]]></title><description><![CDATA[8月に一週間ベトナムのホーチミンにいた。 たくさん写真を撮ったのでせっかくだからここで供養させて欲しい。 台湾の桃園空港トランジットだった。フリー Wi-Fi…]]></description><link>https://blog.nasustim.com/entry/2016-08-21-020755</link><guid isPermaLink="false">https://blog.nasustim.com/entry/2016-08-21-020755</guid><pubDate>Sat, 20 Aug 2016 17:07:55 GMT</pubDate><content:encoded>&lt;p&gt;8月に一週間ベトナムのホーチミンにいた。&lt;br&gt;
-たくさん写真を撮ったのでせっかくだからここで供養させて欲しい。&lt;/p&gt;
+
+[^1]: [ヤマハ・SR#SRV シリーズ](https://ja.wikipedia.org/wiki/%E3%83%A4%E3%83%9E%E3%83%8F%E3%83%BBSR#SRV%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA)
+[^2]: [カフェレーサー](https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%95%E3%82%A7%E3%83%AC%E3%83%BC%E3%82%B5%E3%83%BC)
+[^3]: ナンバー証明書にも保険の証書にも書いてないから分からない
+[^4]: リザーブタンクにもたまたまガソリンが入ってなかった</content:encoded></item><item><title>夏の思い出 - 2016</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>8月に一週間ベトナムのホーチミンにいた。  
+たくさん写真を撮ったのでせっかくだからここで供養させて欲しい。
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
+&lt;p dir=&quot;ltr&quot; lang=&quot;ja&quot;&gt;乗るやつ &lt;a href=&quot;https://t.co/TniAmzGIEx&quot;&gt;pic.twitter.com/Tni</description><pubDate>Sat, 20 Aug 2016 17:07:55 GMT</pubDate><content:encoded>8月に一週間ベトナムのホーチミンにいた。  
+たくさん写真を撮ったのでせっかくだからここで供養させて欲しい。
+
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
 &lt;p dir=&quot;ltr&quot; lang=&quot;ja&quot;&gt;乗るやつ &lt;a href=&quot;https://t.co/TniAmzGIEx&quot;&gt;pic.twitter.com/TniAmzGIEx&lt;/a&gt;&lt;/p&gt;
 — みつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/765338211983826945&quot;&gt;August 16, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
 &lt;p dir=&quot;ltr&quot; lang=&quot;ja&quot;&gt;さいなら日本 &lt;a href=&quot;https://t.co/jukVO5ozpl&quot;&gt;pic.twitter.com/jukVO5ozpl&lt;/a&gt;&lt;/p&gt;
 — みつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/765343162655121408&quot;&gt;August 16, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
 &lt;p dir=&quot;ltr&quot; lang=&quot;ja&quot;&gt;じんじん先輩に会いに来ました！！！！ (@ 台湾桃園国際空港 in 桃園縣, 臺灣) &lt;a href=&quot;https://t.co/6CnffUlA9y&quot;&gt;https://t.co/6CnffUlA9y&lt;/a&gt; &lt;a href=&quot;https://t.co/1Rf0N06rSQ&quot;&gt;pic.twitter.com/1Rf0N06rSQ&lt;/a&gt;&lt;/p&gt;
 — みつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/765393581435678721&quot;&gt;August 16, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;台湾の桃園空港トランジットだった。フリー Wi-Fi がアカウント登録なしで使えたのでありがたい。&lt;/p&gt;
+
+台湾の桃園空港トランジットだった。フリー Wi-Fi がアカウント登録なしで使えたのでありがたい。
+
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
 &lt;p dir=&quot;ltr&quot; lang=&quot;ja&quot;&gt;やっと着いた (@ タンソンニャット国際空港 in Ho Chi Minh City, Vietnam) &lt;a href=&quot;https://t.co/aak5iUe5du&quot;&gt;https://t.co/aak5iUe5du&lt;/a&gt; &lt;a href=&quot;https://t.co/gY7ySeONlm&quot;&gt;pic.twitter.com/gY7ySeONlm&lt;/a&gt;&lt;/p&gt;
 — みつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/765494277690560513&quot;&gt;August 16, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;ホーチミンのタンソンニャット国際空港に着いた。台北の桃園空港に比べるととても近代的な建物だった。&lt;/p&gt;
+
+ホーチミンのタンソンニャット国際空港に着いた。台北の桃園空港に比べるととても近代的な建物だった。
+
 &lt;blockquote class=&quot;ricoh-theta-spherical-image&quot; data-width=&quot;500&quot; data-height=&quot;375&quot;&gt;ホテルの近く2 #theta360 - &lt;a href=&quot;https://theta360.com/s/rdkkPOJ5yF9oadLGqQQHTs9Ya&quot; target=&quot;_blank&quot;&gt;Spherical Image - RICOH THETA&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;バイクがたくさん&lt;/p&gt;
+
+バイクがたくさん
+
 &lt;blockquote class=&quot;ricoh-theta-spherical-image&quot; data-width=&quot;500&quot; data-height=&quot;375&quot;&gt;川 #theta360 - &lt;a href=&quot;https://theta360.com/s/bPrCIohwoJekBK2mlNQRy902m&quot; target=&quot;_blank&quot;&gt;Spherical Image - RICOH THETA&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;道を渡る時はだいたいこんな感じ。&lt;/p&gt;
-&lt;p&gt;車もバイクも歩行者もみんな信号無視してた。青信号でもうまく避けて渡らないとクラクションを鳴らされる。&lt;/p&gt;
+
+道を渡る時はだいたいこんな感じ。
+
+車もバイクも歩行者もみんな信号無視してた。青信号でもうまく避けて渡らないとクラクションを鳴らされる。
+
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
 &lt;p dir=&quot;ltr&quot; lang=&quot;ja&quot;&gt;レッドブル13本とビール2本で800円&lt;br /&gt;無限にテキーラを割れる…！ &lt;a href=&quot;https://t.co/47TkrOW7FT&quot;&gt;pic.twitter.com/47TkrOW7FT&lt;/a&gt;&lt;/p&gt;
 — みつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/766165658203631616&quot;&gt;August 18, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;レッドブルがめちゃめちゃ安かった。日本と違ってタイ産が主流らしい。&lt;/p&gt;
+
+レッドブルがめちゃめちゃ安かった。日本と違ってタイ産が主流らしい。
+
 &lt;blockquote class=&quot;ricoh-theta-spherical-image&quot; data-width=&quot;500&quot; data-height=&quot;375&quot;&gt;シクロ #theta360 - &lt;a href=&quot;https://theta360.com/s/lPVtn6HLpEKgxac0nAdApJKGy&quot; target=&quot;_blank&quot;&gt;Spherical Image - RICOH THETA&lt;/a&gt;&lt;/blockquote&gt;
+
 &lt;blockquote class=&quot;ricoh-theta-spherical-image&quot; data-width=&quot;500&quot; data-height=&quot;375&quot;&gt;船 #theta360 - &lt;a href=&quot;https://theta360.com/s/oxRENID2JSGbRwDPMJBWQ1hFU&quot; target=&quot;_blank&quot;&gt;Spherical Image - RICOH THETA&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;シクロという自転車を改造したタクシーに乗った後に遊覧船に乗った。夜景がとてもきれいだった。&lt;/p&gt;
+
+シクロという自転車を改造したタクシーに乗った後に遊覧船に乗った。夜景がとてもきれいだった。
+
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
 &lt;p dir=&quot;ltr&quot; lang=&quot;ja&quot;&gt;怪しい店で1500円でbeatsの偽物買ったんだけど作りがちゃっちい &lt;a href=&quot;https://t.co/gU6UHAhgaY&quot;&gt;pic.twitter.com/gU6UHAhgaY&lt;/a&gt;&lt;/p&gt;
 — みつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/766472687233359872&quot;&gt;August 19, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;偽物だと分かってはいたが、箱が本物そっくりだったので少しだけ期待して買ってしまった。&lt;/p&gt;
+
+偽物だと分かってはいたが、箱が本物そっくりだったので少しだけ期待して買ってしまった。
+
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
 &lt;p dir=&quot;ltr&quot; lang=&quot;ja&quot;&gt;ベトナムのスタバ、注文のシステムは日本と同じだけどフラペチーノが大分予想外。笑 &lt;a href=&quot;https://t.co/pLEQjwRgOj&quot;&gt;pic.twitter.com/pLEQjwRgOj&lt;/a&gt;&lt;/p&gt;
 — みつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/766486278934192128&quot;&gt;August 19, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;クリームが乗ってないフラペチーノ。ジャムが大量にぶっかけられてて死ぬほど甘い&lt;/p&gt;
+
+クリームが乗ってないフラペチーノ。ジャムが大量にぶっかけられてて死ぬほど甘い
+
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
 &lt;p dir=&quot;ltr&quot; lang=&quot;und&quot;&gt;🍣🍣&lt;br /&gt;🍣🍣 &lt;a href=&quot;https://t.co/ilTMMZthjH&quot;&gt;pic.twitter.com/ilTMMZthjH&lt;/a&gt;&lt;/p&gt;
 — みつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/766600437256429569&quot;&gt;August 19, 2016&lt;/a&gt;&lt;/blockquote&gt;
-&lt;p&gt;最後のディナーはお寿司。&lt;/p&gt;
+
+最後のディナーはお寿司。
+
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
 &lt;p dir=&quot;ltr&quot; lang=&quot;ja&quot;&gt;ベトナムめっちょ綺麗なんすよね。 &lt;a href=&quot;https://t.co/hNNuwa63Da&quot;&gt;pic.twitter.com/hNNuwa63Da&lt;/a&gt;&lt;/p&gt;
 — みつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/766607753922039809&quot;&gt;August 19, 2016&lt;/a&gt;&lt;/blockquote&gt;
+
 &lt;blockquote class=&quot;ricoh-theta-spherical-image&quot; data-width=&quot;500&quot; data-height=&quot;375&quot;&gt;夜のサイゴンスカイデッキ #theta360 - &lt;a href=&quot;https://theta360.com/s/gVAicGM69EKHS3yGaOn795psS&quot; target=&quot;_blank&quot;&gt;Spherical Image - RICOH THETA&lt;/a&gt;&lt;/blockquote&gt;
 寿司を食べた後に展望台に乗りました。夜景綺麗。
+
 &lt;script src=&quot;https://theta360.com/widgets.js&quot; async=&quot;&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content:encoded></item></channel></rss>
