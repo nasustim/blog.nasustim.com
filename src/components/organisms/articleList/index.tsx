@@ -52,11 +52,7 @@ export const ArticleList: FC<Props> = ({
         ))}
       </ul>
       {needsPagination ? (
-        <Pager
-          currentPageIndex={currentPageIndex}
-          pagesCount={pagesCount}
-          allTags={allTags}
-        />
+        <Pager currentPageIndex={currentPageIndex} pagesCount={pagesCount} />
       ) : null}
       <TagsDisplay allTags={allTags} />
     </div>
@@ -88,8 +84,7 @@ const Item: FC<ListItem> = (v) => {
 const Pager: FC<{
   pagesCount: number;
   currentPageIndex: number;
-  allTags: TagData[];
-}> = ({ pagesCount, currentPageIndex, allTags }) => (
+}> = ({ pagesCount, currentPageIndex }) => (
   <div>
     <div className={pagerStyle}>
       {Array.from({ length: pagesCount }).map((_, i) => {
