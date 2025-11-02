@@ -3,6 +3,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import mdx from '@astrojs/mdx';
 import { vanillaExtractPlugin } from '@vanilla-extract/vite-plugin';
+import remarkLinkCard from 'remark-link-card-plus';
 
 // https://astro.build/config
 export default defineConfig({
@@ -22,7 +23,15 @@ export default defineConfig({
     },
   },
   markdown: {
-    remarkPlugins: [],
+    remarkPlugins: [
+      [
+        remarkLinkCard, {
+          cache: true,
+          shortenUrl: true,
+          thumbnailPosition: "right",
+        },
+      ],
+    ],
     rehypePlugins: [],
     shikiConfig: {
       theme: 'github-dark',
