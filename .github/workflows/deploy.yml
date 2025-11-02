@@ -24,11 +24,11 @@ jobs:
       - run: bun run build
 
       - name: GitHub Pages custom domain setting
-        run: echo "blog.nasustim.com" > ./public/CNAME
+        run: echo "blog.nasustim.com" > ./dist/CNAME
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
         if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./dist
