@@ -1,0 +1,23 @@
+---
+import { clsx } from 'clsx';
+import { SITE_ORIGIN } from '@/config';
+import { linkStyle, noStyle as noStyleCss } from './index.css';
+
+interface Props {
+  to: URL | string;
+  noStyle?: boolean;
+}
+
+const { to, noStyle = false } = Astro.props;
+const url = typeof to === 'string' ? new URL(to, SITE_ORIGIN) : to;
+const isExternalLink = url.origin !== SITE_ORIGIN;
+const externalProps = isExternalLink ? { target: '_blank', rel: 'noreferrer' } : {};
+---
+
+<a
+  class={clsx(noStyle ? noStyleCss : linkStyle)}
+  href={url.toString()}
+  {...externalProps}
+>
+  <slot />
+</a>
