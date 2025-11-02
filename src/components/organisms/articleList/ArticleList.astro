@@ -1,0 +1,100 @@
+---
+import Link from '@/components/atoms/link/Link.astro';
+import Tag from '@/components/atoms/tag/Tag.astro';
+import { SITE_ORIGIN } from '@/config';
+import { toPlainText } from '@/utils/markdownUtils';
+import { getIndexPagePath } from '@/utils/paginationUtils';
+import {
+  h2Style,
+  linkContentStyle,
+  listItemStyle,
+  pagerStyle,
+  pStyle,
+  tagListStyle,
+} from './index.css';
+
+interface ListItem {
+  date: string;
+  slug: string;
+  title: string;
+  body: string;
+  tags?: string[];
+}
+
+interface TagData {
+  tag: string;
+  tagSlug: string;
+  count: number;
+}
+
+interface Props {
+  list: ListItem[];
+  pagesCount: number;
+  currentPageIndex: number;
+  allTags?: TagData[];
+}
+
+const { list, pagesCount, currentPageIndex, allTags = [] } = Astro.props;
+const needsPagination = pagesCount > 1;
+
+function truncateBody(body: string): string {
+  let result = toPlainText(body);
+  if (result.length > 120) {
+    result = `${result.slice(0, 120)}...`;
+  }
+  return result;
+}
+---
+
+<div>
+  <ul>
+    {list.map((item) => {
+      const bodyText = truncateBody(item.body);
+      const articleUrl = new URL(`/entry/${item.slug}`, SITE_ORIGIN);
+
+      return (
+        <li class={listItemStyle}>
+          <Link to={articleUrl} noStyle>
+            <div class={linkContentStyle}>
+              <small>{item.date}</small>
+              <h2 class={h2Style}>{item.title}</h2>
+              <p class={pStyle}>{bodyText}</p>
+            </div>
+          </Link>
+        </li>
+      );
+    })}
+  </ul>
+
+  {needsPagination && (
+    <div>
+      <div class={pagerStyle}>
+        {Array.from({ length: pagesCount }).map((_, i) => {
+          const to = new URL(getIndexPagePath(i), SITE_ORIGIN);
+
+          if (i === currentPageIndex) {
+            return <div key={`pager-current-${i + 1}`}>{i + 1}</div>;
+          }
+          return (
+            <Link key={`pager-${to.toString()}`} to={to}>
+              {i + 1}
+            </Link>
+          );
+        })}
+      </div>
+    </div>
+  )}
+
+  {allTags.length > 0 && (
+    <div class={tagListStyle}>
+      {allTags.map((tagData) => (
+        <Tag
+          key={tagData.tagSlug}
+          tag={`${tagData.tag} (${tagData.count})`}
+          tagSlug={tagData.tagSlug}
+          clickable
+        />
+      ))}
+    </div>
+  )}
+</div>
