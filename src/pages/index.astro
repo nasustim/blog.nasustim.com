@@ -1,0 +1,49 @@
+---
+import { getCollection } from "astro:content";
+import { ArticleList, type ListItem } from "@/components/organisms/articleList";
+import MainLayout from "@/layouts/MainLayout.astro";
+import { ARTICLE_LIST_PAGE_LIMIT, TITLE, SUB_TITLE } from "@/config";
+import { extractTagsWithCounts } from "@/utils/tagUtils";
+
+// Get all non-draft blog posts
+const allPosts = await getCollection("blog", ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+// Sort by date descending
+const sortedPosts = allPosts.sort(
+  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+);
+
+// Paginate
+const currentPageIndex = 0;
+const skip = currentPageIndex * ARTICLE_LIST_PAGE_LIMIT;
+const limit = ARTICLE_LIST_PAGE_LIMIT;
+const paginatedPosts = sortedPosts.slice(skip, skip + limit);
+const pagesCount = Math.ceil(sortedPosts.length / ARTICLE_LIST_PAGE_LIMIT);
+
+// Extract all tags with counts
+const allTags = extractTagsWithCounts(sortedPosts);
+
+// Prepare list items
+const list = paginatedPosts.map<ListItem>((post) => ({
+  date: new Date(post.data.date).toISOString().split("T")[0],
+  slug: post.slug,
+  title: post.data.title,
+  body: post.body,
+  tags: post.data.tags,
+}));
+
+const pageTitle = `${TITLE} - ${SUB_TITLE}`;
+const description = "Blog by nasustim";
+---
+
+<MainLayout title={pageTitle} description={description} pathname="/">
+  <ArticleList
+    client:load
+    list={list}
+    pagesCount={pagesCount}
+    currentPageIndex={currentPageIndex}
+    allTags={allTags}
+  />
+</MainLayout>

@@ -1,0 +1,11 @@
+---
+import MainLayout from '@/layouts/MainLayout.astro';
+import { TITLE } from '@/config';
+
+const pageTitle = `404 Not Found - ${TITLE}`;
+---
+
+<MainLayout title={pageTitle} pathname="/404">
+  <h1>404 Not Found</h1>
+  <p>The page you're looking for doesn't exist.</p>
+</MainLayout>

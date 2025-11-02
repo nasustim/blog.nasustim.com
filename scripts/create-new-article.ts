@@ -3,7 +3,7 @@ import { resolve } from "node:path";
 import { dedent } from "ts-dedent";
 
 const BOILERPLATE_FILE_PATH = resolve(process.cwd(), "src/boilerplate.md");
-const ARTICLE_FILE_DIR = resolve(process.cwd(), "./src/content/");
+const ARTICLE_FILE_DIR = resolve(process.cwd(), "./src/content/blog/");
 
 const RETURN_CHAR = "\n";
 

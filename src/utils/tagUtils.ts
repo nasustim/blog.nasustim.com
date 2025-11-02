@@ -36,13 +36,15 @@ export function sortTags(tags: string[]): string[] {
  * Extract unique tags from a collection of articles with their counts
  */
 export function extractTagsWithCounts(
-  articles: Array<{ tags?: string[] }>,
+  articles: Array<{ tags?: string[]; data?: { tags?: string[] } }>,
 ): Array<{ tag: string; tagSlug: string; count: number }> {
   const tagCounts = new Map<string, number>();
 
   for (const article of articles) {
-    if (article.tags) {
-      for (const tag of article.tags) {
+    // Handle both Gatsby (article.tags) and Astro (article.data.tags) formats
+    const tags = article.data?.tags || article.tags;
+    if (tags) {
+      for (const tag of tags) {
         tagCounts.set(tag, (tagCounts.get(tag) || 0) + 1);
       }
     }
