@@ -40,6 +40,8 @@ jobs:
         run: git push origin ${{ steps.branch_name.outputs.branch_name }}
 
       - name: Create Pull Request
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: |
           gh pr create \
             --title "New article: $(date +%Y-%m-%d)" \
