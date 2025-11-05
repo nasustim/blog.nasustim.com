@@ -10,28 +10,23 @@ permissions:
 jobs:
   create-article:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Bun
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
+      - uses: jdx/mise-action@v3.4.0
 
-      - name: Install dependencies
-        run: bun install
+      - run: bun ci
 
-      - name: Generate timestamp for branch name
-        id: timestamp
+      - id: branch_name
         run: echo "branch_name=article/$(date +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
 
       - name: Create new branch
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout -b ${{ steps.timestamp.outputs.branch_name }}
+          git checkout -b ${{ steps.branch_name.outputs.branch_name }}
 
       - name: Create new article
         run: bun run new
@@ -46,7 +41,7 @@ jobs:
           🤖 Generated with GitHub Actions"
 
       - name: Push branch
-        run: git push origin ${{ steps.timestamp.outputs.branch_name }}
+        run: git push origin ${{ steps.branch_name.outputs.branch_name }}
 
       - name: Create Pull Request
         env:
@@ -63,7 +58,6 @@ jobs:
           - [ ] Update article title in frontmatter
           - [ ] Write article content
           - [ ] Remove \`draft: true\` when ready to publish
-          - [ ] Run \`bun run fix\` to format code and content
 
           🤖 Generated with GitHub Actions
           EOF
