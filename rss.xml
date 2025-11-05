@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NASUSTIM - Mitsuhiro HIBINO</title><description>Blog by nasustim</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>React と Next.js どちらを使えばいいのか</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>現時点での自分なりの結論。
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NASUSTIM - Mitsuhiro HIBINO</title><description>Blog by nasustim</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>TIL: 2025-11-05</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: TIL というものを知った
+
+X でこんなポストを見かけた。
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;GitHub を活用して、&lt;br&gt;日々の学習の記録をつけていく習慣が、TIL&lt;br&gt;&lt;br&gt;TIL（Today I Learned：今日学んだこと）は、&lt;br&gt;世界中の開発者の間で、10年以上前から行われてい</description><pubDate>Wed, 05 Nov 2025 14:29:47 GMT</pubDate><content:encoded>今日の学び: TIL というものを知った
+
+X でこんなポストを見かけた。
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;GitHub を活用して、&lt;br&gt;日々の学習の記録をつけていく習慣が、TIL&lt;br&gt;&lt;br&gt;TIL（Today I Learned：今日学んだこと）は、&lt;br&gt;世界中の開発者の間で、10年以上前から行われている取り組み&lt;br&gt;&lt;br&gt;学習の記録を GitHub リポジトリで管理することで、&lt;br&gt;&lt;br&gt;- 単純に、記録を書くことで理解が深まる&lt;br&gt;- Git/GitHub… &lt;a href=&quot;https://t.co/pz9gxnGEG0&quot;&gt;pic.twitter.com/pz9gxnGEG0&lt;/a&gt;&lt;/p&gt;&amp;mdash; kazzyfrog (@kazzyfrog) &lt;a href=&quot;https://twitter.com/kazzyfrog/status/1985682976542429270?ref_src=twsrc%5Etfw&quot;&gt;November 4, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt; 
+
+なるほど、アウトプットするまでのハードルを減らすことで習慣化に結びつけようという意図らしい。投稿した人のブログ記事を読むと 10 年以上前からある文化のようだ。
+
+常にアウトプット不足なので自分も初めてみようと思った。
+
+GitHub に TIL 用の repository を作るのが王道のやり方らしいが、せっかくこのブログがあるのでとりあえずこれを使う。記事のボイラープレートを展開するスクリプトを作って PR まで立てられるようにしたらスマホの GitHub アプリのみで投稿までできそうだ。夢が広がるね。</content:encoded></item><item><title>React と Next.js どちらを使えばいいのか</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>現時点での自分なりの結論。
 Podcast ネタとしてはボツにしたので供養
 
 ### 前提
