@@ -37,6 +37,8 @@ jobs:
           🤖 Generated with GitHub Actions"
 
       - name: Push branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
         run: git push origin ${{ steps.branch_name.outputs.branch_name }}
 
       - name: Create Pull Request
