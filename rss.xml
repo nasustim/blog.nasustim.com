@@ -1,4 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NASUSTIM - Mitsuhiro HIBINO</title><description>Blog by nasustim</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>TIL: 2025-11-05</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: TIL というものを知った
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NASUSTIM - Mitsuhiro HIBINO</title><description>Blog by nasustim</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>TIL: 2025-11-06</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: 複数の git リポジトリを一つに統合する方法
+
+`git subtree` というコマンドが使える。
+
+https://zenn.dev/yoichi/articles/git-subtree-internals
+
+例: 
+
+```bash
+# 1. 新リポジトリ作成
+mkdir new-repo &amp;&amp; cd new-repo
+git init
+
+# 2. github nasus</description><pubDate>Thu, 06 Nov 2025 14:26:33 GMT</pubDate><content:encoded>今日の学び: 複数の git リポジトリを一つに統合する方法
+
+`git subtree` というコマンドが使える。
+
+https://zenn.dev/yoichi/articles/git-subtree-internals
+
+例: 
+
+```bash
+# 1. 新リポジトリ作成
+mkdir new-repo &amp;&amp; cd new-repo
+git init
+
+# 2. github nasustim/server-implementation を fetch
+git remote add -f server_remote https://github.com/nasustim/server-implementation.git
+
+# 3. nasustim/server-implementation を services/server に統合
+git subtree add --prefix=services/server server_remote main --allow-unrelated-histories
+```
+
+昨今ではコーディングエージェントの発達によってモノレポが注目されている。実務で使う機会もあるだろうか</content:encoded></item><item><title>TIL: 2025-11-05</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: TIL というものを知った
 
 X でこんなポストを見かけた。
 
