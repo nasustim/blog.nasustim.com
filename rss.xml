@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NASUSTIM - Mitsuhiro HIBINO</title><description>Blog by nasustim</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>TIL: 2025-11-06</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: 複数の git リポジトリを一つに統合する方法
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>NASUSTIM - Mitsuhiro HIBINO</title><description>Blog by nasustim</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>TIL: 2025-11-07</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: Google Cloud の org 間での project 移管方法
+
+https://techblog.goinc.jp/entry/2022/06/07/090000
+
+権限さえあればコマンドを叩くだけで終わるらしい。
+org を移動させても請求先アカウントが変わらないのは注意が必要とのこと。↑の記事から3年経ってもこの仕様は変わってないらしい。</description><pubDate>Fri, 07 Nov 2025 13:41:51 GMT</pubDate><content:encoded>今日の学び: Google Cloud の org 間での project 移管方法
+
+https://techblog.goinc.jp/entry/2022/06/07/090000
+
+権限さえあればコマンドを叩くだけで終わるらしい。
+org を移動させても請求先アカウントが変わらないのは注意が必要とのこと。↑の記事から3年経ってもこの仕様は変わってないらしい。</content:encoded></item><item><title>TIL: 2025-11-06</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: 複数の git リポジトリを一つに統合する方法
 
 `git subtree` というコマンドが使える。
 
