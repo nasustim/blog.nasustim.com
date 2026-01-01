@@ -1,11 +1,11 @@
 ---
 import { getCollection } from "astro:content";
 import type { GetStaticPaths } from "astro";
-import { TagList } from "@/components/organisms/tag-list";
+import { MdxRenderer } from "@/components/organisms/mdx-renderer";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { TITLE } from "@/config";
 import { toPlainText } from "@/utils/markdownUtils";
-import { css, blockStyle, h2Style, articleRoot } from "@/components/organisms/markdown-renderer/index.css";
+import { articleRoot } from "@/components/organisms/mdx-renderer/index.css";
 
 export const getStaticPaths = (async () => {
   const allPosts = await getCollection("blog");
@@ -38,14 +38,9 @@ const { Content } = await post.render();
   ogType="article"
   pathname={Astro.url.pathname}
 >
-  <div class={css}>
-    <div class={blockStyle}>
-      {formattedDate && <small>{formattedDate}</small>}
-      <h2 class={h2Style}>{data.title}</h2>
-      {data.tags.length > 0 && <TagList tags={data.tags} />}
-    </div>
-    <article class:list={[blockStyle, articleRoot]}>
+  <MdxRenderer title={data.title} date={formattedDate} tags={data.tags} client:load>
+    <article class={articleRoot}>
       <Content />
     </article>
-  </div>
+  </MdxRenderer>
 </MainLayout>
