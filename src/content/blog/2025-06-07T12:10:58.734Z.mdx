@@ -1,13 +1,23 @@
 ---
 slug: introduce-ollama-into-macos
 title: "Ollama 導入と VSCode との連携"
-date: 2025-06-07T12:10:58.734Z 
+date: 2025-06-07T12:10:58.734Z
 draft: false
 tags:
   - Memo
   - LLM
   - Ollama
 ---
+
+import { Picture } from 'astro:assets';
+import ollama01 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_01.png';
+import ollama02 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_02.png';
+import ollama03 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_03.png';
+import ollama04 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_04.png';
+import ollama05 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_05.png';
+import ollama06 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_06.png';
+import ollama07 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_07.png';
+import ollama08 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_08.png';
 
 IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール[^1]にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。
 
@@ -27,7 +37,7 @@ IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職
 
 Gemini に頼りました。
 
-![Gemini の回答](/introduce-ollama-into-macos_01.png)
+<Picture formats={["avif", "webp"]} src={ollama01} alt="Gemini の回答" />
 
 会話リンク: https://g.co/gemini/share/779a99352554
 
@@ -70,7 +80,7 @@ $ ollama pull gemma3:1b
 
 コマンドライン経由でのチャットも行えるようです。
 
-![Gemma 3 の回答](/introduce-ollama-into-macos_02.png)
+<Picture formats={["avif", "webp"]} src={ollama02} alt="Gemma 3 の回答" />
 
 シャ、シャベッタ！
 
@@ -80,22 +90,22 @@ $ ollama pull gemma3:1b
 
 | 説明 | スクリーンショット |
 | --- | --- |
-|  インストール後初期画面 | ![Continue](/introduce-ollama-into-macos_03.png) |
-| Get started を開くとこの画面が開くので Ollama を選択する | ![Continue](/introduce-ollama-into-macos_04.png) |
+|  インストール後初期画面 | <Picture formats={["avif", "webp"]} src={ollama03} alt="Continue インストール後初期画面" /> |
+| Get started を開くとこの画面が開くので Ollama を選択する | <Picture formats={["avif", "webp"]} src={ollama04} alt="Continue Get started 画面" /> |
 
 ### 3. Ollama(Gemma 3)にコードを編集させる
 
 手順2の設定を終えたら、モデル一覧から Gemma 3 が選択できるようになっています。
 
-![Continue](/introduce-ollama-into-macos_05.png)
+<Picture formats={["avif", "webp"]} src={ollama05} alt="Continue モデル一覧" />
 
 チャットは問題なさそうです。
 
-![Continue](/introduce-ollama-into-macos_06.png)
+<Picture formats={["avif", "webp"]} src={ollama06} alt="Continue チャット画面" />
 
 コードを選択して Add Highlighted Code to Context でチャット画面に指示のコンテクストとして追加できます。Copilot / Cursor と同じインターフェースですね。
 
-![Continue](/introduce-ollama-into-macos_07.png)
+<Picture formats={["avif", "webp"]} src={ollama07} alt="Continue コンテクスト追加" />
 
 うーん、これじゃない...業務で使う Claude 3.7 Sonnet 辺りのモデルよりも明らかな知識/文脈理解の不足を感じます。より賢くてコーディングに特化したモデルを使う必要がありそうです。
 
@@ -103,7 +113,7 @@ $ ollama pull gemma3:1b
 
 https://ollama.com/library/qwen2.5-coder
 
-![Qwen 2.5 coder](/introduce-ollama-into-macos_08.png)
+<Picture formats={["avif", "webp"]} src={ollama08} alt="Qwen 2.5 coder の回答" />
 
 こちらは期待通りの出力が得られました 🙌
 

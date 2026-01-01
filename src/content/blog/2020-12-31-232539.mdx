@@ -8,6 +8,12 @@ tags:
   - Job
 ---
 
+import { Picture } from 'astro:assets';
+import masterWork from '@/content/assets/2020-12-31-232539/20190923162434.jpg';
+import touring01 from '@/content/assets/2020-12-31-232539/20201231184154.jpg';
+import touring02 from '@/content/assets/2020-12-31-232539/20201231204152.jpg';
+import touring03 from '@/content/assets/2020-12-31-232539/20210101000303.jpg';
+
 このブログを更新するのも久しぶりですね。
 
 今年は新型コロナウイルスの大流行によって予想していない変化がとても多かったです。  
@@ -17,7 +23,7 @@ tags:
 
 ## 学業
 
-![修士作品: 《/module/Whom》](/20190923162434.jpg)
+<Picture formats={["avif", "webp"]} src={masterWork} alt="修士作品: 《/module/Whom》" />
 
 3月に大学院を修了しました。
 
@@ -44,11 +50,11 @@ tags:
 
 記事に登場するルネッサも東京に連れてきました。
 
-![引っ越しの道中で立ち寄った東名浜名湖SA](/20201231184154.jpg)
+<Picture formats={["avif", "webp"]} src={touring01} alt="引っ越しの道中で立ち寄った東名浜名湖SA" />
 
-![自粛ムードがピークだった4月にツーリングした帰りに立ち寄った新宿中央公園](/20201231204152.jpg)
+<Picture formats={["avif", "webp"]} src={touring02} alt="自粛ムードがピークだった4月にツーリングした帰りに立ち寄った新宿中央公園" />
 
-![初めて有給を取得して行った湘南](/20210101000303.jpg)
+<Picture formats={["avif", "webp"]} src={touring03} alt="初めて有給を取得して行った湘南" />
 
 
 # 2021 年の目標

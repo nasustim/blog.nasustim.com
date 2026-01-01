@@ -7,6 +7,11 @@ tags:
   - Motorcycle
 ---
 
+import { Picture } from 'astro:assets';
+import bike01 from '@/content/assets/20191213-1576163438/20190512160014.jpg';
+import bike02 from '@/content/assets/20191213-1576163438/20191212205618.jpg';
+import bike03 from '@/content/assets/20191213-1576163438/20191212223856.jpg';
+
 これは、<a href="https://adventar.org/calendars/4274">バイク Advent Calendar 2019</a> 13日目の記事です。
 
 <iframe src="https://hatenablog-parts.com/embed?url=https%3A%2F%2Fadventar.org%2Fcalendars%2F4274" title="バイク Advent Calendar 2019 - Adventar" class="embed-card embed-webcard" scrolling="no" frameborder="0" ></iframe><cite class="hatena-citation"><a href="https://adventar.org/calendars/4274">adventar.org</a></cite>
@@ -17,7 +22,7 @@ tags:
 
 # どんなバイク？
 
-![図1: YAMAHA ルネッサ](/20190512160014.jpg)
+<Picture formats={["avif", "webp"]} src={bike01} alt="図1: YAMAHA ルネッサ" />
 
 これ、かっこいい。
 
@@ -64,7 +69,7 @@ YAMAHA が90年代に発売していた250cc V ツインの SRV250[^1]をカフ�
 
 ## 軽微な故障なら自分でなんとかできそう
 
-![図2: 機構がむき出し](/20191212205618.jpg)
+<Picture formats={["avif", "webp"]} src={bike02} alt="図2: 機構がむき出し" />
 
 キャブレーターで、かつエンジンの機構がむき出しなので、不具合が起こっても自分で何とかできそうな雰囲気があります。  
 この一年で
@@ -96,7 +101,7 @@ YAMAHA が90年代に発売していた250cc V ツインの SRV250[^1]をカフ�
 バイクは退屈な日常に彩りを添えてくれました。
 
 
-![図3: ライダーは心が健康](/20191212223856.jpg)
+<Picture formats={["avif", "webp"]} src={bike03} alt="図3: ライダーは心が健康" />
 
 バイクはいいぞ！
 

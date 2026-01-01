@@ -54,8 +54,8 @@ globalStyle(`${articleRoot} a:hover`, {
 
 // Images
 globalStyle(`${articleRoot} img`, {
-  maxWidth: "100%",
-  height: "400px",
+  maxHeight: "400px",
+  objectFit: "contain",
   margin: "8px auto",
 });
 
