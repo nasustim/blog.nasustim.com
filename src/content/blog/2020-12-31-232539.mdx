@@ -8,7 +8,7 @@ tags:
   - Job
 ---
 
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import masterWork from '@/content/assets/2020-12-31-232539/20190923162434.jpg';
 import touring01 from '@/content/assets/2020-12-31-232539/20201231184154.jpg';
 import touring02 from '@/content/assets/2020-12-31-232539/20201231204152.jpg';
@@ -23,7 +23,7 @@ import touring03 from '@/content/assets/2020-12-31-232539/20210101000303.jpg';
 
 ## 学業
 
-<Image src={masterWork} alt="修士作品: 《/module/Whom》" />
+<Picture formats={["avif", "webp"]} src={masterWork} alt="修士作品: 《/module/Whom》" />
 
 3月に大学院を修了しました。
 
@@ -50,11 +50,11 @@ import touring03 from '@/content/assets/2020-12-31-232539/20210101000303.jpg';
 
 記事に登場するルネッサも東京に連れてきました。
 
-<Image src={touring01} alt="引っ越しの道中で立ち寄った東名浜名湖SA" />
+<Picture formats={["avif", "webp"]} src={touring01} alt="引っ越しの道中で立ち寄った東名浜名湖SA" />
 
-<Image src={touring02} alt="自粛ムードがピークだった4月にツーリングした帰りに立ち寄った新宿中央公園" />
+<Picture formats={["avif", "webp"]} src={touring02} alt="自粛ムードがピークだった4月にツーリングした帰りに立ち寄った新宿中央公園" />
 
-<Image src={touring03} alt="初めて有給を取得して行った湘南" />
+<Picture formats={["avif", "webp"]} src={touring03} alt="初めて有給を取得して行った湘南" />
 
 
 # 2021 年の目標

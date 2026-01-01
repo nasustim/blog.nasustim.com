@@ -9,7 +9,7 @@ tags:
   - 2025Finland
 ---
 
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import airport01 from '@/content/assets/travel-to-finland-in-aug-2025/airport-01.jpg';
 import airport02 from '@/content/assets/travel-to-finland-in-aug-2025/airport-02.jpeg';
 import airport03 from '@/content/assets/travel-to-finland-in-aug-2025/airport-03.jpeg';
@@ -33,7 +33,7 @@ import airport03 from '@/content/assets/travel-to-finland-in-aug-2025/airport-03
 
 
 <div style="text-align: center;">
-  <Image src={airport01} alt="ヘルシンキ・ヴァンター空港のボーディングブリッジから" />
+  <Picture formats={["avif", "webp"]} src={airport01} alt="ヘルシンキ・ヴァンター空港のボーディングブリッジから" />
   <div>ヘルシンキ・ヴァンター空港のボーディングブリッジから</div>
 </div>
 
@@ -59,12 +59,12 @@ HSL ではカバーエリア[^hsl-coverage] x 有効期間でチケットを販�
 https://www.hsl.fi/en/tickets-and-fares/hsl-app
 
 <div style="text-align: center;">
-  <Image src={airport02} alt="空港駅へ降りるエスカレーター" />
+  <Picture formats={["avif", "webp"]} src={airport02} alt="空港駅へ降りるエスカレーター" />
   <div>空港駅へ降りるエスカレーター。21_21 DESIGN SIGHT を彷彿とさせるコンクリート打ちっぱなしの壁</div>
 </div>
 
 <div style="text-align: center;">
-  <Image src={airport03} alt="駅構内の様子" />
+  <Picture formats={["avif", "webp"]} src={airport03} alt="駅構内の様子" />
   <div>駅構内の様子。</div>
 </div>
 

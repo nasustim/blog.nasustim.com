@@ -9,7 +9,7 @@ tags:
   - 2025Finland
 ---
 
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import flightMenu01 from '@/content/assets/travel-to-finland-in-aug-2025/flight-menu-01.jpg';
 import flightMenu02 from '@/content/assets/travel-to-finland-in-aug-2025/flight-menu-02.jpg';
 import flightRoute01 from '@/content/assets/travel-to-finland-in-aug-2025/flight-route-01.jpg';
@@ -43,15 +43,15 @@ JAL での旅はとにかく快適である。CA さん全員日本語が分か�
 
 ---
 
-<Image src={flightMenu01} alt="機内食メニュー1枚目" />
-<Image src={flightMenu02} alt="機内食メニュー2枚目" />
+<Picture formats={["avif", "webp"]} src={flightMenu01} alt="機内食メニュー1枚目" />
+<Picture formats={["avif", "webp"]} src={flightMenu02} alt="機内食メニュー2枚目" />
 
 食事が2回出た。どちらも美味でした。
 これとは別に軽食も一回出た。
 
 ---
 
-<Image src={flightRoute01} alt="フライトルート" />
+<Picture formats={["avif", "webp"]} src={flightRoute01} alt="フライトルート" />
 
 日本から北上してベーリング海を縦断したのち北極圏を通ってヘルシンキへ。ロシアの上空を通過できるようになればヨーロッパは更に近くなるんだろうな、と世界平和に想いを馳せる。
 

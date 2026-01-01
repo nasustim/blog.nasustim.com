@@ -7,7 +7,7 @@ tags:
   - Motorcycle
 ---
 
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import bike01 from '@/content/assets/20191213-1576163438/20190512160014.jpg';
 import bike02 from '@/content/assets/20191213-1576163438/20191212205618.jpg';
 import bike03 from '@/content/assets/20191213-1576163438/20191212223856.jpg';
@@ -22,7 +22,7 @@ import bike03 from '@/content/assets/20191213-1576163438/20191212223856.jpg';
 
 # どんなバイク？
 
-<Image src={bike01} alt="図1: YAMAHA ルネッサ" />
+<Picture formats={["avif", "webp"]} src={bike01} alt="図1: YAMAHA ルネッサ" />
 
 これ、かっこいい。
 
@@ -69,7 +69,7 @@ YAMAHA が90年代に発売していた250cc V ツインの SRV250[^1]をカフ�
 
 ## 軽微な故障なら自分でなんとかできそう
 
-<Image src={bike02} alt="図2: 機構がむき出し" />
+<Picture formats={["avif", "webp"]} src={bike02} alt="図2: 機構がむき出し" />
 
 キャブレーターで、かつエンジンの機構がむき出しなので、不具合が起こっても自分で何とかできそうな雰囲気があります。  
 この一年で
@@ -101,7 +101,7 @@ YAMAHA が90年代に発売していた250cc V ツインの SRV250[^1]をカフ�
 バイクは退屈な日常に彩りを添えてくれました。
 
 
-<Image src={bike03} alt="図3: ライダーは心が健康" />
+<Picture formats={["avif", "webp"]} src={bike03} alt="図3: ライダーは心が健康" />
 
 バイクはいいぞ！
 

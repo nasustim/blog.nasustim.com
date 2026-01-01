@@ -9,7 +9,7 @@ tags:
   - Ollama
 ---
 
-import { Image } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import ollama01 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_01.png';
 import ollama02 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_02.png';
 import ollama03 from '@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_03.png';
@@ -37,7 +37,7 @@ IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職
 
 Gemini に頼りました。
 
-<Image src={ollama01} alt="Gemini の回答" />
+<Picture formats={["avif", "webp"]} src={ollama01} alt="Gemini の回答" />
 
 会話リンク: https://g.co/gemini/share/779a99352554
 
@@ -80,7 +80,7 @@ $ ollama pull gemma3:1b
 
 コマンドライン経由でのチャットも行えるようです。
 
-<Image src={ollama02} alt="Gemma 3 の回答" />
+<Picture formats={["avif", "webp"]} src={ollama02} alt="Gemma 3 の回答" />
 
 シャ、シャベッタ！
 
@@ -90,22 +90,22 @@ $ ollama pull gemma3:1b
 
 | 説明 | スクリーンショット |
 | --- | --- |
-|  インストール後初期画面 | <Image src={ollama03} alt="Continue インストール後初期画面" /> |
-| Get started を開くとこの画面が開くので Ollama を選択する | <Image src={ollama04} alt="Continue Get started 画面" /> |
+|  インストール後初期画面 | <Picture formats={["avif", "webp"]} src={ollama03} alt="Continue インストール後初期画面" /> |
+| Get started を開くとこの画面が開くので Ollama を選択する | <Picture formats={["avif", "webp"]} src={ollama04} alt="Continue Get started 画面" /> |
 
 ### 3. Ollama(Gemma 3)にコードを編集させる
 
 手順2の設定を終えたら、モデル一覧から Gemma 3 が選択できるようになっています。
 
-<Image src={ollama05} alt="Continue モデル一覧" />
+<Picture formats={["avif", "webp"]} src={ollama05} alt="Continue モデル一覧" />
 
 チャットは問題なさそうです。
 
-<Image src={ollama06} alt="Continue チャット画面" />
+<Picture formats={["avif", "webp"]} src={ollama06} alt="Continue チャット画面" />
 
 コードを選択して Add Highlighted Code to Context でチャット画面に指示のコンテクストとして追加できます。Copilot / Cursor と同じインターフェースですね。
 
-<Image src={ollama07} alt="Continue コンテクスト追加" />
+<Picture formats={["avif", "webp"]} src={ollama07} alt="Continue コンテクスト追加" />
 
 うーん、これじゃない...業務で使う Claude 3.7 Sonnet 辺りのモデルよりも明らかな知識/文脈理解の不足を感じます。より賢くてコーディングに特化したモデルを使う必要がありそうです。
 
@@ -113,7 +113,7 @@ $ ollama pull gemma3:1b
 
 https://ollama.com/library/qwen2.5-coder
 
-<Image src={ollama08} alt="Qwen 2.5 coder の回答" />
+<Picture formats={["avif", "webp"]} src={ollama08} alt="Qwen 2.5 coder の回答" />
 
 こちらは期待通りの出力が得られました 🙌
 
