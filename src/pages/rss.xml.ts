@@ -1,7 +1,7 @@
 import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
-import { SITE_ORIGIN, SUB_TITLE, TITLE } from "@/config";
+import { SITE_ORIGIN, TITLE } from "@/config";
 
 export async function GET(context: APIContext) {
   // Get all non-draft blog posts
@@ -15,8 +15,8 @@ export async function GET(context: APIContext) {
   );
 
   return rss({
-    title: `${TITLE} - ${SUB_TITLE}`,
-    description: "Blog by nasustim",
+    title: TITLE,
+    description: "Latest articles from Mitsuhiro Hibino's blog (https://blog.nasustim.com)",
     site: context.site ?? SITE_ORIGIN,
     items: sortedPosts.map((post) => ({
       title: post.data.title,

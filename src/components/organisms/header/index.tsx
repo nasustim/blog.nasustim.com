@@ -1,6 +1,6 @@
 import type { FC } from "react";
 import { Link } from "@/components/atoms/link";
-import { SITE_ORIGIN, SUB_TITLE, TITLE } from "@/config";
+import { SITE_ORIGIN } from "@/config";
 import {
   containerStyle,
   h1Style,
@@ -17,8 +17,8 @@ export const Header: FC<Props> = ({ isTopPage }) => (
   <header className={containerStyle}>
     <div className={titleStyle}>
       <Link to={new URL(!isTopPage ? "/" : "/#", SITE_ORIGIN)} noStyle={true}>
-        <h1 className={h1Style}>{TITLE}</h1>
-        <h2 className={h2Style}>{SUB_TITLE}</h2>
+        <h1 className={h1Style}>Blog</h1>
+        <h2 className={h2Style}>by Mitsuhiro Hibino</h2>
       </Link>
     </div>
     <div className={linkListStyle}>

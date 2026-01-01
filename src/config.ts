@@ -19,5 +19,4 @@ export const GTAG_TRACKING_ID = isProd
 /**
  * Contents
  */
-export const TITLE = "NASUSTIM";
-export const SUB_TITLE = "Mitsuhiro HIBINO";
+export const TITLE = "Mitsuhiro Hibino's Blog";
