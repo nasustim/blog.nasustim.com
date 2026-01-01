@@ -13,11 +13,13 @@ export const titleStyle = style({
 });
 
 export const h1Style = style({
+  fontFamily: "'Carter One', sans-serif",
   fontSize: "32px",
   fontWeight: "400",
 });
 
 export const h2Style = style({
+  fontFamily: "'Carter One', sans-serif",
   fontSize: "16px",
   fontWeight: "300",
 });
