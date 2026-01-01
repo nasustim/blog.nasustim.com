@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import { ArticleList, type ListItem } from "@/components/organisms/articleList";
+import MainLayout from "@/layouts/MainLayout.astro";
+import { ARTICLE_LIST_PAGE_LIMIT, TITLE } from "@/config";
+import { createTagSlug, extractTagsWithCounts } from "@/utils/tagUtils";
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getCollection("blog", ({ data }) => {
+    return import.meta.env.PROD ? data.draft !== true : true;
+  });
+
+  const allTags = extractTagsWithCounts(allPosts);
+
+  return allTags.map(({ tag, tagSlug }) => {
+    const filteredPosts = allPosts
+      .filter((post) => post.data.tags?.includes(tag))
+      .sort(
+        (a, b) =>
+          new Date(b.data.date).getTime() - new Date(a.data.date).getTime(),
+      );
+
+    const currentPageIndex = 0;
+    const paginatedPosts = filteredPosts.slice(0, ARTICLE_LIST_PAGE_LIMIT);
+    const pagesCount = Math.ceil(
+      filteredPosts.length / ARTICLE_LIST_PAGE_LIMIT,
+    );
+
+    const list = paginatedPosts.map<ListItem>((post) => ({
+      date: new Date(post.data.date).toISOString().split("T")[0],
+      slug: post.slug,
+      title: post.data.title,
+      body: post.body,
+      tags: post.data.tags,
+    }));
+
+    return {
+      params: { tagSlug },
+      props: {
+        tag,
+        list,
+        pagesCount,
+        currentPageIndex,
+        allTags,
+      },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { tag, list, pagesCount, currentPageIndex, allTags } = Astro.props;
+const pageTitle = `${tag} - ${TITLE}`;
+const description = `Articles tagged with ${tag}`;
+---
+
+<MainLayout
+  title={pageTitle}
+  description={description}
+  pathname={Astro.url.pathname}
+>
+  <h1>Tag: {tag}</h1>
+  <ArticleList
+    client:load
+    list={list}
+    pagesCount={pagesCount}
+    currentPageIndex={currentPageIndex}
+    allTags={allTags}
+  />
+</MainLayout>

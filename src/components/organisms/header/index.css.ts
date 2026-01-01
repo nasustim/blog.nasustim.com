@@ -13,11 +13,13 @@ export const titleStyle = style({
 });
 
 export const h1Style = style({
+  fontFamily: "'Carter One', sans-serif",
   fontSize: "32px",
   fontWeight: "400",
 });
 
 export const h2Style = style({
+  fontFamily: "'Carter One', sans-serif",
   fontSize: "16px",
   fontWeight: "300",
 });
@@ -29,14 +31,15 @@ export const linkListStyle = style({
   padding: "8px",
 });
 export const linkStyle = style({
-  fontSize: 14,
+  fontSize: 12,
   fontWeight: "bold",
   textDecorationLine: "none",
 
   "@media": {
     // pc
     [`screen and (min-width: ${minWidthForDesktop}px)`]: {
-      fontSize: 18,
+      fontWeight: "normal",
+      fontSize: 14,
     },
   },
 });

@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import { TagList } from '@/components/organisms/tag-list';
+import MainLayout from '@/layouts/MainLayout.astro';
+import { TITLE } from '@/config';
+import { extractTagsWithCounts, sortTags } from '@/utils/tagUtils';
+
+// Get all non-draft blog posts
+const allPosts = await getCollection('blog', ({ data }) => {
+  return import.meta.env.PROD ? data.draft !== true : true;
+});
+
+// Extract and sort tags
+const tagsWithCounts = extractTagsWithCounts(allPosts);
+const sortedTags = tagsWithCounts
+  .map(t => t.tag)
+  .sort((a, b) => sortTags([a, b])[0] === a ? -1 : 1);
+
+const pageTitle = `Tags - ${TITLE}`;
+const description = 'All tags on this blog';
+---
+
+<MainLayout title={pageTitle} description={description} pathname="/tags">
+  <h1>Tags</h1>
+  <TagList client:load tags={sortedTags} />
+</MainLayout>

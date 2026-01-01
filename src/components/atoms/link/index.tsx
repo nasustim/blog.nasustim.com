@@ -9,9 +9,15 @@ type Props = {
 
   // styling
   noStyle?: boolean;
+  className?: string;
 };
 
-export const Link: FC<Props> = ({ to, children, noStyle = false }) => {
+export const Link: FC<Props> = ({
+  to,
+  children,
+  noStyle = false,
+  className,
+}) => {
   const props = useMemo(() => {
     const isExternalLink = to.origin !== SITE_ORIGIN;
     return isExternalLink ? { target: "_blank", rel: "noreferrer" } : {};
@@ -19,7 +25,7 @@ export const Link: FC<Props> = ({ to, children, noStyle = false }) => {
 
   return (
     <a
-      className={clsx(noStyle ? noStyleCss : linkStyle)}
+      className={clsx(noStyle ? noStyleCss : linkStyle, className ?? "")}
       href={to.toString()}
       {...props}
     >

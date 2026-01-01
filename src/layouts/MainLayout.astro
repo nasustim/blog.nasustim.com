@@ -1,0 +1,38 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { Template } from '@/components/templates';
+import { GTAG_TRACKING_ID } from '@/config';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogType?: 'website' | 'article';
+  pathname: string;
+}
+
+const { title, description = '', ogType = 'website', pathname } = Astro.props;
+const isProd = import.meta.env.PROD;
+---
+
+<BaseLayout title={title} description={description} ogType={ogType}>
+  <Fragment slot="head">
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Google Analytics -->
+    {isProd && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_TRACKING_ID}`}></script>
+        <script is:inline define:vars={{ GTAG_TRACKING_ID }}>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', GTAG_TRACKING_ID);
+        </script>
+      </>
+    )}
+  </Fragment>
+
+  <Template client:load pathname={pathname}>
+    <slot />
+  </Template>
+</BaseLayout>

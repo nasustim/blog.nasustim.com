@@ -1,0 +1,44 @@
+---
+import { getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import { MarkdownRenderer } from "@/components/organisms/markdown-renderer";
+import MainLayout from "@/layouts/MainLayout.astro";
+import { TITLE } from "@/config";
+import { toPlainText } from "@/utils/markdownUtils";
+
+export const getStaticPaths = (async () => {
+  const allPosts = await getCollection("blog");
+
+  return allPosts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { data, body } = post;
+
+// Handle draft posts in production
+if (import.meta.env.PROD && data.draft) {
+  return new Response(null, { status: 404 });
+}
+
+const formattedDate = new Date(data.date).toISOString().split("T")[0];
+const pageTitle = `${data.title} - ${TITLE}`;
+const description = toPlainText(body).slice(0, 120);
+---
+
+<MainLayout
+  title={pageTitle}
+  description={description}
+  ogType="article"
+  pathname={Astro.url.pathname}
+>
+  <MarkdownRenderer
+    client:load
+    title={data.title}
+    date={formattedDate}
+    markdown={body}
+    tags={data.tags}
+  />
+</MainLayout>

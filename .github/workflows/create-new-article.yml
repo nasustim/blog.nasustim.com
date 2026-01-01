@@ -1,0 +1,62 @@
+name: Create New Article
+
+on:
+  workflow_dispatch:
+
+jobs:
+  create-article:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: jdx/mise-action@v3.5.1
+
+      - run: bun ci
+
+      - id: branch_name
+        run: echo "branch_name=article/$(date +%Y%m%d-%H%M%S)" >> $GITHUB_OUTPUT
+
+      - name: Create new branch
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git checkout -b ${{ steps.branch_name.outputs.branch_name }}
+
+      - name: Create new article
+        run: bun run new
+
+      - name: Commit new article
+        run: |
+          git add .
+          git commit -m "Create new article boilerplate
+
+          Generated new article template via GitHub Actions.
+
+          🤖 Generated with GitHub Actions"
+
+      - name: Push branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        run: git push origin ${{ steps.branch_name.outputs.branch_name }}
+
+      - name: Create Pull Request
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        run: |
+          gh pr create \
+            --title "New article: $(date +%Y-%m-%d)" \
+            --body "$(cat <<'EOF'
+          ## Summary
+          - Created new article boilerplate from template
+          - Ready for content editing
+
+          ## Next Steps
+          - [ ] Update article title in frontmatter
+          - [ ] Write article content
+          - [ ] Remove \`draft: true\` when ready to publish
+
+          🤖 Generated with GitHub Actions
+          EOF
+          )"

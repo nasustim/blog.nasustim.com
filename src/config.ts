@@ -1,10 +1,10 @@
-const isProd = process.env.NODE_ENV === "production";
+const isProd = import.meta.env.PROD;
 
 /**
  * Site configrations
  */
 const SITE_SCHEMA = isProd ? "https" : "http";
-const SITE_DOMAIN = isProd ? "blog.nasustim.com" : "localhost:8000";
+const SITE_DOMAIN = isProd ? "blog.nasustim.com" : "localhost:4321";
 export const SITE_ORIGIN = `${SITE_SCHEMA}://${SITE_DOMAIN}`;
 
 export const ARTICLE_LIST_PAGE_LIMIT = 10;
@@ -19,5 +19,4 @@ export const GTAG_TRACKING_ID = isProd
 /**
  * Contents
  */
-export const TITLE = "NASUSTIM";
-export const SUB_TITLE = "Mitsuhiro HIBINO";
+export const TITLE = "Mitsuhiro Hibino's Blog";
