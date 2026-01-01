@@ -1,0 +1,133 @@
+---
+slug: introduce-ollama-into-macos
+title: "Ollama 導入と VSCode との連携"
+date: 2025-06-07T12:10:58.734Z
+draft: false
+tags:
+  - Memo
+  - LLM
+  - Ollama
+---
+
+import { Image } from 'astro:assets';
+import ollama01 from './introduce-ollama-into-macos/introduce-ollama-into-macos_01.png';
+import ollama02 from './introduce-ollama-into-macos/introduce-ollama-into-macos_02.png';
+import ollama03 from './introduce-ollama-into-macos/introduce-ollama-into-macos_03.png';
+import ollama04 from './introduce-ollama-into-macos/introduce-ollama-into-macos_04.png';
+import ollama05 from './introduce-ollama-into-macos/introduce-ollama-into-macos_05.png';
+import ollama06 from './introduce-ollama-into-macos/introduce-ollama-into-macos_06.png';
+import ollama07 from './introduce-ollama-into-macos/introduce-ollama-into-macos_07.png';
+import ollama08 from './introduce-ollama-into-macos/introduce-ollama-into-macos_08.png';
+
+IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール[^1]にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。
+
+ローカルマシンで LLM をホストできれば課金の必要はありません。また、導入プロセスを通じて LLM への理解をより深めたいと考えました。
+
+そこでこの記事では、ローカルマシンへの LLM の導入から VSCode 上でコード編集機能を利用するまでにやったことを記録として残します。
+
+動作を確認した環境は以下の通りです。
+
+- PC
+  - Macbook Air M2 (2022年)
+  - RAM 16GB
+- OS
+  - macOS Sequoia v15.3 (24D60)
+
+## 調査
+
+Gemini に頼りました。
+
+<Image src={ollama01} alt="Gemini の回答" />
+
+会話リンク: https://g.co/gemini/share/779a99352554
+
+指示された手順はざっくり以下の通りです。
+
+1. [Ollama](http://ollama.com/) をインストールして LLM を起動
+    - HTTP で LLM とやり取りできるサーバがバンドルされているらしい
+1. VSCode に [Continue](https://www.continue.dev/) の拡張をインストールして ①の LLM を指定する
+1. LLM を使ってコードを書ける！
+
+## 導入の流れ
+
+### 1. Ollama 導入
+
+似たソフトウェアとして [LM Studio](https://lmstudio.ai/) や、複数の LLM を一つのホストに集約することに主眼を置いたルーター系（勝手に命名しました）のプロジェクト[^2]がありますが、Ollama はそれらと比較したときに以下のようなアドバンテージがあると理解しました。
+
+- 高いポータビリティ
+  - コマンドラインのみで導入可能
+  - システムプロンプト等のカスタマイズ内容も Modelfile という Dockerfile ライクな形式のファイルで表現可能[^3]
+- VSCode への導入サポートの手厚さ
+  - 前述の Continue を使って楽チン
+
+今回は Gemini の指示通り Ollama で進めます。
+
+```bash
+# ollama を Homebrew でインストール
+$ brew install ollama
+
+# ollama のサーバを起動
+# この後は起動したまま別のターミナルから操作するか、コマンド末尾に `&` をつけてバックグラウンドジョブとして動かすかはお好みで
+$ ollama serve
+```
+
+ollama では様々なモデルを利用できます。（[モデル一覧](https://ollama.com/search)）
+最初は軽量かつ突飛な動作をしないであろうモデルを試したいと考え、Google が開発した Gemma 3 の 1B パラメータモデル[^4]を選択しました。
+
+```bash
+$ ollama pull gemma3:1b
+```
+
+コマンドライン経由でのチャットも行えるようです。
+
+<Image src={ollama02} alt="Gemma 3 の回答" />
+
+シャ、シャベッタ！
+
+ローカル LLM 導入のファーストステップはクリアです ✅ 
+
+### 2. VSCode に Continue をインストール & 設定
+
+| 説明 | スクリーンショット |
+| --- | --- |
+|  インストール後初期画面 | <Image src={ollama03} alt="Continue インストール後初期画面" /> |
+| Get started を開くとこの画面が開くので Ollama を選択する | <Image src={ollama04} alt="Continue Get started 画面" /> |
+
+### 3. Ollama(Gemma 3)にコードを編集させる
+
+手順2の設定を終えたら、モデル一覧から Gemma 3 が選択できるようになっています。
+
+<Image src={ollama05} alt="Continue モデル一覧" />
+
+チャットは問題なさそうです。
+
+<Image src={ollama06} alt="Continue チャット画面" />
+
+コードを選択して Add Highlighted Code to Context でチャット画面に指示のコンテクストとして追加できます。Copilot / Cursor と同じインターフェースですね。
+
+<Image src={ollama07} alt="Continue コンテクスト追加" />
+
+うーん、これじゃない...業務で使う Claude 3.7 Sonnet 辺りのモデルよりも明らかな知識/文脈理解の不足を感じます。より賢くてコーディングに特化したモデルを使う必要がありそうです。
+
+ということでコーディング特化モデルの中で　pull 数が多くサイズも大きすぎない `qwen2.5-coder:7b` を試しました
+
+https://ollama.com/library/qwen2.5-coder
+
+<Image src={ollama08} alt="Qwen 2.5 coder の回答" />
+
+こちらは期待通りの出力が得られました 🙌
+
+## まとめ
+
+シンプルな手順で LLM 導入 + VSCode 連携まで構築できました。
+
+また、シンプルなタスクであれば精度高く実行できるモデルがローカルでホストできることも確認できました。
+
+個人用途ならローカルで十分かもしれません。夢が広がりますね
+
+----
+
+[^1]: 記事執筆時点では、調べ物は ChatGPT（プライベートでは Gemini と Grok を使い分け）、一つの文書を元にしたい場合は NotebookLM、コーディング時は GitHub Copilot と Devin をよく利用しています
+[^2]: サクッと調べると [LLM Router](https://github.com/kcolemangt/llm-router), [RouteLLM](https://github.com/lm-sys/RouteLLM) 辺りの情報が多いように感じました
+[^3]: https://ollama.readthedocs.io/en/modelfile/
+[^4]: https://ollama.com/library/gemma3 ; 1b=10億パラメータの機械学習モデルをラップトップでサクッと動かせることにビビりました
