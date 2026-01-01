@@ -4,7 +4,7 @@ import type { GetStaticPaths } from "astro";
 import { ArticleList, type ListItem } from "@/components/organisms/articleList";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { ARTICLE_LIST_PAGE_LIMIT, TITLE } from "@/config";
-import { createTagSlug, extractTagsWithCounts } from "@/utils/tagUtils";
+import { extractTagsWithCounts } from "@/utils/tagUtils";
 
 export const getStaticPaths = (async () => {
   const allPosts = await getCollection("blog", ({ data }) => {

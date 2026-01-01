@@ -21,7 +21,7 @@ const isProd = import.meta.env.PROD;
     <!-- Google Analytics -->
     {isProd && (
       <>
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_TRACKING_ID}`}></script>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GTAG_TRACKING_ID}`} is:inline></script>
         <script is:inline define:vars={{ GTAG_TRACKING_ID }}>
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
