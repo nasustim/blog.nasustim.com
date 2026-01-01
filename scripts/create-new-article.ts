@@ -2,7 +2,7 @@ import { readFile, writeFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { dedent } from "ts-dedent";
 
-const BOILERPLATE_FILE_PATH = resolve(process.cwd(), "src/boilerplate.md");
+const BOILERPLATE_FILE_PATH = resolve(process.cwd(), "src/boilerplate.mdx");
 const ARTICLE_FILE_DIR = resolve(process.cwd(), "./src/content/blog/");
 
 const RETURN_CHAR = "\n";
@@ -20,7 +20,7 @@ async function main() {
     })
     .join(RETURN_CHAR);
 
-  const filename = resolve(ARTICLE_FILE_DIR, `${currentDatetime}.md`);
+  const filename = resolve(ARTICLE_FILE_DIR, `${currentDatetime}.mdx`);
   await writeFile(filename, content);
   console.log(dedent`
     ✨Your new article is here✨
