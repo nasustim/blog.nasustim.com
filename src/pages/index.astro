@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import { ArticleList, type ListItem } from "@/components/organisms/articleList";
 import MainLayout from "@/layouts/MainLayout.astro";
-import { ARTICLE_LIST_PAGE_LIMIT, TITLE, SUB_TITLE } from "@/config";
+import { ARTICLE_LIST_PAGE_LIMIT, TITLE } from "@/config";
 import { extractTagsWithCounts } from "@/utils/tagUtils";
 
 // Get all non-draft blog posts
@@ -34,8 +34,8 @@ const list = paginatedPosts.map<ListItem>((post) => ({
   tags: post.data.tags,
 }));
 
-const pageTitle = `${TITLE} - ${SUB_TITLE}`;
-const description = "Blog by nasustim";
+const pageTitle = TITLE;
+const description = "Articles from Mitsuhiro Hibino's blog";
 ---
 
 <MainLayout title={pageTitle} description={description} pathname="/">

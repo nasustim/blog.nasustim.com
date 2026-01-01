@@ -31,14 +31,15 @@ export const linkListStyle = style({
   padding: "8px",
 });
 export const linkStyle = style({
-  fontSize: 14,
+  fontSize: 12,
   fontWeight: "bold",
   textDecorationLine: "none",
 
   "@media": {
     // pc
     [`screen and (min-width: ${minWidthForDesktop}px)`]: {
-      fontSize: 18,
+      fontWeight: "normal",
+      fontSize: 14,
     },
   },
 });

@@ -16,7 +16,8 @@ export async function GET(context: APIContext) {
 
   return rss({
     title: TITLE,
-    description: "Latest articles from Mitsuhiro Hibino's blog (https://blog.nasustim.com)",
+    description:
+      "Latest articles from Mitsuhiro Hibino's blog (https://blog.nasustim.com)",
     site: context.site ?? SITE_ORIGIN,
     items: sortedPosts.map((post) => ({
       title: post.data.title,

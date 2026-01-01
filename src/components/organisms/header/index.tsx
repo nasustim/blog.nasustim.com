@@ -22,8 +22,8 @@ export const Header: FC<Props> = ({ isTopPage }) => (
       </Link>
     </div>
     <div className={linkListStyle}>
-      <Link to={new URL("/", "https://nasustim.com")}>
-        <span className={linkStyle}>[ABOUT ME]</span>
+      <Link to={new URL("/", "https://nasustim.com")} className={linkStyle}>
+        About Me
       </Link>
     </div>
   </header>

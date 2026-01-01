@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import type { GetStaticPaths } from "astro";
 import { ArticleList, type ListItem } from "@/components/organisms/articleList";
 import MainLayout from "@/layouts/MainLayout.astro";
-import { ARTICLE_LIST_PAGE_LIMIT, TITLE, SUB_TITLE } from "@/config";
+import { ARTICLE_LIST_PAGE_LIMIT, TITLE } from "@/config";
 import { extractTagsWithCounts } from "@/utils/tagUtils";
 
 export const getStaticPaths = (async () => {
@@ -48,8 +48,8 @@ export const getStaticPaths = (async () => {
 }) satisfies GetStaticPaths;
 
 const { list, pagesCount, currentPageIndex, allTags } = Astro.props;
-const pageTitle = `${TITLE} - ${SUB_TITLE} - Page ${currentPageIndex + 1}`;
-const description = "Blog by nasustim";
+const pageTitle = `${TITLE} - Page ${currentPageIndex + 1}`;
+const description = "Articles from Mitsuhiro Hibino's blog";
 ---
 
 <MainLayout
