@@ -2,6 +2,7 @@ import { getCollection } from "astro:content";
 import rss from "@astrojs/rss";
 import type { APIContext } from "astro";
 import { SITE_ORIGIN, TITLE } from "@/config";
+import { makeDescription } from "@/utils/markdownUtils";
 
 export async function GET(context: APIContext) {
   // Get all non-draft blog posts
@@ -22,7 +23,7 @@ export async function GET(context: APIContext) {
     items: sortedPosts.map((post) => ({
       title: post.data.title,
       pubDate: new Date(post.data.date),
-      description: post.body.slice(0, 200),
+      description: makeDescription(post.body),
       link: `/entry/${post.data.slug}`,
       content: post.body,
     })),

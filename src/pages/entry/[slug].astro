@@ -4,7 +4,7 @@ import type { GetStaticPaths } from "astro";
 import { MdxRenderer } from "@/components/organisms/mdx-renderer";
 import MainLayout from "@/layouts/MainLayout.astro";
 import { TITLE } from "@/config";
-import { toPlainText } from "@/utils/markdownUtils";
+import { makeDescription } from "@/utils/markdownUtils";
 import { articleRoot } from "@/components/organisms/mdx-renderer/index.css";
 
 export const getStaticPaths = (async () => {
@@ -26,7 +26,7 @@ if (import.meta.env.PROD && data.draft) {
 
 const formattedDate = new Date(data.date).toISOString().split("T")[0];
 const pageTitle = `${data.title} - ${TITLE}`;
-const description = toPlainText(body).slice(0, 120);
+const description = makeDescription(body);
 
 // Render MDX content
 const { Content } = await post.render();
@@ -38,7 +38,12 @@ const { Content } = await post.render();
   ogType="article"
   pathname={Astro.url.pathname}
 >
-  <MdxRenderer title={data.title} date={formattedDate} tags={data.tags} client:load>
+  <MdxRenderer
+    title={data.title}
+    date={formattedDate}
+    tags={data.tags}
+    client:load
+  >
     <article class={articleRoot}>
       <Content />
     </article>
