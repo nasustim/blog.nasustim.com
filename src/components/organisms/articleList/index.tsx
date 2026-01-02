@@ -2,7 +2,7 @@ import { type FC, Fragment, useMemo } from "react";
 import { Link } from "@/components/atoms/link";
 import { Tag } from "@/components/atoms/tag";
 import { SITE_ORIGIN } from "@/config";
-import { toPlainText } from "@/utils/markdownUtils";
+import { makeDescription } from "@/utils/markdownUtils";
 import { getIndexPagePath } from "@/utils/paginationUtils";
 import {
   h2Style,
@@ -60,13 +60,10 @@ export const ArticleList: FC<Props> = ({
 };
 
 const Item: FC<ListItem> = (v) => {
-  const bodyText = useMemo(() => {
-    let result = toPlainText(v.body);
-    if (result.length > 120) {
-      result = `${result.slice(0, 120)}...`;
-    }
-    return result;
-  }, [v.body]);
+  const bodyText = useMemo(
+    () => makeDescription(v.body, { maxLength: 120 }),
+    [v.body],
+  );
 
   return (
     <li className={listItemStyle}>
