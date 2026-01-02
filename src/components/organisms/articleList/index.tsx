@@ -1,4 +1,4 @@
-import { type FC, Fragment, useMemo } from "react";
+import { type FC, Fragment } from "react";
 import { Link } from "@/components/atoms/link";
 import { Tag } from "@/components/atoms/tag";
 import { SITE_ORIGIN } from "@/config";
@@ -59,24 +59,17 @@ export const ArticleList: FC<Props> = ({
   );
 };
 
-const Item: FC<ListItem> = (v) => {
-  const bodyText = useMemo(
-    () => makeDescription(v.body, { maxLength: 120 }),
-    [v.body],
-  );
-
-  return (
-    <li className={listItemStyle}>
-      <Link to={new URL(`/entry/${v.slug}`, SITE_ORIGIN)} noStyle>
-        <div className={linkContentStyle}>
-          <small>{v.date}</small>
-          <h2 className={h2Style}>{v.title}</h2>
-          <p className={pStyle}>{bodyText}</p>
-        </div>
-      </Link>
-    </li>
-  );
-};
+const Item: FC<ListItem> = (v) => (
+  <li className={listItemStyle} key={`article-list-${v.slug}`}>
+    <Link to={new URL(`/entry/${v.slug}`, SITE_ORIGIN)} noStyle>
+      <div className={linkContentStyle}>
+        <small>{v.date}</small>
+        <h2 className={h2Style}>{v.title}</h2>
+        <p className={pStyle}>{makeDescription(v.body, { maxLength: 120 })}</p>
+      </div>
+    </Link>
+  </li>
+);
 
 const Pager: FC<{
   pagesCount: number;
