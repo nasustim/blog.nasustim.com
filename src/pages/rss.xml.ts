@@ -23,7 +23,7 @@ export async function GET(context: APIContext) {
     items: sortedPosts.map((post) => ({
       title: post.data.title,
       pubDate: new Date(post.data.date),
-      description: makeDescription(post.body, 160),
+      description: makeDescription(post.body),
       link: `/entry/${post.data.slug}`,
       content: post.body,
     })),
