@@ -44,7 +44,6 @@ src/
 │   ├── organisms/      # Complex components (ArticleList, Header, etc.)
 │   └── templates/      # Layout templates
 ├── layouts/            # Astro layouts
-│   ├── BaseLayout.astro
 │   └── MainLayout.astro
 ├── pages/              # Astro pages (routing)
 │   ├── index.astro    # Home page
