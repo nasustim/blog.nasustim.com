@@ -1,5 +1,6 @@
 import { globalStyle, style } from "@vanilla-extract/css";
 import { vars } from "@/style.css";
+import { remarkLinkCardStyles } from "./styles/remarkLinkCard";
 
 const sectionMargin = "16px";
 
@@ -131,3 +132,8 @@ globalStyle(`${articleRoot} > blockquote`, {
   margin: "24px 0",
   backgroundColor: "#f9f9f9",
 });
+
+// Build styles for remark-link-card-plus
+for (const selector of remarkLinkCardStyles) {
+  globalStyle(`${articleRoot} ${selector.selector}`, selector.rule);
+}

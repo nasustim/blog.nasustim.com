@@ -7,7 +7,7 @@
   "scripts": {
     "fix": "bun run textlint:fix && bun run biome:fix",
     "dev": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro check && astro build && cp -r public/remark-link-card-plus ./dist/",
     "preview": "astro preview",
     "clean": "rm -rf dist .astro",
     "biome:ci": "biome ci ./src",
