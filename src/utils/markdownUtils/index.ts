@@ -1,16 +1,19 @@
-const MAX_DESCRIPTION_LENGTH = 160;
-
-export function toPlainText(markdown: string): string {
-  return markdown
+export function makeDescription(markdown: string, maxLength?: number): string {
+  const plainText = markdown
     // remove import statements
     .replace(/^import\s.*from.*;$/gm, "")
     // sanitize html tags
     .replace(/<[^>]*>?/gm, "");
+
+  if (maxLength === undefined) {
+    return plainText;
+  }
+
+  return plainText.length > maxLength
+    ? `${plainText.slice(0, maxLength - 3)}...`
+    : plainText;
 }
 
-export function makeDescription(markdown: string): string {
-  const plainText = toPlainText(markdown);
-  return plainText.length > MAX_DESCRIPTION_LENGTH
-    ? `${plainText.slice(0, MAX_DESCRIPTION_LENGTH - 3)}...`
-    : plainText;
+export function toPlainText(markdown: string): string {
+  return makeDescription(markdown);
 }

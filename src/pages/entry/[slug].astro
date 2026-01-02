@@ -26,7 +26,7 @@ if (import.meta.env.PROD && data.draft) {
 
 const formattedDate = new Date(data.date).toISOString().split("T")[0];
 const pageTitle = `${data.title} - ${TITLE}`;
-const description = makeDescription(body);
+const description = makeDescription(body, 160);
 
 // Render MDX content
 const { Content } = await post.render();
