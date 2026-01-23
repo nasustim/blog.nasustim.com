@@ -48,7 +48,7 @@
     "@types/react": "19.2.8",
     "@types/react-dom": "19.2.3",
     "@vanilla-extract/vite-plugin": "5.1.4",
-    "textlint": "15.5.0",
+    "textlint": "15.5.1",
     "textlint-plugin-html": "1.0.1",
     "textlint-rule-common-misspellings": "1.0.1",
     "textlint-rule-preset-ja-spacing": "2.4.3",
