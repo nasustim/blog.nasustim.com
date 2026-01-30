@@ -40,7 +40,7 @@
     "remark-gfm": "4.0.1",
     "remark-link-card-plus": "0.7.2",
     "ts-dedent": "github:nasustim/node-ts-dedent#master",
-    "zod": "4.3.5"
+    "zod": "4.3.6"
   },
   "devDependencies": {
     "@biomejs/biome": "2.3.13",
