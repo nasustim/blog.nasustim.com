@@ -38,7 +38,7 @@
     "react-markdown": "10.1.0",
     "rehype-raw": "7.0.0",
     "remark-gfm": "4.0.1",
-    "remark-link-card-plus": "0.7.2",
+    "remark-link-card-plus": "0.7.3",
     "ts-dedent": "github:nasustim/node-ts-dedent#master",
     "zod": "4.3.6"
   },
