@@ -1,4 +1,44 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>Reflecting on 2025</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>I thought my last year was a roller coaster. My role was significantly changed.
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>新しいプロジェクトに参画したときにすること</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>昨年からグループ会社支援の部署に所属している。そのため社内の複数部署に顔を出してプロジェクトを掛け持ちしていることが多い。  
+最近、僕のリソースの多くを全く新規で関わるプロジェクトに割くようになったのだが、そういう時最初に何をするべきなのかを考えてみた。
+
+## Good First Issue を起点に全体像...</description><pubDate>Fri, 29 May 2026 18:19:28 GMT</pubDate><content:encoded>昨年からグループ会社支援の部署に所属している。そのため社内の複数部署に顔を出してプロジェクトを掛け持ちしていることが多い。  
+最近、僕のリソースの多くを全く新規で関わるプロジェクトに割くようになったのだが、そういう時最初に何をするべきなのかを考えてみた。
+
+## Good First Issue を起点に全体像を掴む
+
+個人的に、最初に押さえるべきことを押さえてからタスクを始めるよりも、まず手を動かしながら考える方が性に合っている。  
+なので、新参者にも易しい簡単な issue を探したり、アサインしてもらったりする。
+
+手を動かしながら疑問点がいくつか出てくるはずだ。例えば：
+
+- どんな技術スタックを使っているのか
+- どんな外部リソースに依存しているのか
+- そのタスクを完了させるにはどんな手順を踏む必要があるのか（→ そのプロジェクトでの開発フロー）
+- どのように動作確認すればいいのか（→ そのシステムのユーザから見える挙動にどう影響する？）
+- そのタスクが終わった時、誰に報告すればいいのか（→ コミュニケーションのフロー, プロジェクトでの意思決定者の把握）
+- ...etc
+
+手を動かしながら一連のプロセスを経験することで、網羅的な体験を通じて理解できることは多い。
+
+## そのプロジェクトでの開発フローを理解するまでやる
+
+タスクの消化を何度かこなす。
+
+仮に非効率な業務フローがあったとする。その非効率は改善できれば自身にもチームにもメリットはあるだろう。  
+しかし、1回だけだと非効率を単に非効率だとしか捉えられないことが多いと感じている。本当にそれが必要不可欠なのか、どう改善できるのかを考えるために、何度か違うコンディションで試すことは必要だと思う。
+
+今の仕事をこなせるようになってチームでの信頼を得ることにも繋がる。
+
+## 出社している人をランチに誘う
+
+フルリモートでなければ、一定数毎日のように出社している人はいるはずだ。
+
+業務外のコミュニケーションから得られる情報や気づきは多いし、円滑なコミュニケーションにも繋がる。
+
+
+---
+
+新たな環境では自分が一番素人だから、素直に学ぶ姿勢で臨もう🏃</content:encoded></item><item><title>Reflecting on 2025</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>I thought my last year was a roller coaster. My role was significantly changed.
 Last November, I turned 31. Time feels like it is going much more quickly tha...</description><pubDate>Thu, 01 Jan 2026 12:44:40 GMT</pubDate><content:encoded>I thought my last year was a roller coaster. My role was significantly changed.
 Last November, I turned 31. Time feels like it is going much more quickly than I imagined when I was a child. I should update my mindset about facing time and tasks.
 
