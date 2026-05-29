@@ -79,12 +79,13 @@ const Pager: FC<{
     <div className={pagerStyle}>
       {Array.from({ length: pagesCount }).map((_, i) => {
         const to = new URL(getIndexPagePath(i), SITE_ORIGIN);
+        const pageKey = `pager-${to.toString()}`;
 
         if (i === currentPageIndex) {
-          return <div key={`pager-current-${i + 1}`}>{i + 1}</div>;
+          return <div key={pageKey}>{i + 1}</div>;
         }
         return (
-          <Link key={`pager-${to.toString()}`} to={to}>
+          <Link key={pageKey} to={to}>
             {i + 1}
           </Link>
         );
