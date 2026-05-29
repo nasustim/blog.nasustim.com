@@ -1,14 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>TIL: 2026-01-02</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>Today I Learned: Another visiting shinto shrine style, Sai-saki-moude (幸先詣)
-
-People in Japan commonly visit shrine(s) at a new year period. It is called hats...</description><pubDate>Fri, 02 Jan 2026 13:52:07 GMT</pubDate><content:encoded>Today I Learned: Another visiting shinto shrine style, Sai-saki-moude (幸先詣)
-
-People in Japan commonly visit shrine(s) at a new year period. It is called hatsu-moude (初詣).  
-I thought that hatsu-moude should be held on new year day or its later, but Sai-saki-moude intends to visit before new year day.
-
-It has been advocated since 2021 due to avoid gathering to prevent COVID-19 pandemic[^sai-saki-moude].
-I actually prefer staying in home on new year period. That is because almost shrines are going to be packed on that day especially in Tokyo area. I hope the style becomes more popular in the future.
-
-[^sai-saki-moude]: https://fukuoka-jinjacho.or.jp/column/%E5%B9%B8%E5%85%88%E8%A9%A3%E3%81%A8%E3%81%AF/</content:encoded></item><item><title>Reflecting on 2025</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>I thought my last year was a roller coaster. My role was significantly changed.
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>Reflecting on 2025</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>I thought my last year was a roller coaster. My role was significantly changed.
 Last November, I turned 31. Time feels like it is going much more quickly tha...</description><pubDate>Thu, 01 Jan 2026 12:44:40 GMT</pubDate><content:encoded>I thought my last year was a roller coaster. My role was significantly changed.
 Last November, I turned 31. Time feels like it is going much more quickly than I imagined when I was a child. I should update my mindset about facing time and tasks.
 
@@ -43,77 +33,7 @@ I am gonna aim for the following in 2026.
 
 
 [^cvc]: Shorten for &quot;Corporate Venture Capital&quot; https://en.wikipedia.org/wiki/Corporate_venture_capital
-[^ai]: It is because of the rapid growth of coding AIs though ;)</content:encoded></item><item><title>TIL: 2025-11-19</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: Aphantasia という精神的特徴（？）
-
-
-オンライン英会話で取り上げた記事で知った。物事を脳内でビジュアライズすることができない症状のことらしいが、障害や病気だとは言えないらしい。  
-https://aphantasia.com/what-is-aphantasia
-
-「赤いリンゴ」と言わ...</description><pubDate>Tue, 18 Nov 2025 15:05:19 GMT</pubDate><content:encoded>今日の学び: Aphantasia という精神的特徴（？）
-
-
-オンライン英会話で取り上げた記事で知った。物事を脳内でビジュアライズすることができない症状のことらしいが、障害や病気だとは言えないらしい。  
-https://aphantasia.com/what-is-aphantasia
-
-「赤いリンゴ」と言われて目を閉じればぼんやりと視覚的にも表現できている気はするが、これは本当に視覚的な再現がされているかと訊かれたら自信を持ってイエスとは言えない。  
-&quot;症状&quot;というからには重篤度合いもあるだろう。他人の脳内にあるイメージと比べてクリアかどうかと言われても比較しようがない。  
-障害とも病気とも言えない所以は問題が顕在化していないからだろう。
-
-近い未来、脳内の描写を完全に読み取ることができる技術が確立されたら初めてこれが問題だと扱われるのかもしれないね</content:encoded></item><item><title>TIL: 2025-11-07</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: Google Cloud の org 間での project 移管方法
-
-https://techblog.goinc.jp/entry/2022/06/07/090000
-
-権限さえあればコマンドを叩くだけで終わるらしい。
-org を移動させても請求先アカウントが変わらないのは注意が必要とのこと。...</description><pubDate>Fri, 07 Nov 2025 13:41:51 GMT</pubDate><content:encoded>今日の学び: Google Cloud の org 間での project 移管方法
-
-https://techblog.goinc.jp/entry/2022/06/07/090000
-
-権限さえあればコマンドを叩くだけで終わるらしい。
-org を移動させても請求先アカウントが変わらないのは注意が必要とのこと。↑の記事から3年経ってもこの仕様は変わってないらしい。</content:encoded></item><item><title>TIL: 2025-11-06</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: 複数の git リポジトリを一つに統合する方法
-
-`git subtree` というコマンドが使える。
-
-https://zenn.dev/yoichi/articles/git-subtree-internals
-
-例: 
-
-```bash
-# 1. 新リポジトリ作成
-mkdir new-repo...</description><pubDate>Thu, 06 Nov 2025 14:26:33 GMT</pubDate><content:encoded>今日の学び: 複数の git リポジトリを一つに統合する方法
-
-`git subtree` というコマンドが使える。
-
-https://zenn.dev/yoichi/articles/git-subtree-internals
-
-例: 
-
-```bash
-# 1. 新リポジトリ作成
-mkdir new-repo &amp;&amp; cd new-repo
-git init
-
-# 2. github nasustim/server-implementation を fetch
-git remote add -f server_remote https://github.com/nasustim/server-implementation.git
-
-# 3. nasustim/server-implementation を services/server に統合
-git subtree add --prefix=services/server server_remote main --allow-unrelated-histories
-```
-
-昨今ではコーディングエージェントの発達によってモノレポが注目されている。実務で使う機会もあるだろうか</content:encoded></item><item><title>TIL: 2025-11-05</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>今日の学び: TIL というものを知った
-
-X でこんなポストを見かけた。
-
-GitHub を活用して、日々の学習の記録をつけていく習慣が、TILTIL（Today I Learned：今日学んだこと）は、世界中の開発者の間で、10年以上前から行われている取り組み学習の記録を GitHub リポジトリで管理するこ...</description><pubDate>Wed, 05 Nov 2025 14:29:47 GMT</pubDate><content:encoded>今日の学び: TIL というものを知った
-
-X でこんなポストを見かけた。
-
-&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;GitHub を活用して、&lt;br /&gt;日々の学習の記録をつけていく習慣が、TIL&lt;br /&gt;&lt;br /&gt;TIL（Today I Learned：今日学んだこと）は、&lt;br /&gt;世界中の開発者の間で、10年以上前から行われている取り組み&lt;br /&gt;&lt;br /&gt;学習の記録を GitHub リポジトリで管理することで、&lt;br /&gt;&lt;br /&gt;- 単純に、記録を書くことで理解が深まる&lt;br /&gt;- Git/GitHub… &lt;a href=&quot;https://t.co/pz9gxnGEG0&quot;&gt;pic.twitter.com/pz9gxnGEG0&lt;/a&gt;&lt;/p&gt;&amp;mdash; kazzyfrog (@kazzyfrog) &lt;a href=&quot;https://twitter.com/kazzyfrog/status/1985682976542429270?ref_src=twsrc%5Etfw&quot;&gt;November 4, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt; 
-
-なるほど、アウトプットするまでのハードルを減らすことで習慣化に結びつけようという意図らしい。投稿した人のブログ記事を読むと 10 年以上前からある文化のようだ。
-
-常にアウトプット不足なので自分も初めてみようと思った。
-
-GitHub に TIL 用の repository を作るのが王道のやり方らしいが、せっかくこのブログがあるのでとりあえずこれを使う。記事のボイラープレートを展開するスクリプトを作って PR まで立てられるようにしたらスマホの GitHub アプリのみで投稿までできそうだ。夢が広がるね。</content:encoded></item><item><title>React と Next.js どちらを使えばいいのか</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>現時点での自分なりの結論。
+[^ai]: It is because of the rapid growth of coding AIs though ;)</content:encoded></item><item><title>React と Next.js どちらを使えばいいのか</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>現時点での自分なりの結論。
 Podcast ネタとしてはボツにしたので供養
 
 ### 前提
@@ -162,103 +82,76 @@ Podcast ネタとしてはボツにしたので供養
 ----
 
 [^react-readme]: https://github.com/facebook/react/blob/4e482f490405c0c601d8712a0625fd17c04978e4/README.md#react------
-[^cra-deprecated]: https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app-- https://zenn.dev/sonicmoov/articles/deprecated-create-react-app</content:encoded></item><item><title>🇫🇮 2025年フィンランド旅行記 - ③ マリメッコとイッタラに会いに</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>
+[^cra-deprecated]: https://github.com/facebook/create-react-app/blob/b532a58792ea79ba7b0e85c1cb42b2a36dafe276/README.md#create-react-app-- https://zenn.dev/sonicmoov/articles/deprecated-create-react-app</content:encoded></item><item><title>🇫🇮 2025年フィンランド旅行記</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>
 
 
 
 
 
-シリーズでお届けしております。
 
-前回の記事: [🇫🇮 2025年フィンランド旅行記 - ② ヘルシンキに到着、そしてサウナへ](/entry/travel-to-finland-in-aug-2025-02)
 
----
 
-ヘルシンキの夏の夜は23時になってもうっすらと明るく、長い時間寝られた感覚...</description><pubDate>Sun, 31 Aug 2025 12:15:10 GMT</pubDate><content:encoded>import { Picture } from &apos;astro:assets&apos;;
+
+
+
+今月初め頃、夫婦でフィンランドに行った。
+
+一番の楽しみは大好きなイッタラ・アラビア[^ittala-arabia]の食器を購入することだったが、フィンランドはとても素敵な場所でとてもいい旅になった。興奮冷めやらぬ内に記録を残しておこうと思う。
+
+## 日本からフィンランドへ
+
+土曜日の午...</description><pubDate>Sun, 10 Aug 2025 11:00:00 GMT</pubDate><content:encoded>import { Picture } from &apos;astro:assets&apos;;
+import flightMenu01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/flight-menu-01.jpg&apos;;
+import flightMenu02 from &apos;@/content/assets/travel-to-finland-in-aug-2025/flight-menu-02.jpg&apos;;
+import flightRoute01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/flight-route-01.jpg&apos;;
+import airport01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airport-01.jpg&apos;;
+import airport02 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airport-02.jpeg&apos;;
+import airport03 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airport-03.jpeg&apos;;
 import helCityscape01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/hel-cityscape-01.jpg&apos;;
 import marimekkoHq01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/marimekko-hq-01.jpg&apos;;
 import marimekkoHq02 from &apos;@/content/assets/travel-to-finland-in-aug-2025/marimekko-hq-02.jpg&apos;;
 import arabiaMuseum from &apos;@/content/assets/travel-to-finland-in-aug-2025/arabia-museum.jpg&apos;;
 
-シリーズでお届けしております。
+今月初め頃、夫婦でフィンランドに行った。
 
-前回の記事: [🇫🇮 2025年フィンランド旅行記 - ② ヘルシンキに到着、そしてサウナへ](/entry/travel-to-finland-in-aug-2025-02)
+一番の楽しみは大好きなイッタラ・アラビア[^ittala-arabia]の食器を購入することだったが、フィンランドはとても素敵な場所でとてもいい旅になった。興奮冷めやらぬ内に記録を残しておこうと思う。
 
----
+## 日本からフィンランドへ
 
-ヘルシンキの夏の夜は23時になってもうっすらと明るく、長い時間寝られた感覚は薄かった。  
-到着翌日の朝がやってきた。
+土曜日の午前4時半、僕たちは羽田空港に向かっていた。  
+妻も僕も眠い目をこすりあくびをかきながらもまだ見ぬ北欧の地への期待に胸を膨らませていた。
 
-この日のプランは以下の通りだ
+自宅からタクシーでバスタ新宿に到着したのち、羽田空港までのリムジンバス[^bus]に乗り換えた。  
+相模原市に住んでいたとき、早朝の便に乗るためには空港近辺で前泊する必要があったので、この時間帯に公共交通機関を使えるのはとてもありがたい。
 
-&gt; 1. マリメッコ本社で昼食 &amp; アウトレットショッピング
-&gt; 2. イッタラ・アラビアデザインセンターに行く
+午前6時より少し前に羽田空港第三ターミナルに到着した。夏休みシーズン真っ只中だからかまずまずの混雑具合だった。JAL のチェックインカウンターは午前6時の受付開始に向けて行列ができていた。
 
-もっぱらショッピングデイだ。
-
-## 1. マリメッコ本社で昼食 &amp; アウトレットショッピング
-
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;Picture src={helCityscape01} formats={[&apos;avif&apos;, &apos;webp&apos;]} alt=&quot;ヘルシンキ中央駅&quot; /&gt;
-  &lt;div&gt;ヘルシンキ中央駅から出発&lt;/div&gt;
-&lt;/div&gt;
-
-電車で 20 分程度で着く [Herttoniami 駅](https://maps.app.goo.gl/vXNxue7ikevWQTXd6)[^hsl-coverage] で下車、そこから徒歩で 10 分程度で到着
+まだ搭乗時刻まで時間もあるから急ぐ必要はない、と妻が言った。到着ゲートフロアのタリーズ[^tullys]でコーヒーとクロックムッシュを食べながら時間を潰した。
 
 
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;Picture src={marimekkoHq01} formats={[&apos;avif&apos;, &apos;webp&apos;]} alt=&quot;マリメッコ本社の社屋&quot; /&gt;
-  &lt;div&gt;マリメッコ本社の社屋&lt;/div&gt;
-&lt;/div&gt;
+僕たちは JAL 47便 [^jal47] 東京・羽田空港発 - ヘルシンキ・ヴァンター空港行きを予約していた。羽田空港は言わずもがな JAL 便が多く就航しており、カフェで時間を潰した後もカウンターの混雑は続いていた。
 
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;Picture src={marimekkoHq02} formats={[&apos;avif&apos;, &apos;webp&apos;]} alt=&quot;マリメッコ社員食堂&quot; /&gt;
-  &lt;div&gt;社員食堂が一般開放されている&lt;/div&gt;
-&lt;/div&gt;
+ようやくバゲージドロップやその他の出国手続きを終えて搭乗ゲートエリアに着くと、搭乗開始まで10分程度にまで差し迫った時刻だった。僕たちは顔を向かい合わせ、急ごう、と示し合わせた。妻はターミナル内の両替所に向かい、僕は自販機でドリンクとパンを買い込み、5分程度で準備を万端にしてゲートに向かった。
+（言わずもがな、ダイヤが超密集する羽田空港で定刻通りに搭乗が始まることはなかったが）
 
 
-## 2. イッタラ・アラビアデザインセンターに行く
+JAL での旅はとにかく快適である。CA さん全員日本語が分かるのはもちろんのこと、LCC や海外のキャリアでは考えられないような細かく丁寧な気配りをしてくれる。機内食も日本人の口に合う味が多い。狭いスペースで長時間過ごさなくてはならない国際線のフライトではより一層 JAL の温かい接客が沁みる。
 
-マリメッコでのショッピングのあと、イッタラ・アラビアデザインセンターに行った。
-
-&lt;div style=&quot;text-align: center;&quot;&gt;
-  &lt;Picture src={arabiaMuseum} formats={[&apos;avif&apos;, &apos;webp&apos;]} alt=&quot;イッタラ・アラビアデザインセンターの外観&quot; /&gt;
-  &lt;div&gt;イッタラ・アラビアデザインセンターの外観。古い社屋と煙突がいい味を出している。&lt;/div&gt;
-&lt;/div&gt;
-
-限定色のマグカップも買えてホクホク
-
-&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;本日アラビア博物館オープン。&lt;br /&gt;アラビア黒ロゴの550個限定マグが売っています。バッグスタンプも黒で可愛い😍 &lt;a href=&quot;https://t.co/2PjWSXdmdF&quot;&gt;pic.twitter.com/2PjWSXdmdF&lt;/a&gt;&lt;/p&gt;&amp;mdash; finngate フィンランドの旅行会社 (@finngate) &lt;a href=&quot;https://twitter.com/finngate/status/1920798431859052900?ref_src=twsrc%5Etfw&quot;&gt;May 9, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-
-----
-
-
-[^hsl-coverage]: HLS の &quot;B&quot; ゾーンなので注意が必要。イッタラ・アラビアデザインセンターも同じ方面の &quot;B&quot; ゾーンなのでついでに行くことをオススメします。</content:encoded></item><item><title>🇫🇮 2025年フィンランド旅行記 - ② ヘルシンキに到着、そしてサウナへ</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>
-
-
-
-
-シリーズでお届けしております。
-
-前回の記事: [🇫🇮 2025年フィンランド旅行記 - ① 出発](/entry/travel-to-finland-in-aug-2025-01)
+そうして僕たちはまだ見ぬ地、北欧に向かうのであった。
 
 ---
 
-## ヘルシンキ到着
+&lt;Picture formats={[&quot;avif&quot;, &quot;webp&quot;]} src={flightMenu01} alt=&quot;機内食メニュー1枚目&quot; /&gt;
+&lt;Picture formats={[&quot;avif&quot;, &quot;webp&quot;]} src={flightMenu02} alt=&quot;機内食メニュー2枚目&quot; /&gt;
 
-&quot;Cabin crew, prepare for landing&quot;
-
-キャプテン...</description><pubDate>Mon, 11 Aug 2025 03:19:16 GMT</pubDate><content:encoded>import { Picture } from &apos;astro:assets&apos;;
-import airport01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airport-01.jpg&apos;;
-import airport02 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airport-02.jpeg&apos;;
-import airport03 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airport-03.jpeg&apos;;
-
-シリーズでお届けしております。
-
-前回の記事: [🇫🇮 2025年フィンランド旅行記 - ① 出発](/entry/travel-to-finland-in-aug-2025-01)
+食事が2回出た。どちらも美味でした。
+これとは別に軽食も一回出た。
 
 ---
+
+&lt;Picture formats={[&quot;avif&quot;, &quot;webp&quot;]} src={flightRoute01} alt=&quot;フライトルート&quot; /&gt;
+
+日本から北上してベーリング海を縦断したのち北極圏を通ってヘルシンキへ。ロシアの上空を通過できるようになればヨーロッパは更に近くなるんだろうな、と世界平和に想いを馳せる。
 
 ## ヘルシンキ到着
 
@@ -292,7 +185,7 @@ import airport03 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airpo
 
 ヘルシンキの公共交通機関はほぼ全てヘルシンキ地域交通局[^hsl]という団体が運営している。こちら詳細はより詳しく書かれている方がいるのでそちらを参照のこと https://note.com/hiroro2/n/nd10e3971bfb1
 
-HSL ではカバーエリア[^hsl-coverage] x 有効期間でチケットを販売している。ヴァンター空港からヘルシンキ中央駅までは ABC チケットで行き来できる。チケットの有効期間は80分(片道ユース)-1週間(周遊想定)までバリエーションが用意されているが、乗る車両を間違えなければ所要時間は30分程度なので一旦80分チケットを購入。
+HSL ではカバーエリア[^hsl-zones] x 有効期間でチケットを販売している。ヴァンター空港からヘルシンキ中央駅までは ABC チケットで行き来できる。チケットの有効期間は80分(片道ユース)-1週間(周遊想定)までバリエーションが用意されているが、乗る車両を間違えなければ所要時間は30分程度なので一旦80分チケットを購入。
 
 チケット購入には HSL アプリを使うのが便利だ。ガイドによっては日本で事前に会員登録まで済ませておくことが推奨されているが、日本の SIM カードのデータローミングを無効にしておけば SMS 受け取りは問題なく利用できるので、最悪空港についてからでも問題ない。[^hsl-tips]
 
@@ -352,81 +245,66 @@ https://www.lonna.fi/en/services/sauna/
 
 そんなこんなでフィンランド初日はゆっくりと暮れていった...
 
----
+## マリメッコとイッタラに会いに
+
+ヘルシンキの夏の夜は23時になってもうっすらと明るく、長い時間寝られた感覚は薄かった。  
+到着翌日の朝がやってきた。
+
+この日のプランは以下の通りだ
+
+&gt; 1. マリメッコ本社で昼食 &amp; アウトレットショッピング
+&gt; 2. イッタラ・アラビアデザインセンターに行く
+
+もっぱらショッピングデイだ。
+
+### マリメッコ本社で昼食 &amp; アウトレットショッピング
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;Picture src={helCityscape01} formats={[&apos;avif&apos;, &apos;webp&apos;]} alt=&quot;ヘルシンキ中央駅&quot; /&gt;
+  &lt;div&gt;ヘルシンキ中央駅から出発&lt;/div&gt;
+&lt;/div&gt;
+
+電車で 20 分程度で着く [Herttoniami 駅](https://maps.app.goo.gl/vXNxue7ikevWQTXd6)[^hsl-coverage] で下車、そこから徒歩で 10 分程度で到着
 
 
-[^taiga]: しっかりとタイガでした https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%A4%E3%82%AC
-[^hsl]: https://www.hsl.fi/en; VR（高速鉄道）, 地域間の路線, トラム, バス,,,等をカバーする一方で、スオメリンナ島やサウナがある離れ小島までの船は別会社が営業している。対応していない公共交通機関では入り口に HSL アプリが使えない旨が掲げられていることが多かった。
-[^hsl-coverage]: 地域を A, B, C, D の4つに区分けしている。&quot;A&quot;が市街地、&quot;B&quot;は郊外、&quot;C&quot;はヴァンター空港まで含むさらに郊外、、といった具合で、自分の出発/到着駅をカバーするチケットを買う必要がある。ただし、A エリア内のみをサポートするチケットがないのでその場合は AB チケットを買う必要があり少し混乱した。
-[^hsl-tips]: とはいえ入国直後は宿まで急ぎたい気持ちが強くなるだろうし、アプリダウンロードを海外のモバイル回線で行うと余計な通信量を消費してしまうので日本でできるならやっておいたほうがいい
-[^timezone]: フィンランドのタイムゾーンは EET (Eastern European Time)で日本から7時間遅れ、サマータイムが導入されている期間は EEST(Eastern European Summer Time)で6時間遅れになる
-[^lonna]: 日本語の情報では「ロンナ島」と記されることが多いが、&quot;ン&quot;はほぼ発音されてなかった。L は英語の L そのまま
-[^ogaki-sauna]: https://www.ogaki-sauna.com/post/%E3%82%8F%E3%82%8C%E3%82%89%E3%82%B5%E3%82%A6%E3%83%8A%E4%BA%BA-%E5%85%B6%E5%BC%90</content:encoded></item><item><title>🇫🇮 2025年フィンランド旅行記 - ① 出発</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;Picture src={marimekkoHq01} formats={[&apos;avif&apos;, &apos;webp&apos;]} alt=&quot;マリメッコ本社の社屋&quot; /&gt;
+  &lt;div&gt;マリメッコ本社の社屋&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;Picture src={marimekkoHq02} formats={[&apos;avif&apos;, &apos;webp&apos;]} alt=&quot;マリメッコ社員食堂&quot; /&gt;
+  &lt;div&gt;社員食堂が一般開放されている&lt;/div&gt;
+&lt;/div&gt;
 
 
+### イッタラ・アラビアデザインセンターに行く
 
+マリメッコでのショッピングのあと、イッタラ・アラビアデザインセンターに行った。
 
-今月初め頃、夫婦でフィンランドに行った。
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;Picture src={arabiaMuseum} formats={[&apos;avif&apos;, &apos;webp&apos;]} alt=&quot;イッタラ・アラビアデザインセンターの外観&quot; /&gt;
+  &lt;div&gt;イッタラ・アラビアデザインセンターの外観。古い社屋と煙突がいい味を出している。&lt;/div&gt;
+&lt;/div&gt;
 
-一番の楽しみは大好きなイッタラ・アラビア[^ittala-arabia]の食器を購入することだったが、フィンランドはとても素敵な場所でとてもいい旅になった。興奮冷めやらぬ内に記録を残しておこうと思う。
+限定色のマグカップも買えてホクホク
 
-## 日本からフィンランドへ
-
-土曜日の午前4時半、僕た...</description><pubDate>Sun, 10 Aug 2025 11:00:00 GMT</pubDate><content:encoded>import { Picture } from &apos;astro:assets&apos;;
-import flightMenu01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/flight-menu-01.jpg&apos;;
-import flightMenu02 from &apos;@/content/assets/travel-to-finland-in-aug-2025/flight-menu-02.jpg&apos;;
-import flightRoute01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/flight-route-01.jpg&apos;;
-
-今月初め頃、夫婦でフィンランドに行った。
-
-一番の楽しみは大好きなイッタラ・アラビア[^ittala-arabia]の食器を購入することだったが、フィンランドはとても素敵な場所でとてもいい旅になった。興奮冷めやらぬ内に記録を残しておこうと思う。
-
-## 日本からフィンランドへ
-
-土曜日の午前4時半、僕たちは羽田空港に向かっていた。  
-妻も僕も眠い目をこすりあくびをかきながらもまだ見ぬ北欧の地への期待に胸を膨らませていた。
-
-自宅からタクシーでバスタ新宿に到着したのち、羽田空港までのリムジンバス[^bus]に乗り換えた。  
-相模原市に住んでいたとき、早朝の便に乗るためには空港近辺で前泊する必要があったので、この時間帯に公共交通機関を使えるのはとてもありがたい。
-
-午前6時より少し前に羽田空港第三ターミナルに到着した。夏休みシーズン真っ只中だからかまずまずの混雑具合だった。JAL のチェックインカウンターは午前6時の受付開始に向けて行列ができていた。
-
-まだ搭乗時刻まで時間もあるから急ぐ必要はない、と妻が言った。到着ゲートフロアのタリーズ[^tullys]でコーヒーとクロックムッシュを食べながら時間を潰した。
-
-
-僕たちは JAL 47便 [^jal47] 東京・羽田空港発 - ヘルシンキ・ヴァンター空港行きを予約していた。羽田空港は言わずもがな JAL 便が多く就航しており、カフェで時間を潰した後もカウンターの混雑は続いていた。
-
-ようやくバゲージドロップやその他の出国手続きを終えて搭乗ゲートエリアに着くと、搭乗開始まで10分程度にまで差し迫った時刻だった。僕たちは顔を向かい合わせ、急ごう、と示し合わせた。妻はターミナル内の両替所に向かい、僕は自販機でドリンクとパンを買い込み、5分程度で準備を万端にしてゲートに向かった。
-（言わずもがな、ダイヤが超密集する羽田空港で定刻通りに搭乗が始まることはなかったが）
-
-
-JAL での旅はとにかく快適である。CA さん全員日本語が分かるのはもちろんのこと、LCC や海外のキャリアでは考えられないような細かく丁寧な気配りをしてくれる。機内食も日本人の口に合う味が多い。狭いスペースで長時間過ごさなくてはならない国際線のフライトではより一層 JAL の温かい接客が沁みる。
-
-そうして僕たちはまだ見ぬ地、北欧に向かうのであった。
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;本日アラビア博物館オープン。&lt;br /&gt;アラビア黒ロゴの550個限定マグが売っています。バッグスタンプも黒で可愛い😍 &lt;a href=&quot;https://t.co/2PjWSXdmdF&quot;&gt;pic.twitter.com/2PjWSXdmdF&lt;/a&gt;&lt;/p&gt;&amp;mdash; finngate フィンランドの旅行会社 (@finngate) &lt;a href=&quot;https://twitter.com/finngate/status/1920798431859052900?ref_src=twsrc%5Etfw&quot;&gt;May 9, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
 ---
-
-&lt;Picture formats={[&quot;avif&quot;, &quot;webp&quot;]} src={flightMenu01} alt=&quot;機内食メニュー1枚目&quot; /&gt;
-&lt;Picture formats={[&quot;avif&quot;, &quot;webp&quot;]} src={flightMenu02} alt=&quot;機内食メニュー2枚目&quot; /&gt;
-
-食事が2回出た。どちらも美味でした。
-これとは別に軽食も一回出た。
-
----
-
-&lt;Picture formats={[&quot;avif&quot;, &quot;webp&quot;]} src={flightRoute01} alt=&quot;フライトルート&quot; /&gt;
-
-日本から北上してベーリング海を縦断したのち北極圏を通ってヘルシンキへ。ロシアの上空を通過できるようになればヨーロッパは更に近くなるんだろうな、と世界平和に想いを馳せる。
-
-続き:  [🇫🇮 2025年フィンランド旅行記 - ② ヘルシンキに到着、そしてサウナへ](/entry/travel-to-finland-in-aug-2025-02)
-
----
-
 
 [^ittala-arabia]: フィンランドの食器メーカー
 [^bus]: [Airport Limousine](https://www.limousinebus.co.jp/); 早朝の本数が多くてありがたい
 [^tullys]: [タリーズコーヒー 羽田空港第3ターミナル店](https://shop.tullys.co.jp/detail/1000968)
-[^jal47]: https://www.flightaware.com/live/flight/JAL47</content:encoded></item><item><title>【宣伝】同僚とポッドキャストを始めた</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>6月から同僚の [riddle さん](https://x.com/riddle_tec)と Podcast を始めた。
+[^jal47]: https://www.flightaware.com/live/flight/JAL47
+[^taiga]: しっかりとタイガでした https://ja.wikipedia.org/wiki/%E3%82%BF%E3%82%A4%E3%82%AC
+[^hsl]: https://www.hsl.fi/en; VR（高速鉄道）, 地域間の路線, トラム, バス,,,等をカバーする一方で、スオメリンナ島やサウナがある離れ小島までの船は別会社が営業している。対応していない公共交通機関では入り口に HSL アプリが使えない旨が掲げられていることが多かった。
+[^hsl-zones]: 地域を A, B, C, D の4つに区分けしている。&quot;A&quot;が市街地、&quot;B&quot;は郊外、&quot;C&quot;はヴァンター空港まで含むさらに郊外、、といった具合で、自分の出発/到着駅をカバーするチケットを買う必要がある。ただし、A エリア内のみをサポートするチケットがないのでその場合は AB チケットを買う必要があり少し混乱した。
+[^hsl-tips]: とはいえ入国直後は宿まで急ぎたい気持ちが強くなるだろうし、アプリダウンロードを海外のモバイル回線で行うと余計な通信量を消費してしまうので日本でできるならやっておいたほうがいい
+[^timezone]: フィンランドのタイムゾーンは EET (Eastern European Time)で日本から7時間遅れ、サマータイムが導入されている期間は EEST(Eastern European Summer Time)で6時間遅れになる
+[^lonna]: 日本語の情報では「ロンナ島」と記されることが多いが、&quot;ン&quot;はほぼ発音されてなかった。L は英語の L そのまま
+[^ogaki-sauna]: https://www.ogaki-sauna.com/post/%E3%82%8F%E3%82%8C%E3%82%89%E3%82%B5%E3%82%A6%E3%83%8A%E4%BA%BA-%E5%85%B6%E5%BC%90
+[^hsl-coverage]: HLS の &quot;B&quot; ゾーンなので注意が必要。イッタラ・アラビアデザインセンターも同じ方面の &quot;B&quot; ゾーンなのでついでに行くことをオススメします。</content:encoded></item><item><title>【宣伝】同僚とポッドキャストを始めた</title><link>https://blog.nasustim.com/entry/undefined/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/undefined/</guid><description>6月から同僚の [riddle さん](https://x.com/riddle_tec)と Podcast を始めた。
 
 
 
