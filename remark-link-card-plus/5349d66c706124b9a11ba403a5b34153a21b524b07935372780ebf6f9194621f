@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     
     <meta name="csrf-param" content="authenticity_token" />
-<meta name="csrf-token" content="-gLifSLpDWOHTcQEH6E9qv-jfJqx5431riD0AhQKhAWtB-Gi-TUuBvoFnMdRGhqmgC7LtuudaW_maIn1tqdaQA" />
+<meta name="csrf-token" content="rQY0x_LliFvPS2Ab0wqUhMfOzwVoBL9ojrscIpPnLr10j95qqWZJ3Jo4tYXwIXnpFSpTXpoKZ36wXrZqcuheFQ" />
     
     <link rel="icon" type="image/x-icon" href="/assets/favicon-54ba83b188a78702c2db24ae0b0c3d4e0e9ee466b0715a4e61b56fdec9ad45d2.ico" />
     <link rel="stylesheet" href="https://use.typekit.net/ntd4lbp.css">
@@ -65,7 +65,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
         <li class="nav-item dropdown ms-lg-2 ms-lg-auto">
-              <li class="nav-item"><form class="button_to" method="post" action="/auth/auth0"><button id="login" class="btn btn-primary btn-block btn-sm" style="background-color: gray; border-color: grey;" type="submit">Log in</button><input type="hidden" name="authenticity_token" value="nj_HONcJUwSfM4XVPIVgQ6njPbJJO3m8m8UPkvraXuM7McImzWuHAmDQdi63ZtMGGlFKt4ygZNndjZgtezMaxw" autocomplete="off" /></form></li>
+              <li class="nav-item"><form class="button_to" method="post" action="/auth/auth0"><button id="login" class="btn btn-primary btn-block btn-sm" style="background-color: gray; border-color: grey;" type="submit">Log in</button><input type="hidden" name="authenticity_token" value="NCujZIKMQQMie-G6UjB_q0B4s00iW661DRgv8q-Is_ZH_aQnKr2SP57UtBoxlbCMf69LhymtXsiNeKBdctXchg" autocomplete="off" /></form></li>
 
         </li>
       </ul>
