@@ -1,8 +1,0 @@
-name: 'Setup mise'
-description: 'Set up mise and install tools from mise.toml'
-
-runs:
-  using: 'composite'
-  steps:
-    - name: Setup mise
-      uses: jdx/mise-action@v3.6.3
