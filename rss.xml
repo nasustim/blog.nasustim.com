@@ -38,7 +38,47 @@
 
 ---
 
-新たな環境では自分が一番素人だから、素直に学ぶ姿勢で臨もう🏃</content:encoded></item><item><title>React と Next.js どちらを使えばいいのか</title><link>https://blog.nasustim.com/entry/cra-vs-nextjs/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/cra-vs-nextjs/</guid><description>現時点での自分なりの結論。
+新たな環境では自分が一番素人だから、素直に学ぶ姿勢で臨もう🏃</content:encoded></item><item><title>2025年の振り返り</title><link>https://blog.nasustim.com/entry/retrospective-2025/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/retrospective-2025/</guid><description>怒涛の一年だった。仕事でも私生活でも変化が大きかった。
+
+11月で31歳になったが、振り返ると子どもの頃よりずっと時間の流れが速く感じる。時間やタスクとの向き合い方をアップデートする必要性を感じる。
+
+## 仕事
+
+2025年4月に同じ会社内で新しい部署に異動した。コーポレートベンチャーキャピタル[^cvc]の一...</description><pubDate>Thu, 01 Jan 2026 12:44:40 GMT</pubDate><content:encoded>怒涛の一年だった。仕事でも私生活でも変化が大きかった。
+
+11月で31歳になったが、振り返ると子どもの頃よりずっと時間の流れが速く感じる。時間やタスクとの向き合い方をアップデートする必要性を感じる。
+
+## 仕事
+
+2025年4月に同じ会社内で新しい部署に異動した。コーポレートベンチャーキャピタル[^cvc]の一部で、グループ会社のPMIや事業そのものを支援する部署である。
+現在の業務は技術面でのリードと、エンジニアチームのマネジメントが中心だ。最近はコーディングエージェントのおかげでコードエディタを開く機会もだいぶん減った。
+
+自分の能力と比較してチャレンジングだとは思うが、キャリアにとってはプラスな経験だと思っている。
+一方で、業務で英語を使う機会はほとんどない。反射的に出る語彙が少なくなったことに気づくとやはり悲しい。
+
+
+## 旅行
+
+去年はフィンランド、オーストラリア、韓国に行った。いいリフレッシュになった。
+
+フィンランド旅行についてはブログに書いた。
+
+https://blog.nasustim.com/entry/travel-to-finland-in-aug-2025
+
+オーストラリアでは念願のペンギンを見ることができた。めちゃくちゃな弾丸旅行だったが行ってよかった。
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;3連休+2有給でオーストラリアに行って念願だった野生のペンギンの巣を見に行ってきた&lt;br /&gt;&lt;br /&gt;サンキューJAL特典旅行券 &lt;a href=&quot;https://t.co/03TdbT68NM&quot;&gt;pic.twitter.com/03TdbT68NM&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1978831145186848805?ref_src=twsrc%5Etfw&quot;&gt;October 16, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+## 2026年の目標
+
+2026年は以下を目指す。
+
+- 英語力を取り戻す（会社の補助の英語レッスンをもっとたくさん入れるとか,,）
+- 何か触ったことがないプログラミング言語をマスターする
+
+----
+
+[^cvc]: https://en.wikipedia.org/wiki/Corporate_venture_capital</content:encoded></item><item><title>React と Next.js どちらを使えばいいのか</title><link>https://blog.nasustim.com/entry/cra-vs-nextjs/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/cra-vs-nextjs/</guid><description>現時点での自分なりの結論。
 Podcast ネタとしてはボツにしたので供養
 
 ### 前提
