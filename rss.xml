@@ -38,42 +38,7 @@
 
 ---
 
-新たな環境では自分が一番素人だから、素直に学ぶ姿勢で臨もう🏃</content:encoded></item><item><title>Reflecting on 2025</title><link>https://blog.nasustim.com/entry/retrospective-2025/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/retrospective-2025/</guid><description>I thought my last year was a roller coaster. My role was significantly changed.
-Last November, I turned 31. Time feels like it is going much more quickly tha...</description><pubDate>Thu, 01 Jan 2026 12:44:40 GMT</pubDate><content:encoded>I thought my last year was a roller coaster. My role was significantly changed.
-Last November, I turned 31. Time feels like it is going much more quickly than I imagined when I was a child. I should update my mindset about facing time and tasks.
-
-## Work
-
-In early 2025, I moved to a new division in same company. The division is like a CVC [^cvc] and I got a managerial position in subsidary company.  
-Currently, my tasks are leading technical strategy and managing engineering team. Nowaday I rarely develop systems by myself[^ai].
-
-Current position is quite challenging but I think it is crucial for my career.  
-On the other hand, I feel a bit of disappointment that opportunities of using English on the job are decreased.
-
-## Travel
-
-I went to Finland, Australia and Korea last year. These were enough to refresh my mind.
-
-Wrote about Finland trip in the blog.
-
-https://blog.nasustim.com/entry/travel-to-finland-in-aug-2025
-
-In Australia, I finally watch the penguins. I was so excited.
-
-&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;3連休+2有給でオーストラリアに行って念願だった野生のペンギンの巣を見に行ってきた&lt;br /&gt;&lt;br /&gt;サンキューJAL特典旅行券 &lt;a href=&quot;https://t.co/03TdbT68NM&quot;&gt;pic.twitter.com/03TdbT68NM&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://twitter.com/nasustim/status/1978831145186848805?ref_src=twsrc%5Etfw&quot;&gt;October 16, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
-
-## Goals for 2026
-
-I am gonna aim for the following in 2026.
-
-- Take English exam including speaking test (like TOEIC S&amp;W)
-- Master a couple of new programming languages
-
-----
-
-
-[^cvc]: Shorten for &quot;Corporate Venture Capital&quot; https://en.wikipedia.org/wiki/Corporate_venture_capital
-[^ai]: It is because of the rapid growth of coding AIs though ;)</content:encoded></item><item><title>React と Next.js どちらを使えばいいのか</title><link>https://blog.nasustim.com/entry/cra-vs-nextjs/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/cra-vs-nextjs/</guid><description>現時点での自分なりの結論。
+新たな環境では自分が一番素人だから、素直に学ぶ姿勢で臨もう🏃</content:encoded></item><item><title>React と Next.js どちらを使えばいいのか</title><link>https://blog.nasustim.com/entry/cra-vs-nextjs/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/cra-vs-nextjs/</guid><description>現時点での自分なりの結論。
 Podcast ネタとしてはボツにしたので供養
 
 ### 前提
