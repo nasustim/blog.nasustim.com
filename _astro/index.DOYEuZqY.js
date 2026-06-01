@@ -1,0 +1,1 @@
+import{j as n}from"./index.CN-oQ4dc.js";import{T as t,c as i}from"./index.CDnz8cgm.js";var l="g5nfqe0";const m=({tags:r,clickable:a=!0,title:s})=>!r||r.length===0?null:n.jsxs("div",{className:l,children:[s&&n.jsx("span",{children:s}),r.map(e=>n.jsx(t,{tag:e,tagSlug:i(e),clickable:a},e))]});export{m as TagList};
