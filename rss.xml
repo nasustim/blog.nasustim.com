@@ -139,13 +139,14 @@ Podcast ネタとしてはボツにしたので供養
 
 
 
+
 今月初め頃、夫婦でフィンランドに行った。
 
 一番の楽しみは大好きなイッタラ・アラビア[^ittala-arabia]の食器を購入することだったが、フィンランドはとても素敵な場所でとてもいい旅になった。興奮冷めやらぬ内に記録を残しておこうと思う。
 
 ## 日本からフィンランドへ
 
-土曜日の午...</description><pubDate>Sun, 10 Aug 2025 11:00:00 GMT</pubDate><content:encoded>import { Picture } from &apos;astro:assets&apos;;
+土曜日の...</description><pubDate>Sun, 10 Aug 2025 11:00:00 GMT</pubDate><content:encoded>import { Picture } from &apos;astro:assets&apos;;
 import flightMenu01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/flight-menu-01.jpg&apos;;
 import flightMenu02 from &apos;@/content/assets/travel-to-finland-in-aug-2025/flight-menu-02.jpg&apos;;
 import flightRoute01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/flight-route-01.jpg&apos;;
@@ -153,6 +154,7 @@ import airport01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airpo
 import airport02 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airport-02.jpeg&apos;;
 import airport03 from &apos;@/content/assets/travel-to-finland-in-aug-2025/airport-03.jpeg&apos;;
 import helCityscape01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/hel-cityscape-01.jpg&apos;;
+import helCityscape02 from &apos;@/content/assets/travel-to-finland-in-aug-2025/hel-cityscape-02.jpeg&apos;;
 import marimekkoHq01 from &apos;@/content/assets/travel-to-finland-in-aug-2025/marimekko-hq-01.jpg&apos;;
 import marimekkoHq02 from &apos;@/content/assets/travel-to-finland-in-aug-2025/marimekko-hq-02.jpg&apos;;
 import arabiaMuseum from &apos;@/content/assets/travel-to-finland-in-aug-2025/arabia-museum.jpg&apos;;
@@ -246,6 +248,12 @@ https://www.hsl.fi/en/tickets-and-fares/hsl-app
   &lt;div&gt;駅構内の様子。&lt;/div&gt;
 &lt;/div&gt;
 
+
+&lt;div style=&quot;text-align: center;&quot;&gt;
+  &lt;Picture formats={[&quot;avif&quot;, &quot;webp&quot;]} src={helCityscape02} alt=&quot;駅構内の様子&quot; /&gt;
+  &lt;div&gt;街で見かけたフェスの広告。北欧ではクラブミュージックもハードコアが好まれているようだ&lt;/div&gt;
+&lt;/div&gt;
+
 ## 念願のフィンランドサウナ
 
 無事 Airbnb に到着した僕たち。時刻は現地時間[^timezone]で午後6時。長時間の移動ですっかり疲れ果てていたが僕たちにはこの日ある目的があった。
@@ -336,6 +344,34 @@ https://www.lonna.fi/en/services/sauna/
 
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;本日アラビア博物館オープン。&lt;br /&gt;アラビア黒ロゴの550個限定マグが売っています。バッグスタンプも黒で可愛い😍 &lt;a href=&quot;https://t.co/2PjWSXdmdF&quot;&gt;pic.twitter.com/2PjWSXdmdF&lt;/a&gt;&lt;/p&gt;&amp;mdash; finngate フィンランドの旅行会社 (@finngate) &lt;a href=&quot;https://twitter.com/finngate/status/1920798431859052900?ref_src=twsrc%5Etfw&quot;&gt;May 9, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
+## サウナリベンジ
+
+ヘルシンキ最後の夜。もう一箇所くらいサウナにトライしておきたいと思った。行けるとしても夜8時以降でヘルシンキ市街地からアクセスが良いところ、となると選択肢は限られてくる。Google マップで条件に合うところを眺めて Uunisaari Sauna[^uunisaari] に行くことにした。
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;et&quot; dir=&quot;ltr&quot;&gt;Heading to last sauna in the trip… (@ Uunisaari / Ugnsholmen in Helsinki) &lt;a href=&quot;https://t.co/6BYmwQjrOe&quot;&gt;https://t.co/6BYmwQjrOe&lt;/a&gt; &lt;a href=&quot;https://t.co/0z7LxDGaaK&quot;&gt;pic.twitter.com/0z7LxDGaaK&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://x.com/nasustim/status/1953151197835342249?ref_src=twsrc%5Etfw&quot;&gt;August 6, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.x.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt; 
+
+ドライサウナ1, スチームサウナ1 （もう一つ女性専用サウナもあるらしい）そして 海使い放題というシンプルな構成。  
+日本円で1回3,000円超え、決して安くないがせっかくのフィンランドだしね。明日帰るし最後くらいはね。
+
+受付で案内されたロッカーの建て付けが悪くて困っていると、モロッコ人2人組が助けてくれた。
+
+感謝を伝えつつ、英語を話すにも少し疲れるな...と思ってそそくさとサウナに向かうと彼らも後ろからついてきて、入るやいなや話を振りまくってきた。  
+日本人が珍しいのか、寡黙なフィンランド人相手にマイペースに話し続けるのに慣れているのか分からないが。
+
+一人はヘルシンキに住んでいる。もう一人はその友達を訪ねてマラケシュから来たらしい。  
+Uunisaari がお気に入りだという話、フィンランドで移民が職を得るのが大変だということ、  
+日本が好きだ、日本への移住したいとも言っていた（今はおすすめしない、コンサバティブな政権がより移民政策を厳しくしようとしている。と言っておいた）
+
+島の反対側ではロックフェスが開催されているようで、あれは○○ってバンドだ、とか色々教えてくれた。
+
+観光客が集まるわけでもなく、ヘルシンキの日常に溶け込めた気がしたのが心地よかった。
+
+&lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;無実の私を海に放り込んだ大罪人たち &lt;a href=&quot;https://t.co/Ut7CvsuHIY&quot;&gt;pic.twitter.com/Ut7CvsuHIY&lt;/a&gt;&lt;/p&gt;&amp;mdash; おみつ (@nasustim) &lt;a href=&quot;https://x.com/nasustim/status/1953382836632703319?ref_src=twsrc%5Etfw&quot;&gt;August 7, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.x.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt; 
+
+
+
+
+
 ---
 
 [^ittala-arabia]: フィンランドの食器メーカー
@@ -349,7 +385,8 @@ https://www.lonna.fi/en/services/sauna/
 [^timezone]: フィンランドのタイムゾーンは EET (Eastern European Time)で日本から7時間遅れ、サマータイムが導入されている期間は EEST(Eastern European Summer Time)で6時間遅れになる
 [^lonna]: 日本語の情報では「ロンナ島」と記されることが多いが、&quot;ン&quot;はほぼ発音されてなかった。L は英語の L そのまま
 [^ogaki-sauna]: https://www.ogaki-sauna.com/post/%E3%82%8F%E3%82%8C%E3%82%89%E3%82%B5%E3%82%A6%E3%83%8A%E4%BA%BA-%E5%85%B6%E5%BC%90
-[^hsl-coverage]: HLS の &quot;B&quot; ゾーンなので注意が必要。イッタラ・アラビアデザインセンターも同じ方面の &quot;B&quot; ゾーンなのでついでに行くことをオススメします。</content:encoded></item><item><title>【宣伝】同僚とポッドキャストを始めた</title><link>https://blog.nasustim.com/entry/2025-07-06_start_podcast/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/2025-07-06_start_podcast/</guid><description>6月から同僚の [riddle さん](https://x.com/riddle_tec)と Podcast を始めた。
+[^hsl-coverage]: HLS の &quot;B&quot; ゾーンなので注意が必要。イッタラ・アラビアデザインセンターも同じ方面の &quot;B&quot; ゾーンなのでついでに行くことをオススメします。
+[^uunisaari]: https://www.uunisaari.fi/en/; こちらも離れ小島のサウナで、ヘルシンキ市街地からフェリーでアクセスできる。</content:encoded></item><item><title>【宣伝】同僚とポッドキャストを始めた</title><link>https://blog.nasustim.com/entry/2025-07-06_start_podcast/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/2025-07-06_start_podcast/</guid><description>6月から同僚の [riddle さん](https://x.com/riddle_tec)と Podcast を始めた。
 
 
 
