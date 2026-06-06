@@ -1,4 +1,53 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>新しいプロジェクトに参画したときにすること</title><link>https://blog.nasustim.com/entry/what-should-i-do-first-in-new-project/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/what-should-i-do-first-in-new-project/</guid><description>昨年からグループ会社支援の部署に所属している。そのため社内の複数部署に顔を出してプロジェクトを掛け持ちしていることが多い。  
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>システムはどうリプレイスするべきか</title><link>https://blog.nasustim.com/entry/how-to-replace-your-systems/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/how-to-replace-your-systems/</guid><description>これまで、何度かシステムのリプレイス案件に関わってきた。「AngularJS のコンポーネントを全て Vue.js に置き換える」、「アプリ API を全て Perl から Go に置き換える」、「もうすぐ EOL する古い PHP を全て最新バージョンに置き換える。ただし対象ウェブサイトが大量にある」などなど。...</description><pubDate>Sat, 06 Jun 2026 09:29:16 GMT</pubDate><content:encoded>これまで、何度かシステムのリプレイス案件に関わってきた。「AngularJS のコンポーネントを全て Vue.js に置き換える」、「アプリ API を全て Perl から Go に置き換える」、「もうすぐ EOL する古い PHP を全て最新バージョンに置き換える。ただし対象ウェブサイトが大量にある」などなど。おそらく事業に関わるソフトウェアエンジニアであれば度々通るテーマだと思う。
+
+関わり方も様々で、最初はメンバーとして、最近関わったプロジェクトでは技術面での意思決定やプロジェクトマネジメントさえも担っている。
+
+いくつかアンチパターンが見えてきたので、改めて自分の中で整理してみた。
+
+## スコープを明確にする
+
+このプロジェクトでは何をどこまでやるかを明確にすることが重要だと思う。そのためには、リプレイスを何の目的でやるかを明確化しなければならない。
+
+「来年の EOL より前にランタイムをアップデートして安定運用できる状態を保つ」が目的であれば、ひとまずはランタイムのアップデート、そのために必要な周辺ミドルウェアのアップデート、それ以外はプロジェクトの目的達成の中では必ずしも実施する必要はない。
+
+サービスを包括的に見れば見るほど、ついでにあれもこれもやりたくなってきてしまう。「メンテナンスを入れる必要があるならついでに古くなったこのリソースも置き換えたいよね」とか。
+
+また、エンジニアの中でも職能に違いがある場合は要望したくなることもあると思う。「このAPIエンドポイントをリプレイスするなら、ついでにリクエストの型を変えさせて欲しい」とか。
+
+しかし、スコープが増えるほど当初の目的から乖離していく。リリースし切るまでの不確定要素も、問題の種も増えていく。
+
+スコープを明確にして、そして明言することで、チーム内での目線合わせと、プロジェクトの不確実性を減らすことにつながると思う。
+
+## 段階的に移行する
+
+フロントエンドを別のフレームワークに載せ替えるなら、コンポーネント単位で一つ一つ移行する。API エンドポイントを全てリプレイスするなら、エンドポイント単位で一つ一つ移行する。
+
+現行のシステムでそれが難しい場合は、なるべく段階的移行を実現できるように準備する。フロントエンドなら二つのフレームワークが一つのページで同居できるようなカスタムコネクタを作るとか、APIならリクエスト単位で別の言語で動いているサーバにルーティングできるようにロードバランサ側の設定を工夫するとか。
+
+移行作業には長い期間を要する。一発での全ての載せ替えはあまりにもリスクが大きい。
+
+段階的な移行をすることで、細かい単位でのリリースが可能になる。問題が起こってもコントロールしやすいし、開発人員のスケーラビリティも増す。
+
+また、工数やリソースの管理がしやすくなり、開発チーム以外のステークホルダーに対しても進捗を報告しやすくなる。
+
+## メンバーを増やしすぎない
+
+今でこそ AI があるから、リプレイスのような模倣する対象があるプロジェクトに多くの人員を割く必要は無くなっている。
+
+一般論であるが、人員が増えれば増えるほど誰が今どの作業をしているのか、それがいつまでに終わる見込みか、確認にかかるコミュニケーションコストが増大する。段階的移行 + AI の組み合わせを用いて、プロジェクトに関わる人員をなるべく少なく止めるのが吉だと考えている。
+
+ジェフベゾスもピザ2枚理論[^pizza]を提唱しているしね。
+
+
+----
+
+挙げた内容は全て計画段階の話でもある。プロジェクトの勝敗は計画で9割決まってしまう。逆に一度動き出したプロジェクトの方針を変えるのは至難の業である。リプレイスを乗り越えてエンジニアは成長する💪
+
+
+
+
+
+[^pizza]: https://hrmos.co/roumu-journal/2-pizza-method/</content:encoded></item><item><title>新しいプロジェクトに参画したときにすること</title><link>https://blog.nasustim.com/entry/what-should-i-do-first-in-new-project/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/what-should-i-do-first-in-new-project/</guid><description>昨年からグループ会社支援の部署に所属している。そのため社内の複数部署に顔を出してプロジェクトを掛け持ちしていることが多い。  
 最近、僕のリソースの多くを全く新規で関わるプロジェクトに割くようになったのだが、そういう時最初に何をするべきなのかを考えてみた。
 
 ## Good First Issue を起点に全体像...</description><pubDate>Fri, 29 May 2026 18:19:28 GMT</pubDate><content:encoded>昨年からグループ会社支援の部署に所属している。そのため社内の複数部署に顔を出してプロジェクトを掛け持ちしていることが多い。  
