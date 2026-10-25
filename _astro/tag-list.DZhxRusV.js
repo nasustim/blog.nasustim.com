@@ -1,1 +1,0 @@
-import{n as e}from"./link.DeBD4-RG.js";import{n as t,t as n}from"./tag.wRK6Tq6Z.js";var r=`g5nfqe0`,i=e(),a=({tags:e,clickable:a=!0,title:o})=>!e||e.length===0?null:(0,i.jsxs)(`div`,{className:r,children:[o&&(0,i.jsx)(`span`,{children:o}),e.map(e=>(0,i.jsx)(n,{tag:e,tagSlug:t(e),clickable:a},e))]});export{a as t};
