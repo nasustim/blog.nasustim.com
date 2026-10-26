@@ -1,4 +1,33 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>システムはどうリプレイスするべきか</title><link>https://blog.nasustim.com/entry/how-to-replace-your-systems/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/how-to-replace-your-systems/</guid><description>これまで何度かシステムのリプレイス案件に関わってきた。「AngularJS のコンポーネントを全て Vue.js に置き換える」、「アプリ API を全て Perl から Go に置き換える」、「もうすぐ EOL する古い PHP を全て最新バージョンに置き換える。ただし対象ウェブサイトが大量にある」などなど。お...</description><pubDate>Sat, 06 Jun 2026 09:29:16 GMT</pubDate><content:encoded>これまで何度かシステムのリプレイス案件に関わってきた。「AngularJS のコンポーネントを全て Vue.js に置き換える」、「アプリ API を全て Perl から Go に置き換える」、「もうすぐ EOL する古い PHP を全て最新バージョンに置き換える。ただし対象ウェブサイトが大量にある」などなど。おそらく事業に関わるソフトウェアエンジニアであれば度々通るテーマだと思う。
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>複数プロジェクトでの働き方</title><link>https://blog.nasustim.com/entry/work-on-multiple-projects/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/work-on-multiple-projects/</guid><description>会社で横断組織に所属している。社内のさまざまなプロジェクトに派遣されて困りごとを解決することがメインの業務だ。 タイミングによっては2、3個のプロジェクトを掛け持ちすることもある。 この組織に異動して1年半が経ち、徐々に複数プロジェクトを上手く進める所作が身についてきたような気がしているので、整理してみようと思う...</description><pubDate>Sat, 12 Sep 2026 15:02:00 GMT</pubDate><content:encoded>会社で横断組織に所属している。社内のさまざまなプロジェクトに派遣されて困りごとを解決することがメインの業務だ。
+タイミングによっては2、3個のプロジェクトを掛け持ちすることもある。
+この組織に異動して1年半が経ち、徐々に複数プロジェクトを上手く進める所作が身についてきたような気がしているので、整理してみようと思う。
+
+あくまで個人的な所感だし、自分より経験豊富な人にとっては当たり前、あるいはもっと有効な方法があるかもしれないので悪しからず。
+
+## 稼働割合を明示する
+
+各プロジェクトのマネージャーと事前に期待値をすり合わせておくようにしている。
+
+## 週間の計画を立てる
+
+1週間単位でどこにどれだけ時間を割くかを計画しておく。
+個人的には半日単位でカレンダーに作業ブロックを作るのが合っている。
+
+## なるべく存在感を出す
+
+フルコミットのメンバーと比べて稼働が半分（あるいはそれ以下）なので、発言していない状況が当たり前になってしまいやすい。
+そのため、そのプロジェクトに稼働している時間帯はSlackでの発言を増やし、存在感を意識的に出すようにしている。
+
+## それぞれのプロジェクトでのノウハウの輸出入を意識する
+
+横断部署の人員として、さまざまなプロジェクトでの経験や知見を生かす場面が多いと思う。
+同時に、自分自身としても常にニュートラルな立場で Pros / Cons や、そのノウハウがどういった条件下で効果的なのかを考えるようにしている。
+
+## まとめ
+
+複数プロジェクトを掛け持ちする中で、上記のような考え方に落ち着いてきた。
+柔軟さと計画性の両立が重要だと感じている。
+また、フルコミットのメンバーと比べると成果を出しづらいのは当たり前なので、存在感を出すことや、横断組織ならではの成果を意識していきたい。</content:encoded></item><item><title>システムはどうリプレイスするべきか</title><link>https://blog.nasustim.com/entry/how-to-replace-your-systems/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/how-to-replace-your-systems/</guid><description>これまで何度かシステムのリプレイス案件に関わってきた。「AngularJS のコンポーネントを全て Vue.js に置き換える」、「アプリ API を全て Perl から Go に置き換える」、「もうすぐ EOL する古い PHP を全て最新バージョンに置き換える。ただし対象ウェブサイトが大量にある」などなど。お...</description><pubDate>Sat, 06 Jun 2026 09:29:16 GMT</pubDate><content:encoded>これまで何度かシステムのリプレイス案件に関わってきた。「AngularJS のコンポーネントを全て Vue.js に置き換える」、「アプリ API を全て Perl から Go に置き換える」、「もうすぐ EOL する古い PHP を全て最新バージョンに置き換える。ただし対象ウェブサイトが大量にある」などなど。おそらく事業に関わるソフトウェアエンジニアであれば度々通るテーマだと思う。
 
 関わり方も様々で、最初はメンバーとして、最近関わったプロジェクトでは技術面での意思決定やプロジェクトマネジメントさえも担っている。
 
