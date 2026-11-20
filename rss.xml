@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>米国のオンライン修士に入学した</title><link>https://blog.nasustim.com/entry/started-as-mscs-student/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/started-as-mscs-student/</guid><description>今年の 5 月から University of Colorado Boulder のオンライン修士課程に入学した。 専攻はコンピュータサイエンスである。 AI がエンジニアリング業務を大きく侵食しているこのご時世に今更感は否めないが、どんなことを考え、どんな判断で入学に至ったのかを記録しておきたい。 経緯 小学生...</description><pubDate>Thu, 01 Oct 2026 11:21:23 GMT</pubDate><content:encoded>今年の 5 月から University of Colorado Boulder のオンライン修士課程に入学した。
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>米国のオンライン修士に入学した</title><link>https://blog.nasustim.com/entry/started-as-mscs-student/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/started-as-mscs-student/</guid><description>今年の 5 月から University of Colorado Boulder のオンライン修士課程に入学した。 専攻はコンピュータサイエンスである。 AI がエンジニアリング業務を大きく侵食しているこのご時世に今更感は否めないが、どんなことを考え、どんな判断で入学に至ったのかを記録しておきたい。 経緯 小学生...</description><pubDate>Thu, 01 Oct 2026 11:21:23 GMT</pubDate><content:encoded>import Picture from &apos;@/astro-custom-components/picture.astro&apos;;
+import admittionLetter from &apos;@/content/assets/started-as-mscs-student/admittion-letter.png&apos;;
+
+&lt;Picture src={admittionLetter} alt=&quot;Admittion letter&quot; /&gt;
+
+今年の 5 月から University of Colorado Boulder のオンライン修士課程に入学した。
 専攻はコンピュータサイエンスである。
 AI がエンジニアリング業務を大きく侵食しているこのご時世に今更感は否めない[^ai-era]が、どんなことを考え、どんな判断で入学に至ったのかを記録しておきたい。
 
