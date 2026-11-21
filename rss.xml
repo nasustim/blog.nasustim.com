@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Mitsuhiro Hibino&apos;s Blog</title><description>Latest articles from Mitsuhiro Hibino&apos;s blog (https://blog.nasustim.com)</description><link>https://blog.nasustim.com/</link><language>ja</language><item><title>米国のオンライン修士に入学した</title><link>https://blog.nasustim.com/entry/started-as-mscs-student/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/started-as-mscs-student/</guid><description>今年の 5 月から University of Colorado Boulder のオンライン修士課程に入学した。 専攻はコンピュータサイエンスである。 AI がエンジニアリング業務を大きく侵食しているこのご時世に今更感は否めないが、どんなことを考え、どんな判断で入学に至ったのかを記録しておきたい。 経緯 小学生...</description><pubDate>Thu, 01 Oct 2026 11:21:23 GMT</pubDate><content:encoded>import Picture from &apos;@/astro-custom-components/picture.astro&apos;;
 import admittionLetter from &apos;@/content/assets/started-as-mscs-student/admittion-letter.png&apos;;
 
-&lt;Picture src={admittionLetter} alt=&quot;Admittion letter&quot; /&gt;
+&lt;Picture src={admittionLetter} alt=&quot;My admission was accepted!&quot; /&gt;
 
 今年の 5 月から University of Colorado Boulder のオンライン修士課程に入学した。
 専攻はコンピュータサイエンスである。
@@ -9,18 +9,18 @@ AI がエンジニアリング業務を大きく侵食しているこのご時�
 
 ## 経緯
 
-小学生の頃からプログラミングを嗜み、大学校で 4 年間実用的な情報工学を学んだ。
+小学生の頃からプログラミングを嗜み、大学校[^college]で 4 年間実用的な情報工学を学んだ。
 もちろん理論的な座学も多分に設けられていたが、実学に重きが置かれていた。
 
-その後 IAMAS で少し寄り道をしつつも修士（メディア表現）を取得した。
-修士研究は「ソースコードの記述」という専門外の人には理解しづらい行為を映像作品とし、メディア論や言語学の知識を用いて分析したものである。
+その後 IAMAS で修士（メディア表現）を取得した。
+修士研究は「ソースコードの記述」という専門外の人には理解しづらい行為を映像作品のモチーフとし、メディア論や言語学の知識を用いて分析したものである。
 研究テーマと関係ない領域として、デザインプロセスとしてのプロトタイピング[^prototyping]の実践や、専門外から入ったものとして美術批評も基礎から学んだ。
 
-その後、コロナ禍でソフトウェアエンジニアとして就職。
+コロナ禍でソフトウェアエンジニアとして就職。
 今の会社に転職し、のらりくらりと web エンジニアとしてのキャリアを歩んできた。
 
-どうしてもハンズオンの経験一本でエンジニアとしての仕事をしてきたので、いつかは体系的な知識を学びたいと考えていた。
-あとはなんだかんだ言っても CS 学位があることで自信にもつながるだろうし、今後のキャリアの選択肢も広がるだろうと考えた。
+どうしてもハンズオンの経験の割合が多い状態でエンジニアとして仕事をしてきたので、いつかは体系的な知識を学びたいと思っていた。
+CS 学位があることで今後のキャリアの選択肢も広がるだろうと考えた。
 
 また、海外の大学院を選んだ理由として、今後のキャリアで多国籍企業やグローバルプロダクトに関わる上でのアドバンテージを得たいと考えたことが挙げられる。
 1 年半ほど海外プロダクトに関わった経験から海外志向が芽生えたし、多少英語でのコミュニケーションにも自信がついたのも大きい。
@@ -48,24 +48,25 @@ Coursera で提供されるオンラインプログラム。
 ### University of the People (Bachelor of Computer Science)
 
 同じく第二候補。
-以前在籍していた部署の同僚がここで学んでいる。
+昔の同僚がここで学んでいるらしい。
+その人曰く「グループワークの準備が大変」とのことだった。
 
-放送大学とあわせて迷ったが、今のキャリアを考えると学士を取り直すより修士課程に進んだ方がプラスになりそうだなと判断して見送った。
+放送大学とあわせて迷ったが、修士課程で専門性にフォーカスした方が向こう 5 年のキャリアにダイレクトに効きそうだと判断して見送った。
 
 ### Georgia Institute of Technology (Online Master of Science in Computer Science)
 
-修士課程の候補。
-maguro さんが度々発信されていたのが参考になる。
+master 課程の候補。
+Deno のエンジニア maguro さんが度々発信されていたのが参考になる。
 https://zenn.dev/magurotuna/articles/reflect-on-my-journey-with-omscs
 
-CS 学士前提のプログラムであり、カバーレターや英語能力証明なども必要でハードルが高めだったので断念。
+CS 学士前提のプログラムであり、カバーレターや英語能力証明の必須提出など、出願時点でのハードルが高かったので断念。
 
 ### University of Colorado Boulder (Master of Computer Science)
 
 Coursera で提供されるオンラインプログラム。
 学士が求められず、決められた基礎科目 3 つを履修して一定の grade 以上を取れば正規課程に入れる Performance-Based Admission という仕組みを取っている。
 
-Coursera で試しに基礎科目を覗いてみたところ、これなら概ね理解できそうだなという手応えがあった。
+試しに基礎科目を覗いたところ、概ね理解できそうな内容だなという手応えがあった。
 また、授業料が科目ごとの買い切りなので、本業の忙しさに合わせて履修ペースを調整できるのもありがたい。
 
 ## 入学までの流れ
@@ -105,15 +106,18 @@ Scapy やコンテナ環境を使った演習も用意されていたので、�
 なかなか大変だがアカデミックな語彙が増えてきて、これはこれで身になる。
 
 とりあえずは 2 年以内を目安に単位を全て取り切りたい。
-せっかくだし現地キャンパスの学位記授与式に行きたいな。[^den]
+せっかくだし現地キャンパスの学位記授与式に行きたいな[^den]。
 
+
+----
 
 [^ai-era]: 大前提として、AI に思考を任せたとしても最終判断を行う自分自身がコンピュータサイエンスの深い知識を持つ必要性は変わらず残っていると思っている。でも AI の性能向上が早すぎて、今後どうなるかは正直分からないねぇ。
+[^college]: 省庁大学校の 4 年課程; 学士資格は得られなかった
 [^prototyping]: 俗っぽく言えばデザイン思考; この本に学生時代の僕のスケッチが載っていたりする https://bnn.co.jp/products/9784802510721
 [^online-uni-fraud]: 学資ローン等を得るためにオンラインコースの学籍の不正登録が行われている、というニュース https://abcnews.com/US/inside-ghost-student-scam-identity-theft-steal-college/story?id=129359506
 [^pathway1]: Network Systems Pathway https://www.colorado.edu/cs/media/2049
 [^pathway2]: Data Structures and Algorithms Pathway https://www.colorado.edu/cs/media/2048
-[^den]: 2026年10月現在、NRT - DEN の直行便があるのも嬉しい https://www.flightaware.com/live/flight/UAL142</content:encoded></item><item><title>複数プロジェクトでの働き方</title><link>https://blog.nasustim.com/entry/work-on-multiple-projects/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/work-on-multiple-projects/</guid><description>会社で横断組織に所属している。社内のさまざまなプロジェクトに派遣されて困りごとを解決することがメインの業務だ。 タイミングによっては2、3個のプロジェクトを掛け持ちすることもある。 この組織に異動して1年半が経ち、徐々に複数プロジェクトを上手く進める所作が身についてきたような気がしているので、整理してみようと思う...</description><pubDate>Sat, 12 Sep 2026 15:02:00 GMT</pubDate><content:encoded>会社で横断組織に所属している。社内のさまざまなプロジェクトに派遣されて困りごとを解決することがメインの業務だ。
+[^den]: 2026 年 10 月現在、NRT - DEN の直行便があるのも嬉しい https://www.flightaware.com/live/flight/UAL142</content:encoded></item><item><title>複数プロジェクトでの働き方</title><link>https://blog.nasustim.com/entry/work-on-multiple-projects/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/work-on-multiple-projects/</guid><description>会社で横断組織に所属している。社内のさまざまなプロジェクトに派遣されて困りごとを解決することがメインの業務だ。 タイミングによっては2、3個のプロジェクトを掛け持ちすることもある。 この組織に異動して1年半が経ち、徐々に複数プロジェクトを上手く進める所作が身についてきたような気がしているので、整理してみようと思う...</description><pubDate>Sat, 12 Sep 2026 15:02:00 GMT</pubDate><content:encoded>会社で横断組織に所属している。社内のさまざまなプロジェクトに派遣されて困りごとを解決することがメインの業務だ。
 タイミングによっては2、3個のプロジェクトを掛け持ちすることもある。
 この組織に異動して1年半が経ち、徐々に複数プロジェクトを上手く進める所作が身についてきたような気がしているので、整理してみようと思う。
 
