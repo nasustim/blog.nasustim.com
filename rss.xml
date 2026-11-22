@@ -84,7 +84,7 @@ CU Boulder の職員の勤務時間（米国山岳標準時）に合わせてス
 
 ## どんなことをやったか
 
-Performance-Based Admission の基礎科目として、Network Systems Pathway[^pathway1] を履修し、無事に正規課程への入学が認められた。
+Performance-Based Admission の基礎科目として、Network Systems Pathway[^pathway-network] を履修し、無事に正規課程への入学が認められた。
 
 - [CSCA 5063: Network Systems Foundation](https://www.colorado.edu/cs/academics/online-programs/mscs-coursera/csca5063)
 - [CSCA 5073: Network Principles in Practice: Linux Networking](https://www.colorado.edu/cs/academics/online-programs/mscs-coursera/csca5073)
@@ -99,7 +99,7 @@ Scapy やコンテナ環境を使った演習も用意されていたので、�
 
 ## 現状の手応え
 
-今学期はもう一つの pathway である Data Structures and Algorithms Pathway[^pathway2] を履修している。
+今学期はもう一つの pathway である Data Structures and Algorithms Pathway[^pathway-dsa] を履修している。
 こちらは Network Systems Pathway とは対照的に、動的計画法や線形計画法といった高度なアルゴリズムを数学的な定義とともに学ぶ内容になっている。
 
 リスニングが追いつかないので、各授業のキーワードを調べつつ基本は 0.75 倍速で視聴している。
@@ -115,8 +115,8 @@ Scapy やコンテナ環境を使った演習も用意されていたので、�
 [^college]: 省庁大学校の 4 年課程; 学士資格は得られなかった
 [^prototyping]: 俗っぽく言えばデザイン思考; この本に学生時代の僕のスケッチが載っていたりする https://bnn.co.jp/products/9784802510721
 [^online-uni-fraud]: 学資ローン等を得るためにオンラインコースの学籍の不正登録が行われている、というニュース https://abcnews.com/US/inside-ghost-student-scam-identity-theft-steal-college/story?id=129359506
-[^pathway1]: Network Systems Pathway https://www.colorado.edu/cs/media/2049
-[^pathway2]: Data Structures and Algorithms Pathway https://www.colorado.edu/cs/media/2048
+[^pathway-network]: Network Systems Pathway https://www.colorado.edu/cs/media/2049
+[^pathway-dsa]: Data Structures and Algorithms Pathway https://www.colorado.edu/cs/media/2048
 [^den]: 2026 年 10 月現在、NRT - DEN の直行便があるのも嬉しい https://www.flightaware.com/live/flight/UAL142</content:encoded></item><item><title>複数プロジェクトでの働き方</title><link>https://blog.nasustim.com/entry/work-on-multiple-projects/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/work-on-multiple-projects/</guid><description>会社で横断組織に所属している。社内のさまざまなプロジェクトに派遣されて困りごとを解決することがメインの業務だ。 タイミングによっては2、3個のプロジェクトを掛け持ちすることもある。 この組織に異動して1年半が経ち、徐々に複数プロジェクトを上手く進める所作が身についてきたような気がしているので、整理してみようと思う...</description><pubDate>Sat, 12 Sep 2026 15:02:00 GMT</pubDate><content:encoded>会社で横断組織に所属している。社内のさまざまなプロジェクトに派遣されて困りごとを解決することがメインの業務だ。
 タイミングによっては2、3個のプロジェクトを掛け持ちすることもある。
 この組織に異動して1年半が経ち、徐々に複数プロジェクトを上手く進める所作が身についてきたような気がしているので、整理してみようと思う。
@@ -588,7 +588,7 @@ import ollama06 from &apos;@/content/assets/introduce-ollama-into-macos/introduc
 import ollama07 from &apos;@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_07.png&apos;;
 import ollama08 from &apos;@/content/assets/introduce-ollama-into-macos/introduce-ollama-into-macos_08.png&apos;;
 
-IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール[^1]にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。
+IT 業界では常に話題の中心にいる LLM。2025年の現在、僕も職場では LLM ツール[^llm-tools]にどっぷり浸かる毎日を過ごしています。しかし、高性能なモデルや API 経由での利用をしたい場合は追加課金が発生することが多いです。
 
 ローカルマシンで LLM をホストできれば課金の必要はありません。また、導入プロセスを通じて LLM への理解をより深めたいと考えました。
 
@@ -621,11 +621,11 @@ Gemini に頼りました。
 
 ### 1. Ollama 導入
 
-似たソフトウェアとして [LM Studio](https://lmstudio.ai/) や、複数の LLM を一つのホストに集約することに主眼を置いたルーター系（勝手に命名しました）のプロジェクト[^2]がありますが、Ollama はそれらと比較したときに以下のようなアドバンテージがあると理解しました。
+似たソフトウェアとして [LM Studio](https://lmstudio.ai/) や、複数の LLM を一つのホストに集約することに主眼を置いたルーター系（勝手に命名しました）のプロジェクト[^llm-router]がありますが、Ollama はそれらと比較したときに以下のようなアドバンテージがあると理解しました。
 
 - 高いポータビリティ
   - コマンドラインのみで導入可能
-  - システムプロンプト等のカスタマイズ内容も Modelfile という Dockerfile ライクな形式のファイルで表現可能[^3]
+  - システムプロンプト等のカスタマイズ内容も Modelfile という Dockerfile ライクな形式のファイルで表現可能[^modelfile]
 - VSCode への導入サポートの手厚さ
   - 前述の Continue を使って楽チン
 
@@ -641,7 +641,7 @@ $ ollama serve
 ```
 
 ollama では様々なモデルを利用できます。（[モデル一覧](https://ollama.com/search)）
-最初は軽量かつ突飛な動作をしないであろうモデルを試したいと考え、Google が開発した Gemma 3 の 1B パラメータモデル[^4]を選択しました。
+最初は軽量かつ突飛な動作をしないであろうモデルを試したいと考え、Google が開発した Gemma 3 の 1B パラメータモデル[^gemma3]を選択しました。
 
 ```bash
 $ ollama pull gemma3:1b
@@ -696,10 +696,10 @@ https://ollama.com/library/qwen2.5-coder
 
 ----
 
-[^1]: 記事執筆時点では、調べ物は ChatGPT（プライベートでは Gemini と Grok を使い分け）、一つの文書を元にしたい場合は NotebookLM、コーディング時は GitHub Copilot と Devin をよく利用しています
-[^2]: サクッと調べると [LLM Router](https://github.com/kcolemangt/llm-router), [RouteLLM](https://github.com/lm-sys/RouteLLM) 辺りの情報が多いように感じました
-[^3]: https://ollama.readthedocs.io/en/modelfile/
-[^4]: https://ollama.com/library/gemma3 ; 1b=10億パラメータの機械学習モデルをラップトップでサクッと動かせることにビビりました</content:encoded></item><item><title>引っ越しました（2025年春）</title><link>https://blog.nasustim.com/entry/moving-2025-spring/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/moving-2025-spring/</guid><description>4月に橋本（神奈川県相模原市）から下北沢に引っ越した。 妻の異動に合わせての引越しだったが、僕も職場のある渋谷までの通勤に苦労していたこと、そして旧居の更新時期が近かったこともあり丁度いいタイミングだった。 引越してから1ヶ月経ち、ようやく荷解きがひと段落したので記録も兼ねてブログに残そうと思う。 タイムライン ...</description><pubDate>Sun, 18 May 2025 16:01:46 GMT</pubDate><content:encoded>4月に橋本（神奈川県相模原市）から下北沢に引っ越した。  
+[^llm-tools]: 記事執筆時点では、調べ物は ChatGPT（プライベートでは Gemini と Grok を使い分け）、一つの文書を元にしたい場合は NotebookLM、コーディング時は GitHub Copilot と Devin をよく利用しています
+[^llm-router]: サクッと調べると [LLM Router](https://github.com/kcolemangt/llm-router), [RouteLLM](https://github.com/lm-sys/RouteLLM) 辺りの情報が多いように感じました
+[^modelfile]: https://ollama.readthedocs.io/en/modelfile/
+[^gemma3]: https://ollama.com/library/gemma3 ; 1b=10億パラメータの機械学習モデルをラップトップでサクッと動かせることにビビりました</content:encoded></item><item><title>引っ越しました（2025年春）</title><link>https://blog.nasustim.com/entry/moving-2025-spring/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/moving-2025-spring/</guid><description>4月に橋本（神奈川県相模原市）から下北沢に引っ越した。 妻の異動に合わせての引越しだったが、僕も職場のある渋谷までの通勤に苦労していたこと、そして旧居の更新時期が近かったこともあり丁度いいタイミングだった。 引越してから1ヶ月経ち、ようやく荷解きがひと段落したので記録も兼ねてブログに残そうと思う。 タイムライン ...</description><pubDate>Sun, 18 May 2025 16:01:46 GMT</pubDate><content:encoded>4月に橋本（神奈川県相模原市）から下北沢に引っ越した。  
 妻の異動に合わせての引越しだったが、僕も職場のある渋谷までの通勤に苦労していたこと、そして旧居の更新時期が近かったこともあり丁度いいタイミングだった。
 
 引越してから1ヶ月経ち、ようやく荷解きがひと段落したので記録も兼ねてブログに残そうと思う。
@@ -713,7 +713,7 @@ https://ollama.com/library/qwen2.5-coder
 SUUMO で目を惹く物件の多くがいわゆる「囮物件」であることは承知していたので、あくまで家賃相場の把握と、物件紹介の導入程度に考えるのが良さそうという判断。
 
 エリアを絞る段階で予算感も考慮していたので、この時点で選択肢の数はそれなりにあった。  
-最終的に2件仲介会社を訪れた。SUUMO の検索オプションを参考に夫婦それぞれの希望項目と妥協できないラインを Notion にまとめて持っていったら結構ありがたがられた。多分仲介会社の利用するシステム[^march-1]も同じような検索オプションが実装されているんだろう。
+最終的に2件仲介会社を訪れた。SUUMO の検索オプションを参考に夫婦それぞれの希望項目と妥協できないラインを Notion にまとめて持っていったら結構ありがたがられた。多分仲介会社の利用するシステム[^reins]も同じような検索オプションが実装されているんだろう。
 
 このタイミングでお互い印象が良かった築浅アパートに申し込んだ。その翌週審査通過した。
 
@@ -731,7 +731,7 @@ https://hikkoshi.suumo.jp/oyakudachi/1231.html
 
 ### 4月第一週 - 引越し業者の申し込み
 
-同時期にちょまどさんのポストを見て戦々恐々としていたが、大手の引越し業者[^april-1]で10万円以内に収めることができた。
+同時期にちょまどさんのポストを見て戦々恐々としていたが、大手の引越し業者[^sakai-moving]で10万円以内に収めることができた。
 
 &lt;blockquote class=&quot;twitter-tweet&quot;&gt;&lt;p lang=&quot;ja&quot; dir=&quot;ltr&quot;&gt;繁忙期の引越し代 &lt;br /&gt;高いよおおお😭&lt;br /&gt;&lt;br /&gt;2LDK (そんなに広くない)、&lt;br /&gt;同じ区内(車で15分)の引越しで&lt;br /&gt;&lt;br /&gt;＿人人人人人＿&lt;br /&gt;＞　117万円　＜&lt;br /&gt;￣Y^Y^Y^Y^￣&lt;br /&gt;&lt;br /&gt;↓ 見積り書 &lt;a href=&quot;https://t.co/op6RO96duX&quot;&gt;pic.twitter.com/op6RO96duX&lt;/a&gt;&lt;/p&gt;&amp;mdash; ちょまど🦕育休明けたばかり (@chomado) &lt;a href=&quot;https://twitter.com/chomado/status/1894230641933537617?ref_src=twsrc%5Etfw&quot;&gt;February 25, 2025&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
 
@@ -748,7 +748,7 @@ https://hikkoshi.suumo.jp/oyakudachi/1231.html
 
 ## 新居の所感
 
-最寄りが下北沢駅になった。休日昼は人でごった返しておりぶつからないように歩くのが大変だ。[^shimokitazawa-1]
+最寄りが下北沢駅になった。休日昼は人でごった返しておりぶつからないように歩くのが大変だ。[^shimokitazawa-crowd]
 
 小田急線は東京メトロ千代田線直通の電車もあるので23区の東側へのアクセスもかなり良いことにも気づいた。
 
@@ -763,9 +763,9 @@ https://hikkoshi.suumo.jp/oyakudachi/1231.html
 
 ----
 
-[^march-1]: 2件ともレインズを利用しているようだった　https://system.reins.jp/
-[^april-1]: サカイ引越センター
-[^shimokitazawa-1]: 若者が多いからか、あるいは街の美化に力を入れている気配がないからか、歩きスマホや歩きタバコの人が他の街より多い気はしている</content:encoded></item><item><title>2024年9月の振り返り</title><link>https://blog.nasustim.com/entry/retrospective-2024-09/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/retrospective-2024-09/</guid><description>前回の振り返り(2023/05) 前回から大分時間が経ってしまった 😇 本業 現部署に移ってちょうど1年の月だった。業務にも十分に慣れてきた。 元々部署内でメンバーが少なかった web フロントエンドの知見を活かして積極的に関わったことから、部署内の web の第一人者のポジションを確立できた。 その立場を利用...</description><pubDate>Wed, 25 Sep 2024 06:55:29 GMT</pubDate><content:encoded>[前回の振り返り(2023/05)](/entry/retrospective-2023-05)
+[^reins]: 2件ともレインズを利用しているようだった　https://system.reins.jp/
+[^sakai-moving]: サカイ引越センター
+[^shimokitazawa-crowd]: 若者が多いからか、あるいは街の美化に力を入れている気配がないからか、歩きスマホや歩きタバコの人が他の街より多い気はしている</content:encoded></item><item><title>2024年9月の振り返り</title><link>https://blog.nasustim.com/entry/retrospective-2024-09/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/retrospective-2024-09/</guid><description>前回の振り返り(2023/05) 前回から大分時間が経ってしまった 😇 本業 現部署に移ってちょうど1年の月だった。業務にも十分に慣れてきた。 元々部署内でメンバーが少なかった web フロントエンドの知見を活かして積極的に関わったことから、部署内の web の第一人者のポジションを確立できた。 その立場を利用...</description><pubDate>Wed, 25 Sep 2024 06:55:29 GMT</pubDate><content:encoded>[前回の振り返り(2023/05)](/entry/retrospective-2023-05)
 
 前回から大分時間が経ってしまった 😇
 
@@ -872,9 +872,9 @@ Brewfile で管理するとか、anyenv 入れておくかどうかとか、や�
 ## 生活
 
 暖かくなってよく散歩するようになった。
-IT 健保が提供する pep up[^1]というアプリに Apple Watch で計測した歩数を登録している。部署内での歩数ランキングを出す機能もあるので歩くモチベーションが高めやすい。
+IT 健保が提供する pep up[^pepup]というアプリに Apple Watch で計測した歩数を登録している。部署内での歩数ランキングを出す機能もあるので歩くモチベーションが高めやすい。
 
-[^1]: https://pepup.life/</content:encoded></item><item><title>2020年の振り返り</title><link>https://blog.nasustim.com/entry/2020-12-31-232539/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/2020-12-31-232539/</guid><description>このブログを更新するのも久しぶりですね。 今年は新型コロナウイルスの大流行によって予想していない変化がとても多かったです。 私は3月に大学院を修了して東京に移り住みました。人生の節目とパンデミックが重なって余計に生活の変化が激しかった。 初めての1人で迎える大晦日に、新年を気持ちよく迎えるために振り返りをします。...</description><pubDate>Thu, 31 Dec 2020 14:25:39 GMT</pubDate><content:encoded>import Picture from &apos;@/astro-custom-components/picture.astro&apos;;
+[^pepup]: https://pepup.life/</content:encoded></item><item><title>2020年の振り返り</title><link>https://blog.nasustim.com/entry/2020-12-31-232539/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/2020-12-31-232539/</guid><description>このブログを更新するのも久しぶりですね。 今年は新型コロナウイルスの大流行によって予想していない変化がとても多かったです。 私は3月に大学院を修了して東京に移り住みました。人生の節目とパンデミックが重なって余計に生活の変化が激しかった。 初めての1人で迎える大晦日に、新年を気持ちよく迎えるために振り返りをします。...</description><pubDate>Thu, 31 Dec 2020 14:25:39 GMT</pubDate><content:encoded>import Picture from &apos;@/astro-custom-components/picture.astro&apos;;
 import masterWork from &apos;@/content/assets/2020-12-31-232539/20190923162434.jpg&apos;;
 import touring01 from &apos;@/content/assets/2020-12-31-232539/20201231184154.jpg&apos;;
 import touring02 from &apos;@/content/assets/2020-12-31-232539/20201231204152.jpg&apos;;
@@ -960,7 +960,7 @@ import bike03 from &apos;@/content/assets/20191213-1576163438/20191212223856.jpg
 
 これ、かっこいい。
 
-YAMAHA が90年代に発売していた250cc V ツインの SRV250[^1]をカフェレーサー[^2]風のスタイルにしたモデルです。
+YAMAHA が90年代に発売していた250cc V ツインの SRV250[^srv250]をカフェレーサー[^cafe-racer]風のスタイルにしたモデルです。
 
 今年の3月で岐阜を離れて関東に引っ越した学校の先輩が手放すとのことで、通学や岐阜のワインディングを楽しむために譲り受けました。  
 大学時代に普通二輪は取得しておりましたが、125cc 以上の二輪には教習以来乗っていなかったので実質初めてのバイクです。
@@ -998,7 +998,7 @@ YAMAHA が90年代に発売していた250cc V ツインの SRV250[^1]をカフ�
 
 バイク乗りとしては不順な動機ですが、実際ありがたいです。
 
-初年度登録が23年前の1996年[^3]でとても年季の入ったバイクですが、それでも平均して20km/L 以上。  
+初年度登録が23年前の1996年[^registration-year]でとても年季の入ったバイクですが、それでも平均して20km/L 以上。  
 フューエルワンを入れてエンジンオイルを交換した直後だったら30km/L 近くは出ていそうです。
 
 ## 軽微な故障なら自分でなんとかできそう
@@ -1021,7 +1021,7 @@ YAMAHA が90年代に発売していた250cc V ツインの SRV250[^1]をカフ�
 
 ## ガソリンの残量メーターが無い
 
-古いバイクだと当たり前らしいですが、一回だけ走行中にガス欠してしまいとても困りました[^4]
+古いバイクだと当たり前らしいですが、一回だけ走行中にガス欠してしまいとても困りました[^out-of-fuel]
 
 ## 冬が寒すぎる
 
@@ -1041,10 +1041,10 @@ YAMAHA が90年代に発売していた250cc V ツインの SRV250[^1]をカフ�
 
 &lt;iframe width=&quot;459&quot; height=&quot;344&quot; src=&quot;https://www.youtube.com/embed/DZ2TCZJ2lKM?feature=oembed&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;&lt;cite class=&quot;hatena-citation&quot;&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=DZ2TCZJ2lKM&quot;&gt;www.youtube.com&lt;/a&gt;&lt;/cite&gt;
 
-[^1]: [ヤマハ・SR#SRV シリーズ](https://ja.wikipedia.org/wiki/%E3%83%A4%E3%83%9E%E3%83%8F%E3%83%BBSR#SRV%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA)
-[^2]: [カフェレーサー](https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%95%E3%82%A7%E3%83%AC%E3%83%BC%E3%82%B5%E3%83%BC)
-[^3]: ナンバー証明書にも保険の証書にも書いてないから分からない
-[^4]: リザーブタンクにもたまたまガソリンが入ってなかった</content:encoded></item><item><title>夏の思い出 - 2016</title><link>https://blog.nasustim.com/entry/2016-08-21-020755/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/2016-08-21-020755/</guid><description>8月に一週間ベトナムのホーチミンにいた。 たくさん写真を撮ったのでせっかくだからここで供養させて欲しい。 乗るやつ pic.twitter.com/TniAmzGIEx — みつ (@nasustim) August 16, 2016 さいなら日本 pic.twitter.com/jukVO5ozpl — みつ ...</description><pubDate>Sat, 20 Aug 2016 17:07:55 GMT</pubDate><content:encoded>8月に一週間ベトナムのホーチミンにいた。  
+[^srv250]: [ヤマハ・SR#SRV シリーズ](https://ja.wikipedia.org/wiki/%E3%83%A4%E3%83%9E%E3%83%8F%E3%83%BBSR#SRV%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA)
+[^cafe-racer]: [カフェレーサー](https://ja.wikipedia.org/wiki/%E3%82%AB%E3%83%95%E3%82%A7%E3%83%AC%E3%83%BC%E3%82%B5%E3%83%BC)
+[^registration-year]: ナンバー証明書にも保険の証書にも書いてないから分からない
+[^out-of-fuel]: リザーブタンクにもたまたまガソリンが入ってなかった</content:encoded></item><item><title>夏の思い出 - 2016</title><link>https://blog.nasustim.com/entry/2016-08-21-020755/</link><guid isPermaLink="true">https://blog.nasustim.com/entry/2016-08-21-020755/</guid><description>8月に一週間ベトナムのホーチミンにいた。 たくさん写真を撮ったのでせっかくだからここで供養させて欲しい。 乗るやつ pic.twitter.com/TniAmzGIEx — みつ (@nasustim) August 16, 2016 さいなら日本 pic.twitter.com/jukVO5ozpl — みつ ...</description><pubDate>Sat, 20 Aug 2016 17:07:55 GMT</pubDate><content:encoded>8月に一週間ベトナムのホーチミンにいた。  
 たくさん写真を撮ったのでせっかくだからここで供養させて欲しい。
 
 &lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;HASH(0x99bd298)&quot;&gt;
